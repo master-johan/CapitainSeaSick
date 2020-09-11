@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - PickableObject
+=======
+  - Cannon
+>>>>>>> ff1f9ca7e420bfc015bd995a32ea6b22b4cc2edd
   layers:
   - Default
   - TransparentFX

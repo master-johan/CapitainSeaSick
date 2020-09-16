@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21aaa3cb2f7874b409bfeca2f5d7dac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPickedUp: 0
 --- !u!65 &368359793
 BoxCollider:
   m_ObjectHideFlags: 0

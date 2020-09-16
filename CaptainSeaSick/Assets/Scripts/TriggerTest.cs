@@ -41,7 +41,7 @@ public class TriggerTest : MonoBehaviour
         {
             triggerState = TriggerState.active;
         }
-        if (other.GetComponent("TestScript") || other.name == "CannonTriggerUnder") 
+        if (other.GetComponent("Cannon_Script") || other.name == "CannonTriggerUnder") 
         {
             colliderList.Add(other);
         }
@@ -60,7 +60,7 @@ public class TriggerTest : MonoBehaviour
 
         foreach (Collider loop in colliderList)
         {
-            if (other.GetComponent("TestScript"))
+            if (other.GetComponent("Cannon_Script"))
             {
                 triggerState = TriggerState.ready;
                 other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
@@ -77,7 +77,7 @@ public class TriggerTest : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         triggerState = TriggerState.inactive;
-        if (other.GetComponent("TestScript") || other.name == "CannonTriggerUnder")
+        if (other.GetComponent("Cannon_Script") || other.name == "CannonTriggerUnder")
         {
             colliderList.Remove(other);
         }

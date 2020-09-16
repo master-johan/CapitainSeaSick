@@ -37,13 +37,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (pickedUp)
         {
-            if (target.gameObject.GetComponent("TestScript"))
+            if (target.gameObject.GetComponent("Cannon_Script"))
             {
                 target.transform.position = transform.position + cannonOffset;
             }
             else if (target.GetComponent("CannonBall"))
             {
                 target.transform.position = transform.position + cannonballOffset;
+                target.GetComponent<CannonBall>().isPickedUp = true;
             }
         }
     }
@@ -77,7 +78,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrop()
     {
-        //target.GetComponent<Rigidbody>().useGravity = true;
+
+        if (target.GetComponent("CannonBall"))
+        {
+            target.GetComponent<CannonBall>().isPickedUp = false;
+        }
+        target.GetComponent<Rigidbody>().useGravity = true;
+
         pickedUp = false;
         target = null;
 

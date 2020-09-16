@@ -11,14 +11,16 @@ public class PlayerMovement : MonoBehaviour
     GameObject target;
 
     private Vector2 i_movement;
-    private Vector3 cannonBallOffset;
+    private Vector3 cannonOffset;
+    private Vector3 cannonballOffset;
     private Rigidbody rb;
     private bool pickedUp;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cannonBallOffset = new Vector3(2, -transform.localScale.y/3, 0);
+        cannonOffset = new Vector3(2, -transform.localScale.y/3, 0);
+        cannonballOffset = new Vector3(0.7f, 3 * transform.localScale.y /4 , 0);
     }
 
 
@@ -34,12 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (pickedUp)
         {
-            target.transform.position = transform.position + cannonBallOffset;
-            if (Input.GetButtonUp("Jump"))
+            if (target.gameObject.GetComponent("TestScript"))
             {
-                target.GetComponent<Rigidbody>().useGravity = true;
-                pickedUp = false;
-                target = null;
+                target.transform.position = transform.position + cannonOffset;
+            }
+            else if (target.GetComponent("CannonBall"))
+            {
+                target.transform.position = transform.position + cannonballOffset;
             }
         }
     }
@@ -74,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrop()
     {
-
+        target.GetComponent<Rigidbody>().useGravity = true;
         pickedUp = false;
         target = null;
 

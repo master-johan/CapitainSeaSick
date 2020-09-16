@@ -89,6 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 4387053339213712051, guid: a9dc8dc6eb02e1443bdafbd3d0f8277a, type: 3}
-  player2: {fileID: 6770707878411028812, guid: 9d6692a6fd685e14293260654da9ef71, type: 3}
-  player3: {fileID: 6770707878411028812, guid: d9e7029d4bc27e4458994f512e27df2f, type: 3}
-  player4: {fileID: 6770707878411028812, guid: f2bc40bfbae2f7149a456525f9d4321e, type: 3}
+  player2: {fileID: 4387053339213712051, guid: ca61d8202abe27847a7c94c111e4a566, type: 3}
+  player3: {fileID: 4387053339213712051, guid: cd7675f13402b464fa465c0d4f5ef83f, type: 3}
+  player4: {fileID: 4387053339213712051, guid: 6d79d0a3e66271f4caaf7acf59c56f4b, type: 3}

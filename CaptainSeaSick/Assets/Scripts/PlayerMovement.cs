@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        cannonBallOffset = new Vector3(1, 1, 0);
+        cannonBallOffset = new Vector3(2, -transform.localScale.y/3, 0);
     }
 
 
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetButtonUp("Jump"))
             {
+                target.GetComponent<Rigidbody>().useGravity = true;
                 pickedUp = false;
                 target = null;
             }
@@ -53,11 +54,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && !pickedUp)
             {
+                target.GetComponent<Rigidbody>().useGravity = false;
                 pickedUp = true;
                 target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             }
-
         }
-
     }
 }

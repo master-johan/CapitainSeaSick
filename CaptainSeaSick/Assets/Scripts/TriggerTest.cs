@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TriggerTest : MonoBehaviour
@@ -7,10 +9,13 @@ public class TriggerTest : MonoBehaviour
     public enum TriggerState { active, inactive, ready };
     public TriggerState triggerState;
 
+    List<Collider> colliderList;
+
     // Start is called before the first frame update
     void Start()
     {
         triggerState = TriggerState.inactive;
+        colliderList = new List<Collider>();
     }
 
     // Update is called once per frame
@@ -28,14 +33,54 @@ public class TriggerTest : MonoBehaviour
                 UpdateIndication();
                 break;
         }
+
     }
     void OnTriggerEnter(Collider other)
     {
-        triggerState = TriggerState.active;
+        if (other.name == "CannonTriggerUnder")
+        {
+            triggerState = TriggerState.active;
+        }
+        if (other.GetComponent("TestScript") || other.name == "CannonTriggerUnder") 
+        {
+            colliderList.Add(other);
+        }
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        //if (other.name == "CannonTriggerUnder")
+        //{
+        //    triggerState = TriggerState.active;
+        //}
+        //else
+        //{
+        //    triggerState = TriggerState.ready;
+        //}
+
+        foreach (Collider loop in colliderList)
+        {
+            if (other.GetComponent("TestScript"))
+            {
+                triggerState = TriggerState.ready;
+                other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+            else if (colliderList.Count == 1 && loop.name == "CannonTriggerUnder")
+            {
+                triggerState = TriggerState.active;
+            }
+        }
+
+        Debug.Log(colliderList.Count);
+    }
+
     void OnTriggerExit(Collider other)
     {
         triggerState = TriggerState.inactive;
+        if (other.GetComponent("TestScript") || other.name == "CannonTriggerUnder")
+        {
+            colliderList.Remove(other);
+        }
     }
     void UpdateIndication()
     {

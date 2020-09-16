@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
+    public int playerIndex = 0;
     GameObject target;
 
     private Vector2 i_movement;
@@ -65,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnPickUp()
     {
-
         if (target != null)
         {
             if (!pickedUp)
@@ -78,13 +78,19 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrop()
     {
+
         if (target.GetComponent("CannonBall"))
         {
             target.GetComponent<CannonBall>().isPickedUp = false;
         }
         target.GetComponent<Rigidbody>().useGravity = true;
+
         pickedUp = false;
         target = null;
 
+    }
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
     }
 }

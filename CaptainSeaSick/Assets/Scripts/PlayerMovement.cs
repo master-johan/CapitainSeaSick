@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cannonOffset = new Vector3(2, -transform.localScale.y/3, 0);
         cannonballOffset = new Vector3(0.7f, 3 * transform.localScale.y /4 , 0);
+        
     }
 
 

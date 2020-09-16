@@ -49,14 +49,6 @@ public class TriggerTest : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        //if (other.name == "CannonTriggerUnder")
-        //{
-        //    triggerState = TriggerState.active;
-        //}
-        //else
-        //{
-        //    triggerState = TriggerState.ready;
-        //}
 
         foreach (Collider loop in colliderList)
         {

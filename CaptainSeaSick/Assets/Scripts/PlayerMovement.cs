@@ -33,14 +33,16 @@ public class PlayerMovement : MonoBehaviour
         //float v = Input.GetAxisRaw("Vertical");
 
         Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
+        transform.forward = tempVect.normalized;
         tempVect = tempVect.normalized * speed * Time.deltaTime;
         rb.MovePosition(transform.position + tempVect);
 
         if (pickedUp)
         {
+            //target.transform.forward = transform.forward;
             if (target.gameObject.GetComponent("Cannon_Script"))
             {
-                target.transform.position = transform.position + cannonOffset;
+                target.transform.position = transform.forward + (transform.position + cannonOffset);
             }
             else if (target.GetComponent("CannonBall"))
             {
@@ -90,6 +92,15 @@ public class PlayerMovement : MonoBehaviour
         target = null;
 
     }
+
+    private void OnInteract()
+    {
+        if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+        {
+            target.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.fire;
+        }
+    }
+
     public int GetPlayerIndex()
     {
         return playerIndex;

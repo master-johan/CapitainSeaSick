@@ -5,7 +5,6 @@ using UnityEngine;
 public class CannonFunction : MonoBehaviour
 {
     List<GameObject> gameobjects = new List<GameObject>();
-    bool rip = false;
     // Start is called before the first frame update
     void Start()
     {

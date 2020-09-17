@@ -12,16 +12,19 @@ public class PlayerMovement : MonoBehaviour
     GameObject target;
 
     private Vector2 i_movement;
-    private Vector3 cannonOffset;
-    private Vector3 cannonballOffset;
+    private Vector2 lastForward;
+    private float cannonOffset;
+    private float cannonballOffset;
+    private Quaternion playerRotation;
     private Rigidbody rb;
     private bool pickedUp;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cannonOffset = new Vector3(2, -transform.localScale.y/3, 0);
-        cannonballOffset = new Vector3(0.7f, 3 * transform.localScale.y /4 , 0);
+
+        cannonOffset = 2;
+        cannonballOffset = 0.7f;
         
     }
 
@@ -29,24 +32,26 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        //float h = Input.GetAxisRaw("Horizontal");
-        //float v = Input.GetAxisRaw("Vertical");
+        playerRotation = transform.rotation;
 
         Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
-        transform.forward = tempVect.normalized;
         tempVect = tempVect.normalized * speed * Time.deltaTime;
-        rb.MovePosition(transform.position + tempVect);
+        if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
+        {
+            transform.forward = tempVect.normalized;
+            rb.MovePosition(transform.position + tempVect);
+        }
 
         if (pickedUp)
         {
-            //target.transform.forward = transform.forward;
             if (target.gameObject.GetComponent("Cannon_Script"))
             {
-                target.transform.position = transform.forward + (transform.position + cannonOffset);
+                target.transform.position = transform.position + transform.forward * cannonOffset;
+                target.transform.right = transform.forward;
             }
             else if (target.GetComponent("CannonBall"))
             {
-                target.transform.position = transform.position + cannonballOffset;
+                target.transform.position = transform.position + transform.forward * cannonballOffset;
                 target.GetComponent<CannonBall>().isPickedUp = true;
             }
         }

@@ -24,7 +24,6 @@ public class CannonBall : MonoBehaviour
     {
         if (collider.GetComponent("Cannon_Script") && !isPickedUp)
         {
-            Debug.Log("Hej");
             Destroy(this.gameObject);
             collider.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
         }

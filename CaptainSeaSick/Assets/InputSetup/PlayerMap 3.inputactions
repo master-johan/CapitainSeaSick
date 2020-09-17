@@ -1,5 +1,5 @@
 {
-    "name": "PlayerMap",
+    "name": "PlayerMap 3",
     "maps": [
         {
             "name": "Player",
@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "da240732-a569-4b39-a2d7-6471e14fc452",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -36,7 +44,7 @@
                     "id": "9c42282e-6111-4efa-8ef7-f1922e60f54a",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
@@ -61,6 +69,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce91e480-91ac-479f-8483-81c7765bf5fa",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

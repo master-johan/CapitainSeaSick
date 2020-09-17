@@ -56,14 +56,21 @@ public class TriggerTest : MonoBehaviour
             {
                 triggerState = TriggerState.ready;
                 other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                other.transform.forward = transform.forward;
+                if (other.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.loaded)
+                {
+                    other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.canFire;
+                }
             }
             else if (colliderList.Count == 1 && loop.name == "CannonTriggerUnder")
             {
                 triggerState = TriggerState.active;
+                if (other.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+                {
+                    other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
+                }
             }
         }
-
-        Debug.Log(colliderList.Count);
     }
 
     void OnTriggerExit(Collider other)

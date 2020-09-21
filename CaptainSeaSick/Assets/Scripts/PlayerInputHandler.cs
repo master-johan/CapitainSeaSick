@@ -25,6 +25,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         var index = playerInputManager.playerCount;
 
+
         if(index == 0)
         {
             playerInputManager.playerPrefab = player1;
@@ -42,5 +43,10 @@ public class PlayerInputHandler : MonoBehaviour
             playerInputManager.playerPrefab = player4;
         }
     }
+
+    public int GetPlayerIndex()
+    {
+        return playerInputManager.playerCount;
+    } 
 
 }

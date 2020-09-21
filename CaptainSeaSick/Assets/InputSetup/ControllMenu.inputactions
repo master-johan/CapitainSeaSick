@@ -1,0 +1,33 @@
+{
+    "name": "ControllMenu",
+    "maps": [
+        {
+            "name": "ControllerMenu",
+            "id": "6e8788e5-d176-4212-a275-3d370c1b6734",
+            "actions": [
+                {
+                    "name": "StartGame",
+                    "type": "Button",
+                    "id": "0b3e458c-1314-4946-87b2-ab42114f466f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9fb0f353-0db2-474c-afda-31378048ccf2",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

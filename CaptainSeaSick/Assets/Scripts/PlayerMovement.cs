@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public int playerIndex = 0;
     GameObject target;
+    GameObject containerTarget;
 
     private Vector2 i_movement;
     private Vector2 lastForward;
@@ -61,6 +62,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "PickableObject" && !pickedUp)
             target = other.gameObject;
+        else if (other.tag == "Container" && !pickedUp)
+        {
+            containerTarget = other.gameObject;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Container")
+        {
+            containerTarget = null;
+            Debug.Log("Exited Container");
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,6 +94,17 @@ public class PlayerMovement : MonoBehaviour
                 target.GetComponent<Rigidbody>().useGravity = false;
                 pickedUp = true;
                 target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            }
+        }
+        else if (containerTarget != null)
+        {
+            if (!pickedUp)
+            {
+                if (containerTarget.GetComponent("CannonballBarrel_Script"))
+                {
+                    containerTarget.GetComponent<CannonballBarrel_Script>().CreateCannonball(transform.position + transform.forward * cannonballOffset);
+                    Debug.Log("Added CannonBall");
+                }
             }
         }
     }

@@ -21,7 +21,7 @@ public class ControllerMenuJoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var index = playerInputManager.GetComponent<PlayerInputHandler>().GetPlayerIndex();
+        var index = playerInputManager.GetComponent<PlayerInputManager>().playerCount;
 
         if (index == 1)
         {

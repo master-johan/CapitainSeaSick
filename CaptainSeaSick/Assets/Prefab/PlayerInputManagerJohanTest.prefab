@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5363041642469607554}
   - component: {fileID: 5363041642469607553}
-  - component: {fileID: 5363041642469607555}
   m_Layer: 0
-  m_Name: PlayerInputManager
+  m_Name: PlayerInputManagerJohanTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,19 +75,3 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5363041642469607555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5363041642469607552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0366ff3ed29f524eac5f7e22f89b9bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1: {fileID: 4387053339213712051, guid: a9dc8dc6eb02e1443bdafbd3d0f8277a, type: 3}
-  player2: {fileID: 4387053339213712051, guid: ca61d8202abe27847a7c94c111e4a566, type: 3}
-  player3: {fileID: 4387053339213712051, guid: cd7675f13402b464fa465c0d4f5ef83f, type: 3}
-  player4: {fileID: 4387053339213712051, guid: 6d79d0a3e66271f4caaf7acf59c56f4b, type: 3}

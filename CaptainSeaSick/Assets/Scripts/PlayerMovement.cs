@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 target.transform.position = transform.position + transform.forward * cannonballOffset;
                 target.GetComponent<CannonBall>().isPickedUp = true;
+               // target.GetComponent < Rigidbody >().isKinematic = false;
             }
         }
     }

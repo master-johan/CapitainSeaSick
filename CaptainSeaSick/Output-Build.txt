@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: Assembly-CSharp, Configuration: Debug Any CPU ------
+1>C:\Users\axelh\Documents\GitHub\CapitainSeaSick\CaptainSeaSick\Assets\Scripts\Healthbar.cs(9,36,9,51): warning CS0649: Field 'Healthbar.foreGroundImage' is never assigned to, and will always have its default value null
+1>C:\Users\axelh\Documents\GitHub\CapitainSeaSick\CaptainSeaSick\Assets\Scripts\ProgressBar_Script.cs(12,22,12,32): warning CS0649: Field 'ProgressBar_Script.thisSlider' is never assigned to, and will always have its default value null
+1>C:\Users\axelh\Documents\GitHub\CapitainSeaSick\CaptainSeaSick\Assets\Scripts\ProgressBar_Script.cs(17,19,17,33): warning CS0414: The field 'ProgressBar_Script.targetProgress' is assigned but its value is never used
+1>  Assembly-CSharp -> C:\Users\axelh\Documents\GitHub\CapitainSeaSick\CaptainSeaSick\Temp\bin\Debug\Assembly-CSharp.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

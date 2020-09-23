@@ -11,6 +11,8 @@ TagManager:
   - PlayerInputManager
   - Container
   - SteeringPlace
+  - Cliff
+  - IndicatorImage
   layers:
   - Default
   - TransparentFX

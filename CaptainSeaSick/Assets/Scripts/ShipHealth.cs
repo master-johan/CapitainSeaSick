@@ -24,9 +24,15 @@ public class ShipHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ModifyHealth(-10);
+
     }
-   
-       
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Cliff")
+        {
+            ModifyHealth(-10);
+        }
+    }
+
 }

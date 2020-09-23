@@ -65,9 +65,9 @@ public class TriggerTest : MonoBehaviour
             else if (colliderList.Count == 1 && loop.name == "CannonTriggerUnder")
             {
                 triggerState = TriggerState.active;
-                if (other.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+                if (other.transform.parent.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
                 {
-                    other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
+                    other.transform.parent.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
                 }
             }
         }

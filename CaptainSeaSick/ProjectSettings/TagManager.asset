@@ -10,6 +10,7 @@ TagManager:
   - ControllerMenuSystem
   - PlayerInputManager
   - Container
+  - Enemy
   - SteeringPlace
   - Cliff
   - IndicatorImage

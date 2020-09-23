@@ -11,6 +11,7 @@ TagManager:
   - PlayerInputManager
   - Container
   - Enemy
+  - SteeringPlace
   layers:
   - Default
   - TransparentFX

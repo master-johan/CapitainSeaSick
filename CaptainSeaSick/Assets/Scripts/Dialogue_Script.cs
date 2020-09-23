@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 public class Dialogue_Script : MonoBehaviour
 {
@@ -8,8 +10,29 @@ public class Dialogue_Script : MonoBehaviour
     public string[] sentences;
     private int index;
     public float typingSpeed;
-   
-    
+
+    private UnityAction someListner;
+
+    private void Awake()
+    {
+        someListner = new UnityAction (StartTalking);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.StartSubscribe("welcome", someListner);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopSubscribe("welcome", someListner);
+
+    }
+
+    private void StartTalking()
+    {
+        StartCoroutine(Type());
+    }
 
     IEnumerator Type()
     {
@@ -19,26 +42,23 @@ public class Dialogue_Script : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft < 110f)
-        {
-            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
-            StartCoroutine(Type());
-        }
-        else
-        {
-            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
-        }
 
-       
+        if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft < 110f && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft > 90f)
+        {
+            EventManager.TriggerEvent("welcome");
+            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
+
+            if(index < sentences.Length -1)
+            {
+                EventManager.StopSubscribe("welcome", someListner);
+                index++;
+                textDisplay.text = ("");
+            }
+        }
     }
 
     public void NextScentence()
@@ -49,5 +69,10 @@ public class Dialogue_Script : MonoBehaviour
             textDisplay.text = "";
             StartCoroutine(Type());
         }
+        else
+        {
+            textDisplay.text = "";
+        }
+      
     }
 }

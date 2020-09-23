@@ -7,9 +7,11 @@ public class SteeringScript : MonoBehaviour
 {
     bool inSteeringPosition;
     GameObject player;
+    GameObject ship;
+    
     void Start()
     {
-
+        ship = GameObject.FindGameObjectWithTag("Ship");
     }
     void Update()
     {
@@ -27,6 +29,7 @@ public class SteeringScript : MonoBehaviour
         if (other.tag == "Player")
         {
             inSteeringPosition = false;
+            
         }
     }
     public bool GetSteeringBool()

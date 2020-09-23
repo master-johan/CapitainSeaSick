@@ -133,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
         {
             target.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.fire;
+            target = null;
         }
     }
 

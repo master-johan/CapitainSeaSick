@@ -35,6 +35,8 @@ public class CannonBall : MonoBehaviour
         if(other.tag == "Enemy")
         {
             Destroy(this.gameObject);
+            Destroy(other.gameObject);
+            GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
             Debug.Log("Enemy Struck");
         }
     }

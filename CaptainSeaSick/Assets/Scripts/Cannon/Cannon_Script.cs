@@ -26,10 +26,10 @@ public class Cannon_Script : MonoBehaviour
                 //Debug.Log("Cannon unloaded");
                 break;
             case CannonState.loaded:
-                //Debug.Log("cannon loaded");
+                Debug.Log("cannon loaded");
                 break;
             case CannonState.canFire:
-                //Debug.Log("Cannon canFire");
+                Debug.Log("Cannon canFire");
                 break;
             case CannonState.fire:
                 //Debug.Log("Cannon has fired");
@@ -52,6 +52,5 @@ public class Cannon_Script : MonoBehaviour
     public void SetCannonBall(GameObject cannonBall)
     {
         this.cannonBall = cannonBall;
-        Debug.Log(cannonBall.name);
     }
 }

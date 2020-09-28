@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Lumin;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerIndex = 0;
     GameObject target;
     GameObject containerTarget;
+    GameObject ship;
 
     private Vector2 i_movement;
     private Vector2 lastForward;
@@ -18,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float cannonballOffset;
     private Quaternion playerRotation;
     private Rigidbody rb;
-    private bool pickedUp;
+    private bool pickedUp, inSteeringPlace;
+
 
     public void Start()
     {
@@ -26,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
         cannonOffset = 2;
         cannonballOffset = 0.7f;
-        
+
+        ship = GameObject.FindGameObjectWithTag("Ship");
     }
 
 
@@ -37,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
         tempVect = tempVect.normalized * speed * Time.deltaTime;
+
         if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
         {
             transform.forward = tempVect.normalized;
@@ -54,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 target.transform.position = transform.position + transform.forward * cannonballOffset;
                 target.GetComponent<CannonBall>().isPickedUp = true;
+                // target.GetComponent < Rigidbody >().isKinematic = false;
             }
         }
     }
@@ -127,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
         {
             target.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.fire;
+            target = null;
         }
     }
 

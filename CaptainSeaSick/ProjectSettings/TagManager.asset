@@ -7,12 +7,13 @@ TagManager:
   - CannonSpot
   - PickableObject
   - Ship
-
-  - Container
-
-  - PlayerInputManager
   - ControllerMenuSystem
-
+  - PlayerInputManager
+  - Container
+  - Enemy
+  - SteeringPlace
+  - Cliff
+  - IndicatorImage
   layers:
   - Default
   - TransparentFX

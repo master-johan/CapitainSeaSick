@@ -300,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 4172150281434018013, guid: 6d1d757f53716eb47ad652a24e4869a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -13.7
       objectReference: {fileID: 0}
     - target: {fileID: 4172150281434018013, guid: 6d1d757f53716eb47ad652a24e4869a5,
         type: 3}
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038855a10e6e25544b2d0e82b32ad8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cliffPrefab: {fileID: 5650935373056984911, guid: 7c51f924f67544f4a8d133cdf64b1c26,
+  cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   timer: 15
 --- !u!1 &176599769

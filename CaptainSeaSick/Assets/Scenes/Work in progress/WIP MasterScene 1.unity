@@ -409,8 +409,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 2c5c2551f3922894fb0c538080a5574d,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 71f62fc2408880e4e9bcf92420951b4b, type: 2}
     - target: {fileID: 919132149155446097, guid: c480964175e8440499c7dee92f64db7a,
         type: 3}
       propertyPath: m_Name
@@ -893,8 +892,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -876546973899608171, guid: 2c5c2551f3922894fb0c538080a5574d,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 71f62fc2408880e4e9bcf92420951b4b, type: 2}
     - target: {fileID: 919132149155446097, guid: 9af06c40e9c69ae46a62b608288cb782,
         type: 3}
       propertyPath: m_Name
@@ -919,12 +917,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PlayerInputManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
-        type: 3}
-      propertyPath: m_PlayerPrefab
-      value: 
-      objectReference: {fileID: 7741697163309679515, guid: 283d63cdb1023ad4caab0075e13d7a64,
-        type: 3}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.x

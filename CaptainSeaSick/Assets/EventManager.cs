@@ -32,7 +32,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //Initiate EventManager
+    //Initiate EventManager , Adds a new dictionary where you can add events.
     private void Initiate()
     {
         if(eventDictionary == null)

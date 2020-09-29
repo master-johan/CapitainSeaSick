@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5763788515530875803}
   - component: {fileID: 5763788515530875802}
   - component: {fileID: 5763788515530875801}
+  - component: {fileID: 484669403350886113}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Enemy
@@ -93,3 +94,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7, y: 5.64, z: 7}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &484669403350886113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763788515530875800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a3cfc4ef27ce640b3cd7e4c2f20cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoint: 10
+  cannonBall: {fileID: 2672620458284134388, guid: 7c0ee049500aaf542b59d988ca16c942,
+    type: 3}
+  ship: {fileID: 919132149155446097, guid: 9af06c40e9c69ae46a62b608288cb782, type: 3}
+  timer: 5

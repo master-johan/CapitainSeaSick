@@ -10,7 +10,7 @@ public class CliffSpawner : MonoBehaviour
 
     void Start()
     {
-        cliffPrefab.transform.position = new Vector3(-50, -12, Random.Range(-15, 15));
+        cliffPrefab.transform.position = new Vector3(-70, -12, Random.Range(-15, 15));
         Instantiate(cliffPrefab);
     }
 

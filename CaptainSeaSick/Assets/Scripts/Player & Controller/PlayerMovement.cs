@@ -61,13 +61,21 @@ public class PlayerMovement : MonoBehaviour
                 target.GetComponent<CannonBall>().isPickedUp = true;
                 // target.GetComponent < Rigidbody >().isKinematic = false;
             }
+            else
+            {
+                target.transform.position = transform.position + transform.forward * cannonballOffset;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "PickableObject" && !pickedUp)
+        {
             target = other.gameObject;
+            Debug.Log("Picked up: " + other.gameObject.name);
+        }
+          
         else if (other.tag == "Container" && !pickedUp)
         {
             containerTarget = other.gameObject;
@@ -116,25 +124,32 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrop()
     {
-
-        if (target.GetComponent("CannonBall"))
+        if(target != null)
         {
-            target.GetComponent<CannonBall>().isPickedUp = false;
-        }
-        target.GetComponent<Rigidbody>().useGravity = true;
+            if (target.GetComponent("CannonBall"))
+            {
+                target.GetComponent<CannonBall>().isPickedUp = false;
+            }
+            target.GetComponent<Rigidbody>().useGravity = true;
 
-        pickedUp = false;
-        target = null;
+            pickedUp = false;
+            target = null;
+        }
+
 
     }
 
     private void OnInteract()
     {
-        if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+        if(target != null)
         {
-            target.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.fire;
-            target = null;
+            if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+            {
+                target.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.fire;
+                target = null;
+            }
         }
+
     }
 
     public int GetPlayerIndex()

@@ -61,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
                 target.GetComponent<CannonBall>().isPickedUp = true;
                 // target.GetComponent < Rigidbody >().isKinematic = false;
             }
+            else if (target.GetComponent("Plank"))
+            {
+                target.transform.position = transform.position + transform.forward;
+                target.GetComponent<Plank>().isPickedUp = true;
+            }
         }
     }
 

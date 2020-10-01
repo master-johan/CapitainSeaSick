@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using System.Text;
+using UnityEngine.PlayerLoop;
 
 public class Dialogue_Manager : MonoBehaviour
 {
@@ -15,105 +16,18 @@ public class Dialogue_Manager : MonoBehaviour
     private int index;
     public Queue<string> sentences;
     public string currentSentence;
-    bool once = false;
-    //Dialogue dialogue1 = new Dialogue(); 
+    bool endDialogue = false;
+
+    public Queue<string> events;
 
     private UnityAction startTalking;
 
     void Start()
     {
         sentences = new Queue<string>();
+        events = new Queue<string>();
+        events.Enqueue("welcome");
     }
-
-    /// <summary>
-    /// Method is starting a dialog from queue
-    /// </summary>
-    /// <param name="dialogue"></param>
-    public void StartDialogue(Dialogue dialogue)
-    {
-        
-        //Debug.Log("Starting to talk" + dialogue.name);
-
-        sentences.Clear();
-
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-            index++;
-            //Debug.Log(sentence);
-        }
-        StartCoroutine(StartAfterTime(10));
-    }
-    public void NextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            
-            return;
-        }
-        else
-        {
-            currentSentence = sentences.Dequeue();
-            Debug.Log(currentSentence);
-            textDisplay.text = currentSentence;
-            //StartCoroutine(Type());
-        }
-    }
-
-    private void EndDialogue()
-    {
-        
-        Debug.Log("End of Speech");
-    }
-    /// <summary>
-    /// Method is deciding typing speed
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator Type()
-    {
-        Debug.Log("inside type");
-        foreach (var letter in currentSentence.ToCharArray())
-        {
-            textDisplay.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-            
-        }
-    }
-    /// <summary>
-    /// Method is delaying time between sentences
-    /// </summary>
-    /// <param name="time"></param>
-    /// <returns></returns>
-    IEnumerator StartAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Debug.Log("inside wait second");
-        NextSentence();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-        if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98 && !once)
-        {
-            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
-            EventManager.TriggerEvent("welcome");
-            once = true;
-
-        }
-        else if (once)
-        {
-
-            EventManager.StopSubscribe("welcome", startTalking);
-            textDisplay.text = ("");
-
-        }
-    }
-
-
-
     private void Awake()
     {
         startTalking = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogue);
@@ -129,6 +43,82 @@ public class Dialogue_Manager : MonoBehaviour
         EventManager.StopSubscribe("welcome", startTalking);
 
     }
+
+    public void StartDialogue(Dialogue dialogue)
+    {
+        sentences.Clear();
+
+        foreach (var sent in dialogue.sentences)
+        {
+            sentences.Enqueue(sent);
+        }
+
+        NextSentence();
+
+    }
+
+    private void NextSentence()
+    {
+        Debug.Log(sentences.Count + "sentences left");
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+       
+        currentSentence = sentences.Dequeue();
+        
+        PrintText(currentSentence);
+    }
+
+    private void PrintText(string currentSentence)
+    {
+        GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
+        StartCoroutine(typeText(currentSentence));
+        Debug.Log(currentSentence);   
+    }
+
+    IEnumerator typeText(string s)
+    {
+        foreach (var letter in s.ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        StartCoroutine(waitForSeconds(5f));        
+    }
+
+    IEnumerator waitForSeconds (float time)
+    {
+        float timeLeft = time;
+        while (timeLeft > 0)
+        {
+            Debug.Log(timeLeft);
+            yield return new WaitForSeconds(1);
+            timeLeft--;
+        }
+        textDisplay.text ="";
+        NextSentence();
+    }
+
+    void Update()
+    {
+        if (events.Count >0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
+        {
+            string eventToTrigger = events.Dequeue();
+            EventManager.TriggerEvent(eventToTrigger);
+        }                                    
+    }
+
+    private void EndDialogue()
+    {
+        endDialogue = true;
+        Debug.Log("EndDialogue");
+        GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
+        EventManager.StopSubscribe("welcome", startTalking);
+    }
+
+
 
  
 

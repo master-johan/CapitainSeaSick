@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-[Serializable]
-public class Dialogue
+//[Serializable]
+[CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue")]
+public class Dialogue : ScriptableObject
 {
     [TextArea(3, 10)]//Size of sentences
     public string[] sentences;
-    public string name;
-   
+    public string name;   
 }

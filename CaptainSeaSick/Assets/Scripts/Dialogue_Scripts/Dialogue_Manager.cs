@@ -36,6 +36,7 @@ public class Dialogue_Manager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.StartSubscribe("welcome", startTalking);
+
     }
 
     private void OnDisable()
@@ -46,19 +47,21 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        sentences.Clear();
+
 
         foreach (var sent in dialogue.sentences)
         {
             sentences.Enqueue(sent);
         }
 
-        NextSentence();
+       StartCoroutine(Type());
+
 
     }
 
     private void NextSentence()
     {
+
         Debug.Log(sentences.Count + "sentences left");
         if (sentences.Count == 0)
         {
@@ -69,6 +72,7 @@ public class Dialogue_Manager : MonoBehaviour
         currentSentence = sentences.Dequeue();
         
         PrintText(currentSentence);
+
     }
 
     private void PrintText(string currentSentence)

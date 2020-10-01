@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4172150281434018008
+--- !u!1 &5101601470285014021
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4172150281434018013}
-  - component: {fileID: 4172150281434018015}
+  - component: {fileID: 5101601470285014019}
+  - component: {fileID: 5101601470285014020}
   m_Layer: 0
-  m_Name: CliffManager
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4172150281434018013
+--- !u!4 &5101601470285014019
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4172150281434018008}
+  m_GameObject: {fileID: 5101601470285014021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 26.611244, y: -0.46827427, z: 6.8835526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4172150281434018015
+--- !u!114 &5101601470285014020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4172150281434018008}
+  m_GameObject: {fileID: 5101601470285014021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4472eb2c92f79b14abc07f4bd10bc8f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 89a1f9954d71b2e47a3514e1cd6ba9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 538b8fc0-6248-4062-ac79-34aa4b0365a7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 878e3309-5241-4211-b3ae-0661e9c73603
-      m_Path: <Gamepad>/rightStick
-      m_Interactions: 
-      m_Processors: AxisDeadzone(min=0.25,max=0.85)
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 0
+  enemyShip: {fileID: 5763788515530875800, guid: 38a6c787730d33b44a779f34ae9bcb3c,
+    type: 3}
+  enemyIndicator: {fileID: 0}

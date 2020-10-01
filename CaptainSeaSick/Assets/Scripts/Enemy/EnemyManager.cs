@@ -42,7 +42,6 @@ public class EnemyManager : MonoBehaviour
 
     private void GenerateIndicators()
     {
-        Debug.Log(tempVector);
         if (tempVector == new Vector3(-2, -4, -85))
         {
             enemyIndicator.transform.Find("R3image").GetComponent<Image>().enabled = true;

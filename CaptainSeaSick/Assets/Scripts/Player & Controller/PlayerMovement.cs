@@ -130,6 +130,14 @@ public class PlayerMovement : MonoBehaviour
 
         pickedUp = false;
         target = null;
+        if (target.GetComponent("Plank"))
+        {
+            target.GetComponent<Plank>().isPickedUp = false;
+        }
+        target.GetComponent<Rigidbody>().useGravity = true;
+
+        pickedUp = false;
+        target = null;
 
     }
 

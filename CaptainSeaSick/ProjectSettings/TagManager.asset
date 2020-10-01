@@ -15,6 +15,7 @@ TagManager:
   - Cliff
   - IndicatorImage
   - DropZone
+  - Plane
   layers:
   - Default
   - TransparentFX

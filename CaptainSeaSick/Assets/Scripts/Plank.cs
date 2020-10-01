@@ -21,5 +21,13 @@ public class Plank : MonoBehaviour
 
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if (collision.gameObject.name == "Plane" | collision.gameObject.name == "Plane(Clone)")
+        //{
+        //    Destroy(gameObject);
+        //}
+        
+    }
 
 }

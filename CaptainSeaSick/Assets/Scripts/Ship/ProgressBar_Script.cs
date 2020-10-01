@@ -11,6 +11,7 @@ public class ProgressBar_Script : MonoBehaviour
     private Slider slider;
     public float levelTime = 120f; //2 MIN
     public float timeLeft; //How long left
+    public float progress;
 
     public float TimeLeft { get => timeLeft; set => timeLeft = value; }
     public float LevelTime { get => levelTime; set => levelTime = value; }
@@ -37,6 +38,7 @@ public class ProgressBar_Script : MonoBehaviour
         else
         {
             Time.timeScale = 0;
-        }      
+        }
+        progress = Mathf.RoundToInt(slider.value * 100);
     }
 }

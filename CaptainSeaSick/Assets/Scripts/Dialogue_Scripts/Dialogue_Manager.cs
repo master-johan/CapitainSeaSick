@@ -16,7 +16,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     private void Start()
     {
-        Sentences = new Queue<string>()
+        Sentences = new Queue<string>();
     }
     private void Awake()
     {
@@ -27,23 +27,23 @@ public class Dialogue_Manager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.StartSubscribe("welcome", someListner);
-        EventManager.StartSubscribe("Next", NextScentence);
+        //EventManager.StartSubscribe("Next", NextScentence);
     }
 
     private void OnDisable()
     {
         EventManager.StopSubscribe("welcome", someListner);
-        EventManager.StopSubscribe("Next", NextScentence);
+        //EventManager.StopSubscribe("Next", NextScentence);
 
     }
     private void someOtherListner()
     {
-        StartCoroutine(Type());
+        //StartCoroutine(Type());
     }
 
     private void StartTalking()
     {
-        StartCoroutine(Type());
+        //StartCoroutine(Type());
     }
 
    // IEnumerator Type()
@@ -64,27 +64,28 @@ public class Dialogue_Manager : MonoBehaviour
             EventManager.TriggerEvent("welcome");
             GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
 
-           // if(index < sentences.Length -1)
+            // if(index < sentences.Length -1)
             //{
-             //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
-             //   EventManager.StopSubscribe("welcome", someListner);
-             //   index++;
-             //   textDisplay.text = ("");
-           // }
-       // }
+            //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
+            //   EventManager.StopSubscribe("welcome", someListner);
+            //   index++;
+            //   textDisplay.text = ("");
+            // }
+            // }
+        }
 
         else if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft < 80f && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft > 60f)
         {
             EventManager.TriggerEvent("Next");
             GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
 
-           // if (index < sentences.Length - 1)
-          //  {
-             //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
-             //   EventManager.StopSubscribe("Next", someOtherListner);
+            // if (index < sentences.Length - 1)
+            //  {
+            //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
+            //   EventManager.StopSubscribe("Next", someOtherListner);
             //    index++;
             //    textDisplay.text = ("");
-          //  }
+            //  }
         }
 
 

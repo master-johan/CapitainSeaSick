@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {    
         GenerateSpawnPos();
-        spawnTimer = 5;
+        spawnTimer = 1;
     }
 
     // Update is called once per frame
@@ -27,10 +27,13 @@ public class EnemyManager : MonoBehaviour
         if (spawnTimer < 0)
         {
             int rand = Random.Range(0, enemySpawnPosList.Count - 1);
-            spawnTimer = 10;
-            Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
-            tempVector = enemySpawnPosList[rand];
-            enemySpawnPosList.RemoveAt(rand);
+            spawnTimer = 1;
+            if (enemySpawnPosList.Count > 0)
+            {
+                Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
+                tempVector = enemySpawnPosList[rand];
+                enemySpawnPosList.RemoveAt(rand);
+            }
 
             GenerateIndicators();
         }

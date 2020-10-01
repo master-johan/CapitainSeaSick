@@ -7,6 +7,9 @@ public class CannonBall : MonoBehaviour
     public bool isPickedUp;
     public bool isLoaded;
     public bool isShot;
+
+    public float damage = 5f;
+
     private GameObject cannon;
     private Vector3 forwardPos;
     // Start is called before the first frame update
@@ -34,8 +37,8 @@ public class CannonBall : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
+            other.GetComponent<enemyShipScript>().HealthPoints -= damage;
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
             GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
             Debug.Log("Enemy Struck");
         }

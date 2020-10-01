@@ -16,9 +16,12 @@ public class ProgressBar_Script : MonoBehaviour
     public float TimeLeft { get => timeLeft; set => timeLeft = value; }
     public float LevelTime { get => levelTime; set => levelTime = value; }
 
+    private Image imageBoat;
+
     private void Awake()
     {
         slider = gameObject.GetComponent<Slider>();
+        imageBoat = gameObject.GetComponentInChildren<Image>();
     }
     void Start()
     {

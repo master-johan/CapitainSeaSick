@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37573aa041b076d449e6248fc80d237f, type: 3}
   m_Name: Battle Dialogue
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - To battle
+  - Fight
   name: 

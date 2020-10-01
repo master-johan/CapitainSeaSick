@@ -4,104 +4,141 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using System.Text;
+using UnityEngine.PlayerLoop;
+
 public class Dialogue_Manager : MonoBehaviour
 {
-    public TextMeshProUGUI textDisplay;
-    //public string[] sentences;
-    private Queue<string> Sentences;
-    private int index;
+    [SerializeField]
+    public TextMeshProUGUI textDisplay;  
+    [SerializeField]
     public float typingSpeed;
+    private int index;
+    public Queue<string> sentences;
+    public string currentSentence;
+    bool endDialogue = false;
 
-    private UnityAction someListner;
+    public Queue<string> events;
 
-    private void Start()
+    private UnityAction startTalking, battleTalk;
+
+    void Start()
     {
-        Sentences = new Queue<string>()
+        sentences = new Queue<string>();
+        events = new Queue<string>();
+        events.Enqueue("welcome");
+        events.Enqueue("battle");
+        
     }
     private void Awake()
     {
-        someListner = new UnityAction (StartTalking);
-        
+        startTalking = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogue);
+        battleTalk = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogueBattle);
     }
 
     private void OnEnable()
     {
-        EventManager.StartSubscribe("welcome", someListner);
-        EventManager.StartSubscribe("Next", NextScentence);
+        EventManager.StartSubscribe("welcome", startTalking);
+        EventManager.StartSubscribe("battle", battleTalk);
+
     }
+
+   
 
     private void OnDisable()
     {
-        EventManager.StopSubscribe("welcome", someListner);
-        EventManager.StopSubscribe("Next", NextScentence);
+        EventManager.StopSubscribe("welcome", startTalking);
+        EventManager.StopSubscribe("battle", battleTalk);
 
     }
-    private void someOtherListner()
-    {
-        StartCoroutine(Type());
-    }
 
-    private void StartTalking()
-    {
-        StartCoroutine(Type());
-    }
 
-   // IEnumerator Type()
-    //{
-       // foreach (var letter in sentences[index].ToCharArray())
-     //   {
-      //      textDisplay.text += letter;
-        //    yield return new WaitForSeconds(typingSpeed);
-      //  }
-  //  }
-
-    // Update is called once per frame
-    void Update()
+    public void StartDialogue(Dialogue dialogue)
     {
 
-        if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft < 110f && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft > 90f)
+
+        foreach (var sent in dialogue.sentences)
         {
-            EventManager.TriggerEvent("welcome");
-            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
-
-           // if(index < sentences.Length -1)
-            //{
-             //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
-             //   EventManager.StopSubscribe("welcome", someListner);
-             //   index++;
-             //   textDisplay.text = ("");
-           // }
-       // }
-
-        else if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft < 80f && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().timeLeft > 60f)
-        {
-            EventManager.TriggerEvent("Next");
-            GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
-
-           // if (index < sentences.Length - 1)
-          //  {
-             //   GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
-             //   EventManager.StopSubscribe("Next", someOtherListner);
-            //    index++;
-            //    textDisplay.text = ("");
-          //  }
+            sentences.Enqueue(sent);
         }
 
+        NextSentence();
+
 
     }
 
-    //public void NextScentence()
-   // {
-      //  if (index < sentences.Length - 1)
-      //  {
-     //       index++;
-     //       textDisplay.text = "";
-     //       StartCoroutine(Type());
-     //   }
-     //   else
-     //   {
-     //       textDisplay.text = "";
-     //   }
+    private void NextSentence()
+    {
 
-  //  }
+        Debug.Log(sentences.Count + "sentences left");
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+       
+        currentSentence = sentences.Dequeue();
+        
+        PrintText(currentSentence);
+
+    }
+
+    private void PrintText(string currentSentence)
+    {
+        GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
+        StartCoroutine(typeText(currentSentence));
+        Debug.Log(currentSentence);   
+    }
+
+    IEnumerator typeText(string s)
+    {
+        foreach (var letter in s.ToCharArray())
+        {
+            textDisplay.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        StartCoroutine(waitForSeconds(5f));        
+    }
+
+    IEnumerator waitForSeconds (float time)
+    {
+        float timeLeft = time;
+        while (timeLeft > 0)
+        {
+            Debug.Log(timeLeft);
+            yield return new WaitForSeconds(1);
+            timeLeft--;
+        }
+        textDisplay.text ="";
+        NextSentence();
+    }
+
+    void Update()
+    {
+        if (events.Count >1 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
+        {
+            string eventToTrigger = events.Dequeue();
+            EventManager.TriggerEvent(eventToTrigger);
+        }
+
+        //if (events.Count > 0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress ==80)
+        //{
+        //    string eventToTrigger = events.Dequeue();
+        //    EventManager.TriggerEvent(eventToTrigger);
+        //}
+    }
+
+    private void EndDialogue()
+    {
+        endDialogue = true;
+        Debug.Log("EndDialogue");
+        GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
+        EventManager.StopSubscribe("welcome", startTalking);
+    }
+
+
+
+ 
+
+
 }

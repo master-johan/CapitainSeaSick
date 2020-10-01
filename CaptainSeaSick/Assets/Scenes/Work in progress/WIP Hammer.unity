@@ -1667,6 +1667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: fc112ad6b03014344ad04dd1ad2b0076, type: 2}
+  battleDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}
 --- !u!1001 &1717796147
 PrefabInstance:
   m_ObjectHideFlags: 0

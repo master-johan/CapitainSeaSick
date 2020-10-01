@@ -20,30 +20,38 @@ public class Dialogue_Manager : MonoBehaviour
 
     public Queue<string> events;
 
-    private UnityAction startTalking;
+    private UnityAction startTalking, battleTalk;
 
     void Start()
     {
         sentences = new Queue<string>();
         events = new Queue<string>();
         events.Enqueue("welcome");
+        events.Enqueue("battle");
+        
     }
     private void Awake()
     {
         startTalking = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogue);
+        battleTalk = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogueBattle);
     }
 
     private void OnEnable()
     {
         EventManager.StartSubscribe("welcome", startTalking);
+        EventManager.StartSubscribe("battle", battleTalk);
 
     }
+
+   
 
     private void OnDisable()
     {
         EventManager.StopSubscribe("welcome", startTalking);
+        EventManager.StopSubscribe("battle", battleTalk);
 
     }
+
 
     public void StartDialogue(Dialogue dialogue)
     {
@@ -107,11 +115,17 @@ public class Dialogue_Manager : MonoBehaviour
 
     void Update()
     {
-        if (events.Count >0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
+        if (events.Count >1 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
         {
             string eventToTrigger = events.Dequeue();
             EventManager.TriggerEvent(eventToTrigger);
-        }                                    
+        }
+
+        if (events.Count > 0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress ==80)
+        {
+            string eventToTrigger = events.Dequeue();
+            EventManager.TriggerEvent(eventToTrigger);
+        }
     }
 
     private void EndDialogue()

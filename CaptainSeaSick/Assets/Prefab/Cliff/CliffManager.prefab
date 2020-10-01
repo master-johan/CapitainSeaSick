@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4172150281434018013}
   - component: {fileID: 4172150281434018015}
+  - component: {fileID: 4732140153278161476}
   m_Layer: 0
   m_Name: CliffManager
   m_TagString: Untagged
@@ -59,3 +60,18 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move
       m_Flags: 0
+--- !u!114 &4732140153278161476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172150281434018008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038855a10e6e25544b2d0e82b32ad8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
+    type: 3}
+  timer: 20

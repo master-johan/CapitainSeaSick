@@ -20,14 +20,14 @@ public class BoatMovement : MonoBehaviour
         move.Enable();
         stepSpeed = 5f;
         shipSpeed = 0.2f;
-        rotSpeed = 0.05f;
+        rotSpeed = 0.2f;
 
         ship = GameObject.FindGameObjectWithTag("Ship");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
         zeroQuaternion = new Quaternion(0, 0, 0, ship.transform.rotation.w);
 
 
-        cliffIndicator.transform.position = new Vector3(-60, 0, transform.position.z);
+        cliffIndicator.transform.position = new Vector3(-34, 0, transform.position.z);
     }
     void Update()
     {
@@ -38,7 +38,7 @@ public class BoatMovement : MonoBehaviour
         rotationDirection = ship.transform.rotation;
         float step = Time.deltaTime * stepSpeed;
 
-        transform.position += new Vector3(0.05f, 0, 0);
+        transform.position += new Vector3(0.1f, 0, 0);
 
 
         if (ship.GetComponentInChildren<SteeringScript>().GetSteeringBool())
@@ -47,12 +47,12 @@ public class BoatMovement : MonoBehaviour
 
             if (ship.transform.rotation.eulerAngles.x >= 10 && ship.transform.rotation.eulerAngles.x <= 45)
             {
-                turnVector = new Vector3(0, 0, -shipSpeed * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, -1.5f * shipSpeedBasedOnRotation);
 
             }
             else if (ship.transform.rotation.eulerAngles.x >= 270 && ship.transform.rotation.eulerAngles.x <= 350)
             {
-                turnVector = new Vector3(0, 0, shipSpeed * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, 1.5f * shipSpeedBasedOnRotation);
             }
         }
         else if (!ship.GetComponentInChildren<SteeringScript>().GetSteeringBool())
@@ -61,13 +61,13 @@ public class BoatMovement : MonoBehaviour
         }
 
         if (ship.transform.rotation.eulerAngles.x <= 10 || ship.transform.rotation.eulerAngles.x >= 350)
-        {
+        {    
             turnVector = new Vector3(0, 0, 0);
         }
 
-
+        
 
         transform.position += turnVector;
-        cliffIndicator.transform.position = new Vector3(-55, 0, transform.position.z);
+        cliffIndicator.transform.position = new Vector3(-34, 0, transform.position.z);
     }
 }

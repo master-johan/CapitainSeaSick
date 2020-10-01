@@ -16,9 +16,8 @@ GameObject:
   - component: {fileID: -8770863228672997571}
   - component: {fileID: -1997778157199316689}
   - component: {fileID: -3672235104667171092}
-  - component: {fileID: -2757712207391972534}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerTest
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4acc3f0dfa7a5146b2392a458a4cfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 11.5
   playerIndex: 0
 --- !u!114 &7741697163309679511
 MonoBehaviour:
@@ -121,7 +120,7 @@ SphereCollider:
   m_GameObject: {fileID: 7741697163309679515}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

@@ -7,7 +7,6 @@ public class CannonBall : MonoBehaviour
     public bool isPickedUp;
     public bool isLoaded;
     public bool isShot;
-    private bool isColliding;
     private GameObject cannon;
     private Vector3 forwardPos;
     // Start is called before the first frame update
@@ -19,8 +18,6 @@ public class CannonBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isColliding = false;
-
         if(isLoaded)
         {
             transform.position = cannon.transform.Find("CannonBallOffset").position;
@@ -35,20 +32,12 @@ public class CannonBall : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (isColliding) return;
-        isColliding = true;
-
-        if (other.tag == "Enemy")
+        if(other.tag == "Enemy")
         {
-            other.GetComponent<EnemyBehaviour>().healthPoint -= 5;
             Destroy(this.gameObject);
-            
-            if (other.GetComponent<EnemyBehaviour>().healthPoint <= 0)
-            {              
-                Destroy(other.gameObject);
-                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);                
-            }
-            Debug.Log(other.GetComponent<EnemyBehaviour>().healthPoint);
+            Destroy(other.gameObject);
+            GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
+            Debug.Log("Enemy Struck");
         }
     }
 

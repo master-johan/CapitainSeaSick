@@ -32,11 +32,6 @@ public class ShipHealth : MonoBehaviour
         if(other.tag == "Cliff")
         {
             ModifyHealth(-10);
-            Destroy(other.gameObject);
-        }
-        if(other.tag == "EnemyCannonBall")
-        {
-            ModifyHealth(-10);
         }
     }
 

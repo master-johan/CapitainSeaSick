@@ -39,7 +39,7 @@ public class enemyShipScript : MonoBehaviour
 
         if(tempCannonBall != null)
         {
-            direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.8f);
+            direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.4f);
             tempCannonBall.transform.position = direction;
 
             if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 2.5f)

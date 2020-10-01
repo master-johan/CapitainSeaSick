@@ -121,11 +121,11 @@ public class Dialogue_Manager : MonoBehaviour
             EventManager.TriggerEvent(eventToTrigger);
         }
 
-        if (events.Count > 0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress ==80)
-        {
-            string eventToTrigger = events.Dequeue();
-            EventManager.TriggerEvent(eventToTrigger);
-        }
+        //if (events.Count > 0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress ==80)
+        //{
+        //    string eventToTrigger = events.Dequeue();
+        //    EventManager.TriggerEvent(eventToTrigger);
+        //}
     }
 
     private void EndDialogue()

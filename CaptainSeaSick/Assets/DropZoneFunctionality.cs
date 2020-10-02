@@ -21,6 +21,7 @@ public class DropZoneFunctionality : MonoBehaviour
     {
         if(other.tag == "PickableObject")
         {
+            Debug.Log("Item Dropped");
             droppedItem = other.gameObject;
             itemDropped = true;
         }

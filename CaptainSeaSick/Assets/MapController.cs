@@ -9,6 +9,8 @@ public class MapController : MonoBehaviour
     GameObject movingWall;
     GameObject dropZone;
 
+    int planks, cannonBalls, gold;
+
     private bool dirRight = true;
     float wallSpeed = 2.0f;
 
@@ -20,28 +22,43 @@ public class MapController : MonoBehaviour
     }
     void Update()
     {
-        if (dirRight)
-            movingWall.transform.Translate(Vector2.right * wallSpeed * Time.deltaTime);
-        else
-            movingWall.transform.Translate(-Vector2.right * wallSpeed * Time.deltaTime);
-
-        if (movingWall.transform.localPosition.x >= 60.0f)
+        if (movingWall != null)
         {
-            dirRight = false;
+            if (dirRight)
+                movingWall.transform.Translate(Vector2.right * wallSpeed * Time.deltaTime);
+            else
+                movingWall.transform.Translate(-Vector2.right * wallSpeed * Time.deltaTime);
+
+            if (movingWall.transform.localPosition.x >= 60.0f)
+            {
+                dirRight = false;
+            }
+
+            if (movingWall.transform.localPosition.x <= 38)
+            {
+                dirRight = true;
+            }
         }
-
-        if (movingWall.transform.localPosition.x <= 38)
+        if(dropZone.GetComponent<DropZoneFunctionality>().droppedItem != null)
         {
-            dirRight = true;
-        }
-
-
-        if(dropZone.GetComponent<DropZoneFunctionality>().itemDropped)
-        {
-            Debug.Log("Item has been dropped in the dropzone BTICH");
-            Destroy(dropZone.GetComponent<DropZoneFunctionality>().droppedItem);
-            dropZone.GetComponent<DropZoneFunctionality>().itemDropped = false;
+            if (dropZone.GetComponent<DropZoneFunctionality>().itemDropped)
+            {
+                if (dropZone.GetComponent<DropZoneFunctionality>().droppedItem.GetComponent<GoldCoinTag>())
+                {
+                    gold++;
+                }
+                if (dropZone.GetComponent<DropZoneFunctionality>().droppedItem.GetComponent<PlankTag>())
+                {
+                    planks++;
+                }
+                if (dropZone.GetComponent<DropZoneFunctionality>().droppedItem.GetComponent<CannonBall>())
+                {
+                    cannonBalls++;
+                }
+                Debug.Log("Gold:" + gold +  " planks: " + planks + " Cannonballs: " + cannonBalls);
+                Destroy(dropZone.GetComponent<DropZoneFunctionality>().droppedItem);
+                dropZone.GetComponent<DropZoneFunctionality>().itemDropped = false;
+            }
         }
     }
-
 }

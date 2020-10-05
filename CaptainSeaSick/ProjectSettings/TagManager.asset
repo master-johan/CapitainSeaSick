@@ -16,6 +16,8 @@ TagManager:
   - IndicatorImage
   - DropZone
   - Plane
+  - Leak
+  - SpawnPositions
   layers:
   - Default
   - TransparentFX

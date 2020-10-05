@@ -10,11 +10,14 @@ public class enemyShipScript : MonoBehaviour
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
+    private GameObject spawnPositions;
 
     private Vector3 hitPosition;
     // Start is called before the first frame update
     void Start()
     {
+
+        spawnPositions = GameObject.FindGameObjectWithTag("SpawnPositions");
         if (transform.position == new Vector3(-2, -4, -85) || transform.position == new Vector3(-2, -4, 85))
         {
             hitPosition = new Vector3(-2, -5, -0.5f);
@@ -45,7 +48,7 @@ public class enemyShipScript : MonoBehaviour
             if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 2.5f)
             {
                 Destroy(tempCannonBall);
-                GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-5);
+                spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManagement : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class PlayerManagement : MonoBehaviour
     GameObject hatPos;
     [SerializeField]
     GameObject hat;
-    Color color1,color2,color3,color4;
+    Color color1, color2, color3, color4;
 
-    static int playerIndex =1;
- 
+    static int playerIndex = 1;
+    GameObject playerInputManager;
+    Vector3 spawnPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
         GenerateColors();
         CopyMeshAndCreate(hat, hatPos);
         SetColor(playerIndex);
+        transform.position = spawnPos + playerInputManager.transform.position;
         playerIndex++;
     }
 
@@ -29,18 +34,23 @@ public class PlayerManagement : MonoBehaviour
         if (playerIndex == 1)
         {
             colorToSet = color1;
+            spawnPos = new Vector3(2, 0, 2);
         }
-        else if (playerIndex == 2 )
+        else if (playerIndex == 2)
         {
             colorToSet = color2;
+            spawnPos = new Vector3(-2, 0, 2);
         }
         else if (playerIndex == 3)
         {
             colorToSet = color3;
+            spawnPos = new Vector3(2, 0, -2);
+
         }
         else
         {
             colorToSet = color4;
+            spawnPos = new Vector3(-2, 0, -2);
         }
 
         hatPos.GetComponent<Renderer>().material.color = colorToSet;
@@ -51,7 +61,7 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void CopyMeshAndCreate(GameObject orignal, GameObject destination)
@@ -68,5 +78,12 @@ public class PlayerManagement : MonoBehaviour
         color2 = Color.red;
         color3 = Color.green;
         color4 = Color.yellow;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "RollingBarrell")
+        {
+            transform.position = spawnPos + playerInputManager.transform.position;
+        }
     }
 }

@@ -6,40 +6,58 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    GameObject movingWall;
+    GameObject hiddenDoor;
     GameObject dropZone;
+    GameObject pressurePlate;
+
+    public TextMeshProUGUI text;
 
     int planks, cannonBalls, gold;
-
+    Vector3 hiddenDoorDirection;
     private bool dirRight = true;
     float wallSpeed = 2.0f;
 
 
     private void Start()
     {
-        movingWall = GameObject.Find("MovingWall");
+        pressurePlate = GameObject.Find("PressurePlate");
+        hiddenDoor = GameObject.Find("HiddenDoor");
         dropZone = GameObject.Find("DropZone");
+
+        hiddenDoorDirection = new Vector3(0, 1, 0);
     }
     void Update()
     {
-        if (movingWall != null)
+
+        text.text = "Gold " + gold + "\t" + " Planks: " + planks + "\t" + " Cannonballs: " + cannonBalls;
+        //if (hiddenDoor != null)
+        //{
+        //    if (dirRight)
+        //        hiddenDoor.transform.Translate(Vector2.right * wallSpeed * Time.deltaTime);
+        //    else
+        //        hiddenDoor.transform.Translate(-Vector2.right * wallSpeed * Time.deltaTime);
+
+        //    if (hiddenDoor.transform.localPosition.x >= 60.0f)
+        //    {
+        //        dirRight = false;
+        //    }
+
+        //    if (hiddenDoor.transform.localPosition.x <= 38)
+        //    {
+        //        dirRight = true;
+        //    }
+        //}
+
+        if (pressurePlate.GetComponent<PressurePlateTrigger>().plateIsTriggered && hiddenDoor.transform.localPosition.y >= -45)
         {
-            if (dirRight)
-                movingWall.transform.Translate(Vector2.right * wallSpeed * Time.deltaTime);
-            else
-                movingWall.transform.Translate(-Vector2.right * wallSpeed * Time.deltaTime);
-
-            if (movingWall.transform.localPosition.x >= 60.0f)
-            {
-                dirRight = false;
-            }
-
-            if (movingWall.transform.localPosition.x <= 38)
-            {
-                dirRight = true;
-            }
+            hiddenDoor.transform.position -= hiddenDoorDirection * 2 * Time.deltaTime;
         }
-        if(dropZone.GetComponent<DropZoneFunctionality>().droppedItem != null)
+        else if(!pressurePlate.GetComponent<PressurePlateTrigger>().plateIsTriggered && hiddenDoor.transform.localPosition.y <= -19)
+        {
+            hiddenDoor.transform.position += hiddenDoorDirection * 4 * Time.deltaTime;
+        }
+
+        if (dropZone.GetComponent<DropZoneFunctionality>().droppedItem != null)
         {
             if (dropZone.GetComponent<DropZoneFunctionality>().itemDropped)
             {
@@ -55,7 +73,7 @@ public class MapController : MonoBehaviour
                 {
                     cannonBalls++;
                 }
-                Debug.Log("Gold:" + gold +  " planks: " + planks + " Cannonballs: " + cannonBalls);
+
                 Destroy(dropZone.GetComponent<DropZoneFunctionality>().droppedItem);
                 dropZone.GetComponent<DropZoneFunctionality>().itemDropped = false;
             }

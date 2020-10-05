@@ -42,7 +42,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
             transform.forward = tempVect.normalized;
 
             tempVect.y = rb.velocity.y;
-            rb.velocity = tempVect; 
+            rb.velocity = tempVect;
         }
 
         if (pickedUp)
@@ -77,6 +77,8 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             containerTarget = other.gameObject;
         }
+
+       
     }
     private void OnTriggerExit(Collider other)
     {

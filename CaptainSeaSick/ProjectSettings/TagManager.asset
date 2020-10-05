@@ -16,6 +16,9 @@ TagManager:
   - IndicatorImage
   - DropZone
   - Plane
+  - RollingBarrell
+  - PressurePlate
+  - WaterBlocker
   layers:
   - Default
   - TransparentFX

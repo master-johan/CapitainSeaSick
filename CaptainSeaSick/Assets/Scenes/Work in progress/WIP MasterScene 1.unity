@@ -1392,6 +1392,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9af06c40e9c69ae46a62b608288cb782,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: ce7e2799298d38349af4c0badd71541f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af06c40e9c69ae46a62b608288cb782, type: 3}
 --- !u!4 &1018037305 stripped
@@ -1412,20 +1418,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerInputManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
+        type: 3}
+      propertyPath: m_PlayerPrefab
+      value: 
+      objectReference: {fileID: 5541691252792588512, guid: 0acd2cc0422245e4fad551f6b451eca5,
+        type: 3}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.067628
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5649382
+      value: -3.78
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.077912
+      value: -0.87
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}

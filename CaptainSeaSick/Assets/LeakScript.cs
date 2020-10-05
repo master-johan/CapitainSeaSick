@@ -6,25 +6,69 @@ using UnityEngine;
 public class LeakScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    float timer = 3;
-
+    float damageTimer = 3;
+    float fixLeakTimer = 5;
+    bool startedFixingLeak;
+    GameObject tempSpawnPosition;
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        damageTimer -= Time.deltaTime;
+        if (damageTimer <= 0)
         {
             DoDamage();
+        }
+        if (startedFixingLeak)
+        {
+            fixLeakTimer -= Time.deltaTime;
         }
     }
 
     void DoDamage()
     {
         GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-5);
-        timer = 3;
+        damageTimer = 3;
+    }
+    void RemoveLeak()
+    {
+        Destroy(gameObject);
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<Plank>() && !other.gameObject.GetComponent<Plank>().isPickedUp)
+        {
+            startedFixingLeak = true;
+            UpdateLeakTimer(other.gameObject);
+        }
+        else if (other.gameObject.GetComponent<Plank>() && other.gameObject.GetComponent<Plank>().isPickedUp)
+        {
+            ResetLeakTimer();
+        }
+    }
+
+    private void ResetLeakTimer()
+    {
+        fixLeakTimer = 5;
+        startedFixingLeak = false;
+    }
+
+    void UpdateLeakTimer(GameObject tempPlank)
+    {
+        if (fixLeakTimer <= 0)
+        {
+            RemoveLeak();
+            tempSpawnPosition.GetComponent<Spawn_Script>().isUsed = false;
+            Destroy(tempPlank);
+        }
+    }
+
+    public void SaveSpawnPosition(GameObject tempObject)
+    {
+        tempSpawnPosition = tempObject;
     }
 }

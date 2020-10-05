@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 7520769767586482834}
   - component: {fileID: 7520769767584453361}
   - component: {fileID: 7520769767584453360}
-  - component: {fileID: 7520769767584453374}
   m_Layer: 0
-  m_Name: CannonballBarrel
+  m_Name: Barrel
   m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,18 +110,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.865802, y: 0.8791586, z: 1.0532782}
   m_Center: {x: 0, y: 0.000000029802326, z: 0.5218344}
---- !u!114 &7520769767584453374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520769767584552018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9206c907fad275940b01984e712953f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonballList: []
-  cannonballPrefab: {fileID: 7891517213412848609, guid: 66802ec14ae45b24eafbb86304065f7b,
-    type: 3}

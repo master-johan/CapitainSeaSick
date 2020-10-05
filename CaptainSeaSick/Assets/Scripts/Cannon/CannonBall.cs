@@ -39,7 +39,10 @@ public class CannonBall : MonoBehaviour
         {
             other.GetComponent<enemyShipScript>().HealthPoints -= damage;
             Destroy(this.gameObject);
-            GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
+            if (other.GetComponent<enemyShipScript>().HealthPoints <= 0)
+            {
+                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
+            }
             Debug.Log("Enemy Struck");
         }
     }

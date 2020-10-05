@@ -1,22 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
-public class Plank : MonoBehaviour
+public class Spawn_Script : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool isPickedUp;
-
+    public bool isUsed = false;
     // Start is called before the first frame update
     void Start()
     {
-        isPickedUp = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
 }

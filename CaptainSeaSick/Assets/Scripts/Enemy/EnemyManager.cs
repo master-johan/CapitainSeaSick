@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
         if (spawnTimer < 0)
         {
             int rand = Random.Range(0, enemySpawnPosList.Count - 1);
-            spawnTimer = 20;
+            spawnTimer = 15;
             if (enemySpawnPosList.Count > 0)
             {
                 Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);

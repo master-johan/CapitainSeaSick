@@ -45,7 +45,7 @@ public class enemyShipScript : MonoBehaviour
             direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.4f);
             tempCannonBall.transform.position = direction;
 
-            if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 2.5f)
+            if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 1f)
             {
                 Destroy(tempCannonBall);
                 spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();

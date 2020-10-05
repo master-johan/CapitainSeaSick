@@ -111,9 +111,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!pickedUp)
             {
-                if (containerTarget.GetComponent("CannonballBarrel_Script"))
+                if (containerTarget.GetComponent("Barrell_Script") && containerTarget.name == "CannonBallBarrell")
                 {
-                    containerTarget.GetComponent<CannonballBarrel_Script>().CreateCannonball(transform.position + transform.forward * cannonballOffset);
+                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position + transform.forward * cannonballOffset);
                     Debug.Log("Added CannonBall");
                 }
             }
@@ -121,23 +121,22 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDrop()
     {
-
-        if (target.GetComponent("CannonBall"))
+        if (target != null)
         {
-            target.GetComponent<CannonBall>().isPickedUp = false;
-        }
-        target.GetComponent<Rigidbody>().useGravity = true;
+            if (target.GetComponent("CannonBall"))
+            {
+                target.GetComponent<CannonBall>().isPickedUp = false;
+            }
 
-        pickedUp = false;
-        target = null;
-        if (target.GetComponent("Plank"))
-        {
-            target.GetComponent<Plank>().isPickedUp = false;
-        }
-        target.GetComponent<Rigidbody>().useGravity = true;
+            if (target.GetComponent("Plank"))
+            {
+                target.GetComponent<Plank>().isPickedUp = false;
+            }
+            target.GetComponent<Rigidbody>().useGravity = true;
 
-        pickedUp = false;
-        target = null;
+            pickedUp = false;
+            target = null;
+        }
 
     }
 

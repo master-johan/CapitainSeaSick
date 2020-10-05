@@ -61,10 +61,10 @@ public class PlayerMovement : MonoBehaviour
                 target.GetComponent<CannonBall>().isPickedUp = true;
                 // target.GetComponent < Rigidbody >().isKinematic = false;
             }
-            else if (target.GetComponent("Plank"))
+            else if (target.GetComponent("Plank_Script"))
             {
                 target.transform.position = transform.position + transform.forward;
-                target.GetComponent<Plank>().isPickedUp = true;
+                target.GetComponent<Plank_Script>().isPickedUp = true;
             }
         }
     }
@@ -128,9 +128,9 @@ public class PlayerMovement : MonoBehaviour
                 target.GetComponent<CannonBall>().isPickedUp = false;
             }
 
-            if (target.GetComponent("Plank"))
+            if (target.GetComponent("Plank_Script"))
             {
-                target.GetComponent<Plank>().isPickedUp = false;
+                target.GetComponent<Plank_Script>().isPickedUp = false;
             }
             target.GetComponent<Rigidbody>().useGravity = true;
 

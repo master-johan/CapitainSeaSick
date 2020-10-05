@@ -40,12 +40,12 @@ public class LeakScript : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Plank>() && !other.gameObject.GetComponent<Plank>().isPickedUp)
+        if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
         {
             startedFixingLeak = true;
             UpdateLeakTimer(other.gameObject);
         }
-        else if (other.gameObject.GetComponent<Plank>() && other.gameObject.GetComponent<Plank>().isPickedUp)
+        else if (other.gameObject.GetComponent<Plank_Script>() && other.gameObject.GetComponent<Plank_Script>().isPickedUp)
         {
             ResetLeakTimer();
         }

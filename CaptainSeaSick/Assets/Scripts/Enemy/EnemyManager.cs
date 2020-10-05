@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
@@ -10,7 +11,35 @@ public class EnemyManager : MonoBehaviour
     public GameObject enemyShip;
     public Canvas enemyIndicator;
     Vector3 tempVector;
+    private UnityAction spawnListener;
+    private string spawnEnemyString = "SpawnEnemy";
 
+    private void Awake()
+    {
+        spawnListener = new UnityAction(SpawnEnemy);
+    }
+
+    private void OnEnable()
+    {
+        EventManager.StartSubscribe(spawnEnemyString, spawnListener);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.StopSubscribe(spawnEnemyString,spawnListener);
+    }
+
+    private void SpawnEnemy()
+    {
+        int rand = Random.Range(0, enemySpawnPosList.Count - 1);
+        if (enemySpawnPosList.Count > 0)
+        {
+            Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
+            tempVector = enemySpawnPosList[rand];
+            enemySpawnPosList.RemoveAt(rand);
+        }
+        GenerateIndicators();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,20 +53,20 @@ public class EnemyManager : MonoBehaviour
     {
         spawnTimer -= Time.deltaTime;
 
-        if (spawnTimer < 0)
-        {
-            int rand = Random.Range(0, enemySpawnPosList.Count - 1);
-            spawnTimer = 20;
-            if (enemySpawnPosList.Count > 0)
-            {
-                Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
-                tempVector = enemySpawnPosList[rand];
-                enemySpawnPosList.RemoveAt(rand);
-            }
-            EventManager.TriggerEvent("battle");
+        //if (spawnTimer < 0)
+        //{
+        //    int rand = Random.Range(0, enemySpawnPosList.Count - 1);
+        //    spawnTimer = 20;
+        //    if (enemySpawnPosList.Count > 0)
+        //    {
+        //        Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
+        //        tempVector = enemySpawnPosList[rand];
+        //        enemySpawnPosList.RemoveAt(rand);
+        //    }
+        //    EventManager.TriggerEvent("battle");
 
-            GenerateIndicators();
-        }
+        //    GenerateIndicators();
+        //}
     }
 
 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: New ShipLevel
   m_EditorClassIdentifier: 
   obstacles:
-  - type: 0
+  - type: 1
     whenToSpawn: 95
-    numberOfSpawns: 4
-    timeBetweenSpawn: 8
+    numberOfSpawns: 8
+    timeBetweenSpawn: 1
   - type: 1
     whenToSpawn: 75
     numberOfSpawns: 2

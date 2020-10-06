@@ -92,6 +92,11 @@ public class PlayerMovementUsingForce : MonoBehaviour
             containerTarget = null;
             Debug.Log("Exited Container");
         }
+        if (other.tag == "PickableObject")
+        {
+            target = null;
+            pickedUp = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)

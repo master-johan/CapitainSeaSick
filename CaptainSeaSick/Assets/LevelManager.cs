@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     string spawnEnemyString = "SpawnEnemy";
     string spawnCliffString = "SpawnCliff";
 
-    public Level currentLevel;
+    public ShipLevel currentLevel;
     ProgressBar_Script progressBar;
 
     Queue<Obstacle> levelObstacles;

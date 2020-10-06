@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+
 
 public enum TypeOfSpawn
 {
     cliff, ship, random
 }
-[CreateAssetMenu(fileName = "New Obstacle", menuName = "Obstacle")]
-public class Obstacle : ScriptableObject
+[Serializable]
+public class Obstacle
 {
-    public int numberOfSpawns;
-    public int whenToSpawn;
-    public float timeBetweenSpawn;
     public TypeOfSpawn type;
+    public int whenToSpawn;
+    public int numberOfSpawns;
+    public float timeBetweenSpawn;
 }

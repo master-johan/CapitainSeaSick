@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1867,6 +1867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 751590880340158930, guid: f14f16149afa5e347b115f31721ad21a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3505607702609006763, guid: f14f16149afa5e347b115f31721ad21a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2025,6 +2030,11 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 845931128}
+    - target: {fileID: 902291748761832450, guid: 8ea7fc1cb7c81024db647388c1b8bbd6,
+        type: 3}
+      propertyPath: levelTime
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1014581701659781134, guid: 8ea7fc1cb7c81024db647388c1b8bbd6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8892,6 +8902,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5541691252792588512, guid: 0acd2cc0422245e4fad551f6b451eca5,
         type: 3}
+    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
+        type: 3}
+      propertyPath: m_JoinBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Id
+      value: 1ba48130-4b5d-4459-be10-56bc89200981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363041642469607553, guid: 6a6a43bd981dea448b6199d866c667ca,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_Name
+      value: Join
+      objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8900,7 +8930,7 @@ PrefabInstance:
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.56
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}

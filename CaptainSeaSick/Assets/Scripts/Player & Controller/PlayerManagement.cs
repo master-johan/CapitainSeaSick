@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerManagement : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerManagement : MonoBehaviour
     static int playerIndex = 1;
     GameObject playerInputManager;
     Vector3 spawnPos;
+
+    bool once, onceTwo; // Only for show
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +64,20 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DontDestroyOnLoad(gameObject);
 
+        if (SceneManager.GetActiveScene().buildIndex == 2 && !once)
+        {
+            playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+            transform.position = spawnPos + playerInputManager.transform.position;
+            once = true;
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 3 && !onceTwo)
+        {
+            playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+            transform.position = spawnPos + playerInputManager.transform.position;
+            onceTwo = true;
+        }
     }
 
     private void CopyMeshAndCreate(GameObject orignal, GameObject destination)

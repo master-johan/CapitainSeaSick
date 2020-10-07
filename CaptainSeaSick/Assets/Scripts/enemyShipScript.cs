@@ -6,7 +6,7 @@ public class enemyShipScript : MonoBehaviour
 {
     public float HealthPoints = 10f;
 
-    float timer = 3;
+    float timer = 10;
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
@@ -36,7 +36,7 @@ public class enemyShipScript : MonoBehaviour
 
         if (timer <= 0)
         {
-            timer = 3;
+            timer = 10;
             tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
         }
 

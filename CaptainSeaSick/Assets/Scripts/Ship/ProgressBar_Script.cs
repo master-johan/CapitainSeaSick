@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ProgressBar_Script : MonoBehaviour
 {
     private Slider slider;
+    public GameObject controllerMenuSystem;
     public float levelTime = 20; //2 MIN
     public float timeLeft; //How long left
     public float progress = 100;
@@ -34,15 +35,21 @@ public class ProgressBar_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLeft > 0)
+        if(ControllerMenuJoinScript.playerReady)
         {
-            timeLeft -= Time.deltaTime;
-            slider.value = timeLeft / LevelTime;
+            controllerMenuSystem.SetActive(false);
+            if (timeLeft > 0)
+            {
+                timeLeft -= Time.deltaTime;
+                slider.value = timeLeft / LevelTime;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
+            progress = Mathf.RoundToInt(slider.value * 100);
         }
-        else
-        {
-            Time.timeScale = 0;
-        }
-        progress = Mathf.RoundToInt(slider.value * 100);
+
+
     }
 }

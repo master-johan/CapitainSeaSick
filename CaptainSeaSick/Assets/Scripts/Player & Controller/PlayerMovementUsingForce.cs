@@ -11,6 +11,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     GameObject target;
     GameObject containerTarget;
     GameObject ship;
+    GameObject menuSystemController;
 
     private Vector2 i_movement;
     private float cannonOffset;
@@ -26,6 +27,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         cannonOffset = 2;
         cannonballOffset = 0.7f;
 
+        menuSystemController = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
         ship = GameObject.FindGameObjectWithTag("Ship");
     }
 
@@ -33,41 +35,44 @@ public class PlayerMovementUsingForce : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
-        Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
-        tempVect = tempVect * speed;
-
-        if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
+        if(ControllerMenuJoinScript.playerReady)
         {
-            transform.forward = tempVect.normalized;
+            Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
+            tempVect = tempVect * speed;
 
-            tempVect.y = rb.velocity.y;
-            rb.velocity = tempVect;
-        }
+            if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
+            {
+                transform.forward = tempVect.normalized;
 
-        if (pickedUp)
-        {
-            if (target.gameObject.GetComponent("Cannon_Script"))
-            {
-                target.transform.position = transform.position + transform.forward * cannonOffset;
-                target.transform.right = transform.forward;
+                tempVect.y = rb.velocity.y;
+                rb.velocity = tempVect;
             }
-            else if (target.GetComponent("CannonBall"))
+
+            if (pickedUp)
             {
-                target.transform.position = transform.position + transform.forward * cannonballOffset;
-                target.GetComponent<CannonBall>().isPickedUp = true;
-                // target.GetComponent < Rigidbody >().isKinematic = false;
-            }
-            else if (target.GetComponent("Plank_Script"))
-            {
-                target.transform.position = transform.position + transform.forward * cannonballOffset;
-                target.GetComponent<Plank_Script>().isPickedUp = true;
-            }
-            else
-            {
-                target.transform.position = transform.position + transform.forward * cannonballOffset;
+                if (target.gameObject.GetComponent("Cannon_Script"))
+                {
+                    target.transform.position = transform.position + transform.forward * cannonOffset;
+                    target.transform.right = transform.forward;
+                }
+                else if (target.GetComponent("CannonBall"))
+                {
+                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                    target.GetComponent<CannonBall>().isPickedUp = true;
+                    // target.GetComponent < Rigidbody >().isKinematic = false;
+                }
+                else if (target.GetComponent("Plank_Script"))
+                {
+                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                    target.GetComponent<Plank_Script>().isPickedUp = true;
+                }
+                else
+                {
+                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                }
             }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,6 +101,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             target = null;
             pickedUp = false;
+            other.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
@@ -144,6 +150,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
             }
             target.GetComponent<Rigidbody>().useGravity = true;
 
+            target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             pickedUp = false;
             target = null;
         }

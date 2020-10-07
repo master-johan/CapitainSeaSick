@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonState: 0
+  cannonBall: {fileID: 0}
+  isShot: 0
 --- !u!1 &5716811413305599164
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,5 +200,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 138.2, y: 70, z: 114.6}
-  m_Center: {x: -49.4, y: 3.7, z: 0}
+  m_Size: {x: 138.2, y: 173.2872, z: 114.59999}
+  m_Center: {x: -49.399994, y: -47.943604, z: 3.178691e-14}

@@ -12,6 +12,9 @@ public class ControllerMenuJoinScript : MonoBehaviour
     private GameObject playerInputManager;
     private GameObject menuSystemController;
     public InputSystemUIInputModule inputSystem;
+
+    static public bool playerReady;
+    
     void Start()
     {
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
@@ -42,8 +45,9 @@ public class ControllerMenuJoinScript : MonoBehaviour
 
         if(inputSystem.submit.action.triggered)
         {
-            Debug.Log("CLICK START");
-            menuSystemController.SetActive(false);
+            playerReady = true;
+            //menuSystemController.SetActive(false);
+
         }
     }
 

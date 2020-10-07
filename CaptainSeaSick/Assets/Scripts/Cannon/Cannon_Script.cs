@@ -23,16 +23,12 @@ public class Cannon_Script : MonoBehaviour
         switch (cannonState)
         {
             case CannonState.unloaded:
-                //Debug.Log("Cannon unloaded");
                 break;
             case CannonState.loaded:
-                Debug.Log("cannon loaded");
                 break;
             case CannonState.canFire:
-                Debug.Log("Cannon canFire");
                 break;
             case CannonState.fire:
-                //Debug.Log("Cannon has fired");
                 Fire();
                 break;
             default:

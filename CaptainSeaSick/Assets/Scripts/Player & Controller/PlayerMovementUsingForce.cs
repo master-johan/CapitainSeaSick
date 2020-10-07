@@ -59,7 +59,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 {
                     target.transform.position = transform.position + transform.forward * cannonballOffset;
                     target.GetComponent<CannonBall>().isPickedUp = true;
-                    // target.GetComponent < Rigidbody >().isKinematic = false;
                 }
                 else if (target.GetComponent("Plank_Script"))
                 {
@@ -72,6 +71,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 }
             }
         }
+
         
     }
 
@@ -80,7 +80,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
         if (other.tag == "PickableObject" && !pickedUp)
         {
             target = other.gameObject;
-            Debug.Log("Picked up: " + other.gameObject.name);
         }
 
         else if (other.tag == "Container" && !pickedUp)
@@ -95,13 +94,15 @@ public class PlayerMovementUsingForce : MonoBehaviour
         if (other.tag == "Container")
         {
             containerTarget = null;
-            Debug.Log("Exited Container");
         }
         if (other.tag == "PickableObject")
         {
-            target = null;
-            pickedUp = false;
-            other.GetComponent<Rigidbody>().useGravity = true;
+            if (other == target)
+            {
+                target = null;
+                pickedUp = false;
+                other.GetComponent<Rigidbody>().useGravity = true;
+            }
         }
     }
 
@@ -131,7 +132,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
             {
                 if (containerTarget.GetComponent("Barrell_Script"))
                 {
-                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position + transform.forward * cannonballOffset);
+                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
                 }
             }
         }

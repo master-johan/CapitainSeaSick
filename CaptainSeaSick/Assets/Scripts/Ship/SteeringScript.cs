@@ -42,7 +42,6 @@ public class SteeringScript : MonoBehaviour
         if(inputVector == new Vector2(0,0))
         {
             ship.transform.rotation = Quaternion.RotateTowards(ship.transform.rotation, zeroQuaternion, (Time.deltaTime * 5));
-
         }
 
     }

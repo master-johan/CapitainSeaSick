@@ -10,12 +10,12 @@ public class Dialogue_Trigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType <Dialogue_Manager>().StartDialogue(dialogue);
-        Debug.Log("trigger dialog");
+        //Debug.Log("trigger dialog");
     }
 
     public void TriggerDialogueBattle()
     {
         FindObjectOfType<Dialogue_Manager>().StartDialogue(battleDialogue);
-        Debug.Log("trigger dialog");
+        //Debug.Log("trigger dialog");
     }
 }

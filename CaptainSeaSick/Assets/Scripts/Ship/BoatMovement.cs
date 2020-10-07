@@ -13,34 +13,31 @@ public class BoatMovement : MonoBehaviour
     private Quaternion rotationDirection, zeroQuaternion;
     private GameObject ship, cliffIndicator;
     private float stepSpeed, shipSpeed, shipSpeedBasedOnRotation, rotSpeed;
-    private Vector3 turnVector, indicatorPosition;
+    public Vector3 turnVector, indicatorPosition;
     private float timer = 2;
+
+    private GameObject levelManager;
 
     void Start()
     {
         move.Enable();
         stepSpeed = 5f;
-        shipSpeed = 0.2f;
-        rotSpeed = 0.2f;
+        shipSpeed = 0.1f;
+        rotSpeed = 0.1f;
 
+        levelManager = GameObject.Find("LevelManager");
         ship = GameObject.FindGameObjectWithTag("Ship");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
         zeroQuaternion = new Quaternion(0, 0, 0, ship.transform.rotation.w);
 
         indicatorPosition = new Vector3(-34, 0, transform.position.z);
-        cliffIndicator.transform.position = new Vector3(-34, 0, transform.position.z);
 
     }
     void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer <= 0)
-        {
-            indicatorPosition = new Vector3(-34, 0, 500);
-
-        }
 
         shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
+
 
         inputVector = move.ReadValue<Vector2>();
         rotationDirection = ship.transform.rotation;
@@ -67,13 +64,18 @@ public class BoatMovement : MonoBehaviour
         {
             ship.transform.rotation = Quaternion.RotateTowards(rotationDirection, zeroQuaternion, step);
         }
-
         if (ship.transform.rotation.eulerAngles.x <= 10 || ship.transform.rotation.eulerAngles.x >= 350)
         {    
             turnVector = new Vector3(0, 0, 0);
         }
 
+
+        indicatorPosition = new Vector3(-34, 0, transform.position.z);
         cliffIndicator.transform.position = indicatorPosition;
         transform.position += turnVector;
+    }
+    private void OnDestroy()
+    {
+        cliffIndicator.transform.position = new Vector3(200, 200, 200);
     }
 }

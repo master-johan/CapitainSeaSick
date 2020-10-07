@@ -6,9 +6,9 @@ using UnityEngine.Events;
 public class CliffSpawner : MonoBehaviour
 {
 
-    public GameObject cliffPrefab;
-    public float timer =20;
-
+    public GameObject cliffPrefab, indicator;
+    private GameObject tempCliff;
+    public float timer = 20;
     private UnityAction cliffListener;
     string cliffSpawnString = "SpawnCliff";
 
@@ -29,25 +29,27 @@ public class CliffSpawner : MonoBehaviour
 
     void Start()
     {
-        //cliffPrefab.transform.position = new Vector3(-50, -12, Random.Range(-15, 15));
-        //Instantiate(cliffPrefab);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //timer -= Time.deltaTime;
-
-        //if (timer <= 0)
-        //{
-        //    SpawnCliff();
-        //    timer = 20;
-        //}
+  
     }
 
     private void SpawnCliff()
     {
         cliffPrefab.transform.position = new Vector3(-100, -10, Random.Range(-15, 15));
-        Instantiate(cliffPrefab);
+        tempCliff = Instantiate(cliffPrefab);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Cliff")
+        {
+            other.gameObject.GetComponent<BoatMovement>().indicatorPosition = new Vector3(200, 200, 200);
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -19,6 +19,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void GoToGameScene()
     {
-        SceneManager.LoadScene(1);
+        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();// use levelLoader to change scene
+        //SceneManager.LoadScene(1);
     }
 }

@@ -9,9 +9,10 @@ using UnityEngine.UI;
 public class ProgressBar_Script : MonoBehaviour
 {
     private Slider slider;
-    public float levelTime = 120f; //2 MIN
+    public float levelTime = 20; //2 MIN
     public float timeLeft; //How long left
-    public float progress;
+    public float progress = 100;
+    public bool isDone = false;
 
     public float TimeLeft { get => timeLeft; set => timeLeft = value; }
     public float LevelTime { get => levelTime; set => levelTime = value; }

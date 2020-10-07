@@ -2736,8 +2736,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.651657, y: 7.267642, z: 152.49637}
-  m_Center: {x: 64.94582, y: 3.133821, z: 22.234398}
+  m_Size: {x: 8.651657, y: 7.267642, z: 323.7451}
+  m_Center: {x: 64.94582, y: 3.133821, z: 6.2984467}
 --- !u!54 &1427556785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3014,6 +3014,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.1084232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_Id
+      value: 1bfb653f-be7d-47a9-b3b9-c474cf97e32b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_Name
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 7f427efc-4217-4b9c-b4eb-ce79bd585e17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467974842221747547, guid: 63dbda05e5be26b4ca9544518026fec4,
+        type: 3}
+      propertyPath: move.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/rightStick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63dbda05e5be26b4ca9544518026fec4, type: 3}

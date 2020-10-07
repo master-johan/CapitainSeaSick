@@ -44,6 +44,8 @@ public class SpawnPositionsScript : MonoBehaviour
             Vector3 spawnPositionZ = new Vector3(0, 0, Random.Range(-objectSize.z / 2, objectSize.z / 2));
             Vector3 spawnPosition = center + spawnPositionX + spawnPositionZ;
             tempLeak = Instantiate(Leak, spawnPosition, Quaternion.identity);
+
+            tempLeak.transform.parent = tempGameObject.transform;
             tempLeak.GetComponent<LeakScript>().SaveSpawnPosition(tempGameObject);
         }
     }

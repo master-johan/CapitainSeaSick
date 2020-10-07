@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/WIP MasterScene 1.unity
     guid: c308e515cee689241b4ad74c53c281f9
   - enabled: 1
+    path: Assets/Scenes/Scavenging Phase Levels/Level One.unity
+    guid: 3130c4f72f397fe41a7cf165478b7834
+  - enabled: 1
     path: Assets/Scenes/Work in progress/WIP Hammer.unity
     guid: e7f8da7b0111d72498ba369a91dd72b4
   m_configObjects: {}

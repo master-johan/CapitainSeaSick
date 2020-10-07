@@ -13,7 +13,8 @@ public class BoatMovement : MonoBehaviour
     private Quaternion rotationDirection, zeroQuaternion;
     private GameObject ship, cliffIndicator;
     private float stepSpeed, shipSpeed, shipSpeedBasedOnRotation, rotSpeed;
-    private Vector3 turnVector;
+    private Vector3 turnVector, indicatorPosition;
+    private float timer = 2;
 
     void Start()
     {
@@ -26,11 +27,18 @@ public class BoatMovement : MonoBehaviour
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
         zeroQuaternion = new Quaternion(0, 0, 0, ship.transform.rotation.w);
 
-
+        indicatorPosition = new Vector3(-34, 0, transform.position.z);
         cliffIndicator.transform.position = new Vector3(-34, 0, transform.position.z);
+
     }
     void Update()
     {
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            indicatorPosition = new Vector3(-34, 0, 500);
+
+        }
 
         shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
 
@@ -65,9 +73,7 @@ public class BoatMovement : MonoBehaviour
             turnVector = new Vector3(0, 0, 0);
         }
 
-        
-
+        cliffIndicator.transform.position = indicatorPosition;
         transform.position += turnVector;
-        cliffIndicator.transform.position = new Vector3(-34, 0, transform.position.z);
     }
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172150281434018013}
-  - component: {fileID: 4172150281434018015}
   - component: {fileID: 4732140153278161476}
   m_Layer: 0
   m_Name: CliffManager
@@ -32,34 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4172150281434018015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4172150281434018008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4472eb2c92f79b14abc07f4bd10bc8f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 538b8fc0-6248-4062-ac79-34aa4b0365a7
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 878e3309-5241-4211-b3ae-0661e9c73603
-      m_Path: <Gamepad>/rightStick
-      m_Interactions: 
-      m_Processors: AxisDeadzone(min=0.25,max=0.85)
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 0
 --- !u!114 &4732140153278161476
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -95,14 +95,11 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             containerTarget = null;
         }
-        if (other.tag == "PickableObject")
+        if (other.tag == "PickableObject" && !pickedUp)
         {
-            if (other == target)
-            {
-                target = null;
-                pickedUp = false;
-                other.GetComponent<Rigidbody>().useGravity = true;
-            }
+            target = null;
+            pickedUp = false;
+            other.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 

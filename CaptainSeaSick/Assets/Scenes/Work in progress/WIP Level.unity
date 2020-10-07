@@ -263,6 +263,11 @@ PrefabInstance:
       propertyPath: progress
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2033641639045559920, guid: ff216fadcc7d74f5094b8dfa798b8731,
+        type: 3}
+      propertyPath: levelTime
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 2033641639636559711, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -773,8 +778,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 41.732063, y: 13.621792, z: 14.033218}
-  m_Center: {x: -5.333808, y: -7.2573566, z: 0}
+  m_Size: {x: 36.946804, y: 13.621792, z: 9.798545}
+  m_Center: {x: -2.9411812, y: -7.2573566, z: -0.17011136}
 --- !u!114 &778831918
 MonoBehaviour:
   m_ObjectHideFlags: 0

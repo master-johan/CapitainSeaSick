@@ -113,8 +113,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (containerTarget.GetComponent("Barrell_Script") && containerTarget.name == "CannonBallBarrell")
                 {
-                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position + transform.forward * cannonballOffset);
-                    Debug.Log("Added CannonBall");
+                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
                 }
             }
         }

@@ -70,7 +70,6 @@ public class Dialogue_Manager : MonoBehaviour
     private void NextSentence()
     {
 
-        //Debug.Log(sentences.Count + "sentences left");
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -87,7 +86,6 @@ public class Dialogue_Manager : MonoBehaviour
     {
         GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
         StartCoroutine(typeText(currentSentence));
-        //Debug.Log(currentSentence);   
     }
 
     IEnumerator typeText(string s)
@@ -131,7 +129,6 @@ public class Dialogue_Manager : MonoBehaviour
     private void EndDialogue()
     {
         endDialogue = true;
-        //Debug.Log("EndDialogue");
         GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
         EventManager.StopSubscribe("welcome", startTalking);
     }

@@ -38,7 +38,6 @@ public class LevelManager : MonoBehaviour
         {
             if (levelObstacles.Peek().whenToSpawn == progressBar.progress)
             {
-                Debug.Log("Spawner kallas");
                 Spawner();
             }
         }
@@ -59,7 +58,6 @@ public class LevelManager : MonoBehaviour
         float timeLeft = time;
         while (timeLeft > 0)
         {
-            Debug.Log(timeLeft);
             yield return new WaitForSeconds(1);
             timeLeft--;
         }

@@ -43,7 +43,6 @@ public class CannonBall : MonoBehaviour
             {
                 GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
             }
-            Debug.Log("Enemy Struck");
         }
     }
 

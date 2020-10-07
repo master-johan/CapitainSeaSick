@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public class SteeringScript : MonoBehaviour
 {
     bool inSteeringPosition;
     GameObject player;
     GameObject ship;
+
+    Quaternion shipRotation;
     
     void Start()
     {
@@ -15,7 +18,7 @@ public class SteeringScript : MonoBehaviour
     }
     void Update()
     {
-
+       
     }
     private void OnTriggerEnter(Collider other)
     {

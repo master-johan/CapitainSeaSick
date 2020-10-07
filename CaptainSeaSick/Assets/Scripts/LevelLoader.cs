@@ -13,7 +13,6 @@ public class LevelLoader : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress);
         if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress <= 0)
         {
             LoadNextLevel();
@@ -23,14 +22,11 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        //Debug.Log("Load next");
-        Debug.Log("Next LevelIndex " + (SceneManager.GetActiveScene().buildIndex + 1));
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        //Debug.Log("Next LevelIndex" + levelIndex);
 
         transition.SetTrigger("Start");
         SceneManager.LoadScene(levelIndex);

@@ -29,10 +29,9 @@ public class ShipHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name + " kipppar");
         if(other.tag == "Cliff")
         {
-
+            Destroy(other.gameObject);
             ModifyHealth(-10);
         }
     }

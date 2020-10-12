@@ -87,7 +87,11 @@ public class Dialogue_Manager : MonoBehaviour
         GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = true;
         StartCoroutine(typeText(currentSentence));
     }
-
+    /// <summary>
+    /// Coroutine to type out text character by character
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     IEnumerator typeText(string s)
     {
         foreach (var letter in s.ToCharArray())
@@ -97,7 +101,11 @@ public class Dialogue_Manager : MonoBehaviour
         }
         StartCoroutine(waitForSeconds(5f));        
     }
-
+    /// <summary>
+    /// Coroutine that makes the dialogue pause between dialogues
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     IEnumerator waitForSeconds (float time)
     {
         float timeLeft = time;
@@ -125,7 +133,9 @@ public class Dialogue_Manager : MonoBehaviour
         //    EventManager.TriggerEvent(eventToTrigger);
         //}
     }
-
+    /// <summary>
+    /// Method to end dialogue and turn of the renderer for the speechbubble
+    /// </summary>
     private void EndDialogue()
     {
         endDialogue = true;

@@ -20,12 +20,18 @@ public class LevelLoader : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// Increse the value of buildIndex and changes active scene. The coroutine LoadLevel gets called
+    /// </summary>
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
-
+    /// <summary>
+    /// Enumetator that controlls the transition time between the scenes
+    /// </summary>
+    /// <param name="levelIndex"></param>
+    /// <returns></returns>
     IEnumerator LoadLevel(int levelIndex)
     {
 

@@ -127,7 +127,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         else if (containerTarget != null)
         {
             if (!pickedUp)
-            {
+            {   // When you press A and is close to a barrell, then create an object from "inside" the barrell.
                 if (containerTarget.GetComponent("Barrell_Script"))
                 {
                     containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
@@ -156,7 +156,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// First checks if a cannon is the players target, then checks if the cannon is inside the "canFire" state which means that it is on a triggerspot and has a cannonball inside.
+    /// Then turns the cannons state to fire.
+    /// </summary>
     private void OnInteract()
     {
         if (target != null)

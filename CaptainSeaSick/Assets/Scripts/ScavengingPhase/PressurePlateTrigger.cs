@@ -6,13 +6,13 @@ public class PressurePlateTrigger : MonoBehaviour
 {
     Renderer thisRenderer;
     public bool plateIsTriggered;
+
     void Start()
     {
         thisRenderer = GetComponent<Renderer>();
         thisRenderer.material.color = Color.red;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -26,6 +26,7 @@ public class PressurePlateTrigger : MonoBehaviour
             plateIsTriggered = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")

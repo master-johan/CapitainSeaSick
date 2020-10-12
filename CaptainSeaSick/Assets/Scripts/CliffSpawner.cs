@@ -51,6 +51,7 @@ public class CliffSpawner : MonoBehaviour
     {
         if (other.tag == "Cliff")
         {
+            //Move the indicator if the cliff is destoryed out of bounds
             other.gameObject.GetComponent<BoatMovement>().indicatorPosition = new Vector3(200, 200, 200);
             Destroy(other.gameObject);
         }

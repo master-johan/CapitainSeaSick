@@ -18,7 +18,7 @@ public class PlayerManagement : MonoBehaviour
     GameObject playerInputManager;
     Vector3 spawnPos;
 
-    bool once, onceTwo; // Only for show
+    bool once; // Only for show
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +64,7 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Doesnt destory the player and sets the correct spawn position in the ScaveningScene.
         DontDestroyOnLoad(gameObject);
 
         if (SceneManager.GetActiveScene().buildIndex == 2 && !once)
@@ -71,12 +72,6 @@ public class PlayerManagement : MonoBehaviour
             playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
             transform.position = spawnPos + playerInputManager.transform.position;
             once = true;
-        }
-        else if(SceneManager.GetActiveScene().buildIndex == 3 && !onceTwo)
-        {
-            playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
-            transform.position = spawnPos + playerInputManager.transform.position;
-            onceTwo = true;
         }
     }
 
@@ -99,6 +94,7 @@ public class PlayerManagement : MonoBehaviour
     {
         if (other.tag == "RollingBarrell")
         {
+            //Moves the player back to the spawning position if hit by a barrell.
             transform.position = spawnPos + playerInputManager.transform.position;
         }
     }

@@ -21,6 +21,7 @@ public class DropZoneFunctionality : MonoBehaviour
     {
         if(other.tag == "PickableObject")
         {
+            //Saves the value of the PickableObject which collides with the dropzone hitbox.
             droppedItem = other.gameObject;
             itemDropped = true;
         }

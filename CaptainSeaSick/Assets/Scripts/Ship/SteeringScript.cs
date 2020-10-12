@@ -22,14 +22,19 @@ public class SteeringScript : MonoBehaviour
     }
     void Update()
     {
+        //Reads the value from the rightstick
         inputVector = move.ReadValue<Vector2>();
-        Debug.Log(inputVector);
+
+        
         if (inSteeringPosition)
         {
+            //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(ship.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(ship.transform.rotation.eulerAngles.x) >= 340)
             {
                 ship.transform.Rotate(new Vector3(inputVector.y * 0.1f, 0, 0));
             }
+
+            //Keeps the ship from rotating further than the limit values
             else if (System.Math.Round(ship.transform.rotation.eulerAngles.x) == 21)
             {
                 ship.transform.Rotate(new Vector3(-0.01f, 0, 0));
@@ -39,6 +44,7 @@ public class SteeringScript : MonoBehaviour
                 ship.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
+        //Rotate the ship back if a no/ very little input is given from the controller.
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {
             ship.transform.rotation = Quaternion.RotateTowards(ship.transform.rotation, zeroQuaternion, (Time.deltaTime * 5));

@@ -18,8 +18,10 @@ public class BarrellSpawner : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
+        //Spawn a barrell every 10 seconds at the position for the BarrellSpawner.
         if (timer <= 0)
         {
+           
             tempBarrell = Instantiate(barrell);
             tempBarrell.transform.position = transform.position;
 
@@ -31,6 +33,7 @@ public class BarrellSpawner : MonoBehaviour
     {
         if (other.tag == "RollingBarrell")
         {
+            //Destroy the save value in tempBarrell and NOT the prefab.
             Destroy(tempBarrell);
         }
     }

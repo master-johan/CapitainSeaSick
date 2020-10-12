@@ -35,6 +35,11 @@ public class TriggerTest : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// if a trigger collides with a collider under the cannon it becomes active as in blue
+    /// If a trigger collides with either the box under a cannon or the cannon it gets added to a list
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "CannonTriggerUnder")
@@ -46,7 +51,10 @@ public class TriggerTest : MonoBehaviour
             colliderList.Add(other);
         }
     }
-
+    /// <summary>
+    /// If a trigger collides with a cannon, the cannons position gets set to the trigger position.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerStay(Collider other)
     {
 
@@ -81,6 +89,9 @@ public class TriggerTest : MonoBehaviour
             colliderList.Remove(other);
         }
     }
+    /// <summary>
+    /// Setting the trigger colors depending on state
+    /// </summary>
     void UpdateIndication()
     {
         var objects = GameObject.FindGameObjectsWithTag("CannonSpot");

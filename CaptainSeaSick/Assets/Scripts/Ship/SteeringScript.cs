@@ -25,7 +25,6 @@ public class SteeringScript : MonoBehaviour
         //Reads the value from the rightstick
         inputVector = move.ReadValue<Vector2>();
 
-        
         if (inSteeringPosition)
         {
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.

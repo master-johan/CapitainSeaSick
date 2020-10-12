@@ -39,11 +39,8 @@ public class SpawnPositionsScript : MonoBehaviour
 
             tempGameObject.GetComponent<Spawn_Script>().isUsed = true;
             Vector3 center = tempGameObject.transform.position;
-            Vector3 objectSize = tempGameObject.GetComponent<MeshCollider>().bounds.size; // the size of the plane
-            Vector3 spawnPositionX = new Vector3(Random.Range(-objectSize.x / 2, objectSize.x / 2), 0, 0);
-            Vector3 spawnPositionZ = new Vector3(0, 0, Random.Range(-objectSize.z / 2, objectSize.z / 2));
-            Vector3 spawnPosition = center + spawnPositionX + spawnPositionZ;
-            tempLeak = Instantiate(Leak, spawnPosition, Quaternion.identity);
+
+            tempLeak = Instantiate(Leak, center, tempGameObject.transform.rotation);
 
             tempLeak.transform.parent = tempGameObject.transform;
             tempLeak.GetComponent<LeakScript>().SaveSpawnPosition(tempGameObject);

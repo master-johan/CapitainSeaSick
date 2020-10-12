@@ -11,14 +11,12 @@ public class PlayerMovementUsingForce : MonoBehaviour
     public int playerIndex = 0;
     GameObject target;
     GameObject containerTarget;
-    GameObject ship;
-    GameObject menuSystemController;
 
     private Vector2 i_movement;
     private float cannonOffset;
     private float cannonballOffset;
     private Rigidbody rb;
-    private bool pickedUp, inSteeringPlace;
+    private bool pickedUp;
 
     Vector3 tempVect;
 
@@ -29,9 +27,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
         cannonOffset = 2;
         cannonballOffset = 0.7f;
-
-        menuSystemController = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
-        ship = GameObject.FindGameObjectWithTag("Ship");
     }
 
 
@@ -45,6 +40,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
             if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
             {
+                
                 transform.forward = tempVect.normalized;
 
                 tempVect.y = rb.velocity.y;
@@ -53,6 +49,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
             if (pickedUp)
             {
+                //Different offsets depending on which item is picked up.
                 if (target.gameObject.GetComponent("Cannon_Script"))
                 {
                     target.transform.position = transform.position + transform.forward * cannonOffset;
@@ -113,6 +110,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
+        //Saves the value from the controller into a vector which is used to steer the character.
         i_movement = value.Get<Vector2>();
     }
     private void OnPickUp()
@@ -121,9 +119,9 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             if (!pickedUp)
             {
+                //Remove gravity is the target is picked up.
                 target.GetComponent<Rigidbody>().useGravity = false;
                 pickedUp = true;
-                target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             }
         }
         else if (containerTarget != null)

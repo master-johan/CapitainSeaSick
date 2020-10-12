@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,14 +11,14 @@ public class PlayerMovementUsingForce : MonoBehaviour
     public int playerIndex = 0;
     GameObject target;
     GameObject containerTarget;
-    GameObject ship;
-    GameObject menuSystemController;
 
     private Vector2 i_movement;
     private float cannonOffset;
     private float cannonballOffset;
     private Rigidbody rb;
-    private bool pickedUp, inSteeringPlace;
+    private bool pickedUp;
+
+    Vector3 tempVect;
 
 
     public void Start()
@@ -26,9 +27,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
         cannonOffset = 2;
         cannonballOffset = 0.7f;
-
-        menuSystemController = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
-        ship = GameObject.FindGameObjectWithTag("Ship");
     }
 
 
@@ -37,11 +35,12 @@ public class PlayerMovementUsingForce : MonoBehaviour
     {
         if(ControllerMenuJoinScript.playerReady)
         {
-            Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
+            tempVect = new Vector3(i_movement.x, 0, i_movement.y);
             tempVect = tempVect * speed;
 
             if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
             {
+                
                 transform.forward = tempVect.normalized;
 
                 tempVect.y = rb.velocity.y;
@@ -50,6 +49,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
             if (pickedUp)
             {
+                //Different offsets depending on which item is picked up.
                 if (target.gameObject.GetComponent("Cannon_Script"))
                 {
                     target.transform.position = transform.position + transform.forward * cannonOffset;
@@ -110,6 +110,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
+        //Saves the value from the controller into a vector which is used to steer the character.
         i_movement = value.Get<Vector2>();
     }
     private void OnPickUp()
@@ -118,15 +119,15 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             if (!pickedUp)
             {
+                //Remove gravity is the target is picked up.
                 target.GetComponent<Rigidbody>().useGravity = false;
                 pickedUp = true;
-                target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             }
         }
         else if (containerTarget != null)
         {
             if (!pickedUp)
-            {
+            {   // When you press A and is close to a barrell, then create an object from "inside" the barrell.
                 if (containerTarget.GetComponent("Barrell_Script"))
                 {
                     containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
@@ -155,7 +156,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// First checks if a cannon is the players target, then checks if the cannon is inside the "canFire" state which means that it is on a triggerspot and has a cannonball inside.
+    /// Then turns the cannons state to fire.
+    /// </summary>
     private void OnInteract()
     {
         if (target != null)
@@ -169,4 +173,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     }
 
+    private void OnBoost()
+    {
+        Vector3 boostVec = transform.forward;
+        Vector3 currentVel = rb.velocity;
+        rb.AddForce(currentVel + (boostVec * 1000), ForceMode.Impulse);
+    }
 }

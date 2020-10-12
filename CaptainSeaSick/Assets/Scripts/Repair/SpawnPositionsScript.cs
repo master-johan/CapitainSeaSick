@@ -15,7 +15,10 @@ public class SpawnPositionsScript : MonoBehaviour
     {
 
     }
-
+    /// <summary>
+    /// When an enemyShip has hit, if one spot is open then continue to check what spawnposition is empty. 
+    /// Then spawn a leak on that position
+    /// </summary>
     public void SpawnLeak()
     {
         for (int i = 0; i < spawnPositionArray.Length; i++)

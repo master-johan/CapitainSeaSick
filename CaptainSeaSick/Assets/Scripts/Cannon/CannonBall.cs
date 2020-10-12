@@ -19,6 +19,9 @@ public class CannonBall : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// setting the cannonballs position when loaded and shot.
+    /// </summary>
     void Update()
     {
         if(isLoaded)
@@ -33,6 +36,10 @@ public class CannonBall : MonoBehaviour
             cannon = null;
         }
     }
+    /// <summary>
+    /// When it collides with an enemy it does damage and remove the indicator for that ship if it gets destroyed.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy")
@@ -46,7 +53,13 @@ public class CannonBall : MonoBehaviour
         }
     }
 
-    // Loading a cannonball into the cannon
+    /// <summary>
+    /// If a cannonball is staying inside a cannons boxcollider and isn't in a players hand.
+    /// If the cannon isn't loaded with another cannonball.
+    /// Then the cannonball gets one cannon attached to it, the cannonball becomes a trigger since it needs to check if it hits an enemyship,
+    /// it becomes kinematic since it doesn't need any velocity, the cannonball "isLoaded", the cannon is loaded, the cannon gets this cannonball and it wont render for now.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerStay(Collider other)
     {
         if (other.GetComponent("Cannon_Script") && !isPickedUp)

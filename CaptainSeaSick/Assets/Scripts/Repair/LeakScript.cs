@@ -38,6 +38,10 @@ public class LeakScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    /// <summary>
+    /// If there is a plank on a leak then start to fix it.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
@@ -56,7 +60,10 @@ public class LeakScript : MonoBehaviour
         fixLeakTimer = 5;
         startedFixingLeak = false;
     }
-
+    /// <summary>
+    /// If timer is <= 0 then remove leak and the plank.
+    /// </summary>
+    /// <param name="tempPlank"></param>
     void UpdateLeakTimer(GameObject tempPlank)
     {
         if (fixLeakTimer <= 0)

@@ -11,12 +11,14 @@ public class BarrellFunctionality : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //The direction for the barrell to roll in (only downwards in the z-axis)
         direction = new Vector3(0, 0, -1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Rotate the barrel when rolling and move the barrell in the direction-vector.
         transform.Rotate(new Vector3(0, 0, -1));
         rb.transform.position += direction * (Time.deltaTime * 7);
     }

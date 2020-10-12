@@ -15,7 +15,7 @@ public class BoatMovement : MonoBehaviour
 
     void Start()
     {
-
+        
         ship = GameObject.FindGameObjectWithTag("Ship");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
 
@@ -24,10 +24,13 @@ public class BoatMovement : MonoBehaviour
     }
     void Update()
     {
-
+        //Take the value of the rotation and save it.
         shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
 
+        //Move the cliffs toward the boat
         transform.position += new Vector3(0.03f, 0, 0);
+
+        //If a player is in the right spot then move the cliffs either up or down depending on which way the player rotates the ship.
 
         if (ship.GetComponentInChildren<SteeringScript>().GetSteeringBool())
         {
@@ -41,18 +44,25 @@ public class BoatMovement : MonoBehaviour
             }
         }
 
+        //Dont turn if the ship is not rotated enough.
         if (ship.transform.rotation.eulerAngles.x <= 10 || ship.transform.rotation.eulerAngles.x >= 350)
         {    
             turnVector = new Vector3(0, 0, 0);
         }
 
-
+        //Move the indicator to the cliff
         indicatorPosition = new Vector3(-34, 0, transform.position.z);
-        cliffIndicator.transform.position = indicatorPosition;
+        if (cliffIndicator != null)
+        {
+            cliffIndicator.transform.position = indicatorPosition;
+        }
+
+        //Used to move the cliff up or down.
         transform.position += turnVector;
     }
     private void OnDestroy()
     {
+        //Move away the indicator if the cliff is destoryed.
         cliffIndicator.transform.position = new Vector3(200, 200, 200);
     }
 }

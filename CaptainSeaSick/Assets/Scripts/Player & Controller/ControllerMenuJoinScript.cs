@@ -46,8 +46,6 @@ public class ControllerMenuJoinScript : MonoBehaviour
         if(inputSystem.submit.action.triggered)
         {
             playerReady = true;
-            //menuSystemController.SetActive(false);
-
         }
     }
 

@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour
 {
     List<Vector3> enemySpawnPosList;
-    float spawnTimer;
+
     public GameObject enemyShip;
     public Canvas enemyIndicator;
+
     Vector3 tempVector;
+
     private UnityAction spawnListener;
+
     private string spawnEnemyString = "SpawnEnemy";
 
     private void Awake()
@@ -28,14 +31,17 @@ public class EnemyManager : MonoBehaviour
     {
         EventManager.StopSubscribe(spawnEnemyString,spawnListener);
     }
-
+    /// <summary>
+    /// Random between different vectors comming later in the script.
+    /// Then removes that vector from a vector list including all the different set locations.
+    /// </summary>
     private void SpawnEnemy()
     {
         int rand = Random.Range(0, enemySpawnPosList.Count - 1);
         if (enemySpawnPosList.Count > 0)
         {
-            Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
             tempVector = enemySpawnPosList[rand];
+            Instantiate(enemyShip, tempVector, Quaternion.identity);
             enemySpawnPosList.RemoveAt(rand);
         }
         GenerateIndicators();
@@ -45,32 +51,17 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {    
         GenerateSpawnPos();
-        spawnTimer = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
 
-
-        //if (spawnTimer < 0)
-        //{
-        //    int rand = Random.Range(0, enemySpawnPosList.Count - 1);
-        //    spawnTimer = 20;
-        //    if (enemySpawnPosList.Count > 0)
-        //    {
-        //        Instantiate(enemyShip, enemySpawnPosList[rand], Quaternion.identity);
-        //        tempVector = enemySpawnPosList[rand];
-        //        enemySpawnPosList.RemoveAt(rand);
-        //    }
-        //    EventManager.TriggerEvent("battle");
-
-        //    GenerateIndicators();
-        //}
     }
 
-
+    /// <summary>
+    /// Litterally generate indicators depending on where a ship is
+    /// </summary>
     private void GenerateIndicators()
     {
         if (tempVector == new Vector3(-2, -4, -85))
@@ -106,6 +97,9 @@ public class EnemyManager : MonoBehaviour
             enemyIndicator.transform.Find("L4image").GetComponent<Image>().enabled = true;
         }
     }
+    /// <summary>
+    /// Here are the different vectors in the list
+    /// </summary>
     private void GenerateSpawnPos()
     {
         enemySpawnPosList = new List<Vector3>();
@@ -118,6 +112,10 @@ public class EnemyManager : MonoBehaviour
         enemySpawnPosList.Add(new Vector3(85, 0, -6.5f)); //R4
         enemySpawnPosList.Add(new Vector3(85, 0, 5.5f)); //L4
     }
+    /// <summary>
+    /// Removes the indicators depending on where an enemyship has died, and added on that vector to the list so an enemy can be spawned on that position again.
+    /// </summary>
+    /// <param name="temp"></param>
     public void RemoveIndicators(Vector3 temp)
     {
         if (temp == new Vector3(-2, -4, -85))

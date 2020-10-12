@@ -14,6 +14,9 @@ public class enemyShipScript : MonoBehaviour
 
     private Vector3 hitPosition;
     // Start is called before the first frame update
+    /// <summary>
+    /// Setting the hitposition depending on where the Enemyship is standing
+    /// </summary>
     void Start()
     {
 
@@ -29,6 +32,9 @@ public class enemyShipScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Create and move an enemycannonball towards hitposition
+    /// </summary>
     void Update()
     {
         

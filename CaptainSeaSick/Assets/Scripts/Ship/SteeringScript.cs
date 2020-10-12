@@ -23,7 +23,6 @@ public class SteeringScript : MonoBehaviour
     void Update()
     {
         inputVector = move.ReadValue<Vector2>();
-        Debug.Log(inputVector);
         if (inSteeringPosition)
         {
             if (System.Math.Round(ship.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(ship.transform.rotation.eulerAngles.x) >= 340)

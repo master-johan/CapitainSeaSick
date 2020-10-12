@@ -7,13 +7,10 @@ public class Cannon_Script : MonoBehaviour
     public enum CannonState{ unloaded, loaded, canFire, fire}
     public CannonState cannonState;
     public GameObject cannonBall;
-
-    public bool isShot;
     // Start is called before the first frame update
     void Start()
     {
         cannonState = CannonState.unloaded;
-      
     }
 
     // Update is called once per frame
@@ -36,6 +33,10 @@ public class Cannon_Script : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// When a cannon is fired, it's cannonball changes isLoaded to false, isShot to true and its renderer to true so it can be seen.
+    /// The cannon doesn't have a cannonball attached to it and the state of the cannon goes to unloaded.
+    /// </summary>
     private void Fire()
     {
         cannonBall.GetComponent<CannonBall>().isLoaded = false;

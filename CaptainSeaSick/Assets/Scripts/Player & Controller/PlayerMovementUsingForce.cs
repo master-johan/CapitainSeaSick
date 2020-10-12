@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,8 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private float cannonballOffset;
     private Rigidbody rb;
     private bool pickedUp, inSteeringPlace;
+
+    Vector3 tempVect;
 
 
     public void Start()
@@ -37,7 +40,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     {
         if(ControllerMenuJoinScript.playerReady)
         {
-            Vector3 tempVect = new Vector3(i_movement.x, 0, i_movement.y);
+            tempVect = new Vector3(i_movement.x, 0, i_movement.y);
             tempVect = tempVect * speed;
 
             if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
@@ -169,4 +172,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     }
 
+    private void OnBoost()
+    {
+        Vector3 boostVec = transform.forward;
+        Vector3 currentVel = rb.velocity;
+        rb.AddForce(currentVel + (boostVec * 1000), ForceMode.Impulse);
+    }
 }

@@ -30,8 +30,6 @@ public class ProgressBar_Script : MonoBehaviour
         timeLeft = LevelTime;
         slider.value = timeLeft;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(ControllerMenuJoinScript.playerReady)
@@ -48,7 +46,5 @@ public class ProgressBar_Script : MonoBehaviour
             }
             progress = Mathf.RoundToInt(slider.value * 100);
         }
-
-
     }
 }

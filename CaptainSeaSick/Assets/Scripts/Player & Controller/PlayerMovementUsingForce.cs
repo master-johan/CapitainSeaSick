@@ -20,6 +20,8 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     Vector3 tempVect;
 
+    private bool pickUpActionTriggered;
+
 
     public void Start()
     {
@@ -33,14 +35,14 @@ public class PlayerMovementUsingForce : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(ControllerMenuJoinScript.playerReady)
+        if (ControllerMenuJoinScript.playerReady)
         {
             tempVect = new Vector3(i_movement.x, 0, i_movement.y);
             tempVect = tempVect * speed;
 
             if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
             {
-                
+
                 transform.forward = tempVect.normalized;
 
                 tempVect.y = rb.velocity.y;
@@ -52,27 +54,32 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 //Different offsets depending on which item is picked up.
                 if (target.gameObject.GetComponent("Cannon_Script"))
                 {
-                    target.transform.position = transform.position + transform.forward * cannonOffset;
+                    TargetOffsetPosition(cannonOffset);
                     target.transform.right = transform.forward;
                 }
                 else if (target.GetComponent("CannonBall"))
                 {
-                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                    TargetOffsetPosition(cannonballOffset);
                     target.GetComponent<CannonBall>().isPickedUp = true;
                 }
                 else if (target.GetComponent("Plank_Script"))
                 {
-                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                    TargetOffsetPosition(cannonballOffset);
                     target.GetComponent<Plank_Script>().isPickedUp = true;
                 }
                 else
                 {
-                    target.transform.position = transform.position + transform.forward * cannonballOffset;
+                    TargetOffsetPosition(cannonballOffset);
                 }
             }
         }
 
-        
+
+    }
+
+    private void TargetOffsetPosition(float offset)
+    {
+        target.transform.position = transform.position + transform.forward * offset;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -87,8 +94,17 @@ public class PlayerMovementUsingForce : MonoBehaviour
             containerTarget = other.gameObject;
         }
 
-       
+
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "PickableObject" && !pickedUp)
+        {
+            target = other.gameObject;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Container")
@@ -103,11 +119,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
-
     private void OnMove(InputValue value)
     {
         //Saves the value from the controller into a vector which is used to steer the character.
@@ -115,47 +126,62 @@ public class PlayerMovementUsingForce : MonoBehaviour
     }
     private void OnPickUp()
     {
-        if (target != null)
+        // sets the bool to the other value of what it is right now
+        pickUpActionTriggered ^= true;
+
+        if (pickUpActionTriggered)
         {
-            if (!pickedUp)
+            if (target != null)
             {
-                //Remove gravity is the target is picked up.
-                target.GetComponent<Rigidbody>().useGravity = false;
-                pickedUp = true;
-            }
-        }
-        else if (containerTarget != null)
-        {
-            if (!pickedUp)
-            {   // When you press A and is close to a barrell, then create an object from "inside" the barrell.
-                if (containerTarget.GetComponent("Barrell_Script"))
+                if (!pickedUp)
                 {
-                    containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
+                    //Remove gravity is the target is picked up.
+                    target.GetComponent<Rigidbody>().useGravity = false;
+                    pickedUp = true;
+                }
+            }
+            else if (containerTarget != null)
+            {
+                if (!pickedUp)
+                {   // When you press A and is close to a barrell, then create an object from "inside" the barrell.
+                    if (containerTarget.GetComponent("Barrell_Script"))
+                    {
+                        containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
+                        target = containerTarget.GetComponent<Barrell_Script>().tempObject;
+                        PickUpOrDropItem(true);
+                        pickedUp = true;
+
+                    }
                 }
             }
         }
-    }
-    private void OnDrop()
-    {
-        if (target != null)
+        else
         {
-            if (target.GetComponent("CannonBall"))
+            if (target != null)
             {
-                target.GetComponent<CannonBall>().isPickedUp = false;
-            }
-            if (target.GetComponent("Plank_Script"))
-            {
-                target.GetComponent<Plank_Script>().isPickedUp = false;
-            }
-            target.GetComponent<Rigidbody>().useGravity = true;
+                PickUpOrDropItem(false);
+                target.GetComponent<Rigidbody>().useGravity = true;
 
-            target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            pickedUp = false;
-            target = null;
+                target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                pickedUp = false;
+                target = null;
+            }
         }
 
-
     }
+
+    private void PickUpOrDropItem(bool tempBool)
+    {
+        if (target.GetComponent("CannonBall"))
+        {
+            target.GetComponent<CannonBall>().isPickedUp = tempBool;
+        }
+        if (target.GetComponent("Plank_Script"))
+        {
+            target.GetComponent<Plank_Script>().isPickedUp = tempBool;
+        }
+    }
+
     /// <summary>
     /// First checks if a cannon is the players target, then checks if the cannon is inside the "canFire" state which means that it is on a triggerspot and has a cannonball inside.
     /// Then turns the cannons state to fire.

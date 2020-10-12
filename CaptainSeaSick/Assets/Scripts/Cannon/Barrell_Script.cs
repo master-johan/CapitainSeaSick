@@ -8,6 +8,8 @@ public class Barrell_Script : MonoBehaviour
     public List<GameObject> takeOutList;
 
     public GameObject takeOutObject;
+
+    public GameObject tempObject;
     float timer = 1;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class Barrell_Script : MonoBehaviour
     {
         if (timer <= 0)
         {
-            takeOutList.Add(Instantiate(takeOutObject, position, Quaternion.identity));
+            takeOutList.Add(tempObject = Instantiate(takeOutObject, position, Quaternion.identity));
             timer = 1;
         }
     }

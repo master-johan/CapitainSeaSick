@@ -52,7 +52,10 @@ public class BoatMovement : MonoBehaviour
 
         //Move the indicator to the cliff
         indicatorPosition = new Vector3(-34, 0, transform.position.z);
-        cliffIndicator.transform.position = indicatorPosition;
+        if (cliffIndicator != null)
+        {
+            cliffIndicator.transform.position = indicatorPosition;
+        }
 
         //Used to move the cliff up or down.
         transform.position += turnVector;

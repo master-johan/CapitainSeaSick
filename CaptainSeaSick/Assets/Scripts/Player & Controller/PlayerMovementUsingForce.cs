@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,7 +21,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     Vector3 tempVect;
 
-    private bool pickUpActionTriggered;
+    private bool pickUpActionTriggered = true;
 
 
     public void Start()
@@ -80,6 +81,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private void TargetOffsetPosition(float offset)
     {
         target.transform.position = transform.position + transform.forward * offset;
+        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + (target.transform.position.y / 4), target.transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -2848,6 +2848,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPositions
       objectReference: {fileID: 0}
+    - target: {fileID: 5395055520052130484, guid: c3503b0fa35f76444bf66989770612c3,
+        type: 3}
+      propertyPath: Leak
+      value: 
+      objectReference: {fileID: 1077955339940213159, guid: e2663bdcb768d2642bf9e4cf308fad47,
+        type: 3}
+    - target: {fileID: 5395055520052130484, guid: c3503b0fa35f76444bf66989770612c3,
+        type: 3}
+      propertyPath: smallLeak
+      value: 
+      objectReference: {fileID: 1700319671965167718, guid: 9eeff9a4e0a230a4983cbdcabec7f548,
+        type: 3}
+    - target: {fileID: 5395055520052130484, guid: c3503b0fa35f76444bf66989770612c3,
+        type: 3}
+      propertyPath: bigLeak
+      value: 
+      objectReference: {fileID: 1077955339940213159, guid: e2663bdcb768d2642bf9e4cf308fad47,
+        type: 3}
+    - target: {fileID: 5395055520052130484, guid: c3503b0fa35f76444bf66989770612c3,
+        type: 3}
+      propertyPath: leak
+      value: 
+      objectReference: {fileID: 31581096117548169, guid: 77837158ed120dc449a38ea512ed62e6,
+        type: 3}
     - target: {fileID: 5395055520052130485, guid: c3503b0fa35f76444bf66989770612c3,
         type: 3}
       propertyPath: m_LocalPosition.x

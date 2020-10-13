@@ -207,7 +207,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
         if(leak != null)
         {
-            if(leak.GetComponent<LeakScript>().plankOnLeak)
+            if(leak.GetComponent<BigLeakScript>().plankOnLeak)
             {
                 leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.05f);
             }

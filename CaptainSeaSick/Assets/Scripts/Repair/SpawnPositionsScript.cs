@@ -7,7 +7,7 @@ public class SpawnPositionsScript : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject[] spawnPositionArray = new GameObject[6];
-    public GameObject Leak;
+    public GameObject leak;
     GameObject tempLeak;
     GameObject tempGameObject;
     bool allSpawnPositionUsed = false;
@@ -43,16 +43,20 @@ public class SpawnPositionsScript : MonoBehaviour
             tempGameObject.GetComponent<Spawn_Script>().isUsed = true;
             Vector3 center = tempGameObject.transform.position;
 
-            tempLeak = Instantiate(Leak, center, tempGameObject.transform.rotation);
+            tempLeak = Instantiate(leak, center, leak.transform.rotation);
 
             tempLeak.transform.parent = tempGameObject.transform;
-            tempLeak.GetComponent<LeakScript>().SaveSpawnPosition(tempGameObject);
+
+            tempLeak.GetComponent<BigLeakScript>().SaveSpawnPosition(tempGameObject);
+
         }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

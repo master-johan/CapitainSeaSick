@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 2033641639045559920, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
       propertyPath: levelTime
-      value: 120
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2033641639045559920, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
@@ -394,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takeOutList: []
   takeOutObject: {fileID: 627918214}
+  tempObject: {fileID: 0}
 --- !u!1001 &219131252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3231,6 +3232,7 @@ MonoBehaviour:
   takeOutList: []
   takeOutObject: {fileID: 2379265785112574030, guid: 0d238745d500e36469b9d9ba17fadbcf,
     type: 3}
+  tempObject: {fileID: 0}
 --- !u!1001 &1878574267
 PrefabInstance:
   m_ObjectHideFlags: 0

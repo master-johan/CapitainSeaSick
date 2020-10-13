@@ -71,6 +71,7 @@ public class PlayerManagement : MonoBehaviour
         {
             playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
             transform.position = spawnPos + playerInputManager.transform.position;
+            transform.gameObject.GetComponent<PlayerMovementUsingForce>().pickedUp = false;
             once = true;
         }
     }

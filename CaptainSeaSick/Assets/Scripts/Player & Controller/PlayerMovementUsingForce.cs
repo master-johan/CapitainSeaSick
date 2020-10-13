@@ -17,7 +17,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private float cannonOffset;
     private float cannonballOffset;
     private Rigidbody rb;
-    private bool pickedUp;
+    public bool pickedUp;
 
     Vector3 tempVect;
 

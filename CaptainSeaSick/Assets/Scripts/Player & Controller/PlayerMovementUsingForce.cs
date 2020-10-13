@@ -11,6 +11,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     public int playerIndex = 0;
     GameObject target;
     GameObject containerTarget;
+    GameObject leak;
 
     private Vector2 i_movement;
     private float cannonOffset;
@@ -95,6 +96,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         }
 
 
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -102,6 +104,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
         if (other.tag == "PickableObject" && !pickedUp)
         {
             target = other.gameObject;
+        }
+        if(other.tag == "Leak")
+        {
+            leak = other.gameObject;
         }
     }
 
@@ -197,6 +203,13 @@ public class PlayerMovementUsingForce : MonoBehaviour
             }
         }
 
+        if(leak != null)
+        {
+            if(leak.GetComponent<LeakScript>().plankOnLeak)
+            {
+                leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.05f);
+            }
+        }
     }
 
     private void OnBoost()

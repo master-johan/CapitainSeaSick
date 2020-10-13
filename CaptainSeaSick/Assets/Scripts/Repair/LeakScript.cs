@@ -7,26 +7,34 @@ public class LeakScript : MonoBehaviour
 {
     // Start is called before the first frame update
     float damageTimer = 3;
-    float fixLeakTimer = 5;
-    bool startedFixingLeak;
-    GameObject tempSpawnPosition;
+    public bool plankOnLeak;
+    GameObject tempSpawnPosition, tempPlank;
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
+
         damageTimer -= Time.deltaTime;
         if (damageTimer <= 0)
         {
             DoDamage();
         }
-        if (startedFixingLeak)
+
+        if (plankOnLeak)
         {
-            fixLeakTimer -= Time.deltaTime;
+            tempPlank.transform.position = transform.position;
+            tempPlank.transform.rotation = transform.rotation;
+
+            tempPlank.GetComponent<Rigidbody>().isKinematic = true;
+            tempPlank.GetComponent<Rigidbody>().freezeRotation = true;
+            tempPlank.GetComponent<Collider>().enabled = false;
+
+            LeakFixed(tempPlank);
         }
+
     }
 
     void DoDamage()
@@ -46,32 +54,25 @@ public class LeakScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
         {
-            startedFixingLeak = true;
-            UpdateLeakTimer(other.gameObject);
-        }
-        else if (other.gameObject.GetComponent<Plank_Script>() && other.gameObject.GetComponent<Plank_Script>().isPickedUp)
-        {
-            ResetLeakTimer();
-        }
-    }
+            tempPlank = other.gameObject;
+            plankOnLeak = true;
 
-    private void ResetLeakTimer()
-    {
-        fixLeakTimer = 5;
-        startedFixingLeak = false;
+        }
     }
     /// <summary>
     /// If timer is <= 0 then remove leak and the plank.
     /// </summary>
     /// <param name="tempPlank"></param>
-    void UpdateLeakTimer(GameObject tempPlank)
+    void LeakFixed(GameObject tempPlank)
     {
-        if (fixLeakTimer <= 0)
+        if(gameObject.GetComponentInChildren<RepairBarFunctionality>().bar.localScale.x >= 1)
         {
             RemoveLeak();
             tempSpawnPosition.GetComponent<Spawn_Script>().isUsed = false;
             Destroy(tempPlank);
         }
+
+
     }
 
     public void SaveSpawnPosition(GameObject tempObject)

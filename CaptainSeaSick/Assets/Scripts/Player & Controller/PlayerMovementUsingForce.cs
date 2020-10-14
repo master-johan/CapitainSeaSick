@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -17,12 +18,17 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private Vector2 i_movement;
     private float cannonOffset;
     private float cannonballOffset;
+    private float boostVal = 0;
+    private float boostTimer = 5;
     private Rigidbody rb;
     public bool pickedUp;
 
     Vector3 tempVect;
 
     private bool pickUpActionTriggered = true;
+    private bool usingBoost = false;
+    private bool boostUsed = false;
+    
 
 
     public void Start()
@@ -39,16 +45,53 @@ public class PlayerMovementUsingForce : MonoBehaviour
     {
         if (ControllerMenuJoinScript.playerReady)
         {
-            tempVect = new Vector3(i_movement.x, 0, i_movement.y);
-            tempVect = tempVect * speed;
+            tempVect = new Vector3(i_movement.x, 0, i_movement.y) * speed;
 
-            if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
+            transform.forward = tempVect.normalized;
+
+            if (!usingBoost)
             {
+                if (Math.Abs(i_movement.x) >= 0.125 || Math.Abs(i_movement.y) >= 0.125)
+                {
+                    tempVect.y = rb.velocity.y;
 
-                transform.forward = tempVect.normalized;
+                    if (boostUsed)
+                    {
+                        float x = rb.velocity.x - (i_movement.x * speed);
+                        float y = rb.velocity.y - (i_movement.y * speed);
+                        if (Math.Abs(x) > 0.5f && Math.Abs(y) > 0.5f)
+                        {
+                            rb.velocity = Vector3.Lerp(rb.velocity, tempVect, Time.deltaTime * 4);
+                        }
+                        else
+                        {
+                            rb.velocity = tempVect;
+                            boostUsed = false;
+                        }
+                    }
+                    else
+                    {
+                        rb.velocity = tempVect;
+                    }
 
-                tempVect.y = rb.velocity.y;
-                rb.velocity = tempVect;
+                }
+                if (boostVal == 0)
+                {
+                    boostTimer += Time.deltaTime;
+                    Debug.Log(boostTimer);
+                }
+            }
+            else
+            {
+                boostVal++;
+                rb.AddForce(tempVect * boostVal);
+                boostUsed = true;
+
+                if (boostVal > 100)
+                {
+                    usingBoost = false;
+                    boostVal = 0;
+                }
             }
 
             if (pickedUp)
@@ -216,8 +259,13 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
     private void OnBoost()
     {
-        Vector3 boostVec = transform.forward;
-        Vector3 currentVel = rb.velocity;
-        rb.AddForce(currentVel + (boostVec * 1000), ForceMode.Impulse);
+        if (boostTimer >= 2)
+        {
+            usingBoost = true;
+            Vector3 boostVec = transform.forward;
+            Vector3 currentVel = rb.velocity;
+            rb.AddForce(currentVel + (boostVec * 500), ForceMode.Impulse);
+            boostTimer = 0;
+        }
     }
 }

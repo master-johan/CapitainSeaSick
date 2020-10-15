@@ -78,7 +78,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 if (boostVal == 0)
                 {
                     boostTimer += Time.deltaTime;
-                    Debug.Log(boostTimer);
                 }
             }
             else
@@ -250,9 +249,9 @@ public class PlayerMovementUsingForce : MonoBehaviour
 
         if(leak != null)
         {
-            if(leak.GetComponent<BigLeakScript>().plankOnLeak)
+            if(leak.GetComponent<BigLeakScript>().playerOnRepairSpot)
             {
-                leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.05f);
+                leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.1f);
             }
         }
     }

@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour
             tempVector = enemySpawnPosList[rand];
             Instantiate(enemyShip, tempVector, Quaternion.identity);
             enemySpawnPosList.RemoveAt(rand);
+            EventManager.TriggerEvent("battle");
         }
         GenerateIndicators();
     }

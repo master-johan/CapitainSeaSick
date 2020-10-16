@@ -20,7 +20,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public Queue<string> events;
 
-    private UnityAction startTalking, battleTalk;
+    private UnityAction startTalking, battleTalk, cliffTalk;
 
     void Start()
     {
@@ -34,12 +34,14 @@ public class Dialogue_Manager : MonoBehaviour
     {
         startTalking = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogue);
         battleTalk = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogueBattle);
+        cliffTalk = new UnityAction(FindObjectOfType<Dialogue_Trigger>().TriggerDialogueCliff);
     }
 
     private void OnEnable()
     {
         EventManager.StartSubscribe("welcome", startTalking);
         EventManager.StartSubscribe("battle", battleTalk);
+        EventManager.StartSubscribe("cliff", cliffTalk);
 
     }
 
@@ -49,6 +51,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         EventManager.StopSubscribe("welcome", startTalking);
         EventManager.StopSubscribe("battle", battleTalk);
+        EventManager.StopSubscribe("cliff", cliffTalk);
 
     }
 
@@ -61,6 +64,16 @@ public class Dialogue_Manager : MonoBehaviour
         {
             sentences.Enqueue(sent);
         }
+
+        NextSentence();
+
+
+    }
+    public void StartDialogueSingle(Dialogue dialogue)
+    {
+        int rndNr = UnityEngine.Random.Range(0, dialogue.sentences.Length);
+
+        sentences.Enqueue(dialogue.sentences[rndNr]);
 
         NextSentence();
 
@@ -121,7 +134,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     void Update()
     {
-        if (events.Count >1 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
+        if (events.Count > 1 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress == 98)
         {
             string eventToTrigger = events.Dequeue();
             EventManager.TriggerEvent(eventToTrigger);

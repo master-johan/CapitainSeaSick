@@ -6,33 +6,36 @@ using UnityEngine;
 
 public class TriggerTest : MonoBehaviour
 {
-    public enum TriggerState { active, inactive, ready };
-    public TriggerState triggerState;
+    //public enum TriggerState { active, inactive, ready };
+    //public TriggerState triggerState;
 
     List<Collider> colliderList;
-
+    Cannon_Spot_Script cannonSpot;
+    GameObject child;
     // Start is called before the first frame update
     void Start()
     {
-        triggerState = TriggerState.inactive;
+        //triggerState = TriggerState.inactive;
+        cannonSpot = GetComponentInChildren<Cannon_Spot_Script>();
         colliderList = new List<Collider>();
+        child = gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (triggerState)
-        {
-            case TriggerState.active:
-                UpdateIndication();
-                break;
-            case TriggerState.inactive:
-                UpdateIndication();
-                break;
-            case TriggerState.ready:
-                UpdateIndication();
-                break;
-        }
+        //switch (triggerState)
+        //{
+        //    case TriggerState.active:
+        //        UpdateIndication();
+        //        break;
+        //    case TriggerState.inactive:
+        //        UpdateIndication();
+        //        break;
+        //    case TriggerState.ready:
+        //        UpdateIndication();
+        //        break;
+        //}
 
     }
     /// <summary>
@@ -44,7 +47,8 @@ public class TriggerTest : MonoBehaviour
     {
         if (other.name == "CannonTriggerUnder")
         {
-            triggerState = TriggerState.active;
+            cannonSpot.triggerState = Cannon_Spot_Script.TriggerState.active;
+            //triggerState = TriggerState.active;
  
         }
         if (other.GetComponent("Cannon_Script") || other.name == "CannonTriggerUnder") 
@@ -64,9 +68,11 @@ public class TriggerTest : MonoBehaviour
         {
             if (other.GetComponent("Cannon_Script"))
             {
-                triggerState = TriggerState.ready;
-                other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                other.transform.forward = transform.forward;
+                cannonSpot.triggerState = Cannon_Spot_Script.TriggerState.ready;
+                //triggerState = TriggerState.ready;
+                //other.transform.position = new Vector3(cannonSpot.transform.position.x, cannonSpot.transform.position.y, cannonSpot.transform.position.z);
+                other.transform.position = child.GetComponent<Renderer>().bounds.center;
+                other.transform.forward = cannonSpot.transform.forward;
                 if (other.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.loaded)
                 {
                     other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.canFire;
@@ -74,7 +80,8 @@ public class TriggerTest : MonoBehaviour
             }
             else if (colliderList.Count == 1 && loop.name == "CannonTriggerUnder")
             {
-                triggerState = TriggerState.active;
+                cannonSpot.triggerState = Cannon_Spot_Script.TriggerState.active;
+                //triggerState = TriggerState.active;
                 if (other.transform.parent.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
                 {
                     other.transform.parent.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
@@ -85,7 +92,8 @@ public class TriggerTest : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        triggerState = TriggerState.inactive;
+        cannonSpot.triggerState = Cannon_Spot_Script.TriggerState.inactive;
+        //triggerState = TriggerState.inactive;
         if (other.GetComponent("Cannon_Script") || other.name == "CannonTriggerUnder")
         {
             colliderList.Remove(other);
@@ -94,28 +102,28 @@ public class TriggerTest : MonoBehaviour
     /// <summary>
     /// Setting the trigger colors depending on state
     /// </summary>
-    void UpdateIndication()
-    {
-        var objects = GameObject.FindGameObjectsWithTag("CannonSpot");
-        var objectCount = objects.Length;
-        foreach (var obj in objects)
-        {
-            if (triggerState == TriggerState.active)
-            {
-                Renderer render = GetComponent<Renderer>();
-                render.material.color = Color.blue;
-            }
-            else if (triggerState == TriggerState.ready)
-            {
-                Renderer render = GetComponent<Renderer>();
-                render.material.color = Color.red;
-            }
-            else if (triggerState == TriggerState.inactive)
-            {
-                Renderer render = GetComponent<Renderer>();
-                render.material.color = Color.white;
-            }
-        }
-    }
+    //void UpdateIndication()
+    //{
+    //    var objects = GameObject.FindGameObjectsWithTag("CannonSpot");
+    //    var objectCount = objects.Length;
+    //    foreach (var obj in objects)
+    //    {
+    //        if (triggerState == TriggerState.active)
+    //        {
+    //            Renderer render = GetComponent<Renderer>();
+    //            render.material.color = Color.blue;
+    //        }
+    //        else if (triggerState == TriggerState.ready)
+    //        {
+    //            Renderer render = GetComponent<Renderer>();
+    //            render.material.color = Color.red;
+    //        }
+    //        else if (triggerState == TriggerState.inactive)
+    //        {
+    //            Renderer render = GetComponent<Renderer>();
+    //            render.material.color = Color.white;
+    //        }
+    //    }
+    //}
 
 }

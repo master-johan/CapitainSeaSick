@@ -124,7 +124,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private void TargetOffsetPosition(float offset)
     {
         target.transform.position = transform.position + transform.forward * offset;
-        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + (target.transform.position.y / 4), target.transform.position.z);
+        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - (target.transform.position.y / 4), target.transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)

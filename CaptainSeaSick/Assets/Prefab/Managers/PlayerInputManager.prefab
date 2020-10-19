@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5363041642469607554}
   - component: {fileID: 5363041642469607553}
   m_Layer: 0
-  m_Name: PlayerInputManagerJohanTest
+  m_Name: PlayerInputManager
   m_TagString: PlayerInputManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,13 +56,21 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 1eadbb2a-7edb-4633-929b-0503a1a5f4fa
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: e14111de-fc4f-4783-9244-7799250f1c5e
+        m_Path: <Gamepad>/buttonSouth
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
     m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 7741697163309679515, guid: 283d63cdb1023ad4caab0075e13d7a64,
     type: 3}

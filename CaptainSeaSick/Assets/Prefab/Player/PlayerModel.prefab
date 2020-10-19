@@ -2009,6 +2009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   playerIndex: 0
+  pickedUp: 0
 --- !u!54 &7582263095118039163
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -45,10 +45,12 @@ public class TriggerTest : MonoBehaviour
         if (other.name == "CannonTriggerUnder")
         {
             triggerState = TriggerState.active;
+ 
         }
         if (other.GetComponent("Cannon_Script") || other.name == "CannonTriggerUnder") 
         {
             colliderList.Add(other);
+
         }
     }
     /// <summary>

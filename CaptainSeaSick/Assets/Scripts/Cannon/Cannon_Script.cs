@@ -6,7 +6,7 @@ public class Cannon_Script : MonoBehaviour
 {
     public enum CannonState{ unloaded, loaded, canFire, fire}
     public CannonState cannonState;
-    public GameObject cannonBall;
+    public GameObject cannonBall, buttonB;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +20,13 @@ public class Cannon_Script : MonoBehaviour
         switch (cannonState)
         {
             case CannonState.unloaded:
+                buttonB.SetActive(false);
                 break;
             case CannonState.loaded:
+                buttonB.SetActive(false);
                 break;
             case CannonState.canFire:
+                buttonB.SetActive(true);
                 break;
             case CannonState.fire:
                 Fire();

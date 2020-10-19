@@ -10,7 +10,6 @@ public class enemyShipScript : MonoBehaviour
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
-    private GameObject spawnPositions;
 
     private Vector3 hitPosition;
     // Start is called before the first frame update
@@ -19,8 +18,6 @@ public class enemyShipScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-
-        spawnPositions = GameObject.FindGameObjectWithTag("SpawnPositions");
         if (transform.position == new Vector3(-2, -4, -85) || transform.position == new Vector3(-2, -4, 85))
         {
             hitPosition = new Vector3(-2, -5, -0.5f);
@@ -54,7 +51,6 @@ public class enemyShipScript : MonoBehaviour
             if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 1f)
             {
                 Destroy(tempCannonBall);
-                spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();
             }
         }
 

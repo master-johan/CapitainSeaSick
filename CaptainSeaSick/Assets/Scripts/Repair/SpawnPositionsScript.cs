@@ -10,7 +10,7 @@ public class SpawnPositionsScript : MonoBehaviour
     public GameObject leak;
     GameObject tempLeak;
     GameObject tempGameObject;
-    bool allSpawnPositionUsed = false;
+    public bool allSpawnPositionUsed = false;
     void Start()
     {
 
@@ -49,6 +49,7 @@ public class SpawnPositionsScript : MonoBehaviour
 
             tempLeak.GetComponent<BigLeakScript>().SaveSpawnPosition(tempGameObject);
 
+            Debug.Log("Läckan har spawnat");
         }
 
 

@@ -8,11 +8,15 @@ public class ShipHealth : MonoBehaviour
     [SerializeField]
     private float maxHealth = 100;
     public float currenthealth;
+    private GameObject spawnPositions;
+
 
     public event Action <float> healthPctChanged = delegate { };
     private void OnEnable()
     {
         currenthealth = maxHealth;
+        spawnPositions = GameObject.FindGameObjectWithTag("SpawnPositions");
+
     }
 
     /// <summary>
@@ -36,7 +40,8 @@ public class ShipHealth : MonoBehaviour
         if(other.tag == "Cliff")
         {
             Destroy(other.gameObject);
-            ModifyHealth(-10);
+            spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();
+            Debug.Log(spawnPositions.GetComponent<SpawnPositionsScript>().allSpawnPositionUsed);
         }
     }
 

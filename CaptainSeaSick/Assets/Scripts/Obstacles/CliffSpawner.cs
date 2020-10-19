@@ -32,7 +32,6 @@ public class CliffSpawner : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -43,6 +42,7 @@ public class CliffSpawner : MonoBehaviour
 
     private void SpawnCliff()
     {
+
         cliffPrefab.transform.position = new Vector3(-100, -10, Random.Range(-15, 15));
         tempCliff = Instantiate(cliffPrefab);
         EventManager.TriggerEvent("cliff");
@@ -54,6 +54,9 @@ public class CliffSpawner : MonoBehaviour
         {
             //Move the indicator if the cliff is destoryed out of bounds
             other.gameObject.GetComponent<BoatMovement>().indicatorPosition = new Vector3(200, 200, 200);
+
+
+
             Destroy(other.gameObject);
         }
     }

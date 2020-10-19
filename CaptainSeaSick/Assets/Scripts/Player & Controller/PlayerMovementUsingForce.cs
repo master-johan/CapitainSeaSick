@@ -47,7 +47,11 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             tempVect = new Vector3(i_movement.x, 0, i_movement.y) * speed;
 
-            transform.forward = tempVect.normalized;
+            if(tempVect != Vector3.zero)
+            {
+                transform.forward = tempVect.normalized;
+
+            }
 
             if (!usingBoost)
             {

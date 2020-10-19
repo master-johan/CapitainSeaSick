@@ -27,7 +27,7 @@ public class CannonBall : MonoBehaviour
         if(isLoaded)
         {
             transform.position = cannon.transform.Find("CannonBallOffset").position;
-            forwardPos = transform.position + cannon.transform.right * 1000000000f;
+            forwardPos = transform.position + cannon.transform.right * 1000f;
         }
         
         if(isShot)

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -667,6 +667,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1018037305}
     m_Modifications:
+    - target: {fileID: 1581859729, guid: 6dc02cbde21356240a2d5fae0444768b, type: 3}
+      propertyPath: cliffDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 2885ad0f79abccb4da465afa1d4a239f,
+        type: 2}
     - target: {fileID: 4856687595311698726, guid: 6dc02cbde21356240a2d5fae0444768b,
         type: 3}
       propertyPath: m_Name
@@ -2363,6 +2368,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPositions
       objectReference: {fileID: 0}
+    - target: {fileID: 5395055520052130484, guid: c3503b0fa35f76444bf66989770612c3,
+        type: 3}
+      propertyPath: leak
+      value: 
+      objectReference: {fileID: 31581096117548169, guid: 77837158ed120dc449a38ea512ed62e6,
+        type: 3}
     - target: {fileID: 5395055520052130485, guid: c3503b0fa35f76444bf66989770612c3,
         type: 3}
       propertyPath: m_LocalPosition.x

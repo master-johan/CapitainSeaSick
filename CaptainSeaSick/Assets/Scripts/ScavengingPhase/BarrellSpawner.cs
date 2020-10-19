@@ -6,7 +6,7 @@ public class BarrellSpawner : MonoBehaviour
 {
     public GameObject barrell;
     private GameObject tempBarrell;
-    public float timer = 10;
+    public float timer = 6;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class BarrellSpawner : MonoBehaviour
             tempBarrell = Instantiate(barrell);
             tempBarrell.transform.position = transform.position;
 
-            timer = 10;
+            timer = 6;
         }
     }
 

@@ -51,7 +51,10 @@ public class SpawnPositionsScript : MonoBehaviour
 
             Debug.Log("Läckan har spawnat");
         }
-
+        else
+        {
+            GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-10);
+        }
 
     }
 

@@ -45,6 +45,7 @@ public class CliffSpawner : MonoBehaviour
     {
         cliffPrefab.transform.position = new Vector3(-100, -10, Random.Range(-15, 15));
         tempCliff = Instantiate(cliffPrefab);
+        EventManager.TriggerEvent("cliff");
     }
 
     private void OnTriggerEnter(Collider other)

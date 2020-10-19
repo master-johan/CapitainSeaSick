@@ -7,7 +7,7 @@ public class BigLeakScript : MonoBehaviour
 {
     // Start is called before the first frame update
     float damageTimer = 3;
-    public bool plankOnLeak;
+    public bool plankOnLeak, playerOnRepairSpot;
     GameObject tempSpawnPosition, tempPlank;
     void Start()
     {
@@ -60,6 +60,18 @@ public class BigLeakScript : MonoBehaviour
             plankOnLeak = true;
 
         }
+        if (other.tag == "Player")
+        {
+            playerOnRepairSpot = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerOnRepairSpot = false;
+        }
+
     }
     /// <summary>
     /// If timer is <= 0 then remove leak and the plank.
@@ -67,7 +79,7 @@ public class BigLeakScript : MonoBehaviour
     /// <param name="tempPlank"></param>
     void LeakFixed(GameObject tempPlank)
     {
-        if(gameObject.GetComponentInChildren<RepairBarFunctionality>().bar != null)
+        if (gameObject.GetComponentInChildren<RepairBarFunctionality>().bar != null)
         {
             if (gameObject.GetComponentInChildren<RepairBarFunctionality>().bar.localScale.x >= 1)
             {

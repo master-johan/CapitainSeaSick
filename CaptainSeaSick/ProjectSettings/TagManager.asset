@@ -21,6 +21,7 @@ TagManager:
   - WaterBlocker
   - Leak
   - SpawnPositions
+  - AxelTestPlayer
   layers:
   - Default
   - TransparentFX

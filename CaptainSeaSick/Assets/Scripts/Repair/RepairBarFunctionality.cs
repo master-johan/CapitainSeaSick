@@ -24,7 +24,7 @@ public class RepairBarFunctionality : MonoBehaviour
 
         if (bar.localScale.x >= 0)
         {
-            bar.localScale -= new Vector3(0.0005f, 0);
+            bar.localScale -= new Vector3(0.005f, 0);
         }
     }
 

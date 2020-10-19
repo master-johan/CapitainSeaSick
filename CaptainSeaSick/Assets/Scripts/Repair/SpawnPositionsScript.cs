@@ -50,7 +50,10 @@ public class SpawnPositionsScript : MonoBehaviour
             tempLeak.GetComponent<BigLeakScript>().SaveSpawnPosition(tempGameObject);
 
         }
-
+        else
+        {
+            GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-10);
+        }
 
     }
 

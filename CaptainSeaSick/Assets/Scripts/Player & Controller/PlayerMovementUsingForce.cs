@@ -28,8 +28,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private bool pickUpActionTriggered = true;
     private bool usingBoost = false;
     private bool boostUsed = false;
-    
-
 
     public void Start()
     {
@@ -47,7 +45,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             tempVect = new Vector3(i_movement.x, 0, i_movement.y) * speed;
 
-            transform.forward = tempVect.normalized;
+            if (tempVect != Vector3.zero)
+            {
+                transform.forward = tempVect.normalized;
+            }
 
             if (!usingBoost)
             {
@@ -138,9 +139,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             containerTarget = other.gameObject;
         }
-
-
-
     }
 
     private void OnTriggerStay(Collider other)
@@ -213,6 +211,11 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 target.GetComponent<Rigidbody>().useGravity = true;
 
                 target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
+                if (target.GetComponent<Cannon_Script>())
+                {
+                    target.GetComponent<Cannon_Script>().GetComponent<Rigidbody>().freezeRotation = true;
+                }
                 pickedUp = false;
                 target = null;
             }

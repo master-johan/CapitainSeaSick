@@ -109,7 +109,6 @@ GameObject:
   m_Component:
   - component: {fileID: 708930321}
   - component: {fileID: 708930322}
-  - component: {fileID: 708930323}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -182,19 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &708930323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708930320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01d499f2dada94a19a3191e664efa36b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 0}
 --- !u!1 &1753736599
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: fc112ad6b03014344ad04dd1ad2b0076, type: 2}
   battleDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}
+  cliffDialogue: {fileID: 11400000, guid: 2885ad0f79abccb4da465afa1d4a239f, type: 2}
 --- !u!1001 &5739558943916863095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c480964175e8440499c7dee92f64db7a,
         type: 3}
       propertyPath: m_Name
-      value: Captain
+      value: Captain With bubble
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c480964175e8440499c7dee92f64db7a, type: 3}

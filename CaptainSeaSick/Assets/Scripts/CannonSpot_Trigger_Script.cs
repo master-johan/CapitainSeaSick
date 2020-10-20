@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class CannonSpot_Trigger_Script : MonoBehaviour
 {
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
             Debug.Log("Player Enter Cannonspot");
+        }
+        if(other.name =="CannonTriggerUnder")
+        {
+            
         }
     }
 
@@ -19,4 +24,6 @@ public class CannonSpot_Trigger_Script : MonoBehaviour
             Debug.Log("Player Exit Cannonspot");
         }
     }
+
+
 }

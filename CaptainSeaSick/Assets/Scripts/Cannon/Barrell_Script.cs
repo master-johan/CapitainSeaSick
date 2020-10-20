@@ -10,6 +10,7 @@ public class Barrell_Script : MonoBehaviour
     public GameObject takeOutObject;
 
     public GameObject tempObject;
+
     float timer = 1;
     // Start is called before the first frame update
     void Start()

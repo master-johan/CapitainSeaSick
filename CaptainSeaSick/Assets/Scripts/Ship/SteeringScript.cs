@@ -6,19 +6,23 @@ using UnityEngine.InputSystem;
 
 public class SteeringScript : MonoBehaviour
 {
-    bool inSteeringPosition;
+    public bool inSteeringPosition;
     public InputAction move;
     Vector2 inputVector;
     Quaternion zeroQuaternion;
+    Steering_Trigger_Script steeringTrigger;
 
     GameObject player;
-    GameObject ship;
+    //GameObject ship;
+
+    public GameObject shipPivot;
 
     void Start()
     {
         move.Enable();
-        ship = GameObject.FindGameObjectWithTag("Ship");
-        zeroQuaternion = new Quaternion(0, 0, 0, ship.transform.rotation.w);
+        //ship = GameObject.FindGameObjectWithTag("Ship");
+        zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
+        steeringTrigger = GetComponent<Steering_Trigger_Script>();
     }
     void Update()
     {
@@ -28,25 +32,25 @@ public class SteeringScript : MonoBehaviour
         if (inSteeringPosition)
         {
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
-            if (System.Math.Round(ship.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(ship.transform.rotation.eulerAngles.x) >= 340)
+            if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 340)
             {
-                ship.transform.Rotate(new Vector3(inputVector.y * 0.1f, 0, 0));
+                shipPivot.transform.Rotate(new Vector3(inputVector.y * 0.1f, 0, 0));
             }
 
             //Keeps the ship from rotating further than the limit values
-            else if (System.Math.Round(ship.transform.rotation.eulerAngles.x) == 21)
+            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 21)
             {
-                ship.transform.Rotate(new Vector3(-0.01f, 0, 0));
+                shipPivot.transform.Rotate(new Vector3(-0.01f, 0, 0));
             }
-            else if (System.Math.Round(ship.transform.rotation.eulerAngles.x) == 339)
+            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 339)
             {
-                ship.transform.Rotate(new Vector3(0.01f, 0, 0));
+                shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
         //Rotate the ship back if a no/ very little input is given from the controller.
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {
-            ship.transform.rotation = Quaternion.RotateTowards(ship.transform.rotation, zeroQuaternion, (Time.deltaTime * 5));
+            shipPivot.transform.rotation = Quaternion.RotateTowards(shipPivot.transform.rotation, zeroQuaternion, (Time.deltaTime * 5));
         }
 
     }

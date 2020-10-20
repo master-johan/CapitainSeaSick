@@ -22,6 +22,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     private float boostTimer = 5;
     private Rigidbody rb;
     public bool pickedUp;
+    public bool steering = false;
 
     Vector3 tempVect;
 
@@ -41,6 +42,8 @@ public class PlayerMovementUsingForce : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+     
+
         if (ControllerMenuJoinScript.playerReady)
         {
             tempVect = new Vector3(i_movement.x, 0, i_movement.y) * speed;
@@ -120,6 +123,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
             }
         }
 
+        transform.SetParent(GameObject.FindGameObjectWithTag("Ship").transform);
 
     }
 
@@ -139,7 +143,8 @@ public class PlayerMovementUsingForce : MonoBehaviour
         else if (other.tag == "Container" && !pickedUp)
         {
             containerTarget = other.gameObject;
-        }
+        } 
+ 
     }
 
     private void OnTriggerStay(Collider other)
@@ -152,6 +157,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         {
             leak = other.gameObject;
         }
+   
     }
 
     private void OnTriggerExit(Collider other)
@@ -166,6 +172,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
             pickedUp = false;
             other.GetComponent<Rigidbody>().useGravity = true;
         }
+    
     }
 
     private void OnMove(InputValue value)
@@ -242,6 +249,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
     /// </summary>
     private void OnInteract()
     {
+    
         if (target != null)
         {
             if (target.GetComponent("Cannon_Script") && target.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
@@ -258,7 +266,10 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.1f);
             }
         }
+
+
     }
+
 
     private void OnBoost()
     {

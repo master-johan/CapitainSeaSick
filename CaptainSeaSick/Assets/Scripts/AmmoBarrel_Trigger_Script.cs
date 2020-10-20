@@ -9,6 +9,7 @@ public class AmmoBarrel_Trigger_Script : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Enter AmmoBarrel");
+            other.GetComponent<PlayerActions>().SetFocus(gameObject, 0, 0);
         }
     }
 
@@ -17,6 +18,7 @@ public class AmmoBarrel_Trigger_Script : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Exit AmmoBarrel");
+
         }
     }
 }

@@ -9,13 +9,15 @@ public class CannonBall : MonoBehaviour
     public bool isShot;
 
     public float damage = 5f;
-
+  
+   
     private GameObject cannon;
     private Vector3 forwardPos;
     // Start is called before the first frame update
     void Start()
     {
         isPickedUp = false;
+     
     }
 
     // Update is called once per frame
@@ -50,6 +52,11 @@ public class CannonBall : MonoBehaviour
             {
                 GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
             }
+        }
+        if (other.tag == "Player")
+        {
+            
+            other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
         }
     }
 

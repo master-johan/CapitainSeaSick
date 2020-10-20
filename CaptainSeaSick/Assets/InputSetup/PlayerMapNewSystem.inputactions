@@ -1,0 +1,128 @@
+{
+    "name": "PlayerMapNewSystem",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "7359e12b-3e53-4289-acb1-c51073d3c64b",
+            "actions": [
+                {
+                    "name": "LeftStick",
+                    "type": "Value",
+                    "id": "29e5bfff-d4bc-4efa-8961-0ef9d5bafea9",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightStick",
+                    "type": "Value",
+                    "id": "0e30e15e-767d-4433-b45a-db3040b8102c",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "ButtonA",
+                    "type": "Button",
+                    "id": "1f991b3f-24c7-4723-83e9-abacc36ffae0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ButtonB",
+                    "type": "Button",
+                    "id": "249371f2-58d8-4593-85a1-3702f1ca3b2e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "ButtonX",
+                    "type": "Button",
+                    "id": "5c351937-9b45-4cb4-93c6-785675de6b00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "ButtonY",
+                    "type": "Button",
+                    "id": "df9f6b39-f666-4b2c-8b3c-002692bf776f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "091e4d4c-5a88-4ba3-ab59-9fb900e5d4e5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc8e5445-8899-49a8-a308-e41f4a80cdb2",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3466f49d-ec86-43f2-a5ff-39304696c779",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee725286-b0a6-4e53-a7e7-ffa9f6bda748",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9c42282e-6111-4efa-8ef7-f1922e60f54a",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": "",
+                    "action": "LeftStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9b721a6-fc81-49c9-b9bb-3a9777f4da4b",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

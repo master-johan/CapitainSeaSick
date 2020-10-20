@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonState: 0
   cannonBall: {fileID: 0}
+  buttonB: {fileID: 0}
 --- !u!1 &5716811413305599164
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,13 @@ public class enemyShipScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if (transform.position == new Vector3(-2, -4, -85) || transform.position == new Vector3(-2, -4, 85))
+        if ((transform.position.x == -7.755507f && transform.position.z == -52.91732f) || (transform.position.x == -8.659712f && transform.position.z == 72.50001f))
         {
-            hitPosition = new Vector3(-2, -5, -0.5f);
+            hitPosition = new Vector3(-8, -10, 10);
         }
         else
         {
-            hitPosition = new Vector3(-13, -5, -0.5f);
+            hitPosition = new Vector3(-26, -10, 10);
         }
     }
 

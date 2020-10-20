@@ -17,6 +17,10 @@ public class EnemyManager : MonoBehaviour
 
     private string spawnEnemyString = "SpawnEnemy";
 
+    public GameObject[] tempTriggerSpots = new GameObject[8];
+
+    private GameObject[] triggerSpots = new GameObject[8];
+
     private void Awake()
     {
         spawnListener = new UnityAction(SpawnEnemy);
@@ -50,7 +54,9 @@ public class EnemyManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {    
+    {
+        triggerSpots = tempTriggerSpots;
+        Debug.Log(triggerSpots[0].name);
         GenerateSpawnPos();
     }
 
@@ -65,37 +71,37 @@ public class EnemyManager : MonoBehaviour
     /// </summary>
     private void GenerateIndicators()
     {
-        if (tempVector == new Vector3(-2, -4, -85))
-        {
-            enemyIndicator.transform.Find("R3image").GetComponent<Image>().enabled = true;
-        }
-        if (tempVector == new Vector3(-13, -4, -85))
-        {
-            enemyIndicator.transform.Find("R2image").GetComponent<Image>().enabled = true;
-        }
-        if (tempVector == new Vector3(-13, -4, 85))
-        {
-            enemyIndicator.transform.Find("L2image").GetComponent<Image>().enabled = true;
-        }
-        if (tempVector == new Vector3(-2, -4, 85))
-        {
-            enemyIndicator.transform.Find("L3image").GetComponent<Image>().enabled = true;
-        }
-        if (tempVector == new Vector3(-90, -4, -51))
-        {
-            enemyIndicator.transform.Find("R1image").GetComponent<Image>().enabled = true;
-        }
-        if (tempVector == new Vector3(-59, -4, 51))
+        if (tempVector == triggerSpots[0].transform.position + triggerSpots[0].transform.right * 50)
         {
             enemyIndicator.transform.Find("L1image").GetComponent<Image>().enabled = true;
         }
-        if (tempVector == new Vector3(85, 0, -6.5f))
+        if (tempVector == triggerSpots[1].transform.position + triggerSpots[1].transform.right * 50)
         {
-            enemyIndicator.transform.Find("R4image").GetComponent<Image>().enabled = true;
+            enemyIndicator.transform.Find("L2image").GetComponent<Image>().enabled = true;
         }
-        if (tempVector == new Vector3(85, 0, 5.5f))
+        if (tempVector == triggerSpots[2].transform.position + triggerSpots[2].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("L3image").GetComponent<Image>().enabled = true;
+        }
+        if (tempVector == triggerSpots[3].transform.position + triggerSpots[3].transform.right * 50)
         {
             enemyIndicator.transform.Find("L4image").GetComponent<Image>().enabled = true;
+        }
+        if (tempVector == triggerSpots[4].transform.position + triggerSpots[4].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R1image").GetComponent<Image>().enabled = true;
+        }
+        if (tempVector == triggerSpots[5].transform.position + triggerSpots[5].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R2image").GetComponent<Image>().enabled = true;
+        }
+        if (tempVector == triggerSpots[6].transform.position + triggerSpots[6].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R3image").GetComponent<Image>().enabled = true;
+        }
+        if (tempVector == triggerSpots[7].transform.position + triggerSpots[7].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R4image").GetComponent<Image>().enabled = true;
         }
     }
     /// <summary>
@@ -104,14 +110,14 @@ public class EnemyManager : MonoBehaviour
     private void GenerateSpawnPos()
     {
         enemySpawnPosList = new List<Vector3>();
-        enemySpawnPosList.Add(new Vector3(-2, -4, -85)); //R3
-        enemySpawnPosList.Add(new Vector3(-13, -4, -85)); // R2
-        enemySpawnPosList.Add(new Vector3(-13, -4, 85)); //L2
-        enemySpawnPosList.Add(new Vector3(-2, -4, 85)); //L3
-        enemySpawnPosList.Add(new Vector3(-90, -4, -51)); //R1
-        enemySpawnPosList.Add(new Vector3(-59, -4, 51)); //L1
-        enemySpawnPosList.Add(new Vector3(85, 0, -6.5f)); //R4
-        enemySpawnPosList.Add(new Vector3(85, 0, 5.5f)); //L4
+        enemySpawnPosList.Add(triggerSpots[0].transform.position + triggerSpots[0].transform.right * 50); //L1
+        enemySpawnPosList.Add(triggerSpots[1].transform.position + triggerSpots[1].transform.right * 50); //L2
+        enemySpawnPosList.Add(triggerSpots[2].transform.position + triggerSpots[2].transform.right * 50); //L3
+        enemySpawnPosList.Add(triggerSpots[3].transform.position + triggerSpots[3].transform.right * 50); //L4
+        enemySpawnPosList.Add(triggerSpots[4].transform.position + triggerSpots[4].transform.right * 50); //R1
+        enemySpawnPosList.Add(triggerSpots[5].transform.position + triggerSpots[5].transform.right * 50); //R2
+        enemySpawnPosList.Add(triggerSpots[6].transform.position + triggerSpots[6].transform.right * 50); //R3
+        enemySpawnPosList.Add(triggerSpots[7].transform.position + triggerSpots[7].transform.right * 50); //R4
     }
     /// <summary>
     /// Removes the indicators depending on where an enemyship has died, and added on that vector to the list so an enemy can be spawned on that position again.
@@ -119,37 +125,37 @@ public class EnemyManager : MonoBehaviour
     /// <param name="temp"></param>
     public void RemoveIndicators(Vector3 temp)
     {
-        if (temp == new Vector3(-2, -4, -85))
-        {
-            enemyIndicator.transform.Find("R3image").GetComponent<Image>().enabled = false;
-        }
-        if (temp == new Vector3(-13, -4, -85))
-        {
-            enemyIndicator.transform.Find("R2image").GetComponent<Image>().enabled = false;
-        }
-        if (temp == new Vector3(-13, -4, 85))
-        {
-            enemyIndicator.transform.Find("L2image").GetComponent<Image>().enabled = false;
-        }
-        if (temp == new Vector3(-2, -4, 85))
-        {
-            enemyIndicator.transform.Find("L3image").GetComponent<Image>().enabled = false;
-        }
-        if (temp == new Vector3(-90, -4, -51))
-        {
-            enemyIndicator.transform.Find("R1image").GetComponent<Image>().enabled = false;
-        }
-        if (temp == new Vector3(-59, -4, 51))
+        if (tempVector == triggerSpots[0].transform.position + triggerSpots[0].transform.right * 50)
         {
             enemyIndicator.transform.Find("L1image").GetComponent<Image>().enabled = false;
         }
-        if (temp == new Vector3(85, 0, -6.5f))
+        if (tempVector == triggerSpots[1].transform.position + triggerSpots[1].transform.right * 50)
         {
-            enemyIndicator.transform.Find("R4image").GetComponent<Image>().enabled = false;
+            enemyIndicator.transform.Find("L2image").GetComponent<Image>().enabled = false;
         }
-        if (temp == new Vector3(85, 0, 5.5f))
+        if (tempVector == triggerSpots[2].transform.position + triggerSpots[2].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("L3image").GetComponent<Image>().enabled = false;
+        }
+        if (tempVector == triggerSpots[3].transform.position + triggerSpots[3].transform.right * 50)
         {
             enemyIndicator.transform.Find("L4image").GetComponent<Image>().enabled = false;
+        }
+        if (tempVector == triggerSpots[4].transform.position + triggerSpots[4].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R1image").GetComponent<Image>().enabled = false;
+        }
+        if (tempVector == triggerSpots[5].transform.position + triggerSpots[5].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R2image").GetComponent<Image>().enabled = false;
+        }
+        if (tempVector == triggerSpots[6].transform.position + triggerSpots[6].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R3image").GetComponent<Image>().enabled = false;
+        }
+        if (tempVector == triggerSpots[7].transform.position + triggerSpots[7].transform.right * 50)
+        {
+            enemyIndicator.transform.Find("R4image").GetComponent<Image>().enabled = false;
         }
         enemySpawnPosList.Add(temp);
     }

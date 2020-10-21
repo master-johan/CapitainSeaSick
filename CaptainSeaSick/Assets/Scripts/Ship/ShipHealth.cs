@@ -43,6 +43,10 @@ public class ShipHealth : MonoBehaviour
             spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();
             Debug.Log(spawnPositions.GetComponent<SpawnPositionsScript>().allSpawnPositionUsed);
         }
+        if(other.tag == "EnemyCannonball")
+        {
+            ModifyHealth(-1);
+        }
     }
 
 }

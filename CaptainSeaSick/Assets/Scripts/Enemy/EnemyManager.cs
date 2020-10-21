@@ -42,6 +42,7 @@ public class EnemyManager : MonoBehaviour
         if (enemySpawnPosList.Count > 0)
         {
             tempVector = enemySpawnPosList[rand];
+
             Instantiate(enemyShip, tempVector, Quaternion.identity);
             enemySpawnPosList.RemoveAt(rand);
             EventManager.TriggerEvent("battle");
@@ -67,14 +68,14 @@ public class EnemyManager : MonoBehaviour
     private void GenerateSpawnPos()
     {
         enemySpawnPosList = new List<Vector3>();
-        enemySpawnPosList.Add(triggerSpots[0].transform.position + triggerSpots[0].transform.right * 50); //L1
-        enemySpawnPosList.Add(triggerSpots[1].transform.position + triggerSpots[1].transform.right * 50); //L2
-        enemySpawnPosList.Add(triggerSpots[2].transform.position + triggerSpots[2].transform.right * 50); //L3
-        enemySpawnPosList.Add(triggerSpots[3].transform.position + triggerSpots[3].transform.right * 50); //L4
-        enemySpawnPosList.Add(triggerSpots[4].transform.position + triggerSpots[4].transform.right * 50); //R1
-        enemySpawnPosList.Add(triggerSpots[5].transform.position + triggerSpots[5].transform.right * 50); //R2
-        enemySpawnPosList.Add(triggerSpots[6].transform.position + triggerSpots[6].transform.right * 50); //R3
-        enemySpawnPosList.Add(triggerSpots[7].transform.position + triggerSpots[7].transform.right * 50); //R4
+        enemySpawnPosList.Add(triggerSpots[0].transform.position + triggerSpots[0].transform.right * 60); //L1
+        enemySpawnPosList.Add(triggerSpots[1].transform.position + triggerSpots[1].transform.right * 60); //L2
+        enemySpawnPosList.Add(triggerSpots[2].transform.position + triggerSpots[2].transform.right * 60); //L3
+        enemySpawnPosList.Add(triggerSpots[3].transform.position + triggerSpots[3].transform.right * 60); //L4
+        enemySpawnPosList.Add(triggerSpots[4].transform.position + triggerSpots[4].transform.right * 60); //R1
+        enemySpawnPosList.Add(triggerSpots[5].transform.position + triggerSpots[5].transform.right * 60); //R2
+        enemySpawnPosList.Add(triggerSpots[6].transform.position + triggerSpots[6].transform.right * 60); //R3
+        enemySpawnPosList.Add(triggerSpots[7].transform.position + triggerSpots[7].transform.right * 60); //R4
     }
 
     public void AddBackDeadShipPosition(Vector3 temp)

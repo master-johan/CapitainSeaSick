@@ -16,8 +16,6 @@ public class PickUp_Trigger_Script : MonoBehaviour
     {
         OffsetScript offset = GetComponent<OffsetScript>();
         rb = transform.parent.GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeRotationX;
-        rb.constraints = RigidbodyConstraints.FreezeRotationZ;
     }
 
     private void FixedUpdate()

@@ -20,6 +20,7 @@ public class Barrell_Script : MonoBehaviour
         takeOutList = new List<GameObject>();
 
         spawnPos = transform.position;
+            //+ new Vector3(0, transform.localScale.y
             //                                        * GetComponent<MeshRenderer>().bounds.size.y 
             //                                        + takeOutObject.transform.localScale.y 
             //                                        * takeOutObject.GetComponent<MeshRenderer>().bounds.size.y,

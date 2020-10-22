@@ -53,11 +53,12 @@ public class CannonBall : MonoBehaviour
                 GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
             }
         }
-        if (other.tag == "Player")
-        {
+        //if (other.tag == "Player")
+        //{
             
-            other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
-        }
+        //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
+                  
+        //}
     }
 
     /// <summary>
@@ -83,4 +84,18 @@ public class CannonBall : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //if (other.tag == "Player")
+        //{
+        //    PlayerActions pa = other.GetComponent<PlayerActions>();
+        //    if (pa.focusedObject = gameObject)
+        //    {
+        //        pa.SetFocus(null, 0, 0);
+        //    }
+        //}
+    }
+
+  
 }

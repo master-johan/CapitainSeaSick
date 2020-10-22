@@ -16,4 +16,15 @@ public class Plank_Script : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.tag == "Player")
+        //{
+        //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
+
+        //}
+    }
+
+  
 }

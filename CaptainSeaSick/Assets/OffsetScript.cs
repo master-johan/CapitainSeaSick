@@ -7,8 +7,17 @@ public class OffsetScript : MonoBehaviour
     public float offsetX, offsetYMultiplier;
     public float offsetY;
 
+
     private void Start()
     {
         offsetY =  transform.localScale.y * offsetYMultiplier;
+        
     }
+    private void Update()
+    {
+
+      
+
+    }
+    
 }

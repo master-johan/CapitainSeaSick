@@ -5,35 +5,42 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.XR.WSA.Input;
 
+
+public enum PlayerState{ carrying, free, interacting};
 public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
     Vector3 direction;
     PlayerInputs playerInputs;
-
-    GameObject focusedObject;
+    public PlayerState playerState;
+    public GameObject focusedObject;
     Vector2 focusedObjectOffset;
-
-
-    bool carryingItem, carryFocusedObject;
-
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
+        playerState = PlayerState.free;
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement(playerInputs.LeftStick);
-        // PickUp();
-        if (carryingItem)
+        switch (playerState)
         {
-            CarryFocusedObject();
+            case PlayerState.carrying:
+                CarryFocusedObject();
+                break;
+            case PlayerState.free:
+                break;
+            case PlayerState.interacting:
+                break;
+            default:
+                break;
         }
+        PlayerMovement(playerInputs.LeftStick);
+     
     }
 
     void PlayerMovement(Vector2 input)
@@ -51,49 +58,88 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    public void SetFocus(GameObject target,float offsetX, float offsetY)
+    public void SetFocus(GameObject target, float offsetX, float offsetY)
     {
-        if (!carryingItem)
+        if (target == null)
         {
 
+            playerState = PlayerState.free;
+            return;
+        }
+        else if (playerState == PlayerState.free)
+        {
             Debug.Log("Got a new focus");
             focusedObject = target;
             focusedObjectOffset = new Vector2(offsetX, offsetY);
-
+        }
+        else
+        {
+            return;
         }
     }
 
     public void PickUp()
     {
-        if (focusedObject.tag== "Container")
+        switch (playerState)
         {
-            focusedObject.GetComponent<Barrell_Script>().CreateObject(gameObject);
+            case PlayerState.carrying:
+                ReleaseItem();
+                break;
+            case PlayerState.free:
+                if (focusedObject != null && focusedObject.tag == "PickableObject")
+                {
+                    PickingUpObject();
+                }
+                else if (focusedObject.tag == "Container")
+                {
+                    SpawingFromContainer();
+                }
+                break;
+            case PlayerState.interacting:
+                break;
+            default:
+                break;
         }
-        if (carryingItem)
-        {
-            ReleaseItem();
-        }
-        else if(focusedObject!= null && focusedObject.tag == "PickableObject" )
-        {
-            carryingItem = true;
-            Debug.Log("Pick up");
-            carryFocusedObject = true;
-            focusedObject.GetComponent<Rigidbody>().useGravity = false;
+    }
 
-        }
+    private void SpawingFromContainer()
+    {
+        GameObject toSpawn = focusedObject.GetComponent<Barrell_Script>().CreateObject(gameObject);
+        SetFocus(toSpawn, toSpawn.GetComponent<OffsetScript>().offsetX, toSpawn.GetComponent<OffsetScript>().offsetY);
+        PickingUpObject();
+    }
+
+    private void PickingUpObject()
+    {
+        playerState = PlayerState.carrying;
+        focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().StartDropTimer();
+        focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp();
+        Debug.Log("Pick up");
+        //focusedObject.GetComponent<Rigidbody>().detectCollisions = false;
+        //focusedObject.GetComponent<Rigidbody>().useGravity = false;
+        
     }
 
     private void ReleaseItem()
     {
-        focusedObject.GetComponent<Rigidbody>().useGravity = true;
-        carryingItem = false;
-        carryFocusedObject = false;
+        //focusedObject.GetComponent<Rigidbody>().detectCollisions = true;
+        //focusedObject.GetComponent<Rigidbody>().useGravity = true;
+        focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         Debug.Log("letting go");
         focusedObject = null;
+        playerState = PlayerState.free;
     }
 
     private void CarryFocusedObject()
     {
-        focusedObject.transform.position = transform.position + (transform.forward * focusedObject.GetComponent<OffsetScript>().offsetX) + new Vector3(0,focusedObject.GetComponent<OffsetScript>().offsetY, 0);
+        if (focusedObject !=null)
+        {
+            focusedObject.transform.position = transform.position + 
+                                               (transform.forward * 
+                                               focusedObject.GetComponent<OffsetScript>().offsetX) +
+                                               new Vector3(0, focusedObject.GetComponent<OffsetScript>().offsetY,
+                                               0);
+            focusedObject.transform.right = transform.forward;
+        }
     }
 }

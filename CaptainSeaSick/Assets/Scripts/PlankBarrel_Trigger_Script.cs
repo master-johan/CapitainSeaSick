@@ -9,6 +9,7 @@ public class PlankBarrel_Trigger_Script : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Enter PlankBarrel");
+            other.GetComponent<PlayerActions>().SetFocus(gameObject, 0, 0);
         }
     }
 
@@ -16,7 +17,11 @@ public class PlankBarrel_Trigger_Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Player Exit PlankBarrel");
+            PlayerActions pa = other.GetComponent<PlayerActions>();
+            if (pa.focusedObject == gameObject && pa.playerState == PlayerState.free)
+            {
+                pa.SetFocus(null, 0, 0);
+            }
         }
     }
 }

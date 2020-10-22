@@ -6,6 +6,7 @@ using UnityEngine;
 public class Barrell_Script : MonoBehaviour
 {
     public List<GameObject> takeOutList;
+    Vector2 spawnPos;
 
     public GameObject takeOutObject;
 
@@ -17,14 +18,18 @@ public class Barrell_Script : MonoBehaviour
     void Start()
     {
         takeOutList = new List<GameObject>();
-        
 
+        spawnPos = transform.position;
+            //                                        * GetComponent<MeshRenderer>().bounds.size.y 
+            //                                        + takeOutObject.transform.localScale.y 
+            //                                        * takeOutObject.GetComponent<MeshRenderer>().bounds.size.y,
+            //                                        0);
     }
 
     private void GetOffsetValues()
     {
-        offsetX = GetComponent<OffsetScript>().offsetX;
-        offsetY = GetComponent<OffsetScript>().offsetY;
+        offsetX = tempObject.GetComponent<OffsetScript>().offsetX;
+        offsetY = tempObject.GetComponent<OffsetScript>().offsetY;
     }
 
     // Update is called once per frame
@@ -36,15 +41,17 @@ public class Barrell_Script : MonoBehaviour
     /// Create the Object together with using a 1 second timer so it can not be spammed.
     /// </summary>
     /// <param name="position"></param>
-    public void CreateObject(GameObject player)
+    public GameObject CreateObject(GameObject player)
     {
         if (timer <= 0)
         {
             
-            takeOutList.Add(tempObject = Instantiate(takeOutObject, player.transform.position + player.transform.forward * offsetX, Quaternion.identity));
+            takeOutList.Add(tempObject = Instantiate(takeOutObject, spawnPos/*player.transform.position + player.transform.forward *  offsetX*/, Quaternion.identity));
             GetOffsetValues();
-            player.GetComponent<PlayerActions>().SetFocus(tempObject, offsetX, offsetY);
+            //player.GetComponent<PlayerActions>().SetFocus(tempObject, offsetX, offsetY);
             timer = 1;
+            return tempObject;
         }
+        return null;
     }
 }

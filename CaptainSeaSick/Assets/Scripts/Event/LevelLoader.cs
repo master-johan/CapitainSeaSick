@@ -9,16 +9,24 @@ public class LevelLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime;
     private float timer = 1f;
+    public int scenIndex;
     // Update is called once per frame
+
+    void Start()
+    {
+        scenIndex = SceneManager.GetActiveScene().buildIndex; 
+    }
     void Update()
     {
 
-
+        Debug.Log("Scen index " + scenIndex.ToString());
         if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress <= 0)
         {
             LoadNextLevel();
 
         }
+
+        
     }
     /// <summary>
     /// Increse the value of buildIndex and changes active scene. The coroutine LoadLevel gets called

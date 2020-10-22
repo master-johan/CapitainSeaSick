@@ -10,21 +10,30 @@ public class BoardingEnemyScript : MonoBehaviour
     float[] distToPlayer;
     float temp = float.MaxValue;
     int index = 5;
+    int playerIndex;
     GameObject inputManager;
 
     Vector3 targetDirection;
 
     void Start()
     {
-        players = new GameObject[PlayerManagement.playerIndex - 1];
-        distToPlayer = new float[PlayerManagement.playerIndex - 1];
+        playerIndex = PlayerManagement.playerIndex - 1;
+
+        distToPlayer = new float[playerIndex];
+        players = new GameObject[playerIndex];
+
 
         players = GameObject.FindGameObjectsWithTag("Player");
+
+
+        Debug.Log(players.Length);
+        Debug.Log(distToPlayer.Length);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         for (int i = 0; i < players.Length; i++)
         {
             distToPlayer[i] = Vector3.Distance(transform.position, players[i].transform.position);

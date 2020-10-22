@@ -10,10 +10,10 @@ using UnityEngine.InputSystem;
 public class PlayerMovementUsingForce : MonoBehaviour
 {
     public float speed = 100f;
-    public int playerIndex = 0;
     GameObject target;
     GameObject containerTarget;
     GameObject leak;
+    Animator animator;
 
     private Vector2 i_movement;
     private float cannonOffset;
@@ -33,9 +33,9 @@ public class PlayerMovementUsingForce : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        cannonOffset = 2;
-        cannonballOffset = 0.7f;
+        animator = GetComponent<Animator>();
+        cannonOffset = 4;
+        cannonballOffset = 1f;
     }
 
 
@@ -52,6 +52,12 @@ public class PlayerMovementUsingForce : MonoBehaviour
             if (tempVect != Vector3.zero)
             {
                 transform.forward = tempVect.normalized;
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+                rb.velocity = Vector3.zero;
             }
 
             if (!usingBoost)
@@ -71,12 +77,13 @@ public class PlayerMovementUsingForce : MonoBehaviour
                         else
                         {
                             rb.velocity = tempVect;
-                            boostUsed = false;
+                            boostUsed = false;                         
                         }
                     }
                     else
                     {
                         rb.velocity = tempVect;
+                        animator.SetBool("isBoosting", false);
                     }
 
                 }
@@ -94,6 +101,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 if (boostVal > 100)
                 {
                     usingBoost = false;
+                    animator.SetBool("isBoosting", false);
                     boostVal = 0;
                 }
             }
@@ -276,6 +284,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
         if (boostTimer >= 2)
         {
             usingBoost = true;
+            animator.SetBool("isBoosting", true);
             Vector3 boostVec = transform.forward;
             Vector3 currentVel = rb.velocity;
             rb.AddForce(currentVel + (boostVec * 500), ForceMode.Impulse);

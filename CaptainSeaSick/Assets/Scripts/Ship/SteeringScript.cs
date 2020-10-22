@@ -31,6 +31,8 @@ public class SteeringScript : MonoBehaviour
 
         if (inSteeringPosition)
         {
+            move.Enable();
+            Debug.Log("Inne");
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 340)
             {
@@ -47,6 +49,10 @@ public class SteeringScript : MonoBehaviour
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
+        if(!inSteeringPosition)
+        {
+            move.Disable();
+        }
         //Rotate the ship back if a no/ very little input is given from the controller.
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {
@@ -59,6 +65,8 @@ public class SteeringScript : MonoBehaviour
         if (other.tag == "Player")
         {
             inSteeringPosition = true;
+            Debug.Log("Gamla script " + inSteeringPosition);
+
         }
     }
     private void OnTriggerExit(Collider other)

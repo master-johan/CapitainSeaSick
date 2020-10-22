@@ -15,7 +15,7 @@ MonoBehaviour:
   obstacles:
   - type: 1
     whenToSpawn: 95
-    numberOfSpawns: 2
+    numberOfSpawns: 5
     timeBetweenSpawn: 1
   - type: 0
     whenToSpawn: 75

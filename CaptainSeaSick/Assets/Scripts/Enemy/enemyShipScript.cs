@@ -67,6 +67,7 @@ public class enemyShipScript : MonoBehaviour
 
         if (HealthPoints <= 0)
         {
+            Destroy(tempCannonBall);
             Destroy(this.gameObject);
         }
     }

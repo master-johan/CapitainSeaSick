@@ -34,6 +34,7 @@ public class LevelLoader : MonoBehaviour
     /// <returns></returns>
     IEnumerator LoadLevel(int levelIndex)
     {
+
         transition.SetTrigger("Start");
         SceneManager.LoadScene(levelIndex);
         yield return new WaitForSeconds(transitionTime);

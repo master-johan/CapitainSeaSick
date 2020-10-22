@@ -17,7 +17,6 @@ public class Steering_Trigger_Script : MonoBehaviour
 
             //other.gameObject.transform.position = this.transform.position;
             steering.inSteeringPosition = true;
-            Debug.Log("Steering_Trigger_script: " + steering.inSteeringPosition);
 
         }
     }
@@ -26,8 +25,8 @@ public class Steering_Trigger_Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
             steering.inSteeringPosition = false;
+
         }
     }
 }

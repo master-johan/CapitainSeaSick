@@ -32,7 +32,6 @@ public class SteeringScript : MonoBehaviour
         if (inSteeringPosition)
         {
             move.Enable();
-            Debug.Log("Inne");
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 340)
             {

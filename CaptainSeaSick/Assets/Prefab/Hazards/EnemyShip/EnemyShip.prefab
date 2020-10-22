@@ -111,6 +111,8 @@ MonoBehaviour:
   enemyCannonball: {fileID: 8371221804458293229, guid: 1f08ac7b10256b04ba823b1a8a4a8766,
     type: 3}
   tempCannonBall: {fileID: 0}
+  boardingEnemy: {fileID: 1575855825289952746, guid: ccac393729257434eb3bfa1c16f894e9,
+    type: 3}
 --- !u!1001 &904511617953585745
 PrefabInstance:
   m_ObjectHideFlags: 0

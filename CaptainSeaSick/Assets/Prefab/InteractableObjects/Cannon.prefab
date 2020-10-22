@@ -140,8 +140,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5128014586586422042}
   m_LocalRotation: {x: -0.000000021855692, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: 0.000056018, y: -0.016976, z: -0.00000002036}
+  m_LocalScale: {x: 0.009316662, y: 0.009316662, z: 0.009316662}
   m_Children:
   - {fileID: 358689373998095225}
   - {fileID: 5008629526797538204}
@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonState: 0
   cannonBall: {fileID: 0}
+  buttonB: {fileID: 0}
 --- !u!1 &5716811413305599164
 GameObject:
   m_ObjectHideFlags: 0

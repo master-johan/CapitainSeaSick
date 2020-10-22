@@ -14,7 +14,7 @@ public class PlayerManagement : MonoBehaviour
     GameObject hat;
     Color color1, color2, color3, color4;
 
-    static int playerIndex = 1;
+    public static int playerIndex = 1;
     GameObject playerInputManager;
     Vector3 spawnPos;
 
@@ -24,6 +24,7 @@ public class PlayerManagement : MonoBehaviour
     void Start()
     {
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+        
         GenerateColors();
         CopyMeshAndCreate(hat, hatPos);
         SetColor(playerIndex);

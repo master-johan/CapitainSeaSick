@@ -6,10 +6,12 @@ public class enemyShipScript : MonoBehaviour
 {
     public float HealthPoints = 10f;
 
-    float timer = 10;
+    float shootTimer = 10;
+    float lifeTimer = 5;
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
+    public GameObject boardingEnemy;
 
     private Vector3 hitPosition;
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class enemyShipScript : MonoBehaviour
         {
             hitPosition = new Vector3(-27, -10, 10);
         }
-        else if(transform.position.x > -10 && transform.position.x < 2)
+        else if (transform.position.x > -10 && transform.position.x < 2)
         {
             hitPosition = new Vector3(-3, -10, 10);
         }
@@ -45,16 +47,24 @@ public class enemyShipScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
-        timer -= Time.deltaTime;
+        lifeTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (shootTimer <= 0)
         {
-            timer = 10;
+            shootTimer = 10;
             tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
         }
 
-        if(tempCannonBall != null)
+        if (lifeTimer <= 0)
+        {
+            Instantiate(boardingEnemy);
+
+
+            Destroy(gameObject);
+        }
+
+        if (tempCannonBall != null)
         {
             direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.4f);
             tempCannonBall.transform.position = direction;

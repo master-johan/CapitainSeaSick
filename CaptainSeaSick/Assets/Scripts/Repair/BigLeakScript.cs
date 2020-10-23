@@ -58,6 +58,8 @@ public class BigLeakScript : MonoBehaviour
         {
             tempPlank = other.gameObject;
             plankOnLeak = true;
+            tempPlank.GetComponent<Plank_Script>().DeactivateTriggerZone();
+
 
         }
         if (other.tag == "Player")
@@ -83,9 +85,9 @@ public class BigLeakScript : MonoBehaviour
         {
             if (gameObject.GetComponentInChildren<RepairBarFunctionality>().bar.localScale.x >= 1)
             {
-                RemoveLeak();
                 tempSpawnPosition.GetComponent<Spawn_Script>().isUsed = false;
                 Destroy(tempPlank);
+                RemoveLeak();
             }
         }
     }
@@ -93,5 +95,13 @@ public class BigLeakScript : MonoBehaviour
     public void SaveSpawnPosition(GameObject tempObject)
     {
         tempSpawnPosition = tempObject;
+    }
+
+    public void Repair()
+    {
+        if (plankOnLeak)
+        {
+            GetComponentInChildren<RepairBarFunctionality>().SetSize(0.1f);
+        }
     }
 }

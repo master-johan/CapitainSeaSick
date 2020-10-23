@@ -41,7 +41,7 @@ public class Cannon_Script : MonoBehaviour
     /// When a cannon is fired, it's cannonball changes isLoaded to false, isShot to true and its renderer to true so it can be seen.
     /// The cannon doesn't have a cannonball attached to it and the state of the cannon goes to unloaded.
     /// </summary>
-    private void Fire()
+    public void Fire()
     {
         cannonBall.GetComponent<CannonBall>().isLoaded = false;
         cannonBall.GetComponent<CannonBall>().isShot = true;
@@ -76,5 +76,13 @@ public class Cannon_Script : MonoBehaviour
         //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
 
         //}
+    }
+
+    public void ChangeStateToFire()
+    {
+        if (cannonState == CannonState.canFire)
+        {
+            cannonState = CannonState.fire;
+        }
     }
 }

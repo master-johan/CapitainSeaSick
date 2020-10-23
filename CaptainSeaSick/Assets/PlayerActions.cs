@@ -63,7 +63,7 @@ public class PlayerActions : MonoBehaviour
         if (target == null)
         {
 
-            playerState = PlayerState.free;
+            //playerState = PlayerState.free;
             return;
         }
         else if (playerState == PlayerState.free)
@@ -86,13 +86,16 @@ public class PlayerActions : MonoBehaviour
                 ReleaseItem();
                 break;
             case PlayerState.free:
-                if (focusedObject != null && focusedObject.tag == "PickableObject")
+                if (focusedObject != null)
                 {
-                    PickingUpObject();
-                }
-                else if (focusedObject.tag == "Container")
-                {
-                    SpawingFromContainer();
+                    if (focusedObject.tag == "PickableObject")
+                    {
+                        PickingUpObject();
+                    }
+                    else if (focusedObject.tag == "Container")
+                    {
+                        SpawingFromContainer();
+                    }
                 }
                 break;
             case PlayerState.interacting:
@@ -112,7 +115,7 @@ public class PlayerActions : MonoBehaviour
     private void PickingUpObject()
     {
         playerState = PlayerState.carrying;
-        focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().StartDropTimer();
+        //focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().StartDropTimer();
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp();
         Debug.Log("Pick up");
         //focusedObject.GetComponent<Rigidbody>().detectCollisions = false;
@@ -126,7 +129,7 @@ public class PlayerActions : MonoBehaviour
         //focusedObject.GetComponent<Rigidbody>().useGravity = true;
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         Debug.Log("letting go");
-        focusedObject = null;
+        //focusedObject = null;
         playerState = PlayerState.free;
     }
 
@@ -140,6 +143,18 @@ public class PlayerActions : MonoBehaviour
                                                new Vector3(0, focusedObject.GetComponent<OffsetScript>().offsetY,
                                                0);
             focusedObject.transform.right = transform.forward;
+        }
+    }
+
+    public void Interact()
+    {
+        if (focusedObject != null)
+        {
+            if (playerState == PlayerState.free)
+            {
+                playerState = focusedObject.GetComponent<Interactable_Script>().Interact();
+
+            }
         }
     }
 }

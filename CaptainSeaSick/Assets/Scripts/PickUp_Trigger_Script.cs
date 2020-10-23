@@ -14,7 +14,7 @@ public class PickUp_Trigger_Script : MonoBehaviour
 
     private void Start()
     {
-        OffsetScript offset = GetComponent<OffsetScript>();
+        offset = transform.parent.GetComponent<OffsetScript>();
         rb = transform.parent.GetComponent<Rigidbody>();
     }
 

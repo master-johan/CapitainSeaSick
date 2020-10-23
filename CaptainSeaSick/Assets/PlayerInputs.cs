@@ -10,8 +10,6 @@ using UnityEngine.InputSystem.Utilities;
 public class PlayerInputs : MonoBehaviour
 {
     Vector2 leftStick, rightStick;
-
-    public bool activeA, activeB, activeX, activeY;
     PlayerActions playerActions;
     
 
@@ -51,23 +49,20 @@ public class PlayerInputs : MonoBehaviour
     {
    
         playerActions.PickUp();
-        activeA = true;
         Debug.Log("Button A pressed");
     }
     void OnButtonB()
     {
-        activeB = true;
+        playerActions.Interact();
         Debug.Log("Button B pressed");
     }
     void OnButtonX()
     {
-        activeX = true;
         Debug.Log("Button X pressed");
     }
 
     void OnButtonY()
     {
-        activeY = true;
         Debug.Log("Button Y pressed");
     }
 }

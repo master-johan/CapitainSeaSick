@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public enum Song { MainMenu, LevelOne, LevelTwo }
+    LevelLoader levelLoader;
+    int index;
     #region
     private static SoundManager instance;
     public static SoundManager Instance
@@ -28,6 +29,31 @@ public class SoundManager : MonoBehaviour
         }
     }
     #endregion
+
+    private void Start()
+    {
+        index = GameObject.Find("LevelLoader").GetComponent<LevelLoader>().scenIndex;
+        FindSong();
+    }
+    /// <summary>
+    /// Looking for song in "SoundBank" audioClip array for same index as the scene
+    /// </summary>
+    private void FindSong()
+    {
+        switch (index)
+        {
+            case 0:
+                Instance.PlayMusic(GameObject.Find("SoundBank").GetComponent<SoundBank>().audioClips[index]);
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+    }
+
     private AudioSource musicSource;
     private AudioSource musicSource2;
     private AudioSource soundEffectSource;

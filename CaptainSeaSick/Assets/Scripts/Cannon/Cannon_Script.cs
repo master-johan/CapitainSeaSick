@@ -7,6 +7,7 @@ public class Cannon_Script : MonoBehaviour
     public enum CannonState{ unloaded, loaded, canFire, fire}
     public CannonState cannonState;
     public GameObject cannonBall, buttonB;
+    public BoxCollider pickUpZone;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Cannon_Script : MonoBehaviour
         switch (cannonState)
         {
             case CannonState.unloaded:
-                buttonB.SetActive(false);
+                //buttonB.SetActive(false);
                 break;
             case CannonState.loaded:
                 buttonB.SetActive(false);
@@ -40,7 +41,7 @@ public class Cannon_Script : MonoBehaviour
     /// When a cannon is fired, it's cannonball changes isLoaded to false, isShot to true and its renderer to true so it can be seen.
     /// The cannon doesn't have a cannonball attached to it and the state of the cannon goes to unloaded.
     /// </summary>
-    private void Fire()
+    public void Fire()
     {
         cannonBall.GetComponent<CannonBall>().isLoaded = false;
         cannonBall.GetComponent<CannonBall>().isShot = true;
@@ -52,5 +53,36 @@ public class Cannon_Script : MonoBehaviour
     public void SetCannonBall(GameObject cannonBall)
     {
         this.cannonBall = cannonBall;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //if (other.tag == "Player")
+        //{
+        //    PlayerActions pa = other.GetComponent<PlayerActions>();
+        //    if (pa.focusedObject = gameObject)
+        //    {
+        //        pa.SetFocus(null, 0, 0);
+        //    }
+        //}
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+     
+        //if (other.tag == "Player")
+        //{
+
+        //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
+
+        //}
+    }
+
+    public void ChangeStateToFire()
+    {
+        if (cannonState == CannonState.canFire)
+        {
+            cannonState = CannonState.fire;
+        }
     }
 }

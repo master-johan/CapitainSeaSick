@@ -16,16 +16,16 @@ public class RepairBarFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (bar.localScale.x >= 0)
+        {
+            bar.localScale -= new Vector3(0.005f, 0);
+        }
         if (bar.localScale.x >= 1)
         {
             bar.localScale = new Vector3(1, 1);
         }
 
-        if (bar.localScale.x >= 0)
-        {
-            bar.localScale -= new Vector3(0.005f, 0);
-        }
+        
     }
 
     public void SetSize(float sizeNormalized)

@@ -210,7 +210,7 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 {   // When you press A and is close to a barrell, then create an object from "inside" the barrell.
                     if (containerTarget.GetComponent("Barrell_Script"))
                     {
-                        containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
+                        //containerTarget.GetComponent<Barrell_Script>().CreateObject(transform.position);
                         target = containerTarget.GetComponent<Barrell_Script>().tempObject;
                         PickUpOrDropItem(true);
                         pickedUp = true;

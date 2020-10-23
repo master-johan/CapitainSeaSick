@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlankBarrel_Trigger_Script : MonoBehaviour
+public class Leak_Trigger_Script : MonoBehaviour
 {
+    // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Player Enter PlankBarrel");
-            other.GetComponent<PlayerActions>().SetFocus(gameObject, 0, 0);
+            Debug.Log("Player Enter LeakZone");
+            other.GetComponent<PlayerActions>().SetFocus(transform.parent.gameObject,0,0); 
         }
     }
 

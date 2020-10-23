@@ -401,10 +401,12 @@ GameObject:
   - component: {fileID: 8711294997982641622}
   - component: {fileID: 3655131725604331534}
   - component: {fileID: 3361290691732959416}
-  - component: {fileID: -2833631313241009276}
   - component: {fileID: 8739268344427582092}
   - component: {fileID: -9123428058177159401}
   - component: {fileID: -2973804084587150961}
+  - component: {fileID: -5367497588149536079}
+  - component: {fileID: 1224593184184770737}
+  - component: {fileID: -8576358227530609193}
   m_Layer: 0
   m_Name: Peasant_Man
   m_TagString: Player
@@ -459,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9cad356760e54d644941389540035f02,
+  m_Actions: {fileID: -944628639613478452, guid: 1d71bd0117d072f41844aa56bb6d2898,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -492,21 +494,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hatPos: {fileID: 1896566087774657513}
   hat: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1, type: 3}
---- !u!114 &-2833631313241009276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688438822368836886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9075cdc8f180a14d9001543b456b182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  pickedUp: 0
-  steering: 0
 --- !u!54 &8739268344427582092
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -550,6 +537,45 @@ CapsuleCollider:
   m_Height: 2.1811044
   m_Direction: 1
   m_Center: {x: 0, y: 0.98945016, z: 0.028415548}
+--- !u!114 &-5367497588149536079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688438822368836886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fdfeb4d5e6fd3418633670a658626d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1224593184184770737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688438822368836886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7edfc39d69848f4f9043ac2c429133c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  playerState: 0
+  focusedObject: {fileID: 0}
+--- !u!114 &-8576358227530609193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688438822368836886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2712307336d224daff654e687e4f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2815540710993743076
 GameObject:
   m_ObjectHideFlags: 0

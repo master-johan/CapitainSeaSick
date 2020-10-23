@@ -50,7 +50,7 @@ public class CannonBall : MonoBehaviour
             Destroy(this.gameObject);
             if (other.GetComponent<enemyShipScript>().HealthPoints <= 0)
             {
-                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().RemoveIndicators(other.transform.position);
+                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().AddBackDeadShipPosition(other.transform.position);
             }
         }
         //if (other.tag == "Player")

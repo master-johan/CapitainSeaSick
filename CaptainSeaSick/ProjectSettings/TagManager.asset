@@ -21,6 +21,7 @@ TagManager:
   - WaterBlocker
   - Leak
   - SpawnPositions
+  - EnemyCannonball
   layers:
   - Default
   - TransparentFX

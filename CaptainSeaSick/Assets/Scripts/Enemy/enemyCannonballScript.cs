@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemyCannonballScript : MonoBehaviour
 {
     public bool isHit;
-    public float aliveTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +14,6 @@ public class enemyCannonballScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        aliveTimer += Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {

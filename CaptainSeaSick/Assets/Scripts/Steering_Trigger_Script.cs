@@ -13,13 +13,11 @@ public class Steering_Trigger_Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            
-           
-                //other.gameObject.transform.position = this.transform.position;
-                steering.inSteeringPosition = true;
-        
-            
-            Debug.Log("Player Enter Steering Zone");
+
+
+            //other.gameObject.transform.position = this.transform.position;
+            steering.inSteeringPosition = true;
+
         }
     }
 
@@ -27,10 +25,8 @@ public class Steering_Trigger_Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-           
-                steering.inSteeringPosition = false;
-           
-            Debug.Log("Player Exit Steering Zone");
+            steering.inSteeringPosition = false;
+
         }
     }
 }

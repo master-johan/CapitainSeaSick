@@ -6,10 +6,12 @@ public class enemyShipScript : MonoBehaviour
 {
     public float HealthPoints = 10f;
 
-    float timer = 10;
+    float shootTimer = 10;
+    float lifeTimer = 5;
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
+    public GameObject boardingEnemy;
 
     private Vector3 hitPosition;
     // Start is called before the first frame update
@@ -18,14 +20,25 @@ public class enemyShipScript : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if ((transform.position.x == -7.755507f && transform.position.z == -52.91732f) || (transform.position.x == -8.659712f && transform.position.z == 72.50001f))
+
+        if (transform.position.x < -50)
         {
             hitPosition = new Vector3(-8, -10, 10);
         }
+        else if (transform.position.x > -30 && transform.position.x < -20)
+        {
+            hitPosition = new Vector3(-27, -10, 10);
+        }
+        else if (transform.position.x > -10 && transform.position.x < 2)
+        {
+            hitPosition = new Vector3(-3, -10, 10);
+        }
         else
         {
-            hitPosition = new Vector3(-26, -10, 10);
+            hitPosition = new Vector3(4, -10, 10);
         }
+
+        transform.LookAt(hitPosition);
     }
 
     // Update is called once per frame
@@ -34,21 +47,29 @@ public class enemyShipScript : MonoBehaviour
     /// </summary>
     void Update()
     {
-        
-        timer -= Time.deltaTime;
+        lifeTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (shootTimer <= 0)
         {
-            timer = 10;
+            shootTimer = 10;
             tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
         }
 
-        if(tempCannonBall != null)
+        if (lifeTimer <= 0)
+        {
+            Instantiate(boardingEnemy);
+
+
+            Destroy(gameObject);
+        }
+
+        if (tempCannonBall != null)
         {
             direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.4f);
             tempCannonBall.transform.position = direction;
 
-            if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit || tempCannonBall.GetComponent<enemyCannonballScript>().aliveTimer >= 1f)
+            if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit)
             {
                 Destroy(tempCannonBall);
             }
@@ -56,6 +77,7 @@ public class enemyShipScript : MonoBehaviour
 
         if (HealthPoints <= 0)
         {
+            Destroy(tempCannonBall);
             Destroy(this.gameObject);
         }
     }

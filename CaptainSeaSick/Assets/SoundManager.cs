@@ -43,7 +43,8 @@ public class SoundManager : MonoBehaviour
         switch (index)
         {
             case 0:
-                Instance.PlayMusic(GameObject.Find("SoundBank").GetComponent<SoundBank>().audioClips[index]);
+                //Instance.PlayMusic(GameObject.Find("SoundBank").GetComponent<SoundBank>().audioClips[index]);
+                Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
             case 1:
                 break;

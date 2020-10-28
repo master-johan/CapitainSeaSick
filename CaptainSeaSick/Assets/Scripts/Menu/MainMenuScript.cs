@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public AudioClip menuSong;
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.Instance.PlayMusic(menuSong);
     }
 
     // Update is called once per frame
@@ -21,6 +19,5 @@ public class MainMenuScript : MonoBehaviour
     public void GoToGameScene()
     {
         GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();// use levelLoader to change scene
-        //SceneManager.LoadScene(1);
     }
 }

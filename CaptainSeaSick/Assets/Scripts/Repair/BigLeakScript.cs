@@ -41,8 +41,9 @@ public class BigLeakScript : MonoBehaviour
 
     void DoDamage()
     {
-        GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-5);
+        GameObject.FindGameObjectWithTag("Ship").GetComponent<ShipHealth>().ModifyHealth(-GameAssets.instance.LeakDamage);
         damageTimer = 3;
+        Debug.Log("Damage Done");
     }
     void RemoveLeak()
     {

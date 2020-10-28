@@ -26,7 +26,7 @@ public class PlayerManagement : MonoBehaviour
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
         
         GenerateColors();
-        CopyMeshAndCreate(hat, hatPos);
+        CopyMeshAndCreate(GameAssets.instance.hatPrefab, hatPos);
         SetColor(playerIndex);
         transform.position = spawnPos + playerInputManager.transform.position;
         playerIndex++;

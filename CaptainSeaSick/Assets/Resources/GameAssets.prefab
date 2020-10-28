@@ -45,3 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  ShipMaxHealth: 100
+  DialogueTypingSpeed: 0.1
+  EnemyCannonBallDamage: 1
+  LeakDamage: 10
+  cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
+    type: 3}
+  hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,
+    type: 3}
+  plankPrefab: {fileID: 2379265785112574030, guid: 0d238745d500e36469b9d9ba17fadbcf,
+    type: 3}
+  cannonPrefab: {fileID: 5128014586586422042, guid: 34fe32d7f69106c4bb1609b494be0a1a,
+    type: 3}
+  cannonBallPrefab: {fileID: 7891517213412848609, guid: 66802ec14ae45b24eafbb86304065f7b,
+    type: 3}

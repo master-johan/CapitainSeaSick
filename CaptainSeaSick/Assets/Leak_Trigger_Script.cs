@@ -10,7 +10,19 @@ public class Leak_Trigger_Script : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Enter LeakZone");
-            other.GetComponent<PlayerActions>().SetFocus(transform.parent.gameObject,0,0); 
+            other.GetComponent<PlayerActions>().SetFocus(transform.parent.gameObject, 0, 0);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerActions pa = other.GetComponent<PlayerActions>();
+            if (pa.focusedObject == null)
+            {
+                pa.SetFocus(transform.parent.gameObject, 0, 0);
+            }
         }
     }
 
@@ -19,10 +31,12 @@ public class Leak_Trigger_Script : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerActions pa = other.GetComponent<PlayerActions>();
-            if (pa.focusedObject == gameObject && pa.playerState == PlayerState.free)
+            if (pa.focusedObject == transform.parent.gameObject && pa.playerState == PlayerState.free)
             {
                 pa.SetFocus(null, 0, 0);
             }
         }
     }
+
+
 }

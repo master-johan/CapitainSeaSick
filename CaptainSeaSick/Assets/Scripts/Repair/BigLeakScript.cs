@@ -53,7 +53,7 @@ public class BigLeakScript : MonoBehaviour
     /// If there is a plank on a leak then start to fix it.
     /// </summary>
     /// <param name="other"></param>
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
         {

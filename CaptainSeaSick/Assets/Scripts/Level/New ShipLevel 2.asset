@@ -10,6 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
-  m_Name: New ShipLevel
+  m_Name: New ShipLevel 2
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - type: 1
+    whenToSpawn: 95
+    numberOfSpawns: 4
+    timeBetweenSpawn: 5
+  - type: 0
+    whenToSpawn: 80
+    numberOfSpawns: 3
+    timeBetweenSpawn: 4
+  - type: 1
+    whenToSpawn: 50
+    numberOfSpawns: 3
+    timeBetweenSpawn: 5
+  - type: 0
+    whenToSpawn: 30
+    numberOfSpawns: 4
+    timeBetweenSpawn: 4

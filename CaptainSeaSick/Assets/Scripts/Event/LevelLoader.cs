@@ -19,7 +19,7 @@ public class LevelLoader : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("Scen index " + scenIndex.ToString());
+        //Debug.Log("Scen index " + scenIndex.ToString());
         //if (GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress <= 0)
         //{
         //    LoadNextLevel();

@@ -59,6 +59,6 @@ public class BoardingEnemyScript : MonoBehaviour
         temp = float.MaxValue;
 
         transform.position = Vector3.MoveTowards(transform.position, targetDirection, 4 * Time.deltaTime);
-        Debug.Log(transform.position + " bollens pos");
+
     }
 }

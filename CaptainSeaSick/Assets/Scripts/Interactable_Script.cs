@@ -24,5 +24,5 @@ public class Interactable_Script : MonoBehaviour
     {
         toCall.Invoke();
         return playerStateToReturn;
-    }
+    }   
 }

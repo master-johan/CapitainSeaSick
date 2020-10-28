@@ -28,7 +28,7 @@ public class Plank_Script : MonoBehaviour
 
     public void DeactivateTriggerZone()
     {
-        GetComponentInChildren<PickUp_Trigger_Script>().enabled = false;
+        GetComponentInChildren<PickUp_Trigger_Script>().Disable();
     }
 
   

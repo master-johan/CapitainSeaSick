@@ -83,7 +83,8 @@ public class Cannon_Script : MonoBehaviour
     {
         if (cannonState == CannonState.canFire)
         {
-            fireEffect.SetActive(true);
+            fireEffect.GetComponent<ParticleSystem>().Clear();
+            fireEffect.GetComponent<ParticleSystem>().Play();
             cannonState = CannonState.fire;
         }
     }

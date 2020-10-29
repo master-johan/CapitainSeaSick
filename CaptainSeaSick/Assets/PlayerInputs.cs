@@ -58,6 +58,7 @@ public class PlayerInputs : MonoBehaviour
     }
     void OnButtonX()
     {
+        playerActions.Boost();
         Debug.Log("Button X pressed");
     }
 

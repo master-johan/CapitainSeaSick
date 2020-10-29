@@ -23,6 +23,7 @@ public class GameAssets : MonoBehaviour
     [Header("Ship Variables")]
     [Tooltip(("Ship health, a value between 0 and 100."))]
     public float ShipMaxHealth;
+    public float cliffSpeed;
     [Header("Dialogue Variables")]
     [Tooltip("Typing speed in dialogue")]
     public float DialogueTypingSpeed;

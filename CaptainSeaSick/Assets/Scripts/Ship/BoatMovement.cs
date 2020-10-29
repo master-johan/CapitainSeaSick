@@ -26,7 +26,7 @@ public class BoatMovement : MonoBehaviour
         shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
 
         //Move the cliffs toward the boat
-        transform.position -= new Vector3(0.3f, 0, 0);
+        transform.position -= new Vector3(GameAssets.instance.cliffSpeed, 0, 0) * Time.deltaTime;
 
         //If a player is in the right spot then move the cliffs either up or down depending on which way the player rotates the ship.
 
@@ -34,11 +34,11 @@ public class BoatMovement : MonoBehaviour
         {
             if (ship.transform.rotation.eulerAngles.x >= 10 && ship.transform.rotation.eulerAngles.x <= 45)
             {
-                turnVector = new Vector3(0, 0, -0.1f * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, -0.15f * shipSpeedBasedOnRotation);
             }
             else if (ship.transform.rotation.eulerAngles.x >= 270 && ship.transform.rotation.eulerAngles.x <= 350)
             {
-                turnVector = new Vector3(0, 0, 0.1f * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, 0.15f * shipSpeedBasedOnRotation);
             }
         }
 
@@ -49,7 +49,7 @@ public class BoatMovement : MonoBehaviour
         }
 
         //Move the indicator to the cliff
-        indicatorPosition = new Vector3(34, 0, transform.position.z);
+        indicatorPosition = new Vector3(14, 0, transform.position.z);
         if (cliffIndicator != null)
         {
             cliffIndicator.transform.position = indicatorPosition;

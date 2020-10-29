@@ -20,4 +20,12 @@ public class OffsetScript : MonoBehaviour
 
     }
     
+    public float[] GetOffsets()
+    {
+        float[] offsetArray = new float[2];
+        offsetArray[0] = offsetX;
+        offsetY = transform.localScale.y * offsetYMultiplier;
+        offsetArray[1] = offsetY;
+        return offsetArray;
+    }
 }

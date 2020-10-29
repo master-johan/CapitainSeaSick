@@ -33,17 +33,17 @@ public class SteeringScript : MonoBehaviour
         {
             move.Enable();
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
-            if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 20 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 340)
+            if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 10 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 350)
             {
                 shipPivot.transform.Rotate(new Vector3(inputVector.y * 0.1f, 0, 0));
             }
 
             //Keeps the ship from rotating further than the limit values
-            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 21)
+            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 11)
             {
                 shipPivot.transform.Rotate(new Vector3(-0.01f, 0, 0));
             }
-            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 339)
+            else if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) == 349)
             {
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }

@@ -418,6 +418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0107977fd18d7494d81811c0d5359a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropTimer: 0.2
+  pickUpStatus: 0
 --- !u!1 &3641515926496262119
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonState: 0
   cannonBall: {fileID: 0}
-  buttonB: {fileID: 0}
+  buttonB: {fileID: 8185344281933161426}
+  fireEffect: {fileID: 7273077996477355707}
   pickUpZone: {fileID: 0}
 --- !u!114 &4012251769436991000
 MonoBehaviour:
@@ -596,8 +599,6 @@ MonoBehaviour:
   offsetX: 2
   offsetYMultiplier: 3
   offsetY: 0
-  currentDirection: 1
-  heldDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &5716811413305599164
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,8 +741,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: CannonFireEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 9183449051059499677, guid: 744db9c25e88e0348aeee6959b038f76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183449051059499677, guid: 744db9c25e88e0348aeee6959b038f76,
+        type: 3}
+      propertyPath: m_TagString
+      value: FireEffectCannon
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 744db9c25e88e0348aeee6959b038f76, type: 3}
+--- !u!1 &7273077996477355707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9183449051059499677, guid: 744db9c25e88e0348aeee6959b038f76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1989750625204872230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7273077996477355710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9183449051059499672, guid: 744db9c25e88e0348aeee6959b038f76,

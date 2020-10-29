@@ -46,6 +46,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
   ShipMaxHealth: 100
+  cliffSpeed: 5
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
   LeakDamage: 10

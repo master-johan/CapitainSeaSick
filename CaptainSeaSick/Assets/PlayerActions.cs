@@ -6,21 +6,25 @@ using UnityEngine.UIElements;
 using UnityEngine.XR.WSA.Input;
 
 
-public enum PlayerState { carrying, free, interacting, climbing };
+public enum PlayerState { free, carrying, interacting, climbing };
 public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
-    Vector3 direction;
+    public float boostFactor = 100;
+    Vector3 direction, movemetnVector, boostvector;
     PlayerInputs playerInputs;
+    Animator animator;
     public PlayerState playerState;
     public GameObject focusedObject;
     Vector2 focusedObjectOffset;
-    public  Rigidbody rb;
+    public Rigidbody rb;
     GameObject ship;
+    float movementMultiplier, boostMultiplier;
     // Start is called before the first frame update
     void Start()
     {
         ship = GameObject.FindGameObjectWithTag("Ship");
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
@@ -68,23 +72,61 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
-            direction = new Vector3(input.x, 0, input.y) * speed;
-            if (direction != Vector3.zero)
-            {
-                transform.forward = direction.normalized;
-            }
-            if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
-            {
-                direction.y = rb.velocity.y;
-                rb.velocity = direction;
-            }
-            
+
+            movemetnVector = new Vector3(input.x, 0, input.y) * speed;
+            direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
+            //direction = new Vector3(input.x, 0, input.y) * speed;
+
+            MovementApplyToRigidbody(input);
+
             //var rotation = ship.transform.eulerAngles.x;
             //transform.Rotate( rotation, transform.eulerAngles.y, transform.eulerAngles.z);
 
         }
+    }
 
+    private void FixedUpdate()
+    {
+        if (movementMultiplier < 1)
+        {
+            movementMultiplier += .025f;
+        }
+        else
+        {
+            movementMultiplier = 1;
+        }
+        if (boostMultiplier >= .01)
+        {
+            boostMultiplier -= .025f;
+        }
+        else
+        {
+            boostMultiplier = 0;
+        }
 
+        if (boostMultiplier <= .5f)
+        {
+            animator.SetBool("isBoosting", false);
+        }
+    }
+
+    private void MovementApplyToRigidbody(Vector2 input)
+    {
+        if (direction != Vector3.zero)
+        {
+            transform.forward = direction.normalized;
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            animator.SetBool("isRunning", false);
+        }
+        if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
+        {
+            direction.y = rb.velocity.y;
+            rb.velocity = direction;
+        }
     }
 
     public void SetFocus(GameObject target, float offsetX, float offsetY)
@@ -137,7 +179,7 @@ public class PlayerActions : MonoBehaviour
     private void SpawingFromContainer()
     {
         GameObject toSpawn = focusedObject.GetComponent<Barrell_Script>().CreateObject(gameObject);
-        SetFocus(toSpawn, toSpawn.GetComponent<OffsetScript>().offsetX, toSpawn.GetComponent<OffsetScript>().offsetY);
+        SetFocus(toSpawn, toSpawn.GetComponent<OffsetScript>().GetOffsets()[0], toSpawn.GetComponent<OffsetScript>().GetOffsets()[1]);
         PickingUpObject();
     }
 
@@ -168,8 +210,8 @@ public class PlayerActions : MonoBehaviour
         {
             focusedObject.transform.position = transform.position +
                                                (transform.forward *
-                                               focusedObject.GetComponent<OffsetScript>().offsetX) +
-                                               new Vector3(0, focusedObject.GetComponent<OffsetScript>().offsetY,
+                                               focusedObjectOffset.x) +
+                                               new Vector3(0, focusedObjectOffset.y,
                                                0);
             focusedObject.transform.right = transform.forward;
         }
@@ -209,9 +251,22 @@ public class PlayerActions : MonoBehaviour
         rb.useGravity = false;
     }
 
-    public  void StopClimb()
+    public void StopClimb()
     {
         playerState = PlayerState.free;
         rb.useGravity = true;
+    }
+
+    public void Boost()
+    {
+        if (playerState != PlayerState.climbing)
+        {
+            Vector3 direction = transform.forward;
+            boostvector = direction * 15;
+            //rb.AddForce(rb.velocity + direction * 500, ForceMode.Impulse);
+            boostMultiplier = 1;
+            movementMultiplier = 0;
+            animator.SetBool("isBoosting", true);
+        }
     }
 }

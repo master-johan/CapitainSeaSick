@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PickUp { pickedUp, free }
+public enum PickUp {  free, pickedUp }
 public class PickUp_Trigger_Script : MonoBehaviour
 {
     OffsetScript offset;
@@ -12,7 +12,9 @@ public class PickUp_Trigger_Script : MonoBehaviour
     Rigidbody rb;
     GameObject player;
 
-    private void Start()
+
+
+    private void Awake()
     {
         offset = transform.parent.GetComponent<OffsetScript>();
         rb = transform.parent.GetComponent<Rigidbody>();
@@ -82,7 +84,7 @@ public class PickUp_Trigger_Script : MonoBehaviour
 
     public void PickedUp(GameObject player)
     {
-
+        
         if (pickUpStatus == PickUp.free)
         {
             this.player = player;

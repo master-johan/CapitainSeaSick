@@ -23,19 +23,19 @@ public class enemyShipScript : MonoBehaviour
 
         if (transform.position.x < -50)
         {
-            hitPosition = new Vector3(-8, -10, 10);
+            hitPosition = new Vector3(-8, -8, 10);
         }
         else if (transform.position.x > -30 && transform.position.x < -20)
         {
-            hitPosition = new Vector3(-27, -10, 10);
+            hitPosition = new Vector3(-27, -8, 10);
         }
         else if (transform.position.x > -10 && transform.position.x < 2)
         {
-            hitPosition = new Vector3(-3, -10, 10);
+            hitPosition = new Vector3(-3, -8, 10);
         }
         else
         {
-            hitPosition = new Vector3(4, -10, 10);
+            hitPosition = new Vector3(4, -8, 10);
         }
 
         transform.LookAt(hitPosition);

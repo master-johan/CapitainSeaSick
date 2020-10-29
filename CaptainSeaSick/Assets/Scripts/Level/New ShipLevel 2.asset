@@ -20,7 +20,7 @@ MonoBehaviour:
   - type: 0
     whenToSpawn: 80
     numberOfSpawns: 3
-    timeBetweenSpawn: 4
+    timeBetweenSpawn: 15
   - type: 1
     whenToSpawn: 50
     numberOfSpawns: 3
@@ -28,4 +28,4 @@ MonoBehaviour:
   - type: 0
     whenToSpawn: 30
     numberOfSpawns: 4
-    timeBetweenSpawn: 4
+    timeBetweenSpawn: 15

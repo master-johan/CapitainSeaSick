@@ -82,10 +82,6 @@ public class TriggerTest : MonoBehaviour
             {
                 cannonSpot.triggerState = Cannon_Spot_Script.TriggerState.active;
                 //triggerState = TriggerState.active;
-                if (other.transform.parent.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
-                {
-                    other.transform.parent.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
-                }
             }
         }
     }
@@ -98,6 +94,14 @@ public class TriggerTest : MonoBehaviour
         {
             colliderList.Remove(other);
         }
+        if (other.name == "CannonTriggerUnder")
+        {
+            if (other.transform.parent.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.canFire)
+            {
+                other.transform.parent.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
+            }
+        }
+        
     }
     /// <summary>
     /// Setting the trigger colors depending on state

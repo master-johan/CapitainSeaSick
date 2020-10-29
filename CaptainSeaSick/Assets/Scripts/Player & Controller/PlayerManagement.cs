@@ -39,6 +39,7 @@ public class PlayerManagement : MonoBehaviour
         {
             colorToSet = color1;
             spawnPos = new Vector3(2, 0, 2);
+
         }
         else if (playerIndex == 2)
         {
@@ -56,7 +57,7 @@ public class PlayerManagement : MonoBehaviour
             colorToSet = color4;
             spawnPos = new Vector3(-2, 0, -2);
         }
-
+        GetComponent<Outline>().OutlineColor = colorToSet;
         hatPos.GetComponent<Renderer>().material.color = colorToSet;
     }
 
@@ -72,7 +73,7 @@ public class PlayerManagement : MonoBehaviour
         {
             playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
             transform.position = spawnPos + playerInputManager.transform.position;
-            transform.gameObject.GetComponent<PlayerMovementUsingForce>().pickedUp = false;
+            //transform.gameObject.GetComponent<PlayerMovementUsingForce>().pickedUp = false;
             once = true;
         }
     }

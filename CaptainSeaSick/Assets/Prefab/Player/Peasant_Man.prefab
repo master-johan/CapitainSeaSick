@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: -5367497588149536079}
   - component: {fileID: 1224593184184770737}
   - component: {fileID: -8576358227530609193}
+  - component: {fileID: 6219187580977302892}
   m_Layer: 0
   m_Name: Peasant_Man
   m_TagString: Player
@@ -562,8 +563,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  boostFactor: 100
   playerState: 0
   focusedObject: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &-8576358227530609193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,6 +579,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2712307336d224daff654e687e4f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6219187580977302892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688438822368836886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2815540710993743076
 GameObject:
   m_ObjectHideFlags: 0

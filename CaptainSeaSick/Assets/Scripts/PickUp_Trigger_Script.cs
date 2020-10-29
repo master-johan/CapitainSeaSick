@@ -32,9 +32,10 @@ public class PickUp_Trigger_Script : MonoBehaviour
             {
                 if (other.tag == "Player")
                 {
-
                     Debug.Log("Player Enter" + transform.parent.name);
                     other.GetComponent<PlayerActions>().SetFocus(transform.parent.gameObject, offset.offsetX, offset.offsetY);
+                    GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineAndSilhouette;
+
                 }
             }
         }
@@ -51,6 +52,8 @@ public class PickUp_Trigger_Script : MonoBehaviour
                 {
                     Debug.Log("Player Exit");
                     PlayerActions pa = other.GetComponent<PlayerActions>();
+                    GetComponentInParent<Outline>().OutlineMode = Outline.Mode.SilhouetteOnly;
+
                     if (pa.focusedObject == transform.parent.gameObject)
                     {
                         pa.SetFocus(null, 0, 0);
@@ -72,6 +75,8 @@ public class PickUp_Trigger_Script : MonoBehaviour
                     PlayerActions pa = other.GetComponent<PlayerActions>();
                     if (pa.focusedObject == null)
                     {
+                        GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineAndSilhouette;
+
                         pa.SetFocus(transform.parent.gameObject, offset.offsetX, offset.offsetY);
                     }
 

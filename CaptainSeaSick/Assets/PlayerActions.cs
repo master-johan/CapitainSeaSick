@@ -229,7 +229,7 @@ public class PlayerActions : MonoBehaviour
                     StartClimb();
                     return;
                 }
-                else
+                else if(focusedObject.GetComponent<Interactable_Script>())
                 {
                     playerState = focusedObject.GetComponent<Interactable_Script>().Interact();
                     return;

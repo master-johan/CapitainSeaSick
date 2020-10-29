@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2379265785112574025}
   - component: {fileID: 1521097021348175187}
   - component: {fileID: 7894752502930822964}
+  - component: {fileID: 1224916874640621064}
   m_Layer: 0
   m_Name: Plank
   m_TagString: PickableObject
@@ -155,6 +156,24 @@ MonoBehaviour:
   offsetX: 1.2
   offsetYMultiplier: 50
   offsetY: 0
+--- !u!114 &1224916874640621064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2379265785112574030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 4
+  outlineColor: {r: 0.13243146, g: 0.9056604, b: 0.14941344, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4254689335162144458
 GameObject:
   m_ObjectHideFlags: 0

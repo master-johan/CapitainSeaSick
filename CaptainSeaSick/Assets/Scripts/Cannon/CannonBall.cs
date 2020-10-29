@@ -17,6 +17,7 @@ public class CannonBall : MonoBehaviour
     void Start()
     {
         isPickedUp = false;
+       
      
     }
 

@@ -118,6 +118,7 @@ Transform:
   m_LocalPosition: {x: 0.16029386, y: -0.0000003018869, z: -0.00000035635347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7859614871625963261}
   - {fileID: 1137896434758734325}
   m_Father: {fileID: 5702334315478593066}
   m_RootOrder: 0
@@ -567,6 +568,7 @@ MonoBehaviour:
   playerState: 0
   focusedObject: {fileID: 0}
   rb: {fileID: 0}
+  rightHand: {fileID: 3628312302510871362}
 --- !u!114 &-8576358227530609193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +848,36 @@ Transform:
   m_Father: {fileID: 1912240293999677202}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3628312302510871362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7859614871625963261}
+  m_Layer: 0
+  m_Name: SwordPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7859614871625963261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628312302510871362}
+  m_LocalRotation: {x: -0.14425464, y: 0.21829997, z: -0.10429529, w: 0.9595094}
+  m_LocalPosition: {x: -0.0918935, y: -0.077222295, z: -0.123430096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2109543152099067297}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -12.189, y: 29.683, z: -20.328001}
 --- !u!1 &3678661798842132116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,7 +1619,7 @@ Transform:
   m_Children:
   - {fileID: 4208007036243897243}
   m_Father: {fileID: 2109543152099067297}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8590641944739133493
 GameObject:

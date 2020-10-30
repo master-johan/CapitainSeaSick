@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     {
         progressBar = GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>();
         EnqueObstaces();
+        progressBar.SetIndicatorsOnTimeLine(currentLevel.obstacles);
     }
 
     private void EnqueObstaces()

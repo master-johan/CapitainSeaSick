@@ -13,6 +13,7 @@ public class ProgressBar_Script : MonoBehaviour
     public float timeLeft; //How long left
     public float progress = 100;
     public bool isDone = false;
+    public GameObject timelineObstacle;
 
     public float TimeLeft { get => timeLeft; set => timeLeft = value; }
     public float LevelTime { get => levelTime; set => levelTime = value; }
@@ -23,6 +24,7 @@ public class ProgressBar_Script : MonoBehaviour
     {
         slider = gameObject.GetComponent<Slider>();
         imageBoat = gameObject.GetComponentInChildren<Image>();
+        
     }
     void Start()
     {
@@ -45,6 +47,21 @@ public class ProgressBar_Script : MonoBehaviour
                 Time.timeScale = 0;
             }
             progress = Mathf.RoundToInt(slider.value * 100);
+        }
+    }
+
+    public void SetIndicatorsOnTimeLine(List<Obstacle> obstacles)
+    {
+        foreach (var obstacle in obstacles)
+        {
+            Vector3 place = Vector3.zero;
+            float x = (GetComponent<RectTransform>().rect.width * GetComponent<RectTransform>().localScale.x) * (1- ((float)obstacle.whenToSpawn / 100));
+            place.x = x;
+
+            GameObject tempObject;
+            tempObject = Instantiate(timelineObstacle,gameObject.transform);
+            tempObject.GetComponent<RectTransform>().transform.position += place;
+
         }
     }
 }

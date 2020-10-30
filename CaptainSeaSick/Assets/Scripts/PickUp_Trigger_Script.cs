@@ -92,8 +92,11 @@ public class PickUp_Trigger_Script : MonoBehaviour
         
         if (pickUpStatus == PickUp.free)
         {
+            if (!transform.parent.GetComponent<SwordTag_Script>())
+            {
+                rb.detectCollisions = false;
+            }
             this.player = player;
-            rb.detectCollisions = false;
             rb.useGravity = false;
             pickUpStatus = PickUp.pickedUp;
         }

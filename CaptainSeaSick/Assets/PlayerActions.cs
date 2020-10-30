@@ -13,12 +13,13 @@ public class PlayerActions : MonoBehaviour
     public float boostFactor = 100;
     Vector3 direction, movemetnVector, boostvector;
     PlayerInputs playerInputs;
-    Animator animator;
+    public Animator animator;
     public PlayerState playerState;
     public GameObject focusedObject;
     Vector2 focusedObjectOffset;
     public Rigidbody rb;
     GameObject ship;
+    public GameObject rightHand;
     float movementMultiplier, boostMultiplier;
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,7 @@ public class PlayerActions : MonoBehaviour
         if (direction != Vector3.zero)
         {
             transform.forward = direction.normalized;
+
             animator.SetBool("isRunning", true);
         }
         else
@@ -131,12 +133,6 @@ public class PlayerActions : MonoBehaviour
 
     public void SetFocus(GameObject target, float offsetX, float offsetY)
     {
-        //if (target == null)
-        //{
-
-        //    playerState = PlayerState.free;
-        //    return;
-        //}
         if (playerState == PlayerState.free)
         {
             Debug.Log("Got a new focus");
@@ -186,39 +182,51 @@ public class PlayerActions : MonoBehaviour
     private void PickingUpObject()
     {
         playerState = PlayerState.carrying;
-        //focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().StartDropTimer();
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp(gameObject);
         Debug.Log("Pick up");
-        //focusedObject.GetComponent<Rigidbody>().detectCollisions = false;
-        //focusedObject.GetComponent<Rigidbody>().useGravity = false;
+        if (!focusedObject.GetComponent<SwordTag_Script>())
+        {
+            focusedObject.transform.parent = rightHand.transform;
+        }
 
     }
 
     private void ReleaseItem()
     {
-        //focusedObject.GetComponent<Rigidbody>().detectCollisions = true;
-        //focusedObject.GetComponent<Rigidbody>().useGravity = true;
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         Debug.Log("letting go");
-        //focusedObject = null;
         playerState = PlayerState.free;
+        if (!focusedObject.GetComponent<SwordTag_Script>())
+        {
+            focusedObject.transform.parent = null;
+        }
     }
 
     private void CarryFocusedObject()
     {
         if (focusedObject != null)
         {
-            focusedObject.transform.position = transform.position +
-                                               (transform.forward *
-                                               focusedObjectOffset.x) +
-                                               new Vector3(0, focusedObjectOffset.y,
-                                               0);
-            focusedObject.transform.right = transform.forward;
+            if (!focusedObject.GetComponent<SwordTag_Script>())
+            {
+
+                focusedObject.transform.position = transform.position +
+                                                   (transform.forward *
+                                                   focusedObjectOffset.x) +
+                                                   new Vector3(0, focusedObjectOffset.y,
+                                                   0);
+                focusedObject.transform.right = transform.forward;
+            }
+            else
+            {
+                focusedObject.transform.position = rightHand.transform.position;
+                focusedObject.transform.up = rightHand.transform.forward;
+            }
         }
     }
 
     public void Interact()
     {
+        animator.SetBool("isThrusting", true);
         if (focusedObject != null)
         {
 

@@ -20,7 +20,7 @@ public class TriggerDoor : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("Player Enter");
-            GameObject.Find("DoorFront").GetComponent<Door_Script>().OpenDoor();
+            GameObject.Find("DoorPivot").GetComponent<Door_Script>().OpenDoor();
         }
     }
 
@@ -29,7 +29,7 @@ public class TriggerDoor : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Player Exit");
-            GameObject.Find("DoorFront").GetComponent<Door_Script>().CloseDoor();
+            GameObject.Find("DoorPivot").GetComponent<Door_Script>().CloseDoor();
         }
     }
 }

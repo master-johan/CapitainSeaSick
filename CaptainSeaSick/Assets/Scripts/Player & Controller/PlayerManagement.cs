@@ -15,7 +15,7 @@ public class PlayerManagement : MonoBehaviour
     Color color1, color2, color3, color4;
 
     public static int playerIndex = 1;
-    GameObject playerInputManager;
+    GameObject playerInputManager, controllerMenuSystem;
     Vector3 spawnPos;
 
     bool once; // Only for show
@@ -24,7 +24,10 @@ public class PlayerManagement : MonoBehaviour
     void Start()
     {
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
-        
+        controllerMenuSystem  = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
+
+
+
         GenerateColors();
         CopyMeshAndCreate(GameAssets.instance.hatPrefab, hatPos);
         SetColor(playerIndex);
@@ -68,7 +71,11 @@ public class PlayerManagement : MonoBehaviour
     {
         //Doesnt destory the player and sets the correct spawn position in the ScaveningScene.
         DontDestroyOnLoad(gameObject);
+        if (ControllerMenuJoinScript.playerReady)
+        {
+            controllerMenuSystem.SetActive(false);
 
+        }
         if (SceneManager.GetActiveScene().buildIndex == 2 && !once)
         {
             playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");

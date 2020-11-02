@@ -21,6 +21,9 @@ public class PlayerActions : MonoBehaviour
     GameObject ship;
     public GameObject rightHand;
     float movementMultiplier, boostMultiplier;
+    public bool hasSword;
+    AnimatorClipInfo[] myAnimatorClip;
+    AnimatorStateInfo animationState;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class PlayerActions : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
+
+        
     }
 
     // Update is called once per frame
@@ -48,6 +53,19 @@ public class PlayerActions : MonoBehaviour
                 break;
         }
         PlayerMovement(playerInputs.LeftStick);
+
+        animationState = animator.GetCurrentAnimatorStateInfo(0);
+        myAnimatorClip = animator.GetCurrentAnimatorClipInfo(0);
+
+        if (myAnimatorClip[0].clip.name == "Upward Thrust")
+        {
+            float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+
+            if (myTime >= 1.167f)
+            {
+                animator.SetBool("isThrusting", false);
+            }
+        }
 
     }
 
@@ -124,6 +142,7 @@ public class PlayerActions : MonoBehaviour
             rb.velocity = Vector3.zero;
             animator.SetBool("isRunning", false);
         }
+
         if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
         {
             direction.y = rb.velocity.y;
@@ -184,11 +203,10 @@ public class PlayerActions : MonoBehaviour
         playerState = PlayerState.carrying;
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp(gameObject);
         Debug.Log("Pick up");
-        if (!focusedObject.GetComponent<SwordTag_Script>())
+        if (focusedObject.GetComponent<SwordTag_Script>())
         {
             focusedObject.transform.parent = rightHand.transform;
         }
-
     }
 
     private void ReleaseItem()
@@ -196,7 +214,8 @@ public class PlayerActions : MonoBehaviour
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         Debug.Log("letting go");
         playerState = PlayerState.free;
-        if (!focusedObject.GetComponent<SwordTag_Script>())
+        hasSword = false;
+        if (focusedObject.GetComponent<SwordTag_Script>())
         {
             focusedObject.transform.parent = null;
         }
@@ -218,6 +237,7 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
+                hasSword = true;
                 focusedObject.transform.position = rightHand.transform.position;
                 focusedObject.transform.up = rightHand.transform.forward;
             }
@@ -226,7 +246,6 @@ public class PlayerActions : MonoBehaviour
 
     public void Interact()
     {
-        animator.SetBool("isThrusting", true);
         if (focusedObject != null)
         {
 
@@ -237,12 +256,17 @@ public class PlayerActions : MonoBehaviour
                     StartClimb();
                     return;
                 }
-                else if(focusedObject.GetComponent<Interactable_Script>())
+  
+                else if (focusedObject.GetComponent<Interactable_Script>())
                 {
                     playerState = focusedObject.GetComponent<Interactable_Script>().Interact();
                     return;
                 }
 
+            }
+            else if (focusedObject.GetComponent<SwordTag_Script>())
+            {
+                animator.SetBool("isThrusting", true);
             }
             if (playerState == PlayerState.climbing)
             {

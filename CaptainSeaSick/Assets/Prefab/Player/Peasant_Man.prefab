@@ -565,10 +565,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   boostFactor: 100
+  animator: {fileID: 8711294997982641622}
   playerState: 0
   focusedObject: {fileID: 0}
   rb: {fileID: 0}
   rightHand: {fileID: 3628312302510871362}
+  hasSword: 0
 --- !u!114 &-8576358227530609193
 MonoBehaviour:
   m_ObjectHideFlags: 0

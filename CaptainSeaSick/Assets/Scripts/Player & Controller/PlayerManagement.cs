@@ -24,7 +24,7 @@ public class PlayerManagement : MonoBehaviour
     void Start()
     {
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
-        controllerMenuSystem  = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
+        controllerMenuSystem = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
 
 
 
@@ -105,6 +105,10 @@ public class PlayerManagement : MonoBehaviour
         if (other.tag == "RollingBarrell")
         {
             //Moves the player back to the spawning position if hit by a barrell.
+            transform.position = spawnPos + playerInputManager.transform.position;
+        }
+        else if (other.tag == "Fire")
+        {
             transform.position = spawnPos + playerInputManager.transform.position;
         }
     }

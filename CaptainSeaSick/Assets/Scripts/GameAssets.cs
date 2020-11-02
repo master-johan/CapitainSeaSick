@@ -19,10 +19,13 @@ public class GameAssets : MonoBehaviour
     //AudioClip Array Used in SoundManager
     [Header("Audiofile Array")]
     public AudioClip[] audioClips;
-    //Variabler
+    /// <summary>
+    /// Variables
+    /// </summary>
     [Header("Ship Variables")]
     [Tooltip(("Ship health, a value between 0 and 100."))]
     public float ShipMaxHealth;
+    [Tooltip(("Time between cliffs"))]
     public float cliffSpeed;
     [Header("Dialogue Variables")]
     [Tooltip("Typing speed in dialogue")]
@@ -32,11 +35,21 @@ public class GameAssets : MonoBehaviour
     public float EnemyCannonBallDamage;
     [Tooltip("Leak damage over time")]
     public float LeakDamage;
-    //Prefabs
+    /// <summary>
+    /// Scavenging phase
+    /// </summary>
+    [Header("Scavenging Phase")]
+    [Tooltip("Scavenging phase Timer 1")]
+    public float ScavLevelTimer1;
+    /// <summary>
+    /// Prefabs
+    /// </summary>
     [Header("Prefabs")]
     public GameObject cliffPrefab;
     public GameObject hatPrefab;
     public GameObject plankPrefab;
     public GameObject cannonPrefab;
     public GameObject cannonBallPrefab;
+    public GameObject rollingBarrelPrefab;
+    public GameObject dropZonePrefab;
 }

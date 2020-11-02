@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3962731766763710281}
   - component: {fileID: 1929465442273739931}
   - component: {fileID: 3211778995779875120}
+  - component: {fileID: 6661700645303851880}
   m_Layer: 0
   m_Name: RollingBarrell
   m_TagString: RollingBarrell
@@ -124,3 +125,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 50
   m_CollisionDetection: 0
+--- !u!136 &6661700645303851880
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781756019088096008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.4150712
+  m_Height: 1.33
+  m_Direction: 2
+  m_Center: {x: 0.00014093232, y: -0.0064145825, z: 0.51}

@@ -1,32 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BarrellSpawner : MonoBehaviour
 {
-    public GameObject barrell;
     private GameObject tempBarrell;
-    public float timer = 6;
+    public bool spawnBarrel;
+    public float timer;
 
     void Start()
     {
-        tempBarrell = barrell;
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        //Spawn a barrell every 10 seconds at the position for the BarrellSpawner.
-        if (timer <= 0)
+        if(spawnBarrel)
         {
-           
-            tempBarrell = Instantiate(barrell);
-            tempBarrell.transform.position = transform.position;
-
-            timer = 6;
+            SpawnRollingBarrel();
         }
+    }
+
+    private void SpawnRollingBarrel()
+    {
+        tempBarrell = Instantiate(GameAssets.instance.rollingBarrelPrefab);
+        tempBarrell.transform.position = transform.position;
+        spawnBarrel = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,7 +35,7 @@ public class BarrellSpawner : MonoBehaviour
         if (other.tag == "RollingBarrell")
         {
             //Destroy the save value in tempBarrell and NOT the prefab.
-            Destroy(tempBarrell);
+            Destroy(other.gameObject);
         }
     }
 }

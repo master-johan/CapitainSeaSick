@@ -29,7 +29,11 @@ public class TimeLineObstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        TimeLineObstacleStatus obstacleStatus = obstacle.status;
+        if (obstacleStatus != currentStatus)
+        {
+            ChangeStatus(obstacleStatus);
+        }
     }
 
     public void ChangeStatus(TimeLineObstacleStatus status)
@@ -42,6 +46,10 @@ public class TimeLineObstacle : MonoBehaviour
         {
             currentImage.sprite = GetImage(obstacle.type);
  
+        }
+        else if (status == TimeLineObstacleStatus.expired)
+        {
+            currentImage.color = Color.gray;
         }
 
         currentStatus = status;

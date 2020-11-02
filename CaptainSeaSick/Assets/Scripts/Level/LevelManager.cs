@@ -8,11 +8,15 @@ public class LevelManager : MonoBehaviour
     string spawnEnemyString = "SpawnEnemy";
     string spawnCliffString = "SpawnCliff";
 
+    public GameObject obstacleSpawner;
+
     public ShipLevel currentLevel;
     ProgressBar_Script progressBar;
 
     Queue<Obstacle> levelObstacles;
     Obstacle currentObstacle;
+
+    List<GameObject> spawners;
 
     private bool usingSpawner;
 
@@ -22,6 +26,7 @@ public class LevelManager : MonoBehaviour
         progressBar = GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>();
         EnqueObstaces();
         progressBar.SetIndicatorsOnTimeLine(currentLevel.obstacles);
+        spawners = new List<GameObject>();
     }
 
     private void EnqueObstaces()
@@ -29,6 +34,7 @@ public class LevelManager : MonoBehaviour
         levelObstacles = new Queue<Obstacle>();
         foreach (Obstacle o in currentLevel.obstacles)
         {
+            o.status = TimeLineObstacleStatus.unknown;
             levelObstacles.Enqueue(o);
         }
     }
@@ -40,16 +46,37 @@ public class LevelManager : MonoBehaviour
         {
             if (levelObstacles.Peek().whenToSpawn == progressBar.progress)
             {
-                if (!usingSpawner)
+                currentObstacle = levelObstacles.Dequeue();
+                currentObstacle.status = TimeLineObstacleStatus.known;
+                GameObject spawner =  Instantiate(obstacleSpawner);
+                spawner.GetComponent<ObstacleSpawner>().StartSpawner(currentObstacle);
+                spawners.Add(spawner);
+                //if (!usingSpawner)
+                //{
+                //    Spawner();
+                //}
+                //else
+                //{
+                //    Spawner2();
+                //}
+            }
+        }
+
+        if (spawners != null)
+        {
+            foreach (var item in spawners)
+            {
+                ObstacleSpawner oS = item.GetComponent<ObstacleSpawner>();
+                if (oS.isDepleted)
                 {
-                    Spawner();
-                }
-                else
-                {
-                    Spawner2();
+                    oS.obstacle.status = TimeLineObstacleStatus.expired;
+                    Destroy(item);
+                    spawners.Remove(item);
+                    break;
                 }
             }
         }
+       
     }
 
     private void Spawner()

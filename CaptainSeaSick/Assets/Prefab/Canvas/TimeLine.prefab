@@ -235,8 +235,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033641639045559926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 3.5679376, y: 2.0927105, z: 1.0024}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 1.5, z: 0.5}
   m_Children:
   - {fileID: 2033641639219559576}
   - {fileID: 2033641638803569148}
@@ -246,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.8, y: -245.4}
+  m_AnchoredPosition: {x: 14.053986, y: -406}
   m_SizeDelta: {x: 172.125, y: 64.95184}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033641639045559923
@@ -311,6 +311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85f2c6f1ca1df4479c8cf7948303a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllerMenuSystem: {fileID: 0}
+  levelTime: 100
+  timeLeft: 0
+  progress: 100
+  isDone: 0
+  timelineObstacle: {fileID: 8986475334435553676, guid: 63459b6d2877b954f9e686924fec26f3,
+    type: 3}
 --- !u!1 &2033641639219559577
 GameObject:
   m_ObjectHideFlags: 0

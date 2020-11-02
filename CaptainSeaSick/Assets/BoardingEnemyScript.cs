@@ -14,7 +14,6 @@ public class BoardingEnemyScript : MonoBehaviour
     int playerIndex;
     GameObject inputManager;
     public Animator animator;
-
     Vector3 targetDirection;
 
     void Start()
@@ -43,12 +42,19 @@ public class BoardingEnemyScript : MonoBehaviour
 
             if (distToPlayer[i] < temp)
             {
-                temp = distToPlayer[i];
-                index = i;
+                if (distToPlayer[i] < 2 && !players[i].GetComponent<PlayerActions>().stunImmunity)
+                {
+                    players[i].GetComponent<PlayerActions>().isStunned = true;
+                }
+                if (!players[i].GetComponent<PlayerActions>().isStunned)
+                {
+                    temp = distToPlayer[i];
+                    index = i;
+                }
             }
         }
 
-        if (temp <= 10)
+        if (temp <= 200)
         {
             if (index != 5)
             {

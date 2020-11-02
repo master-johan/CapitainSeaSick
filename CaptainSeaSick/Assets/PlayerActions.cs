@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
     public float boostFactor = 100;
+    public float stunImmunityTimer;
     Vector3 direction, movemetnVector, boostvector;
     PlayerInputs playerInputs;
     public Animator animator;
@@ -20,8 +21,8 @@ public class PlayerActions : MonoBehaviour
     public Rigidbody rb;
     GameObject ship;
     public GameObject rightHand;
-    float movementMultiplier, boostMultiplier;
-    public bool hasSword;
+    float movementMultiplier, boostMultiplier, stunTimer;
+    public bool hasSword, isStunned, stunImmunity;
     AnimatorClipInfo[] myAnimatorClip;
     AnimatorStateInfo animationState;
     // Start is called before the first frame update
@@ -72,35 +73,53 @@ public class PlayerActions : MonoBehaviour
     void PlayerMovement(Vector2 input)
     {
 
-
-        if (playerState == PlayerState.climbing)
+        if (!isStunned)
         {
-            direction = focusedObject.transform.up * input.y * speed;
-
-            if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
+            if (playerState == PlayerState.climbing)
             {
-                //direction.y = rb.velocity.y;
-                rb.velocity = direction;
+                direction = focusedObject.transform.up * input.y * speed;
 
+                if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
+                {
+                    //direction.y = rb.velocity.y;
+                    rb.velocity = direction;
+
+                }
+                else
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
             else
             {
-                rb.velocity = Vector3.zero;
-            }
 
+                movemetnVector = new Vector3(input.x, 0, input.y) * speed;
+                direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
+                //direction = new Vector3(input.x, 0, input.y) * speed;
+
+                MovementApplyToRigidbody(input);
+            }
         }
         else
         {
-
-            movemetnVector = new Vector3(input.x, 0, input.y) * speed;
-            direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
-            //direction = new Vector3(input.x, 0, input.y) * speed;
-
-            MovementApplyToRigidbody(input);
-
-            //var rotation = ship.transform.eulerAngles.x;
-            //transform.Rotate( rotation, transform.eulerAngles.y, transform.eulerAngles.z);
-
+            animator.SetBool("isStunned", true);
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= 3)
+            {
+                isStunned = false;
+                stunImmunity = true;
+                stunTimer = 0;
+            }
+        }
+        if (stunImmunity)
+        {
+            animator.SetBool("isStunned", false);
+            stunImmunityTimer += Time.deltaTime;
+            if (stunImmunityTimer >= 3)
+            {
+                stunImmunity = false;
+                stunImmunityTimer = 0;
+            }
         }
     }
 

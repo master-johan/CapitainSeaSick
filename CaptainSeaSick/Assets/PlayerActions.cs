@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
     public float boostFactor = 100;
+    public float stunImmunityTimer;
     Vector3 direction, movemetnVector, boostvector;
     PlayerInputs playerInputs;
     public Animator animator;
@@ -20,7 +21,10 @@ public class PlayerActions : MonoBehaviour
     public Rigidbody rb;
     GameObject ship;
     public GameObject rightHand;
-    float movementMultiplier, boostMultiplier;
+    float movementMultiplier, boostMultiplier, stunTimer;
+    public bool hasSword, isStunned, stunImmunity;
+    AnimatorClipInfo[] myAnimatorClip;
+    AnimatorStateInfo animationState;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,8 @@ public class PlayerActions : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
+
+        
     }
 
     // Update is called once per frame
@@ -49,40 +55,71 @@ public class PlayerActions : MonoBehaviour
         }
         PlayerMovement(playerInputs.LeftStick);
 
+        animationState = animator.GetCurrentAnimatorStateInfo(0);
+        myAnimatorClip = animator.GetCurrentAnimatorClipInfo(0);
+
+        if (myAnimatorClip[0].clip.name == "Upward Thrust")
+        {
+            float myTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
+
+            if (myTime >= 1.167f)
+            {
+                animator.SetBool("isThrusting", false);
+            }
+        }
+
     }
 
     void PlayerMovement(Vector2 input)
     {
 
-
-        if (playerState == PlayerState.climbing)
+        if (!isStunned)
         {
-            direction = focusedObject.transform.up * input.y * speed;
-
-            if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
+            if (playerState == PlayerState.climbing)
             {
-                //direction.y = rb.velocity.y;
-                rb.velocity = direction;
+                direction = focusedObject.transform.up * input.y * speed;
 
+                if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
+                {
+                    //direction.y = rb.velocity.y;
+                    rb.velocity = direction;
+
+                }
+                else
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
             else
             {
-                rb.velocity = Vector3.zero;
-            }
 
+                movemetnVector = new Vector3(input.x, 0, input.y) * speed;
+                direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
+                //direction = new Vector3(input.x, 0, input.y) * speed;
+
+                MovementApplyToRigidbody(input);
+            }
         }
         else
         {
-
-            movemetnVector = new Vector3(input.x, 0, input.y) * speed;
-            direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
-            //direction = new Vector3(input.x, 0, input.y) * speed;
-
-            MovementApplyToRigidbody(input);
-
-            //var rotation = ship.transform.eulerAngles.x;
-            //transform.Rotate( rotation, transform.eulerAngles.y, transform.eulerAngles.z);
-
+            animator.SetBool("isStunned", true);
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= 3)
+            {
+                isStunned = false;
+                stunImmunity = true;
+                stunTimer = 0;
+            }
+        }
+        if (stunImmunity)
+        {
+            animator.SetBool("isStunned", false);
+            stunImmunityTimer += Time.deltaTime;
+            if (stunImmunityTimer >= 3)
+            {
+                stunImmunity = false;
+                stunImmunityTimer = 0;
+            }
         }
     }
 
@@ -124,6 +161,7 @@ public class PlayerActions : MonoBehaviour
             rb.velocity = Vector3.zero;
             animator.SetBool("isRunning", false);
         }
+
         if (Math.Abs(input.x) >= 0.125 || Math.Abs(input.y) >= 0.125)
         {
             direction.y = rb.velocity.y;
@@ -184,11 +222,10 @@ public class PlayerActions : MonoBehaviour
         playerState = PlayerState.carrying;
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp(gameObject);
         Debug.Log("Pick up");
-        if (!focusedObject.GetComponent<SwordTag_Script>())
+        if (focusedObject.GetComponent<SwordTag_Script>())
         {
             focusedObject.transform.parent = rightHand.transform;
         }
-
     }
 
     private void ReleaseItem()
@@ -196,7 +233,8 @@ public class PlayerActions : MonoBehaviour
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         Debug.Log("letting go");
         playerState = PlayerState.free;
-        if (!focusedObject.GetComponent<SwordTag_Script>())
+        hasSword = false;
+        if (focusedObject.GetComponent<SwordTag_Script>())
         {
             focusedObject.transform.parent = null;
         }
@@ -218,6 +256,7 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
+                hasSword = true;
                 focusedObject.transform.position = rightHand.transform.position;
                 focusedObject.transform.up = rightHand.transform.forward;
             }
@@ -226,7 +265,6 @@ public class PlayerActions : MonoBehaviour
 
     public void Interact()
     {
-        animator.SetBool("isThrusting", true);
         if (focusedObject != null)
         {
 
@@ -237,12 +275,17 @@ public class PlayerActions : MonoBehaviour
                     StartClimb();
                     return;
                 }
-                else if(focusedObject.GetComponent<Interactable_Script>())
+  
+                else if (focusedObject.GetComponent<Interactable_Script>())
                 {
                     playerState = focusedObject.GetComponent<Interactable_Script>().Interact();
                     return;
                 }
 
+            }
+            else if (focusedObject.GetComponent<SwordTag_Script>())
+            {
+                animator.SetBool("isThrusting", true);
             }
             if (playerState == PlayerState.climbing)
             {

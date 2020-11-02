@@ -16,11 +16,31 @@ public class SwordTag_Script : MonoBehaviour
         
     }
 
+    public bool CheckIfSwordIsReady()
+    {
+        if (transform.root.tag == "Player")
+        {
+            GameObject player = transform.root.gameObject;
+
+            if (player.GetComponent<PlayerActions>().animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Upward Thrust")
+            {
+                if (player.GetComponent<PlayerActions>().hasSword)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<BoardingEnemyScript>())
         {
-            Destroy(other.gameObject);
+            if (CheckIfSwordIsReady())
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

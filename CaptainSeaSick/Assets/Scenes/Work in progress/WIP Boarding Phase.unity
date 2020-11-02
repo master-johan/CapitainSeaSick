@@ -3274,7 +3274,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-66030
+  m_Name: pb_Mesh-3828
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17689,6 +17689,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1455861900336242771, guid: 96d27b763eb82e14788b3b9fe31b246b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96d27b763eb82e14788b3b9fe31b246b, type: 3}
 --- !u!1001 &5999456551000054023
@@ -17874,7 +17879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0.13333334, g: 0.90588236, b: 0.14901961, a: 1}
-  outlineWidth: 2
+  outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

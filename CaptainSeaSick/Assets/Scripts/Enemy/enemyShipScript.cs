@@ -58,7 +58,8 @@ public class enemyShipScript : MonoBehaviour
 
         if (lifeTimer <= 0)
         {
-            Instantiate(boardingEnemy);
+            
+            Instantiate(boardingEnemy, hitPosition + new Vector3(0,7,0), Quaternion.identity);
 
 
             Destroy(gameObject);

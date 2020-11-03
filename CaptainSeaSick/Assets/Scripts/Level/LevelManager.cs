@@ -18,8 +18,6 @@ public class LevelManager : MonoBehaviour
 
     List<GameObject> spawners;
 
-    private bool usingSpawner;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -51,14 +49,6 @@ public class LevelManager : MonoBehaviour
                 GameObject spawner =  Instantiate(obstacleSpawner);
                 spawner.GetComponent<ObstacleSpawner>().StartSpawner(currentObstacle);
                 spawners.Add(spawner);
-                //if (!usingSpawner)
-                //{
-                //    Spawner();
-                //}
-                //else
-                //{
-                //    Spawner2();
-                //}
             }
         }
 
@@ -78,63 +68,6 @@ public class LevelManager : MonoBehaviour
         }
        
     }
-
-    private void Spawner()
-    {
-        usingSpawner = true;
-        currentObstacle = levelObstacles.Dequeue();
-        int nrOfSpawn = currentObstacle.numberOfSpawns;
-        string typeToSpawn = "";
-        typeToSpawn = GetSpawnType(currentObstacle, typeToSpawn);
-        StartCoroutine(waitForSeconds(nrOfSpawn, currentObstacle.timeBetweenSpawn, typeToSpawn));
-    }
-    private void Spawner2()
-    {
-        currentObstacle = levelObstacles.Dequeue();
-        int nrOfSpawn = currentObstacle.numberOfSpawns;
-        string typeToSpawn = "";
-        typeToSpawn = GetSpawnType(currentObstacle, typeToSpawn);
-        StartCoroutine(waitForSeconds2(nrOfSpawn, currentObstacle.timeBetweenSpawn, typeToSpawn));
-    }
-
-    IEnumerator waitForSeconds(int nrOfSpawn, float time, string typeToSpawn)
-    {
-        usingSpawner = true;
-        float timeLeft = time;
-        while (timeLeft > 0)
-        {
-
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
-        nrOfSpawn--;
-        if (nrOfSpawn > 0)
-        {
-            StartCoroutine(waitForSeconds(nrOfSpawn, currentObstacle.timeBetweenSpawn, typeToSpawn));
-        }
-        else
-        {
-            usingSpawner = false;
-        }
-        EventManager.TriggerEvent(typeToSpawn);
-    }
-    IEnumerator waitForSeconds2(int nrOfSpawn, float time, string typeToSpawn)
-    {
-        float timeLeft = time;
-        while (timeLeft > 0)
-        {
-
-            yield return new WaitForSeconds(1);
-            timeLeft--;
-        }
-        nrOfSpawn--;
-        if (nrOfSpawn > 0)
-        {
-            StartCoroutine(waitForSeconds(nrOfSpawn, currentObstacle.timeBetweenSpawn, typeToSpawn));
-        }
-        EventManager.TriggerEvent(typeToSpawn);
-    }
-
     private string GetSpawnType(Obstacle currentObstacle, string typeToSpawn)
     {
         if (currentObstacle.type == TypeOfSpawn.ship)

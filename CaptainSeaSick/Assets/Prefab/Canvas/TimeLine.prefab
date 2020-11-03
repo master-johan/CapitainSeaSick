@@ -316,7 +316,7 @@ MonoBehaviour:
   timeLeft: 0
   progress: 100
   isDone: 0
-  timelineObstacle: {fileID: 8986475334435553676, guid: 63459b6d2877b954f9e686924fec26f3,
+  timelineObstacle: {fileID: 8986475334435553676, guid: 43b89fc70144e0e40a78602f7c04a96d,
     type: 3}
 --- !u!1 &2033641639219559577
 GameObject:

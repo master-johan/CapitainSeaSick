@@ -9,10 +9,12 @@ using UnityEngine.UI;
 public enum TimeLineObstacleStatus { unknown, known, expired }
 public class TimeLineObstacle : MonoBehaviour
 {
-    TimeLineObstacleStatus currentStatus;
+    public TimeLineObstacleStatus currentStatus;
     [SerializeField]
     public Image currentImage;
     public Sprite unknownImage, shipImage, cliffImage;
+    [HideInInspector]
+    public int positionOnTimeLine;
     Obstacle obstacle;
     
 
@@ -24,6 +26,7 @@ public class TimeLineObstacle : MonoBehaviour
         currentStatus = TimeLineObstacleStatus.unknown;
         currentImage = GetComponent<Image>();
         currentImage.sprite = unknownImage;
+        positionOnTimeLine = obstacle.whenToSpawn;
     }
 
     // Update is called once per frame

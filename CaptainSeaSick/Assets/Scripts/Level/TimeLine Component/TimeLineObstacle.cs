@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
 
 
@@ -54,8 +55,14 @@ public class TimeLineObstacle : MonoBehaviour
         {
             currentImage.color = Color.gray;
         }
+        else if (status == TimeLineObstacleStatus.unknown)
+        {
+            currentImage.sprite = unknownImage;
+        }
+       
 
         currentStatus = status;
+        obstacle.status = status;
 
     }
 

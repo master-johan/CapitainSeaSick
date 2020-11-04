@@ -115,7 +115,7 @@ public class ProgressBar_Script : MonoBehaviour
                 if (tO.positionOnTimeLine > currentSeeLenght)
                 {
                     tO.ChangeStatus(TimeLineObstacleStatus.known);
-                    obstaclesSpotted.Add(tO);
+                    AddToListIfNotAdded(tO);
                 }
             }
         }
@@ -136,4 +136,29 @@ public class ProgressBar_Script : MonoBehaviour
         }
         obstaclesSpotted.Clear();
     }
+    private void AddToListIfNotAdded(TimeLineObstacle tO)
+    {
+        if (obstaclesSpotted.Count ==0)
+        {
+            obstaclesSpotted.Add(tO);
+        }
+        else
+        {
+            bool foundInList = false;
+            foreach (var item in obstaclesSpotted)
+            {
+                if (tO == item)
+                {
+                    foundInList = true;
+                    break;
+                }
+            }
+
+            if (!foundInList)
+            {
+                obstaclesSpotted.Add(tO);
+            }
+        }
+    }
+
 }

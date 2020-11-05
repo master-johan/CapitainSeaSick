@@ -103,17 +103,4 @@ public class PlayerManagement : MonoBehaviour
     {
         return transform.position = spawnPos + playerInputManager.transform.position;
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "RollingBarrell")
-    //    {
-    //        //Moves the player back to the spawning position if hit by a barrell.
-    //        transform.position = spawnPos + playerInputManager.transform.position;
-    //    }
-    //    else if (other.tag == "Fire")
-    //    {
-    //        transform.position = spawnPos + playerInputManager.transform.position;
-    //    }
-    //}
-    
 }

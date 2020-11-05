@@ -11,7 +11,6 @@ public class BoatMovement : MonoBehaviour
     private GameObject ship, cliffIndicator;
     private float shipSpeedBasedOnRotation;
     public Vector3 turnVector, indicatorPosition;
-    private float timer = 2;
 
     void Start()
     {

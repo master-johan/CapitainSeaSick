@@ -47,6 +47,7 @@ public class CrowNest_Trigger_Script : MonoBehaviour
             PlayerActions pa = player.GetComponent<PlayerActions>();
             pa.rb.velocity = Vector3.zero;
             pa.StartClimb();
+            EventManager.TriggerEvent("ManNotInNest");
         }
     }
 }

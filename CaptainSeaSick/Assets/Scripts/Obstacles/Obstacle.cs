@@ -16,4 +16,6 @@ public class Obstacle
     public int whenToSpawn;
     public int numberOfSpawns;
     public float timeBetweenSpawn;
+    [HideInInspector]
+    public TimeLineObstacleStatus status;
 }

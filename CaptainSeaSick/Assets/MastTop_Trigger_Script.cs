@@ -16,9 +16,11 @@ public class MastTop_Trigger_Script : MonoBehaviour
 
     private void Transport(GameObject player)
     {
+
         player.transform.position = telportTarget.transform.position;
         PlayerActions pa = player.GetComponent<PlayerActions>();
         pa.rb.velocity = Vector3.zero;
         pa.StopClimb();
+        EventManager.TriggerEvent("ManInNest");
     }
 }

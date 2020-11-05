@@ -93,7 +93,7 @@ public class PickUp_Trigger_Script : MonoBehaviour
         {
             //Debug.Log("is this happening" + GetComponentInParent<SwordTag_Script>());
 
-            if (/*CheckIfCollitionsShouldBeDeactivated()*/ /*!transform.parent.GetComponent<SwordTag_Script>() ||*/ !transform.parent.GetComponent<Bucket_Trigger_Script>())
+            if (CheckIfCollitionsShouldBeDeactivated())
             {
                 rb.detectCollisions = false;
                 Debug.Log("KUKEN");

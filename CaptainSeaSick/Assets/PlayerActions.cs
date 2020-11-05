@@ -320,4 +320,8 @@ public class PlayerActions : MonoBehaviour
             animator.SetBool("isBoosting", true);
         }
     }
+
+
 }
+
+

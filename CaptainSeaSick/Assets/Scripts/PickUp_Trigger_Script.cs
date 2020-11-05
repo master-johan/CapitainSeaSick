@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PickUp {  free, pickedUp }
+public enum PickUp { free, pickedUp }
 public class PickUp_Trigger_Script : MonoBehaviour
 {
     OffsetScript offset;
@@ -91,7 +91,9 @@ public class PickUp_Trigger_Script : MonoBehaviour
     {
         if (pickUpStatus == PickUp.free)
         {
-            if (!transform.parent.GetComponent<SwordTag_Script>() || !transform.parent.GetComponent<Bucket_Trigger_Script>())
+            //Debug.Log("is this happening" + GetComponentInParent<SwordTag_Script>());
+
+            if (/*CheckIfCollitionsShouldBeDeactivated()*/ /*!transform.parent.GetComponent<SwordTag_Script>() ||*/ !transform.parent.GetComponent<Bucket_Trigger_Script>())
             {
                 rb.detectCollisions = false;
                 Debug.Log("KUKEN");
@@ -122,5 +124,17 @@ public class PickUp_Trigger_Script : MonoBehaviour
         isActive = false;
     }
 
+    private bool CheckIfCollitionsShouldBeDeactivated()
+    {
+        if (GetComponentInParent<SwordTag_Script>())
+        {
+            return false;
+        }
+        if (GetComponentInParent<Bucket_Trigger_Script>())
+        {
+            return false;
+        }
 
+        return true;
+    }
 }

@@ -17,15 +17,19 @@ MonoBehaviour:
     whenToSpawn: 95
     numberOfSpawns: 5
     timeBetweenSpawn: 5
+    status: 2
   - type: 1
     whenToSpawn: 90
     numberOfSpawns: 3
     timeBetweenSpawn: 5
+    status: 2
   - type: 0
     whenToSpawn: 50
     numberOfSpawns: 3
     timeBetweenSpawn: 5
+    status: 2
   - type: 0
     whenToSpawn: 30
     numberOfSpawns: 4
     timeBetweenSpawn: 15
+    status: 1

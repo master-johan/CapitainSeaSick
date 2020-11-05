@@ -19,6 +19,11 @@ public class GameAssets : MonoBehaviour
     //AudioClip Array Used in SoundManager
     [Header("Audiofile Array")]
     public AudioClip[] audioClips;
+     [Header("Player Spawn Positions")]
+    public Vector3 spawnPosP1;
+    public Vector3 spawnPosP2;
+    public Vector3 spawnPosP3;
+    public Vector3 spawnPosP4;
     /// <summary>
     /// Variables
     /// </summary>

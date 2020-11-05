@@ -89,18 +89,18 @@ public class PickUp_Trigger_Script : MonoBehaviour
 
     public void PickedUp(GameObject player)
     {
-        
         if (pickUpStatus == PickUp.free)
         {
-            if (!transform.parent.GetComponent<SwordTag_Script>())
+            if (!transform.parent.GetComponent<SwordTag_Script>() || !transform.parent.GetComponent<Bucket_Trigger_Script>())
             {
                 rb.detectCollisions = false;
+                Debug.Log("KUKEN");
             }
+
             this.player = player;
             rb.useGravity = false;
             pickUpStatus = PickUp.pickedUp;
         }
-
     }
     public void Released()
     {

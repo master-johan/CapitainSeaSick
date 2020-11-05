@@ -10,11 +10,20 @@ public class Fire_Trigger_Script : MonoBehaviour
     {
         if (other.name == "Bucket")
         {
+            Debug.Log("hej");
             gameObject.SetActive(false);
+        }
+        else if (other.tag == "Player")
+        {
+            if(!other.isTrigger)
+            {
+                other.GetComponent<PlayerManagement>().PlayerRespawn();
+            }
         }
     }
     // Update is called once per frame
     void Update()
     {
     }
+
 }

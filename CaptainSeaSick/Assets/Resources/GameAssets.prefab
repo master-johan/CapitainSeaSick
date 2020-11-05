@@ -45,6 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  spawnPosP1: {x: 2, y: 0, z: 2}
+  spawnPosP2: {x: -2, y: 0, z: 2}
+  spawnPosP3: {x: 2, y: 0, z: -2}
+  spawnPosP4: {x: -2, y: 0, z: -2}
   ShipMaxHealth: 100
   cliffSpeed: 5
   DialogueTypingSpeed: 0.1

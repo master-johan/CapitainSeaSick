@@ -22,4 +22,15 @@ public class BarrellFunctionality : MonoBehaviour
         transform.Rotate(new Vector3(0, 0, -1));
         rb.transform.position += direction * (Time.deltaTime * 7);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (!other.isTrigger)
+            {
+                other.GetComponent<PlayerManagement>().PlayerRespawn();
+            }
+        }
+    }
 }

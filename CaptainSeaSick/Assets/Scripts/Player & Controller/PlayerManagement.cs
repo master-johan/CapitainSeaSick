@@ -41,24 +41,23 @@ public class PlayerManagement : MonoBehaviour
         if (playerIndex == 1)
         {
             colorToSet = color1;
-            spawnPos = new Vector3(2, 0, 2);
+            spawnPos = GameAssets.instance.spawnPosP1;
 
         }
         else if (playerIndex == 2)
         {
             colorToSet = color2;
-            spawnPos = new Vector3(-2, 0, 2);
+            spawnPos = GameAssets.instance.spawnPosP2;
         }
         else if (playerIndex == 3)
         {
             colorToSet = color3;
-            spawnPos = new Vector3(2, 0, -2);
-
+            spawnPos = GameAssets.instance.spawnPosP3;
         }
         else
         {
             colorToSet = color4;
-            spawnPos = new Vector3(-2, 0, -2);
+            spawnPos = GameAssets.instance.spawnPosP4;
         }
         GetComponent<Outline>().OutlineColor = colorToSet;
         hatPos.GetComponent<Renderer>().material.color = colorToSet;
@@ -100,16 +99,21 @@ public class PlayerManagement : MonoBehaviour
         color3 = Color.green;
         color4 = Color.yellow;
     }
-    private void OnTriggerEnter(Collider other)
+    public Vector3 PlayerRespawn()
     {
-        if (other.tag == "RollingBarrell")
-        {
-            //Moves the player back to the spawning position if hit by a barrell.
-            transform.position = spawnPos + playerInputManager.transform.position;
-        }
-        else if (other.tag == "Fire")
-        {
-            transform.position = spawnPos + playerInputManager.transform.position;
-        }
+        return transform.position = spawnPos + playerInputManager.transform.position;
     }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "RollingBarrell")
+    //    {
+    //        //Moves the player back to the spawning position if hit by a barrell.
+    //        transform.position = spawnPos + playerInputManager.transform.position;
+    //    }
+    //    else if (other.tag == "Fire")
+    //    {
+    //        transform.position = spawnPos + playerInputManager.transform.position;
+    //    }
+    //}
+    
 }

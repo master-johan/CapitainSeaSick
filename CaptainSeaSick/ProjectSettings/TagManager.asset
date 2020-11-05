@@ -23,6 +23,8 @@ TagManager:
   - SpawnPositions
   - EnemyCannonball
   - FireEffectCannon
+  - Fire
+  - Bucket
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerDoor : MonoBehaviour
+public class TriggerDoor_Front : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,6 @@ public class TriggerDoor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("Player Enter");
             GameObject.Find("DoorPivot").GetComponent<Door_Script>().OpenDoor();
         }
     }
@@ -28,7 +27,6 @@ public class TriggerDoor : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Player Exit");
             GameObject.Find("DoorPivot").GetComponent<Door_Script>().CloseDoor();
         }
     }

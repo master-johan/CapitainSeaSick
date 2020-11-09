@@ -46,6 +46,8 @@ public class GameAssets : MonoBehaviour
     [Header("Scavenging Phase")]
     [Tooltip("Scavenging phase Timer 1")]
     public float ScavLevelTimer1;
+    [Tooltip("Scavenging Gold")]
+    public float gold;
     /// <summary>
     /// Prefabs
     /// </summary>

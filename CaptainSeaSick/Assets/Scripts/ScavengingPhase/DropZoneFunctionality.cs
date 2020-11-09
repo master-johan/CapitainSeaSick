@@ -6,8 +6,12 @@ public class DropZoneFunctionality : MonoBehaviour
 {
     public GameObject droppedItem;
     public bool itemDropped;
-
-    private void OnTriggerEnter(Collider other)
+   
+    void Start()
+    {
+       
+    }
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -15,9 +19,43 @@ public class DropZoneFunctionality : MonoBehaviour
         }
         if(other.tag == "PickableObject")
         {
-            //Saves the value of the PickableObject which collides with the dropzone hitbox.
-            droppedItem = other.gameObject;
-            itemDropped = true;
+            Debug.Log("Colliding "+ other.name);
+            if (other.GetComponentInChildren<PickUp_Trigger_Script>().pickUpStatus == PickUp.free)
+            {
+                //Saves the value of the PickableObject which collides with the dropzone hitbox.
+                droppedItem = other.gameObject;
+                itemDropped = true;
+                Debug.Log("Dropped Item");
+            }
+         
+        }
+    }
+    public void DropZoneUpdate()
+    {
+        if (droppedItem != null)
+        {
+            Debug.Log("Update works");
+            //Adds a point to the different resource values depending on which item is dropped in the dropzone.
+            if (itemDropped)
+            {
+                Debug.Log("2 stage");
+                if (droppedItem.GetComponent<Chest_Trigger_Script>())
+                {
+                    GameAssets.instance.gold += 15;
+                }
+                if (droppedItem.GetComponent<Bag_Trigger_Script>())
+                {
+                    GameAssets.instance.gold += 5;
+                }
+                if (droppedItem.GetComponent<CannonBall>())
+                {
+                    
+                }
+
+                //Destroy the item that lands in the dropzone and reset the bool.
+                Destroy(droppedItem);
+                itemDropped = false;
+            }
         }
     }
 }

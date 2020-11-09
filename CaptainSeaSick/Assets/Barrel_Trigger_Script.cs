@@ -6,9 +6,13 @@ public class Barrel_Trigger_Script : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collider)
     {
-        if(!collider.isTrigger)
+        if (collider.tag == "Player")
         {
-            GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnBarrel = true;
+            if (!collider.isTrigger)
+            {
+                GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnBarrel = true;
+            }
+
             Debug.Log("Player Enter Spawn Barrel");
         }
     }
@@ -16,6 +20,7 @@ public class Barrel_Trigger_Script : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
+            
             Debug.Log("Player Exit Spawn Barrel");
         }
     }

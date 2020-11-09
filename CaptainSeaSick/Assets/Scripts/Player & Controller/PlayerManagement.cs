@@ -41,23 +41,23 @@ public class PlayerManagement : MonoBehaviour
         if (playerIndex == 1)
         {
             colorToSet = color1;
-            spawnPos = GameAssets.instance.spawnPosP1;
+            spawnPos = GameAssets.instance.spawnPositions[0];
 
         }
         else if (playerIndex == 2)
         {
             colorToSet = color2;
-            spawnPos = GameAssets.instance.spawnPosP2;
+            spawnPos = GameAssets.instance.spawnPositions[1];
         }
         else if (playerIndex == 3)
         {
             colorToSet = color3;
-            spawnPos = GameAssets.instance.spawnPosP3;
+            spawnPos = GameAssets.instance.spawnPositions[2];
         }
         else
         {
             colorToSet = color4;
-            spawnPos = GameAssets.instance.spawnPosP4;
+            spawnPos = GameAssets.instance.spawnPositions[3];
         }
         GetComponent<Outline>().OutlineColor = colorToSet;
         hatPos.GetComponent<Renderer>().material.color = colorToSet;

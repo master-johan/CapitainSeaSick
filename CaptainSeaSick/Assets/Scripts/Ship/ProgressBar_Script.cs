@@ -4,6 +4,7 @@ using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ProgressBar_Script : MonoBehaviour
@@ -49,6 +50,13 @@ public class ProgressBar_Script : MonoBehaviour
     }
     void Update()
     {
+
+        if(progress <= 0)
+        {
+            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
+
+            //SceneManager.LoadScene(1);
+        }
         if (ControllerMenuJoinScript.playerReady)
         {
             controllerMenuSystem.SetActive(false);
@@ -62,6 +70,8 @@ public class ProgressBar_Script : MonoBehaviour
                 Time.timeScale = 0;
             }
             progress = Mathf.RoundToInt(slider.value * 100);
+
+
         }
 
         CheckToSeeObstaclesOnTimeLine();

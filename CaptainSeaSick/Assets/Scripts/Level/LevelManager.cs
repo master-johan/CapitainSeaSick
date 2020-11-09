@@ -19,12 +19,14 @@ public class LevelManager : MonoBehaviour
     List<GameObject> spawners;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         progressBar = GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>();
         EnqueObstaces();
         progressBar.SetIndicatorsOnTimeLine(currentLevel.obstacles);
         spawners = new List<GameObject>();
+
+        InstantiateShipObjects();
     }
 
     private void EnqueObstaces()
@@ -84,5 +86,21 @@ public class LevelManager : MonoBehaviour
         }
 
         return typeToSpawn;
+    }
+
+    public void InstantiateShipObjects()
+    {
+
+        Spawn(GameAssets.instance.cannonPrefab, GameAssets.instance.numberOfCannons, GameAssets.instance.cannonSpawnPos);
+        Spawn(GameAssets.instance.swordPrefab, GameAssets.instance.numberOfSwords, GameAssets.instance.swordSpawnPos);
+
+    }
+
+    public void Spawn(GameObject item, int numberOfObjects, List<Vector3> positions)
+    {
+        for (int i = 0; i < numberOfObjects; i++)
+        {
+            Instantiate(item, positions[i] + GameAssets.instance.gameObject.transform.position, Quaternion.identity);
+        }
     }
 }

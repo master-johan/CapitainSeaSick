@@ -10,6 +10,8 @@ public class LevelLoader : MonoBehaviour
     public float transitionTime;
     private float timer = 1f;
     public int scenIndex;
+
+    GameObject[] players;
     // Update is called once per frame
 
     void Start()
@@ -33,6 +35,12 @@ public class LevelLoader : MonoBehaviour
     /// </summary>
     public void LoadNextLevel()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].transform.position = GameAssets.instance.spawnPositions[i];
+        }
+
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     /// <summary>

@@ -9,30 +9,39 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/Work in progress/WIP Boarding Phase.unity
+    guid: 08f188ca23a78f542ab26dce70c0456a
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/WIP Shop.unity
+    guid: a0bfaff44113f90448a918c7063d851c
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/WIP Boarding Phase 1.unity
+    guid: ecf36b5d1b4497b479f155e6d9fbb6dc
+  - enabled: 0
     path: Assets/Scenes/LEVEL ONE/WIP MainMenu.unity
     guid: 74ad9a5650c16ca43a749d4b25f198c4
-  - enabled: 1
-    path: Assets/Scenes/Work in progress/WIP Master , copy from this 1.unity
-    guid: 99080af1f9cb9ec48bb0fd24ea8c276b
   - enabled: 0
-    path: Assets/Scenes/Work in progress/WIP Kevin.unity
-    guid: d463a94ad185fd0468eedd9c4f3d1f3e
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Work in progress/WIP LevelMap.unity
     guid: 42fe36681f343ae44b6a8f9a9f704728
   - enabled: 0
-    path: Assets/Scenes/LEVEL ONE/WIP Level.unity
-    guid: 33ac5b61187f0c448a25b24ffba1c1eb
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/LEVEL ONE/ScavLvl1.unity
     guid: 3130c4f72f397fe41a7cf165478b7834
   - enabled: 0
-    path: Assets/Scenes/Work in progress/WIP MasterScene 1.unity
-    guid: c308e515cee689241b4ad74c53c281f9
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/Work in progress/WIP Hammer.unity
-    guid: e7f8da7b0111d72498ba369a91dd72b4
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/LEVEL ONE/WIP Level 2.unity
-    guid: e3d6a49ff735f6d438939168376b1b34
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

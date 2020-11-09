@@ -17,10 +17,17 @@ public class Door_Script : MonoBehaviour
     public void OpenDoor()
     {
         DoorAnimator.SetTrigger("OpenClose");
+       
     }
+
+    //public void StayOpen()
+    //{
+    //    DoorAnimator.SetBool("Open", true);
+    //}
 
     public void CloseDoor()
     {
+      //  DoorAnimator.SetBool("Open", false);
         DoorAnimator.SetTrigger("OpenClose");
     }
 }

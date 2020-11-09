@@ -134,6 +134,10 @@ public class PickUp_Trigger_Script : MonoBehaviour
         {
             return false;
         }
+        if (GetComponentInParent<Key_Trigger_Script>())
+        {
+            return false;
+        }
 
         return true;
     }

@@ -138,6 +138,14 @@ public class PickUp_Trigger_Script : MonoBehaviour
         {
             return false;
         }
+        if (GetComponentInParent<Chest_Trigger_Script>())
+        {
+            return false;
+        }
+        if (GetComponentInParent<Bag_Trigger_Script>())
+        {
+            return false;
+        }
 
         return true;
     }

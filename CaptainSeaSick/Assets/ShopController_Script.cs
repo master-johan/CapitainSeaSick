@@ -33,6 +33,11 @@ public class ShopController_Script : MonoBehaviour
         GameAssets.instance.ShipMaxHealth += 50;
     }
 
+    public void CannonballDamage()
+    {
+        GameAssets.instance.cannonballsDamage += 5;
+    }
+
     public void NextLevel()
     {
         GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();

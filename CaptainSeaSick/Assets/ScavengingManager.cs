@@ -10,6 +10,7 @@ public class ScavengingManager : MonoBehaviour
     int Plank, CannonBall, Gold;
     private float timeLeft;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI goldText;
 
     GameObject dropZone;
 
@@ -21,6 +22,7 @@ public class ScavengingManager : MonoBehaviour
     void Update()
     {
         UpdateLevelTimer();
+        UpdateGold();
         DropZoneUpdate();
     }
 
@@ -33,6 +35,10 @@ public class ScavengingManager : MonoBehaviour
         }
     }
 
+    private void UpdateGold()
+    {
+        goldText.text = "Gold : ";
+    }
     private void DropZoneUpdate()
     {
         if (dropZone.GetComponent<DropZoneFunctionality>().droppedItem != null)

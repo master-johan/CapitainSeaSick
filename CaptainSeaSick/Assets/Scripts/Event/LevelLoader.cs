@@ -73,6 +73,6 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadLevelMap()
     {
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(2));
     }
 }

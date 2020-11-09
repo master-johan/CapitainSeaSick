@@ -36,7 +36,7 @@ public class ScavengingManager : MonoBehaviour
         }
         else
         {
-            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
+            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadShopLevel();
         }
     }
 

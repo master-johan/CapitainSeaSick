@@ -14,7 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - type: 1
-    whenToSpawn: 99
-    numberOfSpawns: 1
-    timeBetweenSpawn: 1
+    whenToSpawn: 90
+    numberOfSpawns: 5
+    timeBetweenSpawn: 5
+    status: 0
+  - type: 0
+    whenToSpawn: 80
+    numberOfSpawns: 4
+    timeBetweenSpawn: 10
+    status: 0
+  - type: 1
+    whenToSpawn: 50
+    numberOfSpawns: 10
+    timeBetweenSpawn: 8
+    status: 0
+  - type: 0
+    whenToSpawn: 25
+    numberOfSpawns: 4
+    timeBetweenSpawn: 5
+    status: 0
+  - type: 1
+    whenToSpawn: 20
+    numberOfSpawns: 3
+    timeBetweenSpawn: 2
     status: 0

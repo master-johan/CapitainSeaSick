@@ -173,9 +173,26 @@ public class PlayerActions : MonoBehaviour
     {
         if (playerState == PlayerState.free)
         {
+            if (target != focusedObject)
+            {
+                if (focusedObject != null)
+                {
+                    if (focusedObject.GetComponentInParent<Outline>())
+                    {
+                        focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.SilhouetteOnly;
+                    }
+                }
+            }
             Debug.Log("Got a new focus");
             focusedObject = target;
             focusedObjectOffset = new Vector2(offsetX, offsetY);
+            if (focusedObject != null)
+            {
+                if (focusedObject.GetComponentInParent<Outline>())
+                {
+                    focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineAndSilhouette;
+                }
+            }
         }
         else
         {

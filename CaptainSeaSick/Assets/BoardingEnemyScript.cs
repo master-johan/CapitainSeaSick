@@ -61,7 +61,7 @@ public class BoardingEnemyScript : MonoBehaviour
                 animator.SetBool("isRunning", true);
 
                 targetDirection = players[index].transform.position;
-                transform.forward = targetDirection - transform.position;
+                transform.forward = new Vector3(targetDirection.x - transform.position.x, 0, targetDirection.z - transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, targetDirection, 4 * Time.deltaTime);
 
             }

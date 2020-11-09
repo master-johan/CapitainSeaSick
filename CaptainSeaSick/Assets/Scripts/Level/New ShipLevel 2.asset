@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
   m_Name: New ShipLevel 2
   m_EditorClassIdentifier: 
-  obstacles: []
+  obstacles:
+  - type: 1
+    whenToSpawn: 99
+    numberOfSpawns: 1
+    timeBetweenSpawn: 1
+    status: 0

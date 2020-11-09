@@ -71,5 +71,7 @@ public class GameAssets : MonoBehaviour
     public GameObject dropZonePrefab;
     public GameObject swordPrefab;
 
-    
+    [Header("Spawn Different Scenes")]
+    public Vector3 spawnBoatPhase;
+    public Vector3 spawnScavPhase;
 }

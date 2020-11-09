@@ -16,7 +16,7 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
-        scenIndex = SceneManager.GetActiveScene().buildIndex; 
+        scenIndex = SceneManager.GetActiveScene().buildIndex;
     }
     void Update()
     {
@@ -36,9 +36,19 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        for (int i = 0; i < players.Length; i++)
+        if (SceneManager.GetActiveScene().buildIndex % 2 == 0)
         {
-            players[i].transform.position = GameAssets.instance.spawnPositions[i];
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnBoatPhase;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
+            }
         }
 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -55,5 +65,14 @@ public class LevelLoader : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
         yield return new WaitForSeconds(transitionTime);
 
+    }
+
+    public void LoadShopLevel()
+    {
+        StartCoroutine(LoadLevel(0));
+    }
+    public void LoadLevelMap()
+    {
+        StartCoroutine(LoadLevel(1));
     }
 }

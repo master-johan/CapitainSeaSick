@@ -40,6 +40,6 @@ public class ShopController_Script : MonoBehaviour
 
     public void NextLevel()
     {
-        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
+        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevelMap();
     }
 }

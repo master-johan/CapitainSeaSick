@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScavengingManager : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class ScavengingManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
             progress = Mathf.RoundToInt(timeLeft);
             timeText.text = "Time Left : " + "\t" + progress;
+        }
+        else
+        {
+            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
         }
     }
 

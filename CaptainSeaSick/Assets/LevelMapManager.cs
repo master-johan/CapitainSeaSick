@@ -37,6 +37,8 @@ public class LevelMapManager : MonoBehaviour
     public void EnableLevel2()
     {
         Level21.GetComponent<Button>().interactable = true;
+
+        SceneManager.LoadScene(5);
         Level22.GetComponent<Button>().interactable = true;
     }
 
@@ -65,7 +67,7 @@ public class LevelMapManager : MonoBehaviour
     }
     public void StartLevel1()
     {
-        SceneManager.LoadScene(2);
+        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
     }
 
 }

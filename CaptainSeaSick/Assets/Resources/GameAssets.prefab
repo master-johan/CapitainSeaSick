@@ -45,15 +45,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  spawnPositions:
+  - {x: 2, y: 0, z: 2}
+  - {x: -2, y: 0, z: 2}
+  - {x: 2, y: 0, z: -2}
+  - {x: -2, y: 0, z: -2}
   spawnPosP1: {x: 2, y: 0, z: 2}
   spawnPosP2: {x: -2, y: 0, z: 2}
   spawnPosP3: {x: 2, y: 0, z: -2}
   spawnPosP4: {x: -2, y: 0, z: -2}
   ShipMaxHealth: 100
   cliffSpeed: 5
+  cannonballsDamage: 5
+  numberOfCannons: 1
+  cannonSpawnPos:
+  - {x: 2, y: 0, z: -10}
+  - {x: 10, y: 0, z: -10}
+  - {x: 20, y: 0, z: -10}
+  - {x: 30, y: 0, z: -10}
+  numberOfSwords: 1
+  swordSpawnPos:
+  - {x: 2, y: 0, z: 10}
+  - {x: 10, y: 0, z: 10}
+  - {x: 20, y: 0, z: 10}
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
-  LeakDamage: 10
+  LeakDamage: 5
   ScavLevelTimer1: 20
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
@@ -68,4 +85,6 @@ MonoBehaviour:
   rollingBarrelPrefab: {fileID: 781756019088096008, guid: c8a0407a6bef0f248a34599a5a85b09a,
     type: 3}
   dropZonePrefab: {fileID: 3070416685128356306, guid: aabccb6a5793afe44b7d04bb51ab1eee,
+    type: 3}
+  swordPrefab: {fileID: 1309927684253149450, guid: d4ede79c8be2b8d4eb25d6012355f6bf,
     type: 3}

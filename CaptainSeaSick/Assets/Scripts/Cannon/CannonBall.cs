@@ -47,7 +47,7 @@ public class CannonBall : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            other.GetComponent<enemyShipScript>().HealthPoints -= damage;
+            other.GetComponent<enemyShipScript>().HealthPoints -= GameAssets.instance.cannonballsDamage;
             Destroy(this.gameObject);
             if (other.GetComponent<enemyShipScript>().HealthPoints <= 0)
             {

@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 8349351988481817416}
   - component: {fileID: 4012251769436991000}
   - component: {fileID: 3952613494922594872}
+  - component: {fileID: 867810127}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: PickableObject
@@ -597,8 +598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b9667037861f240a8f18c1e5e51ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 2
-  offsetYMultiplier: 3
+  offsetX: 4
+  offsetYMultiplier: 4
   offsetY: 0
 --- !u!114 &3952613494922594872
 MonoBehaviour:
@@ -614,10 +615,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 4
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 5.75
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &867810127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128014586586422042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c830e6f62f0a142968d334d76a12ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toCall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8349351988481817416}
+        m_MethodName: ChangeStateToFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  playerStateToReturn: 0
 --- !u!1 &5716811413305599164
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 9183449051059499677, guid: 744db9c25e88e0348aeee6959b038f76,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9183449051059499677, guid: 744db9c25e88e0348aeee6959b038f76,
         type: 3}

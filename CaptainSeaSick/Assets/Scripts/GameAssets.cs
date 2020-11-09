@@ -11,19 +11,20 @@ public class GameAssets : MonoBehaviour
         get
         {
             //If there is no gameasset active instantiate this gameAsset
-            if (_instance == null) _instance = (Instantiate(Resources.Load("GameAssets")) as GameObject).GetComponent<GameAssets>();
+            if (_instance == null) _instance = (Instantiate(Resources.Load("GameAssets"), new Vector3(-16.37f, 0, 10.31f), Quaternion.identity) as GameObject).GetComponent<GameAssets>();
+
+            DontDestroyOnLoad(_instance);
             return _instance;
+
         }
     }
 
     //AudioClip Array Used in SoundManager
     [Header("Audiofile Array")]
     public AudioClip[] audioClips;
-     [Header("Player Spawn Positions")]
-    public Vector3 spawnPosP1;
-    public Vector3 spawnPosP2;
-    public Vector3 spawnPosP3;
-    public Vector3 spawnPosP4;
+
+    [Header("Player Spawn Positions")]
+    public Vector3[] spawnPositions;
     /// <summary>
     /// Variables
     /// </summary>
@@ -32,6 +33,14 @@ public class GameAssets : MonoBehaviour
     public float ShipMaxHealth;
     [Tooltip(("Time between cliffs"))]
     public float cliffSpeed;
+    public float cannonballsDamage;
+
+    public int numberOfCannons;
+    public List<Vector3> cannonSpawnPos;
+    public int numberOfSwords;
+    public List<Vector3> swordSpawnPos;
+
+
     [Header("Dialogue Variables")]
     [Tooltip("Typing speed in dialogue")]
     public float DialogueTypingSpeed;
@@ -40,6 +49,7 @@ public class GameAssets : MonoBehaviour
     public float EnemyCannonBallDamage;
     [Tooltip("Leak damage over time")]
     public float LeakDamage;
+    
     /// <summary>
     /// Scavenging phase
     /// </summary>
@@ -59,4 +69,7 @@ public class GameAssets : MonoBehaviour
     public GameObject cannonBallPrefab;
     public GameObject rollingBarrelPrefab;
     public GameObject dropZonePrefab;
+    public GameObject swordPrefab;
+
+    
 }

@@ -38,7 +38,6 @@ public class ProgressBar_Script : MonoBehaviour
     {
         slider = gameObject.GetComponent<Slider>();
         imageBoat = gameObject.GetComponentInChildren<Image>();
-        //obstaclesInTimeLine = new List<GameObject>();
         obstaclesSpotted = new List<TimeLineObstacle>();
         seeFarListner = new UnityAction(ExtendedSightLenght);
         seeRegularListner = new UnityAction(RegularSightLenght);

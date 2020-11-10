@@ -38,7 +38,7 @@ public class ProgressBar_Script : MonoBehaviour
     {
         slider = gameObject.GetComponent<Slider>();
         imageBoat = gameObject.GetComponentInChildren<Image>();
-        obstaclesInTimeLine = new List<GameObject>();
+        //obstaclesInTimeLine = new List<GameObject>();
         obstaclesSpotted = new List<TimeLineObstacle>();
         seeFarListner = new UnityAction(ExtendedSightLenght);
         seeRegularListner = new UnityAction(RegularSightLenght);
@@ -80,6 +80,7 @@ public class ProgressBar_Script : MonoBehaviour
 
     public void SetIndicatorsOnTimeLine(List<Obstacle> obstacles)
     {
+        
         foreach (var obstacle in obstacles)
         {
             Vector3 place = Vector3.zero;

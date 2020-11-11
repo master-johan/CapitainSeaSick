@@ -29,7 +29,7 @@ public class BarrellFunctionality : MonoBehaviour
         {
             if (!other.isTrigger)
             {
-                other.GetComponent<PlayerManagement>().PlayerRespawn();
+                other.GetComponent<PlayerManagement>().PlayerScavRespawn();
             }
         }
     }

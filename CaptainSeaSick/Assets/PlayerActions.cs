@@ -53,7 +53,11 @@ public class PlayerActions : MonoBehaviour
             default:
                 break;
         }
-        PlayerMovement(playerInputs.LeftStick);
+
+        if(GameAssets.instance.playersReady)
+        {
+            PlayerMovement(playerInputs.LeftStick);
+        }
 
         animationState = animator.GetCurrentAnimatorStateInfo(0);
         myAnimatorClip = animator.GetCurrentAnimatorClipInfo(0);

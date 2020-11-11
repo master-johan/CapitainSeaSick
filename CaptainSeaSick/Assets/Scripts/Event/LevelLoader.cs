@@ -35,6 +35,27 @@ public class LevelLoader : MonoBehaviour
     /// </summary>
     public void LoadNextLevel()
     {
+        SetPlayerSpawningPos();
+
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+    /// <summary>
+    /// Enumetator that controlls the transition time between the scenes
+    /// </summary>
+    /// <param name="levelIndex"></param>
+    /// <returns></returns>
+    public IEnumerator LoadLevel(int levelIndex)
+    {
+        SetPlayerSpawningPos();
+
+        transition.SetTrigger("Start");
+        SceneManager.LoadScene(levelIndex);
+        yield return new WaitForSeconds(transitionTime);
+
+    }
+
+    private void SetPlayerSpawningPos()
+    {
         players = GameObject.FindGameObjectsWithTag("Player");
         if (SceneManager.GetActiveScene().buildIndex % 2 == 0)
         {
@@ -50,21 +71,6 @@ public class LevelLoader : MonoBehaviour
                 players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
             }
         }
-
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    }
-    /// <summary>
-    /// Enumetator that controlls the transition time between the scenes
-    /// </summary>
-    /// <param name="levelIndex"></param>
-    /// <returns></returns>
-    IEnumerator LoadLevel(int levelIndex)
-    {
-
-        transition.SetTrigger("Start");
-        SceneManager.LoadScene(levelIndex);
-        yield return new WaitForSeconds(transitionTime);
-
     }
 
     public void LoadShopLevel()

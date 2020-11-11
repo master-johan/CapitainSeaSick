@@ -36,6 +36,8 @@ public class ScavengingManager : MonoBehaviour
         }
         else
         {
+            GameAssets.instance.playersReady = false;
+
             GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadShopLevel();
         }
     }

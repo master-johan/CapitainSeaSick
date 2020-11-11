@@ -56,7 +56,7 @@ public class ProgressBar_Script : MonoBehaviour
 
             //SceneManager.LoadScene(1);
         }
-        if (ControllerMenuJoinScript.playerReady)
+        if (GameAssets.instance.playersReady)
         {
             controllerMenuSystem.SetActive(false);
             if (timeLeft > 0)

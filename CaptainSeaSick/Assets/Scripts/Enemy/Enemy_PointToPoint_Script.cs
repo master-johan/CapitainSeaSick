@@ -39,7 +39,7 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
         {
             if (!other.isTrigger)
             {
-                other.GetComponent<PlayerManagement>().PlayerRespawn();
+                other.GetComponent<PlayerManagement>().PlayerScavRespawn();
             }
         }
     }

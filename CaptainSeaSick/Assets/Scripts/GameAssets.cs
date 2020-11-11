@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,10 @@ public class GameAssets : MonoBehaviour
     /// <summary>
     /// Variables
     /// </summary>
+    /// 
+    [Header("Player Variables")]
+    public bool playersReady;
+
     [Header("Ship Variables")]
     [Tooltip(("Ship health, a value between 0 and 100."))]
     public float ShipMaxHealth;
@@ -57,7 +62,7 @@ public class GameAssets : MonoBehaviour
     [Tooltip("Scavenging phase Timer 1")]
     public float ScavLevelTimer1;
     [Tooltip("Scavenging Gold")]
-    public float gold;
+    public float gold; 
     /// <summary>
     /// Prefabs
     /// </summary>
@@ -74,4 +79,12 @@ public class GameAssets : MonoBehaviour
     [Header("Spawn Different Scenes")]
     public Vector3 spawnBoatPhase;
     public Vector3 spawnScavPhase;
+
+    [Header("Level Swapping Bools")]
+    public bool enableLevel2;
+    public bool enableLevel3left;
+    public bool enableLevel3right;
+    public bool enableLevel4;
+    public bool enableLevel5;
+    public bool enableLevel6;
 }

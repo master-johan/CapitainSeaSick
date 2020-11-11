@@ -21,6 +21,8 @@ public class PlayerManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
         controllerMenuSystem = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
 
@@ -64,13 +66,6 @@ public class PlayerManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Doesnt destory the player and sets the correct spawn position in the ScaveningScene.
-        DontDestroyOnLoad(gameObject);
-        if (ControllerMenuJoinScript.playerReady)
-        {
-            controllerMenuSystem.SetActive(false);
-
-        }
     }
 
     private void CopyMeshAndCreate(GameObject orignal, GameObject destination)
@@ -88,7 +83,7 @@ public class PlayerManagement : MonoBehaviour
         color3 = Color.green;
         color4 = Color.yellow;
     }
-    public Vector3 PlayerRespawn()
+    public Vector3 PlayerScavRespawn()
     {
         return transform.position = GameAssets.instance.spawnScavPhase;
     }

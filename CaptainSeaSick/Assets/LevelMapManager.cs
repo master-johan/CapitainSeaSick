@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LevelMapManager : MonoBehaviour
 {
     GameObject Level21, Level22;
-    GameObject Level31, Level32 ,Level33;
+    GameObject Level31, Level32, Level33;
     GameObject Level41;
     GameObject Level51, Level52;
     GameObject Level61;
@@ -31,43 +31,114 @@ public class LevelMapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        Level21.GetComponent<Button>().interactable = GameAssets.instance.enableLevel2;
+        Level22.GetComponent<Button>().interactable = GameAssets.instance.enableLevel2;
 
+        Level31.GetComponent<Button>().interactable = GameAssets.instance.enableLevel3left;
+        Level32.GetComponent<Button>().interactable = GameAssets.instance.enableLevel3left;
+
+        Level32.GetComponent<Button>().interactable = GameAssets.instance.enableLevel3right;
+        Level33.GetComponent<Button>().interactable = GameAssets.instance.enableLevel3right;
+
+        Level41.GetComponent<Button>().interactable = GameAssets.instance.enableLevel4;
+
+        Level51.GetComponent<Button>().interactable = GameAssets.instance.enableLevel5;
+        Level52.GetComponent<Button>().interactable = GameAssets.instance.enableLevel5;
+
+        Level61.GetComponent<Button>().interactable = GameAssets.instance.enableLevel6;
+    }
+    /// <summary>
+    /// Enabling all the levels on the diffrent buttonclicks.
+    /// </summary>
+    #region
     public void EnableLevel2()
     {
-        Level21.GetComponent<Button>().interactable = true;
-
-        SceneManager.LoadScene(5);
-        Level22.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel2 = true;
     }
 
     public void EnableLevel31And32()
     {
-        Level31.GetComponent<Button>().interactable = true;
-        Level32.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel3left = true;
     }
     public void EnableLevel32And33()
     {
-        Level32.GetComponent<Button>().interactable = true;
-        Level33.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel3right = true;
     }
     public void EnableLevel41()
     {
-        Level41.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel4 = true;
     }
     public void EnableLevel51And52()
     {
-        Level51.GetComponent<Button>().interactable = true;
-        Level52.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel5 = true;
     }
     public void EnableLevel61()
     {
-        Level61.GetComponent<Button>().interactable = true;
+        GameAssets.instance.enableLevel6 = true;
     }
+    #endregion
+
+    /// <summary>
+    /// Starting the level on the correct button
+    /// </summary>
+    #region
     public void StartLevel1()
     {
-        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadNextLevel();
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(3));
     }
+    public void StartLevel21()
+    {
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+    }
+    public void StartLevel22()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
 
+    }
+    public void StartLevel31()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    public void StartLevel32()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    public void StartLevel33()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    public void StartLevel41()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+
+    }
+    public void StartLevel51()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    public void StartLevel52()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    public void StartLevel61()
+    {
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameAssets.instance.playersReady = true;
+
+    }
+    #endregion
 }

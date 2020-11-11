@@ -16,7 +16,7 @@ public class Fire_Trigger_Script : MonoBehaviour
         {
             if(!other.isTrigger)
             {
-                other.GetComponent<PlayerManagement>().PlayerRespawn();
+                other.GetComponent<PlayerManagement>().PlayerScavRespawn();
             }
         }
     }

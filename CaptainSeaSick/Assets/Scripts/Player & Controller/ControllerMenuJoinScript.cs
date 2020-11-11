@@ -45,7 +45,7 @@ public class ControllerMenuJoinScript : MonoBehaviour
 
         if(inputSystem.submit.action.triggered)
         {
-            playerReady = true;
+            GameAssets.instance.playersReady = true;
         }
     }
 

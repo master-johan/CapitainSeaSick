@@ -378,12 +378,12 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -413,7 +413,17 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 300
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213154, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -519,12 +529,12 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -554,7 +564,17 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 300
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213154, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -660,12 +680,12 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -695,7 +715,17 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 300
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213154, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -801,12 +831,12 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
@@ -836,7 +866,17 @@ PrefabInstance:
     - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 300
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1077955339940213153, guid: e981b17c63d2d7847af652e6bb921b4e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1077955339940213154, guid: e981b17c63d2d7847af652e6bb921b4e,
         type: 3}

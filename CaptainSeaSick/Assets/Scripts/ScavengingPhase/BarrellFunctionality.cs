@@ -12,7 +12,7 @@ public class BarrellFunctionality : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         //The direction for the barrell to roll in (only downwards in the z-axis)
-        direction = new Vector3(0, 0, -1);
+        direction = new Vector3(0, 0, GetComponentInParent<BoxCollider>().center.z);
     }
 
     // Update is called once per frame
@@ -20,7 +20,8 @@ public class BarrellFunctionality : MonoBehaviour
     {
         //Rotate the barrel when rolling and move the barrell in the direction-vector.
         transform.Rotate(new Vector3(0, 0, -1));
-        rb.transform.position += direction * (Time.deltaTime * 7);
+        // rb.transform.position += direction * (Time.deltaTime * 7);
+        transform.position = Vector3.MoveTowards(transform.position, direction, 5 * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)

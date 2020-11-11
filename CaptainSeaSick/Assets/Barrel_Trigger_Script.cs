@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class Barrel_Trigger_Script : MonoBehaviour
 {
+    public bool spawnWithTimers;
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
             if (!collider.isTrigger)
             {
-                GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnBarrel = true;
+                if (spawnWithTimers)
+                {
+                    GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnWithTimer = true;
+                }
+                else
+                {
+                    GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnBarrel = true;
+                }
             }
+
 
             Debug.Log("Player Enter Spawn Barrel");
         }
@@ -20,7 +29,7 @@ public class Barrel_Trigger_Script : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            
+
             Debug.Log("Player Exit Spawn Barrel");
         }
     }

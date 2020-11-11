@@ -18,15 +18,11 @@ public class PlayerManagement : MonoBehaviour
     GameObject playerInputManager, controllerMenuSystem;
     Vector3 spawnPos;
 
-    bool once; // Only for show
-
     // Start is called before the first frame update
     void Start()
     {
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
         controllerMenuSystem = GameObject.FindGameObjectWithTag("ControllerMenuSystem");
-
-
 
         GenerateColors();
         CopyMeshAndCreate(GameAssets.instance.hatPrefab, hatPos);
@@ -75,13 +71,6 @@ public class PlayerManagement : MonoBehaviour
             controllerMenuSystem.SetActive(false);
 
         }
-        if (SceneManager.GetActiveScene().buildIndex == 2 && !once)
-        {
-            playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
-            transform.position = spawnPos + playerInputManager.transform.position;
-            //transform.gameObject.GetComponent<PlayerMovementUsingForce>().pickedUp = false;
-            once = true;
-        }
     }
 
     private void CopyMeshAndCreate(GameObject orignal, GameObject destination)
@@ -101,6 +90,6 @@ public class PlayerManagement : MonoBehaviour
     }
     public Vector3 PlayerRespawn()
     {
-        return transform.position = spawnPos + playerInputManager.transform.position;
+        return transform.position = GameAssets.instance.spawnScavPhase;
     }
 }

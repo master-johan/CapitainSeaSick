@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:CaptainSeaSick/Assets/StoreAssets/LowPolyDungeonsLite/Models/Materials.meta
 guid: 7ea50b1ced3b57543b06d3591f3e57ee
+=======
+guid: 0c4954a152c3b8642b15fcbacde84951
+>>>>>>> 8bd96d21918f3aed66b33b49da1c5fd0d3fdd9c2:CaptainSeaSick/Assets/Shared/Ramps.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

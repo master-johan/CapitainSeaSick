@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BarrellSpawner : MonoBehaviour
 {
     private GameObject tempBarrell;
+    public GameObject targetObject;
     public bool spawnBarrel, spawnWithTimer;
     public float timer;
     private float actualTimer;
@@ -14,6 +16,7 @@ public class BarrellSpawner : MonoBehaviour
     void Start()
     {
         actualTimer = timer;
+
     }
     // Update is called once per frame
     void Update()
@@ -33,7 +36,6 @@ public class BarrellSpawner : MonoBehaviour
         {
             SpawnRollingBarrel();
         }
-       
     }
 
     private void SpawnRollingBarrel()

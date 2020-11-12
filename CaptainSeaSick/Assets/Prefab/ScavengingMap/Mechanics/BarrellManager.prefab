@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4295966054041772679}
   m_Layer: 0
   m_Name: BarrellManager
-  m_TagString: Untagged
+  m_TagString: BarrelSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,9 +75,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4864ad63d33a0746be886fd1e2b547c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetObject: {fileID: 2426581853884963405}
   spawnBarrel: 0
   spawnWithTimer: 0
-  timer: 3
+  spawnTimer: 0
+  interval: 0
 --- !u!65 &4295966054041772679
 BoxCollider:
   m_ObjectHideFlags: 0

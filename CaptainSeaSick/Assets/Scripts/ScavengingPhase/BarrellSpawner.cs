@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using TMPro;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
@@ -10,13 +11,13 @@ public class BarrellSpawner : MonoBehaviour
     private GameObject tempBarrell;
     public GameObject targetObject;
     public bool spawnBarrel, spawnWithTimer;
-    public float timer;
+    public float spawnTimer, interval;
     private float actualTimer;
+    private bool once;
 
     void Start()
     {
-        actualTimer = timer;
-
+        actualTimer = interval;
     }
     // Update is called once per frame
     void Update()
@@ -24,11 +25,22 @@ public class BarrellSpawner : MonoBehaviour
 
         if (spawnWithTimer) //If the timer bool is checked in the inspector, the barrels will spawn using a timer instead of a trigger
         {
-            actualTimer -= Time.deltaTime;
-            if (actualTimer <= 0)
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0)
             {
-                SpawnRollingBarrel();
-                actualTimer = timer;
+                if(!once)
+                {
+                    SpawnRollingBarrel();
+                    once = true;
+                }
+                actualTimer -= Time.deltaTime;
+
+                if(actualTimer <= 0)
+                {
+                    SpawnRollingBarrel();
+                    actualTimer = interval;
+                }
+
             }
         }
 

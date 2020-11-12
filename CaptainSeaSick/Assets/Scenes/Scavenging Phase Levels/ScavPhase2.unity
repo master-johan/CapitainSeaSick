@@ -6665,6 +6665,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e37d55d9adae8724c9dcf1dff5b67578, type: 3}
+--- !u!1 &596085807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2426581853884963405, guid: c1ce4354e8074a449ab1cf533a6266fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 607853969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &596385629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3951424495242864794, guid: 725d9061657be724facf6fda9fe05b4f,
@@ -6740,6 +6746,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarrellManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4295966054041772676, guid: c1ce4354e8074a449ab1cf533a6266fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: BarrelSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 4295966054041772677, guid: c1ce4354e8074a449ab1cf533a6266fe,
         type: 3}
       propertyPath: spawnBarrel
@@ -6750,6 +6761,11 @@ PrefabInstance:
       propertyPath: timer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4295966054041772677, guid: c1ce4354e8074a449ab1cf533a6266fe,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 596085807}
     - target: {fileID: 4295966054041772678, guid: c1ce4354e8074a449ab1cf533a6266fe,
         type: 3}
       propertyPath: m_LocalPosition.x

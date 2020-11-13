@@ -85,7 +85,7 @@ public class ProgressBar_Script : MonoBehaviour
             Vector3 place = Vector3.zero;
             float x = (GetComponent<RectTransform>().rect.width * GetComponent<RectTransform>().localScale.x) * (1- ((float)obstacle.whenToSpawn / 100));
             place.x = x;
-            place.y = 25;
+            place.y = 40;
             GameObject tempObject;
             tempObject = Instantiate(timelineObstacle,gameObject.transform);
             tempObject.GetComponent<RectTransform>().transform.position += place;

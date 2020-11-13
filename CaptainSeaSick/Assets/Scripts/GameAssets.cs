@@ -87,4 +87,7 @@ public class GameAssets : MonoBehaviour
     public bool enableLevel4;
     public bool enableLevel5;
     public bool enableLevel6;
+
+    [Header("Wind Variables")]
+    public bool windActivated;
 }

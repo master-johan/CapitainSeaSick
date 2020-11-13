@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578705180739294969}
+  - component: {fileID: 3413231519420288274}
   m_Layer: 0
   m_Name: DoorWithLock
   m_TagString: Untagged
@@ -32,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &3413231519420288274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237610953214299203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6555899, y: 9.26243, z: 6.152256}
+  m_Center: {x: -0.019280637, y: 0.12852602, z: 0.018271102}
 --- !u!1 &2271276464194937855
 GameObject:
   m_ObjectHideFlags: 0

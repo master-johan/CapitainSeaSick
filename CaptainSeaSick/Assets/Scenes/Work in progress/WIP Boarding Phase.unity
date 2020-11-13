@@ -12403,47 +12403,6 @@ PrefabInstance:
       propertyPath: controllerMenuSystem
       value: 
       objectReference: {fileID: 1862727289}
-    - target: {fileID: 2033641639045559920, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: levelTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559920, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: timelineObstacle
-      value: 
-      objectReference: {fileID: 8986475334435553676, guid: 516433211829f304db582c1f2e9409ac,
-        type: 3}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -191
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 14.053986
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639045559921, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2033641639636559711, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -12458,11 +12417,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033641639636559711, guid: ff216fadcc7d74f5094b8dfa798b8731,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff216fadcc7d74f5094b8dfa798b8731, type: 3}

@@ -45,12 +45,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  - {fileID: 8300000, guid: ac84a0dfe87054e469cfff2b832b052a, type: 3}
+  soundEffects:
+  - {fileID: 8300000, guid: 6019eeb655baf41c2b537e9338fa2158, type: 3}
+  - {fileID: 8300000, guid: 32d580c73fbd54a8680e2f96866f7598, type: 3}
+  - {fileID: 8300000, guid: d6b37020b7528486db71231da503ac60, type: 3}
   spawnPositions:
   - {x: 2, y: 0, z: 2}
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 0
+  playersReady: 1
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5

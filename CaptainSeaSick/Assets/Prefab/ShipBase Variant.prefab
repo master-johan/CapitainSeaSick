@@ -3167,7 +3167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalMoveSpeed: 0.0025
-  xRotation: 0.6
+  xRotation: 0.7
   zRotation: 0.4
 --- !u!1 &7877590600017975920
 GameObject:
@@ -3700,7 +3700,7 @@ PrefabInstance:
     - target: {fileID: 7421642589811116705, guid: fb55f68dd49784f36bdd1d796d8dc7fa,
         type: 3}
       propertyPath: m_Name
-      value: ShipBase Variant
+      value: Ship
       objectReference: {fileID: 0}
     - target: {fileID: 7421642589811116705, guid: fb55f68dd49784f36bdd1d796d8dc7fa,
         type: 3}

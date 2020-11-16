@@ -346,7 +346,7 @@ public class PlayerActions : MonoBehaviour
             boostMultiplier = 1;
             movementMultiplier = 0;
             animator.SetBool("isBoosting", true);
-            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[1]);
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[1], 0.5f);
         }
 
         if(animationState.IsName("Idle"))

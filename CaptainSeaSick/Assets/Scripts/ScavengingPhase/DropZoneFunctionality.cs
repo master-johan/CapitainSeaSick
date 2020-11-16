@@ -51,7 +51,7 @@ public class DropZoneFunctionality : MonoBehaviour
                 {
                     
                 }
-                SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[2]);
+                SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[2], 0.7f);
 
                 //Destroy the item that lands in the dropzone and reset the bool.
                 Destroy(droppedItem);

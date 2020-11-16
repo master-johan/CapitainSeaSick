@@ -12,7 +12,7 @@ public class PlayerActions : MonoBehaviour
     public float speed = 6;
     public float boostFactor = 100;
     public float stunImmunityTimer;
-    Vector3 direction, movemetnVector, boostvector;
+    Vector3 direction, movementVector, boostvector;
     PlayerInputs playerInputs;
     public Animator animator;
     public PlayerState playerState;
@@ -98,9 +98,12 @@ public class PlayerActions : MonoBehaviour
             }
             else
             {
+                if (boostMultiplier < 0.4f && boostMultiplier != 0)
+                {
 
-                movemetnVector = new Vector3(input.x, 0, input.y) * speed;
-                direction = movemetnVector * movementMultiplier + boostvector * boostMultiplier;
+                }
+                movementVector = new Vector3(input.x, 0, input.y) * speed;
+                direction = (movementVector * movementMultiplier) + (boostvector * boostMultiplier);
                 //direction = new Vector3(input.x, 0, input.y) * speed;
 
                 MovementApplyToRigidbody(input);
@@ -139,6 +142,8 @@ public class PlayerActions : MonoBehaviour
         {
             movementMultiplier = 1;
         }
+
+
         if (boostMultiplier >= .01)
         {
             boostMultiplier -= .025f;
@@ -346,6 +351,7 @@ public class PlayerActions : MonoBehaviour
             boostMultiplier = 1;
             movementMultiplier = 0;
             animator.SetBool("isBoosting", true);
+            isBoosting = true;
         }
 
         if(animationState.IsName("Idle"))

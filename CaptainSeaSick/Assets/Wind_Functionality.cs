@@ -11,7 +11,7 @@ public class Wind_Functionality : MonoBehaviour
     {
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -27,7 +27,10 @@ public class Wind_Functionality : MonoBehaviour
                 }
                 else
                 {
-                    item.GetComponent<Rigidbody>().AddForce(transform.forward, ForceMode.VelocityChange);
+                    
+
+                        item.GetComponent<Rigidbody>().AddForce(transform.forward *3, ForceMode.VelocityChange);
+                    
                 }
 
 

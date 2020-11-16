@@ -13,11 +13,18 @@ public class Barrel_Trigger_Script : MonoBehaviour
             {
                 if (spawnWithTimers)
                 {
-                    GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnWithTimer = true;
+                    foreach (var item in GameObject.FindGameObjectsWithTag("BarrelSpawner"))
+                    {
+                        item.GetComponent<BarrellSpawner>().spawnWithTimer = true;
+                    }
+                    
                 }
                 else
                 {
-                    GameObject.Find("BarrellManager").GetComponent<BarrellSpawner>().spawnBarrel = true;
+                    foreach (var item in GameObject.FindGameObjectsWithTag("BarrelSpawner"))
+                    {
+                        item.GetComponent<BarrellSpawner>().spawnBarrel = true;
+                    }
                 }
             }
 

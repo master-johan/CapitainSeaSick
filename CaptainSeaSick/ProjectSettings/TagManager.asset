@@ -26,6 +26,7 @@ TagManager:
   - Fire
   - Bucket
   - Key
+  - BarrelSpawner
   layers:
   - Default
   - TransparentFX

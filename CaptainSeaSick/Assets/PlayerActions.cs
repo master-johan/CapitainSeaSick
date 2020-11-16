@@ -25,6 +25,8 @@ public class PlayerActions : MonoBehaviour
     public bool hasSword, isStunned, stunImmunity;
     AnimatorClipInfo[] myAnimatorClip;
     AnimatorStateInfo animationState;
+
+    public bool isBoosting, isStill;
     // Start is called before the first frame update
     void Start()
     {
@@ -149,6 +151,11 @@ public class PlayerActions : MonoBehaviour
         if (boostMultiplier <= .5f)
         {
             animator.SetBool("isBoosting", false);
+        }
+
+        if(boostMultiplier == 0)
+        {
+            isBoosting = false;
         }
     }
 
@@ -339,6 +346,11 @@ public class PlayerActions : MonoBehaviour
             boostMultiplier = 1;
             movementMultiplier = 0;
             animator.SetBool("isBoosting", true);
+        }
+
+        if(animationState.IsName("Idle"))
+        {
+            isBoosting = true;
         }
     }
 

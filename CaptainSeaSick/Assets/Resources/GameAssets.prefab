@@ -102,4 +102,4 @@ MonoBehaviour:
   enableLevel4: 0
   enableLevel5: 0
   enableLevel6: 0
-  windActivated: 1
+  windActivated: 0

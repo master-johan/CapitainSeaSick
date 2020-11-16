@@ -24,6 +24,8 @@ public class GameAssets : MonoBehaviour
     [Header("Audiofile Array")]
     public AudioClip[] audioClips;
 
+    public AudioClip[] soundEffects;
+
     [Header("Player Spawn Positions")]
     public Vector3[] spawnPositions;
     /// <summary>

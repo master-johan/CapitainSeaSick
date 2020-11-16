@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    public enum Sound
+    {
+        OpenDoor,
+    }
     LevelLoader levelLoader;
     int index;
     #region
@@ -40,6 +44,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     private void FindSong()
     {
+        Debug.Log(index);
         switch (index)
         {
             case 0:
@@ -47,10 +52,13 @@ public class SoundManager : MonoBehaviour
                 Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
             case 1:
+                Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
-            case 2:
+            case 4:
+                Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
             default:
+                
                 break;
         }
     }
@@ -122,6 +130,4 @@ public class SoundManager : MonoBehaviour
             yield return null;
         }
     }
-
-    //private static AudioClip GetAudioClip(Song song)
 }

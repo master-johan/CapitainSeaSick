@@ -17,6 +17,7 @@ public class Door_Script : MonoBehaviour
     public void OpenDoor()
     {
         DoorAnimator.SetTrigger("OpenClose");
+        SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[0]);
        
     }
 

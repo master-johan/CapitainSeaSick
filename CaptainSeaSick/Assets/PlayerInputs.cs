@@ -65,5 +65,6 @@ public class PlayerInputs : MonoBehaviour
     void OnButtonY()
     {
         Debug.Log("Button Y pressed");
+ 
     }
 }

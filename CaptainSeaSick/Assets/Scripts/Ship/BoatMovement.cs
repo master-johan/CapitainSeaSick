@@ -11,15 +11,21 @@ public class BoatMovement : MonoBehaviour
     private GameObject ship, cliffIndicator;
     private float shipSpeedBasedOnRotation;
     public Vector3 turnVector, indicatorPosition;
+    
 
     void Start()
     {
-        
+
         ship = GameObject.FindGameObjectWithTag("Ship");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
 
     }
     void Update()
+    {
+        SteeringTheShip();
+    }
+
+    private void SteeringTheShip()
     {
         //Take the value of the rotation and save it.
         shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
@@ -43,8 +49,8 @@ public class BoatMovement : MonoBehaviour
 
         //Dont turn if the ship is not rotated enough.
         if (ship.transform.rotation.eulerAngles.x <= 10 || ship.transform.rotation.eulerAngles.x >= 350)
-        {    
-            turnVector = new Vector3(0, 0, 0);
+        {
+           // turnVector = new Vector3(0, 0, 0);
         }
 
         //Move the indicator to the cliff

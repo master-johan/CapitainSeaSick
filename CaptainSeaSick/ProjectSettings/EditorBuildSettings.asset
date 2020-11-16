@@ -24,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Scavenging Phase Levels/ScavengingPhase new.unity
     guid: 47e978d9b29bf634498a79c142e9a02e
   - enabled: 1
-    path: Assets/Scenes/Work in progress/WIP Boarding Phase 1.unity
-    guid: ecf36b5d1b4497b479f155e6d9fbb6dc
+    path: Assets/Scenes/Work in progress/WIP BoatBob.unity
+    guid: 08f188ca23a78f542ab26dce70c0456a
   - enabled: 1
     path: Assets/Scenes/Scavenging Phase Levels/ScavPhase2.unity
     guid: 435de672ec29bbd4494751dd70960f4a

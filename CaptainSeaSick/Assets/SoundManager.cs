@@ -52,10 +52,10 @@ public class SoundManager : MonoBehaviour
                 Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
             case 1:
-                Instance.PlayMusic(GameAssets.instance.audioClips[index]);
+                Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
                 break;
             case 4:
-                Instance.PlayMusic(GameAssets.instance.audioClips[index]);
+                Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
                 break;
             default:
                 

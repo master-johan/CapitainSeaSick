@@ -6,10 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class SnapshotCamera : MonoBehaviour
 {
-
+    GridTest gridTest;
     Camera snapCam;
     int resWidth = 256;
     int resHeight =  256;
+    
 
     void Awake()
     {
@@ -23,12 +24,12 @@ public class SnapshotCamera : MonoBehaviour
             resWidth = snapCam.targetTexture.width;
             resHeight = snapCam.targetTexture.height;
         }
-        snapCam.gameObject.SetActive(false);
+        //snapCam.gameObject.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        gridTest = GameObject.Find("Testing").GetComponent<GridTest>();
     }
 
     // Update is called once per frame
@@ -39,22 +40,23 @@ public class SnapshotCamera : MonoBehaviour
 
     public void CallTakeSnapShot()
     {
-        snapCam.gameObject.SetActive(true);
+        Texture2D snapshot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
+        snapCam.Render();
+        RenderTexture.active = snapCam.targetTexture;
+        snapshot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
+        byte[] bytes = snapshot.EncodeToPNG();
+        string fileName = SnapshotName();
+        System.IO.File.WriteAllBytes(fileName, bytes);
+        Debug.Log("Shooting wild with the snapshot");
+        gridTest.PrintData();
+        //snapCam.gameObject.SetActive(false);
     }
 
     void LateUpdate()
     {
         if (snapCam.gameObject.activeInHierarchy)
         {
-            Texture2D snapshot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24,false);
-            snapCam.Render();
-            RenderTexture.active = snapCam.targetTexture;
-            snapshot.ReadPixels(new Rect(0, 0, resWidth, resHeight),0,0);
-            byte[] bytes = snapshot.EncodeToPNG();
-            string fileName = SnapshotName();
-            System.IO.File.WriteAllBytes(fileName, bytes);
-            Debug.Log("Shooting wild with the snapshot");
-            snapCam.gameObject.SetActive(false);
+  
 
         }   
     }

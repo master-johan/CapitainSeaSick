@@ -27,4 +27,17 @@ public class GridTest : MonoBehaviour
             }
         }
     }
+
+    public void PrintData()
+    {
+        string text = JsonUtility.ToJson(grid.width);
+        System.IO.File.WriteAllText(FileName(), text);
+    }
+
+    private string FileName()
+    {
+        return string.Format("{0}/Snapshot/grid{1}.json",
+            Application.dataPath,
+            System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+    }
 }

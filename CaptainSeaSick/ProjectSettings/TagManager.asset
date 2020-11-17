@@ -28,6 +28,7 @@ TagManager:
   - Key
   - BarrelSpawner
   - ShipContainer
+  - SnapshotCam
   layers:
   - Default
   - TransparentFX

@@ -3,15 +3,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Serializable]
 public class Grid : MonoBehaviour
 {
     private float cellSize;
 
-    private int width;
+    public int width;
     private int height;
     Vector3 orginPos;
-    private float[,] gridArray;
+    public float[,] gridArray;
     private TextMesh[,] debugTextArray;
     public Grid(int width, int height, float cellSize, Vector3 orginPos)
     {

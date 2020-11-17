@@ -8,17 +8,17 @@ using UnityEngine.UI;
 
 public class BoatMovement : MonoBehaviour
 {
-    private GameObject ship, cliffIndicator;
-    private float shipSpeedBasedOnRotation;
+    private GameObject shipPivot,ship, cliffIndicator;
     public Vector3 turnVector, indicatorPosition;
+    Vector3 velocity;
     
 
     void Start()
     {
-
         ship = GameObject.FindGameObjectWithTag("Ship");
+        shipPivot = GameObject.FindGameObjectWithTag("ShipContainer");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
-
+        velocity = new Vector3(-GameAssets.instance.cliffSpeed, 0, 0);
     }
     void Update()
     {
@@ -27,30 +27,29 @@ public class BoatMovement : MonoBehaviour
 
     private void SteeringTheShip()
     {
-        //Take the value of the rotation and save it.
-        shipSpeedBasedOnRotation = System.Math.Abs(ship.transform.rotation.x);
-
+       
         //Move the cliffs toward the boat
-        transform.position -= new Vector3(GameAssets.instance.cliffSpeed, 0, 0) * Time.deltaTime;
+        //transform.position -= new Vector3(GameAssets.instance.cliffSpeed, 0, 0) * Time.deltaTime;
 
         //If a player is in the right spot then move the cliffs either up or down depending on which way the player rotates the ship.
 
         if (ship.GetComponentInChildren<SteeringScript>().GetSteeringBool())
         {
-            if (ship.transform.rotation.eulerAngles.x >= 10 && ship.transform.rotation.eulerAngles.x <= 45)
+            Debug.Log("EULER X = " + shipPivot.transform.rotation.eulerAngles.x);
+            if (shipPivot.transform.rotation.eulerAngles.x >= 10 && shipPivot.transform.rotation.eulerAngles.x <= 45)
             {
-                turnVector = new Vector3(0, 0, -0.15f * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, GameAssets.instance.cliffSpeed);
             }
-            else if (ship.transform.rotation.eulerAngles.x >= 270 && ship.transform.rotation.eulerAngles.x <= 350)
+            else if (shipPivot.transform.rotation.eulerAngles.x >= 270 && shipPivot.transform.rotation.eulerAngles.x <= 350)
             {
-                turnVector = new Vector3(0, 0, 0.15f * shipSpeedBasedOnRotation);
+                turnVector = new Vector3(0, 0, -GameAssets.instance.cliffSpeed);
             }
         }
 
         //Dont turn if the ship is not rotated enough.
-        if (ship.transform.rotation.eulerAngles.x <= 10 || ship.transform.rotation.eulerAngles.x >= 350)
+        if (shipPivot.transform.rotation.eulerAngles.x <= 10 || shipPivot.transform.rotation.eulerAngles.x >= 350)
         {
-           // turnVector = new Vector3(0, 0, 0);
+           turnVector = new Vector3(0, 0, 0);
         }
 
         //Move the indicator to the cliff
@@ -61,7 +60,7 @@ public class BoatMovement : MonoBehaviour
         }
 
         //Used to move the cliff up or down.
-        transform.position += turnVector;
+        transform.position += (turnVector + velocity) * Time.deltaTime;
     }
     private void OnDestroy()
     {

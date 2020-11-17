@@ -24,7 +24,10 @@ public class Bobbing_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        VerticalMovement();
+        if(tag == "Ship")
+        {
+            VerticalMovement();
+        }
 
         RotationalMovement();
 

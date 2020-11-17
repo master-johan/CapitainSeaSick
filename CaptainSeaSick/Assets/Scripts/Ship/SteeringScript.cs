@@ -13,14 +13,14 @@ public class SteeringScript : MonoBehaviour
     Steering_Trigger_Script steeringTrigger;
 
     GameObject player;
-    //GameObject ship;
+    GameObject ship;
 
     public GameObject shipPivot;
 
     void Start()
     {
         move.Enable();
-        //ship = GameObject.FindGameObjectWithTag("Ship");
+        ship = GameObject.FindGameObjectWithTag("Ship");
         zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
         steeringTrigger = GetComponent<Steering_Trigger_Script>();
     }
@@ -31,6 +31,8 @@ public class SteeringScript : MonoBehaviour
 
         if (inSteeringPosition)
         {
+            ship.GetComponent<Bobbing_Script>().enabled = false;
+
             move.Enable();
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 10 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 350)
@@ -50,6 +52,8 @@ public class SteeringScript : MonoBehaviour
         }
         if(!inSteeringPosition)
         {
+            GameObject.Find("Ship").GetComponent<Bobbing_Script>().enabled = true;
+
             move.Disable();
         }
         //Rotate the ship back if a no/ very little input is given from the controller.
@@ -64,6 +68,7 @@ public class SteeringScript : MonoBehaviour
         if (other.tag == "Player")
         {
             inSteeringPosition = true;
+
             Debug.Log("Gamla script " + inSteeringPosition);
 
         }

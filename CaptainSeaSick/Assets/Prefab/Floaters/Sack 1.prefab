@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23065688787001254}
   - component: {fileID: 3015480234995583798}
   - component: {fileID: -7781177221750695240}
+  - component: {fileID: 8828233124012410592}
   m_Layer: 0
   m_Name: Sack 1
   m_TagString: Untagged
@@ -110,3 +111,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5395652, y: 0.48047844, z: 0.53956515}
   m_Center: {x: -0.0000058561563, y: -0.088412955, z: 0.0000013709068}
+--- !u!114 &8828233124012410592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278935649092302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcce57c04e87ca4ab9d0efee4c6fbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalMoveSpeed: 0.009
+  xRotation: 1.2
+  zRotation: 1.2

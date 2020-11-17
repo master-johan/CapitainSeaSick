@@ -28,7 +28,7 @@ public class SceneDecor_Functionality : MonoBehaviour
             tempDecor = Instantiate(decor[Random.Range(0, decor.Count - 1)], spawnPositions[Random.Range(0, spawnPositions.Count)].transform.position, Quaternion.identity);
             tempDecor.isStatic = false;
             tempDecor.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
-            tempDecor.transform.localScale = tempDecor.transform.localScale * 4;
+            tempDecor.transform.localScale = tempDecor.transform.localScale * Random.Range(2, 6);
 
             tempDecorList.Add(tempDecor);
 
@@ -39,7 +39,7 @@ public class SceneDecor_Functionality : MonoBehaviour
 
         foreach (var item in tempDecorList)
         {
-            item.transform.position -= new Vector3(10, 0, 0) * Time.deltaTime;
+            item.transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
         }
     }
 }

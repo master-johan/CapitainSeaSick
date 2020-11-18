@@ -6,8 +6,9 @@ public class Cannon_Script : MonoBehaviour
 {
     public enum CannonState{ unloaded, loaded, canFire, fire}
     public CannonState cannonState;
-    public GameObject cannonBall, buttonB, fireEffect;
+    public GameObject cannonBall, buttonB;
     public BoxCollider pickUpZone;
+    public ParticleSystem fireEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -83,8 +84,8 @@ public class Cannon_Script : MonoBehaviour
     {
         if (cannonState == CannonState.canFire)
         {
-            fireEffect.GetComponent<ParticleSystem>().Clear();
-            fireEffect.GetComponent<ParticleSystem>().Play();
+            Instantiate(fireEffect, GameObject.Find("CannonBallOffset").transform.position, GameObject.Find("CannonBallOffset").transform.rotation);
+           
             cannonState = CannonState.fire;
         }
     }

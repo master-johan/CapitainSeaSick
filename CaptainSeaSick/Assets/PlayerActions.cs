@@ -326,7 +326,7 @@ public class PlayerActions : MonoBehaviour
             }
         }
 
-
+        GameAssets.instance.windActivated ^= true;
     }
 
     public void StartClimb()
@@ -345,8 +345,19 @@ public class PlayerActions : MonoBehaviour
     {
         if (playerState != PlayerState.climbing)
         {
+            int boostSpeed;
+
+            if(GameAssets.instance.windActivated)
+            {
+                boostSpeed = 10;
+            }
+            else
+            {
+                boostSpeed = 15;
+            }
+
             Vector3 direction = transform.forward;
-            boostvector = direction * 15;
+            boostvector = direction * boostSpeed;
             //rb.AddForce(rb.velocity + direction * 500, ForceMode.Impulse);
             boostMultiplier = 1;
             movementMultiplier = 0;

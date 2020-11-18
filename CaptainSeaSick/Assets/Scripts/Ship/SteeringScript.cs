@@ -13,14 +13,14 @@ public class SteeringScript : MonoBehaviour
     Steering_Trigger_Script steeringTrigger;
 
     GameObject player;
-    //GameObject ship;
+    GameObject ship;
 
     public GameObject shipPivot;
 
     void Start()
     {
         move.Enable();
-        //ship = GameObject.FindGameObjectWithTag("Ship");
+        ship = GameObject.FindGameObjectWithTag("Ship");
         zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
         steeringTrigger = GetComponent<Steering_Trigger_Script>();
     }
@@ -64,6 +64,7 @@ public class SteeringScript : MonoBehaviour
         if (other.tag == "Player")
         {
             inSteeringPosition = true;
+
             Debug.Log("Gamla script " + inSteeringPosition);
 
         }

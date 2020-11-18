@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 23065688787001254}
   - component: {fileID: 3015480234995583798}
   - component: {fileID: -7781177221750695240}
+  - component: {fileID: 8828233124012410592}
   m_Layer: 0
   m_Name: Sack 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4428125842109644
 Transform:
@@ -92,10 +93,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &-7781177221750695240
 BoxCollider:
@@ -108,5 +109,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5395652, y: 0.48047844, z: 0.53956515}
-  m_Center: {x: -0.0000058561563, y: -0.088412955, z: 0.0000013709068}
+  m_Size: {x: 0.4455827, y: 0.48047844, z: 0.45988566}
+  m_Center: {x: -0.010256708, y: -0.088412955, z: -0.00825724}
+--- !u!114 &8828233124012410592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278935649092302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcce57c04e87ca4ab9d0efee4c6fbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boatBobbingSpeed: 0.0025
+  wreckageBobbingSpeed: 1
+  xRotation: 1.2
+  zRotation: 1.2

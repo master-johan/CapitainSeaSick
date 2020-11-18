@@ -1,0 +1,52 @@
+{
+    "name": "PauseMap",
+    "maps": [
+        {
+            "name": "InfoManager",
+            "id": "7359e12b-3e53-4289-acb1-c51073d3c64b",
+            "actions": [
+                {
+                    "name": "ButtonA",
+                    "type": "Button",
+                    "id": "1f991b3f-24c7-4723-83e9-abacc36ffae0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "49cca6a1-9d3d-40db-b859-7d2624c5b5e3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "091e4d4c-5a88-4ba3-ab59-9fb900e5d4e5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonA",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa3c2702-9f4b-4f51-8cb4-31db3a02f637",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

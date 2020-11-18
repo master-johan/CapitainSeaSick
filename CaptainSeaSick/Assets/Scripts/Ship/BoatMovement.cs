@@ -38,11 +38,11 @@ public class BoatMovement : MonoBehaviour
             Debug.Log("EULER X = " + shipPivot.transform.rotation.eulerAngles.x);
             if (shipPivot.transform.rotation.eulerAngles.x >= 10 && shipPivot.transform.rotation.eulerAngles.x <= 45)
             {
-                turnVector = new Vector3(0, 0, GameAssets.instance.cliffSpeed);
+                turnVector = new Vector3(0, 0, -GameAssets.instance.cliffSpeed);
             }
             else if (shipPivot.transform.rotation.eulerAngles.x >= 270 && shipPivot.transform.rotation.eulerAngles.x <= 350)
             {
-                turnVector = new Vector3(0, 0, -GameAssets.instance.cliffSpeed);
+                turnVector = new Vector3(0, 0, GameAssets.instance.cliffSpeed);
             }
         }
 

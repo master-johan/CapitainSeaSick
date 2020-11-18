@@ -48,7 +48,7 @@ public class SteeringScript : MonoBehaviour
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
-        if(!inSteeringPosition)
+        if (!inSteeringPosition)
         {
             move.Disable();
         }
@@ -65,6 +65,9 @@ public class SteeringScript : MonoBehaviour
         {
             inSteeringPosition = true;
 
+            player = other.gameObject;
+            other.GetComponent<PlayerActions>().SetFocus(transform.gameObject, 0, 0);
+
             Debug.Log("Gamla script " + inSteeringPosition);
 
         }
@@ -74,7 +77,8 @@ public class SteeringScript : MonoBehaviour
         if (other.tag == "Player")
         {
             inSteeringPosition = false;
-
+            player = null;
+            other.GetComponent<PlayerActions>().SetFocus(null, 0, 0);
         }
     }
     public bool GetSteeringBool()

@@ -49,23 +49,21 @@ public class PlayerInputs : MonoBehaviour
     {
    
         playerActions.PickUp();
-        Debug.Log("Button A pressed");
     }
     void OnButtonB()
     {
-        playerActions.Interact();
-        Debug.Log("Button B pressed");
+        playerActions.Boost();
+
     }
     void OnButtonX()
     {
-        playerActions.Boost();
-        Debug.Log("Button X pressed");
+        playerActions.Interact();
+
     }
 
     void OnButtonY()
     {
         GameObject.Find("CameraForHeatMap").GetComponent<SnapshotCamera>().CallTakeSnapShot();
-        Debug.Log("Button Y pressed");
  
     }
 }

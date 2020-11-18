@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 using UnityEngine.XR.WSA.Input;
 
 
-public enum PlayerState { free, carrying, interacting, climbing };
+public enum PlayerState { free, carrying, interacting, climbing, steering };
 public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
@@ -36,7 +36,7 @@ public class PlayerActions : MonoBehaviour
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
 
-        
+
     }
 
     // Update is called once per frame
@@ -51,12 +51,14 @@ public class PlayerActions : MonoBehaviour
                 break;
             case PlayerState.interacting:
                 break;
-
+            case PlayerState.steering:
+                SnapToSteeringPosition();
+                break;
             default:
                 break;
         }
 
-        if(GameAssets.instance.playersReady)
+        if (GameAssets.instance.playersReady && playerState != PlayerState.steering)
         {
             PlayerMovement(playerInputs.LeftStick);
         }
@@ -73,6 +75,15 @@ public class PlayerActions : MonoBehaviour
                 animator.SetBool("isThrusting", false);
             }
         }
+
+    }
+
+    private void SnapToSteeringPosition()
+    {
+        transform.position = focusedObject.transform.position + new Vector3(1, 0, -1);
+        transform.rotation = focusedObject.transform.rotation;
+        transform.up = ship.transform.up;
+        transform.Rotate(new Vector3(0, 90, 0));
 
     }
 
@@ -158,7 +169,7 @@ public class PlayerActions : MonoBehaviour
             animator.SetBool("isBoosting", false);
         }
 
-        if(boostMultiplier == 0)
+        if (boostMultiplier == 0)
         {
             isBoosting = false;
         }
@@ -199,9 +210,11 @@ public class PlayerActions : MonoBehaviour
                     }
                 }
             }
-            Debug.Log("Got a new focus");
             focusedObject = target;
             focusedObjectOffset = new Vector2(offsetX, offsetY);
+
+            Debug.Log("Got a new focus" + focusedObject.name);
+
             if (focusedObject != null)
             {
                 if (focusedObject.GetComponentInParent<Outline>())
@@ -254,7 +267,6 @@ public class PlayerActions : MonoBehaviour
     {
         playerState = PlayerState.carrying;
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().PickedUp(gameObject);
-        Debug.Log("Pick up");
         if (focusedObject.GetComponent<SwordTag_Script>())
         {
             focusedObject.transform.parent = rightHand.transform;
@@ -264,7 +276,6 @@ public class PlayerActions : MonoBehaviour
     private void ReleaseItem()
     {
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
-        Debug.Log("letting go");
         playerState = PlayerState.free;
         hasSword = false;
         if (focusedObject.GetComponent<SwordTag_Script>())
@@ -308,25 +319,38 @@ public class PlayerActions : MonoBehaviour
                     StartClimb();
                     return;
                 }
-  
+
                 else if (focusedObject.GetComponent<Interactable_Script>())
                 {
                     playerState = focusedObject.GetComponent<Interactable_Script>().Interact();
                     return;
                 }
+                if (focusedObject.name == "Steer_Trigger")
+                {
+                    playerState = PlayerState.steering;
+                    animator.SetBool("isRunning", false);
 
+                    return;
+                }
             }
             else if (focusedObject.GetComponent<SwordTag_Script>())
             {
                 animator.SetBool("isThrusting", true);
             }
+
+
+            if (playerState == PlayerState.steering)
+            {
+                playerState = PlayerState.free;
+            }
+
             if (playerState == PlayerState.climbing)
             {
                 StopClimb();
             }
         }
 
-        GameAssets.instance.windActivated ^= true;
+        //GameAssets.instance.windActivated ^= true;
     }
 
     public void StartClimb()
@@ -347,7 +371,7 @@ public class PlayerActions : MonoBehaviour
         {
             int boostSpeed;
 
-            if(GameAssets.instance.windActivated)
+            if (GameAssets.instance.windActivated)
             {
                 boostSpeed = 10;
             }
@@ -366,7 +390,7 @@ public class PlayerActions : MonoBehaviour
             SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[1], 0.5f);
         }
 
-        if(animationState.IsName("Idle"))
+        if (animationState.IsName("Idle"))
         {
             isBoosting = true;
         }

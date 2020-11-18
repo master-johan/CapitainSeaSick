@@ -30,7 +30,8 @@ public class GridTest : MonoBehaviour
 
     public void PrintData()
     {
-        string text = JsonUtility.ToJson(grid.width);
+
+        string text = grid.ToString();
         System.IO.File.WriteAllText(FileName(), text);
     }
 

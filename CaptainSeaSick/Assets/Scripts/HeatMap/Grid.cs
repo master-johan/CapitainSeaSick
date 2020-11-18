@@ -2,16 +2,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 [Serializable]
-public class Grid : MonoBehaviour
+public class Grid 
 {
     private float cellSize;
-
-    public int width;
-    private int height;
-    Vector3 orginPos;
     public float[,] gridArray;
+    public int width;
+    public int height;
+    Vector3 orginPos;
+    
     private TextMesh[,] debugTextArray;
     public Grid(int width, int height, float cellSize, Vector3 orginPos)
     {
@@ -37,8 +38,6 @@ public class Grid : MonoBehaviour
 
         Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
         Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-
-        SetValue(2, 1, 56);
     }
 
     private Vector3 GetWorldPosition(int x, int z)
@@ -75,5 +74,22 @@ public class Grid : MonoBehaviour
         int x, z;
         GetXZ(worldPosition, out x, out z);
         SetValue(x, z, value);
+    }
+
+    public override string ToString()
+    {
+        StringBuilder s = new StringBuilder();
+
+        s.AppendLine("GridSize: " + gridArray.GetLength(0) + ", " +gridArray.GetLength(1));
+        for (int y = gridArray.GetLength(1)-1; y >= 0 ; y--)
+        {
+            for (int x = 0; x < gridArray.GetLength(0); x++)
+            {
+                s.Append(((int)gridArray[x, y]).ToString() + " ");
+            }
+            s.AppendLine();
+        }
+        s.Append(";");
+        return s.ToString();
     }
 }

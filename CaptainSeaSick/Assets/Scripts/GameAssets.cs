@@ -20,6 +20,9 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+    public bool gameIsPaused;
+    //Array of images for information
+    public Sprite[] infoImages;
     //AudioClip Array Used in SoundManager
     [Header("Audiofile Array")]
     public AudioClip[] audioClips;

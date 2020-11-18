@@ -1,22 +1,22 @@
 {
-    "name": "ControllMenu",
+    "name": "PauseMap",
     "maps": [
         {
-            "name": "ControllerMenu",
-            "id": "6e8788e5-d176-4212-a275-3d370c1b6734",
+            "name": "InfoManager",
+            "id": "7359e12b-3e53-4289-acb1-c51073d3c64b",
             "actions": [
                 {
-                    "name": "StartGame",
+                    "name": "ButtonA",
                     "type": "Button",
-                    "id": "0b3e458c-1314-4946-87b2-ab42114f466f",
+                    "id": "1f991b3f-24c7-4723-83e9-abacc36ffae0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "A-Click",
+                    "name": "Submit",
                     "type": "Button",
-                    "id": "a109ce36-e67a-4de8-9581-1eddb65b8749",
+                    "id": "49cca6a1-9d3d-40db-b859-7d2624c5b5e3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -25,23 +25,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "9fb0f353-0db2-474c-afda-31378048ccf2",
-                    "path": "<Gamepad>/start",
+                    "id": "091e4d4c-5a88-4ba3-ab59-9fb900e5d4e5",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "StartGame",
+                    "action": "ButtonA",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "88b87812-1556-486b-b00d-7beae77a06b4",
-                    "path": "<Gamepad>/buttonSouth",
+                    "id": "aa3c2702-9f4b-4f51-8cb4-31db3a02f637",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "A-Click",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

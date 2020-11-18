@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.UI;
 
 public class ControllerMenuJoinScript : MonoBehaviour
 {
+    public GameObject infoManager;
     public TextMeshProUGUI player1Text, player2Text, player3Text, player4Text;
     private GameObject playerInputManager;
     private GameObject menuSystemController;
@@ -43,9 +44,12 @@ public class ControllerMenuJoinScript : MonoBehaviour
             player4Text.text = "Connected";
         }
 
+
         if(inputSystem.submit.action.triggered)
         {
             GameAssets.instance.playersReady = true;
+            
+            infoManager.SetActive(true);
         }
     }
 

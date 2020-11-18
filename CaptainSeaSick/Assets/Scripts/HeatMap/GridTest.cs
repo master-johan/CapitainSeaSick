@@ -11,19 +11,33 @@ public class GridTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(10, 2, 10f);
+        grid = new Grid(14, 6, 5, new Vector3(-50,10,-5));
         a = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        a += 1;
         players = GameObject.FindGameObjectsWithTag("Player");
         if (players != null)
         {
-            grid.SetValue(new Vector3(players[0].transform.position.x, players[0].transform.position.z, 0), a);
-            Debug.Log(players[0].transform.position);
+            for (int i = 0; i < players.Length; i++)
+            {
+                grid.SetValue(new Vector3(players[i].transform.position.x, 0, players[i].transform.position.z), Time.deltaTime);
+            }
         }
+    }
+
+    public void PrintData()
+    {
+        string text = JsonUtility.ToJson(grid.width);
+        System.IO.File.WriteAllText(FileName(), text);
+    }
+
+    private string FileName()
+    {
+        return string.Format("{0}/Snapshot/grid{1}.json",
+            Application.dataPath,
+            System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     }
 }

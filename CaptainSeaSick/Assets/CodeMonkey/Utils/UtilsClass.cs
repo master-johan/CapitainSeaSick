@@ -106,6 +106,7 @@ namespace CodeMonkey.Utils {
             Transform transform = gameObject.transform;
             transform.SetParent(parent, false);
             transform.localPosition = localPosition;
+            transform.Rotate(new Vector3(90, 0, 0));
             TextMesh textMesh = gameObject.GetComponent<TextMesh>();
             textMesh.anchor = textAnchor;
             textMesh.alignment = textAlignment;

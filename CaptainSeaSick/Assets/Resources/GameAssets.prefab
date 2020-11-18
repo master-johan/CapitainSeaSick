@@ -43,6 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59bac14f0f8b6481094a653885c35a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameIsPaused: 0
+  infoImages:
+  - {fileID: 21300000, guid: 02a61423e8a964f7485363ed8a5f1f11, type: 3}
+  - {fileID: 21300000, guid: 56e1c34ab7d8f48daa0fea22713d0efb, type: 3}
+  - {fileID: 21300000, guid: 636ae43ede3dd4b37907193a199ee902, type: 3}
+  - {fileID: 21300000, guid: b6b66cccc9e2b4a74837af27040f45f2, type: 3}
+  - {fileID: 21300000, guid: 3d5520d39619e4d1fb05526c09631974, type: 3}
+  - {fileID: 21300000, guid: 513f0ecfc787c4c5f9ee3eefb55a7791, type: 3}
+  - {fileID: 21300000, guid: f6bcf13bd4e044d2a91d3a844e62eed4, type: 3}
+  - {fileID: 21300000, guid: 03b255bbf12ff46df912a324aaf6d179, type: 3}
+  - {fileID: 21300000, guid: 6d0048d0c21e14ac799b5fb1d395c3e8, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
@@ -58,7 +69,7 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
+  playersReady: 0
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
@@ -102,4 +113,4 @@ MonoBehaviour:
   enableLevel4: 0
   enableLevel5: 0
   enableLevel6: 0
-  windActivated: 1
+  windActivated: 0

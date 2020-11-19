@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class BarrellFunctionality : MonoBehaviour

@@ -11,7 +11,7 @@ public class ProgressBar_Script : MonoBehaviour
 {
     private Slider slider;
     public GameObject controllerMenuSystem;
-    public float levelTime = 20; //2 MIN
+    private float levelTime;
     public float timeLeft; //How long left
     public float progress = 100;
     public bool isDone = false;
@@ -20,7 +20,6 @@ public class ProgressBar_Script : MonoBehaviour
     List<TimeLineObstacle> obstaclesSpotted;
 
     public float TimeLeft { get => timeLeft; set => timeLeft = value; }
-    public float LevelTime { get => levelTime; set => levelTime = value; }
 
     private Image imageBoat;
     private bool seeFar;
@@ -44,7 +43,8 @@ public class ProgressBar_Script : MonoBehaviour
     }
     void Start()
     {
-        timeLeft = LevelTime;
+        levelTime = GameAssets.instance.levelTime;
+        timeLeft = levelTime;
         slider.value = timeLeft;
     }
     void Update()
@@ -62,7 +62,7 @@ public class ProgressBar_Script : MonoBehaviour
             if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
-                slider.value = timeLeft / LevelTime;
+                slider.value = timeLeft / levelTime;
             }
             else
             {

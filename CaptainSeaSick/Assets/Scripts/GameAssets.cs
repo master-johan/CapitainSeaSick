@@ -44,7 +44,7 @@ public class GameAssets : MonoBehaviour
     [Tooltip(("Time between cliffs"))]
     public float cliffSpeed;
     public float cannonballsDamage;
-
+    public int levelTime;
     public int numberOfCannons;
     public List<Vector3> cannonSpawnPos;
     public int numberOfSwords;

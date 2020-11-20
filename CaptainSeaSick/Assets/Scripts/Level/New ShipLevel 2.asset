@@ -19,12 +19,12 @@ MonoBehaviour:
     timeBetweenSpawn: 12
     status: 1
   - type: 0
-    whenToSpawn: 40
+    whenToSpawn: 60
     numberOfSpawns: 5
     timeBetweenSpawn: 12
     status: 1
   - type: 1
-    whenToSpawn: 20
+    whenToSpawn: 40
     numberOfSpawns: 2
     timeBetweenSpawn: 8
     status: 1

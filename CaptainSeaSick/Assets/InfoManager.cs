@@ -108,7 +108,7 @@ public class InfoManager : MonoBehaviour
         else
         {
             GameAssets.instance.UnPauseGame();
-            GameObject.Find("CountDown").GetComponentInChildren<Countdown_Script>().StartCountDown();
+            GameObject.Find("CountDownManager").GetComponentInChildren<Countdown_Script>().StartCountDown();
         }
     }
 }

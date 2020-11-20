@@ -10166,17 +10166,17 @@ PrefabInstance:
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.37
+      value: 18.71
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.39
+      value: 24.57
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.08
+      value: -17.22
       objectReference: {fileID: 0}
     - target: {fileID: 5363041642469607554, guid: 6a6a43bd981dea448b6199d866c667ca,
         type: 3}
@@ -20973,21 +20973,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4233010723146247159, guid: 1958f6ce490054c78afacb32c67fe1f0,
-        type: 3}
-      propertyPath: spawnScavPhase.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: -4233010723146247159, guid: 1958f6ce490054c78afacb32c67fe1f0,
-        type: 3}
-      propertyPath: spawnScavPhase.y
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: -4233010723146247159, guid: 1958f6ce490054c78afacb32c67fe1f0,
-        type: 3}
-      propertyPath: spawnScavPhase.z
-      value: -17
-      objectReference: {fileID: 0}
     - target: {fileID: 5805175913732851676, guid: 1958f6ce490054c78afacb32c67fe1f0,
         type: 3}
       propertyPath: m_Name

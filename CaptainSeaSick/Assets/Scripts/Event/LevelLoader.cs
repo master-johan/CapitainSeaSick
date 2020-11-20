@@ -57,7 +57,7 @@ public class LevelLoader : MonoBehaviour
     private void SetPlayerSpawningPos()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        if (SceneManager.GetActiveScene().buildIndex % 2 == 0)
+        if (SceneManager.GetActiveScene().buildIndex % 2 == 1)
         {
             for (int i = 0; i < players.Length; i++)
             {
@@ -75,10 +75,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadShopLevel()
     {
-        StartCoroutine(LoadLevel(0));
+        StartCoroutine(LoadLevel(6));
     }
     public void LoadLevelMap()
     {
-        StartCoroutine(LoadLevel(2));
+        StartCoroutine(LoadLevel(1));
     }
 }

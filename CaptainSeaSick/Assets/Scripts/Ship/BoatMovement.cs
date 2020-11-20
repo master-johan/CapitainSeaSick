@@ -35,7 +35,6 @@ public class BoatMovement : MonoBehaviour
 
         if (ship.GetComponentInChildren<SteeringScript>().GetSteeringBool())
         {
-            Debug.Log("EULER X = " + shipPivot.transform.rotation.eulerAngles.x);
             if (shipPivot.transform.rotation.eulerAngles.x >= 10 && shipPivot.transform.rotation.eulerAngles.x <= 45)
             {
                 turnVector = new Vector3(0, 0, -GameAssets.instance.cliffSpeed);

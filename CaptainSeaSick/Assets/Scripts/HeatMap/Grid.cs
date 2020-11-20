@@ -7,11 +7,11 @@ using UnityEngine;
 [Serializable]
 public class Grid 
 {
-    private float cellSize;
+    public float cellSize;
     public float[,] gridArray;
     public int width;
     public int height;
-    Vector3 orginPos;
+    public Vector3 orginPos;
     
     private TextMesh[,] debugTextArray;
     public Grid(int width, int height, float cellSize, Vector3 orginPos)

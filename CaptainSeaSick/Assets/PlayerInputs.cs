@@ -63,7 +63,6 @@ public class PlayerInputs : MonoBehaviour
 
     void OnButtonY()
     {
-        GameObject.Find("CameraForHeatMap").GetComponent<SnapshotCamera>().CallTakeSnapShot();
- 
+        //GameObject.Find("CameraForHeatMap").GetComponent<SnapshotCamera>().CallTakeSnapShot();
     }
 }

@@ -328,6 +328,7 @@ public class PlayerActions : MonoBehaviour
                 {
                     playerState = PlayerState.steering;
                     animator.SetBool("isRunning", false);
+                    focusedObject.GetComponent<SteeringScript>().controllingPlayer = this.gameObject;
 
                     return;
                 }
@@ -340,6 +341,7 @@ public class PlayerActions : MonoBehaviour
 
             if (playerState == PlayerState.steering)
             {
+                focusedObject.GetComponent<SteeringScript>().controllingPlayer = null;
                 playerState = PlayerState.free;
             }
 
@@ -394,7 +396,13 @@ public class PlayerActions : MonoBehaviour
             isBoosting = true;
         }
     }
-
+    public void Clear()
+    {
+        if (focusedObject != null)
+        {
+            ReleaseItem();
+        }
+    }
 
 }
 

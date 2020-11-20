@@ -10,7 +10,7 @@ public class SteeringScript : MonoBehaviour
     public InputAction move;
     Vector2 inputVector;
     Quaternion zeroQuaternion;
-    Steering_Trigger_Script steeringTrigger;
+    public GameObject controllingPlayer;
 
     GameObject player;
     GameObject ship;
@@ -22,14 +22,13 @@ public class SteeringScript : MonoBehaviour
         move.Enable();
         ship = GameObject.FindGameObjectWithTag("Ship");
         zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
-        steeringTrigger = GetComponent<Steering_Trigger_Script>();
     }
-    void Update()
+    void FixedUpdate()
     {
         //Reads the value from the rightstick
         inputVector = move.ReadValue<Vector2>();
 
-        if (inSteeringPosition)
+        if (IsControlled())
         {
             move.Enable();
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
@@ -48,7 +47,7 @@ public class SteeringScript : MonoBehaviour
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
-        if (!inSteeringPosition)
+        if (!IsControlled())
         {
             move.Disable();
         }
@@ -84,5 +83,14 @@ public class SteeringScript : MonoBehaviour
     public bool GetSteeringBool()
     {
         return inSteeringPosition;
+    }
+
+    private bool IsControlled()
+    {
+        if (controllingPlayer != null)
+        {
+            return true;
+        }
+        return false;
     }
 }

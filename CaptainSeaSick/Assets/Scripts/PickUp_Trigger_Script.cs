@@ -96,7 +96,6 @@ public class PickUp_Trigger_Script : MonoBehaviour
             if (CheckIfCollitionsShouldBeDeactivated())
             {
                 rb.detectCollisions = false;
-                Debug.Log("KUKEN");
             }
 
             this.player = player;

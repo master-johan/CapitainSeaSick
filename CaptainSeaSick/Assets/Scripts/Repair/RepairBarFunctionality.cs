@@ -14,7 +14,7 @@ public class RepairBarFunctionality : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (bar.localScale.x >= 0)
         {

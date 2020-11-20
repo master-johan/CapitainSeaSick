@@ -74,18 +74,18 @@ MonoBehaviour:
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 180
+  levelTime: 120
   numberOfCannons: 1
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
   - {x: 10, y: 0, z: -10}
   - {x: 20, y: 0, z: -10}
   - {x: 30, y: 0, z: -10}
-  numberOfSwords: 1
+  numberOfSwords: 2
   swordSpawnPos:
-  - {x: 2, y: 0, z: 10}
-  - {x: 10, y: 0, z: 10}
-  - {x: 20, y: 0, z: 10}
+  - {x: 5, y: 1, z: 10}
+  - {x: 10, y: 1, z: 10}
+  - {x: 20, y: 1, z: 10}
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
   LeakDamage: 5

@@ -13,7 +13,7 @@ public class BigLeakScript : MonoBehaviour
     {
     }
 
-    void Update()
+    void FixedUpdate()
     {
         damageTimer -= Time.deltaTime;
         if (damageTimer <= 0)

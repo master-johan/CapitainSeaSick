@@ -19,7 +19,7 @@ public class GameAssets : MonoBehaviour
 
         }
     }
-
+    public bool CountDownDone = false;
     public bool gameIsPaused;
     //Array of images for information
     public Sprite[] infoImages;
@@ -95,4 +95,14 @@ public class GameAssets : MonoBehaviour
 
     [Header("Wind Variables")]
     public bool windActivated;
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void UnPauseGame()
+    {
+        Time.timeScale = 1;
+    }
 }

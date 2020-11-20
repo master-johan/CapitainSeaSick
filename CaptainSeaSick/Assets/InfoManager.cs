@@ -94,6 +94,7 @@ public class InfoManager : MonoBehaviour
         {
             GameAssets.instance.gameIsPaused = false;
             gameObject.SetActive(false);
+            
 
         }
     }
@@ -101,11 +102,13 @@ public class InfoManager : MonoBehaviour
     {
         if (GameAssets.instance.gameIsPaused)
         {
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
+            GameAssets.instance.PauseGame();
         }
         else
         {
-            Time.timeScale = 1;
+            GameAssets.instance.UnPauseGame();
+            GameObject.Find("CountDown").GetComponentInChildren<Countdown_Script>().StartCountDown();
         }
     }
 }

@@ -53,7 +53,6 @@ public class Reader : MonoBehaviour
 
         Grid grid = new Grid(14, 6, 5, new Vector3(-50, 10, -5));
 
-        int temp = 0;
 
         Vector3 meshSize = g.GetComponent<MeshRenderer>().bounds.size;
         Vector3 localScale = g.transform.localScale;
@@ -70,7 +69,6 @@ public class Reader : MonoBehaviour
                 gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x,y] * 0.1f);
                 
             }
-            temp++;
         }
     }
 }

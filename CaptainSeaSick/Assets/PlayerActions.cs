@@ -403,6 +403,10 @@ public class PlayerActions : MonoBehaviour
             ReleaseItem();
         }
     }
+    public Vector2 GetPlayerAxisInput()
+    {
+        return playerInputs.LeftStick;
+    }
 
 }
 

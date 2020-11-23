@@ -50,6 +50,13 @@ public class GameAssets : MonoBehaviour
     public int numberOfSwords;
     public List<Vector3> swordSpawnPos;
 
+    [Header("Shop Variables")]
+    [Tooltip(("Prices for different upgrades"))]
+    public int swordPrice;
+    public int cannonPrice;
+    public int cannonballDamagePrice;
+    public int shipMaxHealthPrice;
+
 
     [Header("Dialogue Variables")]
     [Tooltip("Typing speed in dialogue")]

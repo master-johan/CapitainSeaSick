@@ -83,7 +83,6 @@ public class PlayerActions : MonoBehaviour
         transform.rotation = focusedObject.transform.rotation;
         transform.up = ship.transform.up;
         transform.Rotate(new Vector3(0, 90, 0));
-
     }
 
     void PlayerMovement(Vector2 input)

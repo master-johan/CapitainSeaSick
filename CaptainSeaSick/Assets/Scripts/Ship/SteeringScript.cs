@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class SteeringScript : MonoBehaviour
 {
     public bool inSteeringPosition;
-    public InputAction move;
     Vector2 inputVector;
     Quaternion zeroQuaternion;
     public GameObject controllingPlayer;
@@ -19,18 +18,18 @@ public class SteeringScript : MonoBehaviour
 
     void Start()
     {
-        move.Enable();
         ship = GameObject.FindGameObjectWithTag("Ship");
         zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
     }
     void FixedUpdate()
     {
-        //Reads the value from the rightstick
-        inputVector = move.ReadValue<Vector2>();
+      
+        
 
         if (IsControlled())
         {
-            move.Enable();
+            inputVector = controllingPlayer.GetComponent<PlayerActions>().GetPlayerAxisInput();
+          
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 10 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 350)
             {
@@ -47,10 +46,7 @@ public class SteeringScript : MonoBehaviour
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
         }
-        if (!IsControlled())
-        {
-            move.Disable();
-        }
+      
         //Rotate the ship back if a no/ very little input is given from the controller.
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {

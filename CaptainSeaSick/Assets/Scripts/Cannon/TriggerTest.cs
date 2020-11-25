@@ -72,7 +72,7 @@ public class TriggerTest : MonoBehaviour
                 //triggerState = TriggerState.ready;
                 //other.transform.position = new Vector3(cannonSpot.transform.position.x, cannonSpot.transform.position.y, cannonSpot.transform.position.z);
                 other.transform.position = child.GetComponent<Renderer>().bounds.center;
-                other.transform.forward = cannonSpot.transform.forward;
+                other.transform.right = cannonSpot.transform.forward;
                 if (other.GetComponent<Cannon_Script>().cannonState == Cannon_Script.CannonState.loaded)
                 {
                     other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.canFire;

@@ -29,6 +29,8 @@ TagManager:
   - BarrelSpawner
   - ShipContainer
   - SnapshotCam
+  - Mast
+  - Steeringwheel
   layers:
   - Default
   - TransparentFX

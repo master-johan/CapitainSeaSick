@@ -83,7 +83,6 @@ public class PlayerActions : MonoBehaviour
         transform.rotation = focusedObject.transform.rotation;
         transform.up = ship.transform.up;
         transform.Rotate(new Vector3(0, 90, 0));
-
     }
 
     void PlayerMovement(Vector2 input)
@@ -205,7 +204,15 @@ public class PlayerActions : MonoBehaviour
                 {
                     if (focusedObject.GetComponentInParent<Outline>())
                     {
-                        focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.SilhouetteOnly;
+                        if (focusedObject.tag == "Mast" || focusedObject.tag == "Steeringwheel" || focusedObject.tag == "Container")
+                        {
+                            focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineHidden;
+                            focusedObject.GetComponentInParent<Outline>().OutlineColor = new Color(1, 1, 1, 0);
+                        }
+                        else
+                        {
+                            focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.SilhouetteOnly;
+                        }
                     }
                 }
             }
@@ -218,7 +225,15 @@ public class PlayerActions : MonoBehaviour
             {
                 if (focusedObject.GetComponentInParent<Outline>())
                 {
-                    focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineAndSilhouette;
+                    if (focusedObject.tag == "Mast" || focusedObject.tag == "Steeringwheel" || focusedObject.tag == "Container")
+                    {
+                        focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineVisible;
+                        focusedObject.GetComponentInParent<Outline>().OutlineColor = new Color(1, 1, 1, 1);
+                    }
+                    else
+                    {
+                        focusedObject.GetComponentInParent<Outline>().OutlineMode = Outline.Mode.OutlineAndSilhouette;
+                    }
                 }
             }
         }
@@ -402,6 +417,10 @@ public class PlayerActions : MonoBehaviour
         {
             ReleaseItem();
         }
+    }
+    public Vector2 GetPlayerAxisInput()
+    {
+        return playerInputs.LeftStick;
     }
 
 }

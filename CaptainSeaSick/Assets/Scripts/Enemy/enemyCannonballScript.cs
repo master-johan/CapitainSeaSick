@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyCannonballScript : MonoBehaviour
 {
+    
     public bool isHit;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class enemyCannonballScript : MonoBehaviour
         if (other.tag == "Ship")
         {
             isHit = true;
+           
         }
     }
     private void OnTriggerStay(Collider other)

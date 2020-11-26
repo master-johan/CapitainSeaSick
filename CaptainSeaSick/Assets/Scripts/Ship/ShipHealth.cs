@@ -9,6 +9,8 @@ public class ShipHealth : MonoBehaviour
     private float maxHealth = 100;
     public float currenthealth;
     private GameObject spawnPositions;
+    [SerializeField] Flash flashImage;
+
 
 
     public event Action <float> healthPctChanged = delegate { };
@@ -45,7 +47,9 @@ public class ShipHealth : MonoBehaviour
         }
         if(other.tag == "EnemyCannonball")
         {
+
             ModifyHealth(-1);
+            flashImage.StartFlash();
         }
     }
 

@@ -13,6 +13,7 @@ public class SteeringScript : MonoBehaviour
 
     GameObject player;
     GameObject ship;
+    GameObject wheel;
 
     public GameObject shipPivot;
 
@@ -20,12 +21,10 @@ public class SteeringScript : MonoBehaviour
     {
         ship = GameObject.FindGameObjectWithTag("Ship");
         zeroQuaternion = new Quaternion(0, 0, 0, shipPivot.transform.rotation.w);
+        wheel = GameObject.Find("SteeringWheel");
     }
     void FixedUpdate()
     {
-      
-        
-
         if (IsControlled())
         {
             inputVector = controllingPlayer.GetComponent<PlayerActions>().GetPlayerAxisInput();
@@ -34,6 +33,7 @@ public class SteeringScript : MonoBehaviour
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 10 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 350)
             {
                 shipPivot.transform.Rotate(new Vector3(inputVector.y * 0.1f, 0, 0));
+                wheel.transform.Rotate(new Vector3(0, -inputVector.y * 1f, 0));
             }
 
             //Keeps the ship from rotating further than the limit values
@@ -51,6 +51,7 @@ public class SteeringScript : MonoBehaviour
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {
             shipPivot.transform.rotation = Quaternion.RotateTowards(shipPivot.transform.rotation, zeroQuaternion, (Time.deltaTime * 5));
+            wheel.transform.rotation = Quaternion.RotateTowards(wheel.transform.rotation, new Quaternion(0,0,0.7f,0.7f), (Time.deltaTime * 70));
         }
 
     }

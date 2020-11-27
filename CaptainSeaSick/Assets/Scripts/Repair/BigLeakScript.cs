@@ -102,6 +102,7 @@ public class BigLeakScript : MonoBehaviour
     {
         if (plankOnLeak)
         {
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[6], 0.5f);
             GetComponentInChildren<RepairBarFunctionality>().SetSize(0.1f);
         }
     }

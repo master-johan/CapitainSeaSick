@@ -54,6 +54,7 @@ public class enemyShipScript : MonoBehaviour
         {
             shootTimer = 10;
             tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[9], 0.5f);//Enemy cannon fire
         }
 
         if (lifeTimer <= 0)

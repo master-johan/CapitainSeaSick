@@ -45,6 +45,7 @@ public class Cannon_Script : MonoBehaviour
     /// </summary>
     public void Fire()
     {
+        SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[8], 0.5f);
         cannonBall.GetComponent<CannonBall>().isLoaded = false;
         cannonBall.GetComponent<CannonBall>().isShot = true;
         cannonBall.GetComponent<MeshRenderer>().enabled = true;

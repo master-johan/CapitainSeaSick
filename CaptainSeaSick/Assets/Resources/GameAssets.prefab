@@ -65,6 +65,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6019eeb655baf41c2b537e9338fa2158, type: 3}
   - {fileID: 8300000, guid: 32d580c73fbd54a8680e2f96866f7598, type: 3}
   - {fileID: 8300000, guid: d6b37020b7528486db71231da503ac60, type: 3}
+  - {fileID: 8300000, guid: 115a4d989c8cc4ab0a8d8626eb5327bf, type: 3}
+  - {fileID: 8300000, guid: 91eae8723836a4ce497453017dcaa861, type: 3}
+  - {fileID: 8300000, guid: 59b71e502346d436c9a636b5a8e1e3db, type: 3}
+  - {fileID: 8300000, guid: 9bb0ed9a0ce2e4761a99f7ed452472ba, type: 3}
+  - {fileID: 8300000, guid: 0d55c42cae5ee44c6ae111c2a8babdc8, type: 3}
+  - {fileID: 8300000, guid: 71cd6ed08d85c4e15975a3013ea6055d, type: 3}
+  - {fileID: 8300000, guid: abb15d35df17047fe81e7ba3471dfc9e, type: 3}
   spawnPositions:
   - {x: 2, y: 0, z: 2}
   - {x: -2, y: 0, z: 2}

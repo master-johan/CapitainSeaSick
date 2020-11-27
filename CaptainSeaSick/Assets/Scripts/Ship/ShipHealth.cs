@@ -41,13 +41,14 @@ public class ShipHealth : MonoBehaviour
     {
         if(other.tag == "Cliff")
         {
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[5], 1f);
             Destroy(other.gameObject);
             spawnPositions.GetComponent<SpawnPositionsScript>().SpawnLeak();
             Debug.Log(spawnPositions.GetComponent<SpawnPositionsScript>().allSpawnPositionUsed);
         }
         if(other.tag == "EnemyCannonball")
         {
-
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[8], 0.3f);
             ModifyHealth(-1);
             flashImage.StartFlash();
         }

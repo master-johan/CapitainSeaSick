@@ -103,6 +103,15 @@ public class GameAssets : MonoBehaviour
     [Header("Wind Variables")]
     public bool windActivated;
 
+    [Header("Captain Dialogues")]
+    public Dialogue startLevelDialogue;
+    public Dialogue enemySpawnDialogue;
+    public Dialogue cliffSpawnDialogue;
+    public Dialogue battleSpawnDialogue;
+    public Dialogue leakSpawnDialogue;
+    public Dialogue scavengingPhase;
+    public Dialogue randomDialogue;
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -112,4 +121,6 @@ public class GameAssets : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+ 
 }

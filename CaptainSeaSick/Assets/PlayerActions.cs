@@ -387,6 +387,7 @@ public class PlayerActions : MonoBehaviour
 
     public void StartClimb()
     {
+        transform.position = new Vector3(focusedObject.transform.position.x, transform.position.y, focusedObject.transform.position.z) + new Vector3(-1,0,-1);
         playerState = PlayerState.climbing;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);

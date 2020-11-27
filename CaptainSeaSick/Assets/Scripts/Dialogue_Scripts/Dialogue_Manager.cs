@@ -17,6 +17,7 @@ public class Dialogue_Manager : MonoBehaviour
     public Queue<string> sentences;
     public string currentSentence;
     bool endDialogue = false;
+    CaptainDialogueBox captainDialogueBox;
 
     public Queue<string> events;
 
@@ -26,8 +27,8 @@ public class Dialogue_Manager : MonoBehaviour
     {
         sentences = new Queue<string>();
         events = new Queue<string>();
-        events.Enqueue("welcome");
-        events.Enqueue("battle");
+  
+        captainDialogueBox = GameObject.Find("CaptainDialogueManager").GetComponent<CaptainDialogueBox>();
         
     }
     private void Awake()
@@ -58,16 +59,12 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-
-
         foreach (var sent in dialogue.sentences)
         {
             sentences.Enqueue(sent);
         }
 
         NextSentence();
-
-
     }
 
     public void StartDialogueSingle(Dialogue dialogue)
@@ -91,8 +88,8 @@ public class Dialogue_Manager : MonoBehaviour
         }
        
         currentSentence = sentences.Dequeue();
-        
-        PrintText(currentSentence);
+
+        captainDialogueBox.SetCurrentDialogue(currentSentence);
 
     }
 

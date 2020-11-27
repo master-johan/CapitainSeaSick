@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -681,7 +681,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textDisplay
       value: 
-      objectReference: {fileID: 358268415}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 525cb27a25a045144b03f2c382d24650, type: 3}
 --- !u!1 &77691502
@@ -1171,6 +1171,80 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &107879818
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5143855705940261556, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_Name
+      value: CaptainDialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.57957
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75273114
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.482269
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143855706317276405, guid: bf70b594c029e1e428d529f342a1a62b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf70b594c029e1e428d529f342a1a62b, type: 3}
 --- !u!43 &132126576
 Mesh:
   m_ObjectHideFlags: 0
@@ -1360,6 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currenthealth: 0
+  flashImage: {fileID: 0}
 --- !u!54 &150443123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1580,22 +1655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inSteeringPosition: 0
-  move:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c95ec21c-bd31-433c-8a5b-a8755baf5d98
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 579f7900-62b6-474c-99f2-584579c4c144
-      m_Path: <Gamepad>/rightStick
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 0
   controllingPlayer: {fileID: 0}
   shipPivot: {fileID: 1477326101}
 --- !u!1 &217895125
@@ -2858,18 +2917,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dc02cbde21356240a2d5fae0444768b, type: 3}
---- !u!114 &358268415 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1753736601, guid: 6dc02cbde21356240a2d5fae0444768b,
-    type: 3}
-  m_PrefabInstance: {fileID: 358268414}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &364135109
 Mesh:
   m_ObjectHideFlags: 0
@@ -11970,7 +12017,7 @@ Transform:
   - {fileID: 2095642319}
   - {fileID: 1388619150}
   m_Father: {fileID: 150443121}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439032522 stripped
 GameObject:

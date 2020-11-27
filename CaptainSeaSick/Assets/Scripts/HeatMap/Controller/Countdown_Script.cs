@@ -17,5 +17,9 @@ public class Countdown_Script : MonoBehaviour
     public void SetCountDown()
     {
         GameAssets.instance.CountDownDone = true;
+        if (GameObject.Find("LevelLoader").GetComponent<LevelLoader>().scenIndex == 2)
+        {
+            EventManager.TriggerEvent("welcome");
+        }
     }
 }

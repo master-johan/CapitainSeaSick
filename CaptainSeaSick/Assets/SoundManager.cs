@@ -36,8 +36,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        index = GameObject.Find("LevelLoader").GetComponent<LevelLoader>().scenIndex;
-        FindSong();
+        FindSong();    
     }
     /// <summary>
     /// Looking for song in "SoundBank" audioClip array for same index as the scene
@@ -47,14 +46,20 @@ public class SoundManager : MonoBehaviour
         Debug.Log(index);
         switch (index)
         {
-            case 0:
+            case 0: // Main menu song
                 //Instance.PlayMusic(GameObject.Find("SoundBank").GetComponent<SoundBank>().audioClips[index]);
                 Instance.PlayMusic(GameAssets.instance.audioClips[index]);
                 break;
-            case 1:
+            case 2: // First ship phase
+                Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
+                break;
+            case 3: // Scave phase
                 Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
                 break;
             case 4:
+                Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
+                break;
+            case 5:
                 Instance.PlayMusicWithFade(GameAssets.instance.audioClips[index]);
                 break;
             default:
@@ -129,5 +134,10 @@ public class SoundManager : MonoBehaviour
             activeSource.volume =  (t / transitionTime);
             yield return null;
         }
+    }
+    public void SetSceneIndex(int scene)
+    {
+        index = scene;
+        FindSong();
     }
 }

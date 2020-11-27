@@ -30,8 +30,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/WIP Shop.unity
     guid: a0bfaff44113f90448a918c7063d851c
   - enabled: 0
-    path: Assets/Scenes/Work in progress/ShipLevel1.unity
-    guid: f488c90d2a7801b4ab0f2d1580022b16
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

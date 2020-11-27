@@ -43,6 +43,9 @@ public class PlayerActions : MonoBehaviour
     {
         switch (playerState)
         {
+            case PlayerState.climbing:
+                SnapToLadder();
+                break;
             case PlayerState.carrying:
                 CarryFocusedObject();
                 break;
@@ -77,6 +80,17 @@ public class PlayerActions : MonoBehaviour
 
     }
 
+
+
+    private void SnapToLadder()
+    {
+        //transform.position = focusedObject.transform.position + new Vector3(0, 0, -1);
+        transform.rotation = focusedObject.transform.rotation;
+        transform.up = ship.transform.up;
+        transform.Rotate(new Vector3(0, 90, 0));
+
+    }
+
     private void SnapToSteeringPosition()
     {
         transform.position = focusedObject.transform.position + new Vector3(1, 0, -1);
@@ -98,11 +112,13 @@ public class PlayerActions : MonoBehaviour
                 {
                     //direction.y = rb.velocity.y;
                     rb.velocity = direction;
-
+                    //animator.enabled = true;
                 }
                 else
                 {
                     rb.velocity = Vector3.zero;
+                    //animator.enabled = false;
+
                 }
             }
             else
@@ -373,12 +389,16 @@ public class PlayerActions : MonoBehaviour
     {
         playerState = PlayerState.climbing;
         rb.useGravity = false;
+        animator.SetBool("isClimbing", true);
+        //animator.enabled = false;
     }
 
     public void StopClimb()
     {
         playerState = PlayerState.free;
         rb.useGravity = true;
+        animator.SetBool("isClimbing", false);
+        animator.enabled = true;
     }
 
     public void Boost()

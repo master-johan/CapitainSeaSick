@@ -17,6 +17,9 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         scenIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Current scene: " + scenIndex);
+        GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>().SetSceneIndex(scenIndex);
+
     }
     void Update()
     {
@@ -36,8 +39,8 @@ public class LevelLoader : MonoBehaviour
     public void LoadNextLevel()
     {
         SetPlayerSpawningPos();
-
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+       
     }
     /// <summary>
     /// Enumetator that controlls the transition time between the scenes

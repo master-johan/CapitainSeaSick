@@ -58,8 +58,9 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
-  - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
-  - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
+  - {fileID: 8300000, guid: a0bf602e20a0145f58626f88581de6ab, type: 3}
+  - {fileID: 8300000, guid: 6a0eafe2e48dd41608d9ab6e273e35b1, type: 3}
+  - {fileID: 8300000, guid: ac84a0dfe87054e469cfff2b832b052a, type: 3}
   - {fileID: 8300000, guid: ac84a0dfe87054e469cfff2b832b052a, type: 3}
   soundEffects:
   - {fileID: 8300000, guid: 6019eeb655baf41c2b537e9338fa2158, type: 3}

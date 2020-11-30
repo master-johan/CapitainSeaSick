@@ -45,4 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyShip: {fileID: 5763788515530875800, guid: 38a6c787730d33b44a779f34ae9bcb3c,
     type: 3}
-  enemyIndicator: {fileID: 0}
+  triggerSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

@@ -30,6 +30,4 @@ public class Plank_Script : MonoBehaviour
     {
         GetComponentInChildren<PickUp_Trigger_Script>().Disable();
     }
-
-  
 }

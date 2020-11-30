@@ -117,16 +117,13 @@ public class PlayerActions : MonoBehaviour
                 else
                 {
                     rb.velocity = Vector3.zero;
+                    //rb.velocity = new Vector3(0, rb.velocity.y, 0);
                     //animator.enabled = false;
 
                 }
             }
             else
             {
-                if (boostMultiplier < 0.4f && boostMultiplier != 0)
-                {
-
-                }
                 movementVector = new Vector3(input.x, 0, input.y) * speed;
                 direction = (movementVector * movementMultiplier) + (boostvector * boostMultiplier);
                 //direction = new Vector3(input.x, 0, input.y) * speed;
@@ -200,6 +197,7 @@ public class PlayerActions : MonoBehaviour
         else
         {
             rb.velocity = Vector3.zero;
+            //rb.velocity = new Vector3(0, rb.velocity.y, 0);
             animator.SetBool("isRunning", false);
         }
 
@@ -235,7 +233,7 @@ public class PlayerActions : MonoBehaviour
             focusedObject = target;
             focusedObjectOffset = new Vector2(offsetX, offsetY);
 
-            Debug.Log("Got a new focus" + focusedObject.name);
+            //Debug.Log("Got a new focus" + focusedObject.name);
 
             if (focusedObject != null)
             {

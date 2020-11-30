@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1433776884232718562}
   - component: {fileID: 1433776884232718563}
   - component: {fileID: 1433776884232718556}
-  - component: {fileID: 1433776884232718557}
   - component: {fileID: 789193820}
   m_Layer: 0
   m_Name: SimpleWater
@@ -81,20 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1433776884232718557
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433776884232718558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &789193820
 MonoBehaviour:
   m_ObjectHideFlags: 0

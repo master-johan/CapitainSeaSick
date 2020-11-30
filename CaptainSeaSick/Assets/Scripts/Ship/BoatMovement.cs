@@ -16,7 +16,7 @@ public class BoatMovement : MonoBehaviour
     void Start()
     {
         ship = GameObject.FindGameObjectWithTag("Ship");
-        shipPivot = GameObject.FindGameObjectWithTag("ShipContainer");
+        shipPivot = GameObject.FindGameObjectWithTag("Ship");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
         velocity = new Vector3(-GameAssets.instance.cliffSpeed, 0, 0);
     }
@@ -52,7 +52,7 @@ public class BoatMovement : MonoBehaviour
         }
 
         //Move the indicator to the cliff
-        indicatorPosition = new Vector3(14, 0, transform.position.z);
+        indicatorPosition = new Vector3(22, 0, transform.position.z);
         if (cliffIndicator != null)
         {
             cliffIndicator.transform.position = indicatorPosition;

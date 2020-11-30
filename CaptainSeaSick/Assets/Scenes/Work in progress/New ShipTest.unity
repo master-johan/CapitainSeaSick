@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1825,27 +1825,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &207615550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8386945867695619842, guid: bad5ee3c361220649b593916b3794f57,
-    type: 3}
-  m_PrefabInstance: {fileID: 521658735}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &207615558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207615550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33087cb2ba433b344b3b5824d145f3ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inSteeringPosition: 0
-  controllingPlayer: {fileID: 0}
-  shipPivot: {fileID: 1927289515}
 --- !u!43 &239101205
 Mesh:
   m_ObjectHideFlags: 0
@@ -2178,7 +2157,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-521096
+  m_Name: pb_Mesh87702
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7176,7 +7155,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-522422
+  m_Name: pb_Mesh-60368
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20968,7 +20947,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-522876
+  m_Name: pb_Mesh-60740
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21131,7 +21110,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-522874
+  m_Name: pb_Mesh-60738
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25351,12 +25330,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1927289515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9037406623604188199, guid: bad5ee3c361220649b593916b3794f57,
-    type: 3}
-  m_PrefabInstance: {fileID: 521658735}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1938232691
 Mesh:
   m_ObjectHideFlags: 0

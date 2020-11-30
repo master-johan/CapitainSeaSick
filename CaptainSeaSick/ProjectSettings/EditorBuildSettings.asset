@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/WIP LevelMap.unity
     guid: 42fe36681f343ae44b6a8f9a9f704728
   - enabled: 1
+    path: Assets/Scenes/Work in progress/New ShipTest.unity
+    guid: 656fe5808ef4b5741bf8667f39496f6d
+  - enabled: 0
     path: Assets/Scenes/Work in progress/ShipPhase1.unity
     guid: ac6aafa1a69cb3b468af1526f86ee230
   - enabled: 1

@@ -25,9 +25,9 @@ public class enemyShipScript : MonoBehaviour
         {
             hitPosition = new Vector3(-8, -8, 10);
         }
-        else if (transform.position.x > -30 && transform.position.x < -20)
+        else if (transform.position.x > -30 && transform.position.x < -15)
         {
-            hitPosition = new Vector3(-27, -8, 10);
+            hitPosition = new Vector3(-16, -8, 10);
         }
         else if (transform.position.x > -10 && transform.position.x < 2)
         {
@@ -35,7 +35,7 @@ public class enemyShipScript : MonoBehaviour
         }
         else
         {
-            hitPosition = new Vector3(4, -8, 10);
+            hitPosition = new Vector3(12, -8, 11);
         }
 
         transform.LookAt(hitPosition);
@@ -52,15 +52,15 @@ public class enemyShipScript : MonoBehaviour
 
         if (shootTimer <= 0)
         {
-            shootTimer = 10;
+            shootTimer = Random.Range(5, 15);
             tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
             SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[9], 0.5f);//Enemy cannon fire
         }
 
         if (lifeTimer <= 0)
         {
-            
-            Instantiate(boardingEnemy, hitPosition + new Vector3(0,7,0), Quaternion.identity);
+
+            Instantiate(boardingEnemy, hitPosition + new Vector3(0, 7, 0), Quaternion.identity);
 
 
             Destroy(gameObject);

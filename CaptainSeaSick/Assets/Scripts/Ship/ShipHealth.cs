@@ -48,7 +48,7 @@ public class ShipHealth : MonoBehaviour
         }
         if(other.tag == "EnemyCannonball")
         {
-            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[8], 0.3f);
+            SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[8], 0.05f);
             ModifyHealth(-1);
             flashImage.StartFlash();
         }

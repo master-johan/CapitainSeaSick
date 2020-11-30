@@ -301,7 +301,7 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    private void ReleaseItem()
+    public void ReleaseItem()
     {
         focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
         playerState = PlayerState.free;

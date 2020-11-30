@@ -6,10 +6,11 @@ public class DropZoneFunctionality : MonoBehaviour
 {
     public GameObject droppedItem;
     public bool itemDropped;
+    private GameObject scavManager;
    
     void Start()
     {
-       
+        scavManager = GameObject.Find("ScavengingManager");
     }
     private void OnTriggerStay(Collider other)
     {
@@ -54,6 +55,13 @@ public class DropZoneFunctionality : MonoBehaviour
                 SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[2], 0.7f);
 
                 //Destroy the item that lands in the dropzone and reset the bool.
+                for (int i = 0; i < scavManager.GetComponent<ScavengingManager>().goldList.Count; i++)
+                {
+                    if(droppedItem == scavManager.GetComponent<ScavengingManager>().goldList[i])
+                    {
+                        scavManager.GetComponent<ScavengingManager>().goldList.RemoveAt(i);
+                    }
+                }
                 Destroy(droppedItem);
                 itemDropped = false;
             }

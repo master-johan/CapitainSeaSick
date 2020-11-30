@@ -82,7 +82,7 @@ MonoBehaviour:
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 120
+  levelTime: 30
   numberOfCannons: 1
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
@@ -102,7 +102,7 @@ MonoBehaviour:
   EnemyCannonBallDamage: 1
   LeakDamage: 5
   ScavLevelTimer1: 120
-  gold: 2000000
+  gold: 0
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,

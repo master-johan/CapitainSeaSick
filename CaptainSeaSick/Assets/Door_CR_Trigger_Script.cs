@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Door_CR_Trigger_Script : MonoBehaviour
 {
+    private GameObject scavManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scavManager = GameObject.Find("ScavengingManager");
     }
     void OnTriggerEnter(Collider other)
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,19 +9,38 @@ using UnityEngine.SceneManagement;
 public class ScavengingManager : MonoBehaviour
 {
     [Tooltip("Resources")]
-    int Plank, CannonBall, Gold;
+    int Gold;
     private float timeLeft;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI goldText;
     private int progress;
+    public List<GameObject> goldList;
 
 
     void Start()
     {
         timeLeft = GameAssets.instance.ScavLevelTimer1;
+        goldList = GameObject.FindGameObjectsWithTag("PickableObject").ToList();
+        RemoveKeyAndBucket();
     }
+
+    private void RemoveKeyAndBucket()
+    {
+        for (int i = goldList.Count -1; i >= 0; i--)
+        {
+            if (!goldList[i].GetComponent<ResourceTag>())
+            {
+                goldList.RemoveAt(i);
+            }
+        }
+    }
+
     void Update()
     {
+        if (goldList.Count == 0 && timeLeft <GameAssets.instance.ScavLevelTimer1 -10)
+        {
+            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadShopLevel();
+        }
         UpdateLevelTimer();
         UpdateGold();
         GameObject.Find("DropZone_Trigger").GetComponent<DropZoneFunctionality>().DropZoneUpdate();

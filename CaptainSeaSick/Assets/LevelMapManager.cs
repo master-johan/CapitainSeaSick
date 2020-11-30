@@ -84,22 +84,23 @@ public class LevelMapManager : MonoBehaviour
     #region
     public void StartLevel1()
     {
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(2));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(3));
     }
     public void StartLevel21()
     {
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(4));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        GameObject.Find("CountDownManager").GetComponentInChildren<Countdown_Script>().StartCountDown();
         GameAssets.instance.playersReady = true;
     }
     public void StartLevel22()
     {
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
         GameAssets.instance.playersReady = true;
 
     }
     public void StartLevel31()
     {
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
         GameAssets.instance.playersReady = true;
 
     }

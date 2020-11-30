@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour
 {
     private Light mainLight, secondLight;
-    public bool startTransition, switchLight;
+    public bool switchLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,7 @@ public class LightSwitch : MonoBehaviour
 
         mainLight.intensity = 0.6f;
         secondLight.intensity = 0.3f;
+        switchLight = false;
     }
 
     // Update is called once per frame
@@ -24,8 +25,7 @@ public class LightSwitch : MonoBehaviour
 
     public void TransitionLight()
     {
-        if (startTransition)
-        {
+
             if (switchLight)
             {
                 if (mainLight.intensity >= 0.1)
@@ -42,6 +42,6 @@ public class LightSwitch : MonoBehaviour
                     secondLight.intensity += 0.025f * Time.deltaTime;
                 }
             }
-        }
+
     }
 }

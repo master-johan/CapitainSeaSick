@@ -19,7 +19,7 @@ public class PlayerActions : MonoBehaviour
     Vector2 focusedObjectOffset;
     public Rigidbody rb;
     GameObject ship;
-    public GameObject rightHand;
+    public GameObject rightHand, trail;
     float movementMultiplier, boostMultiplier, stunTimer;
     public bool hasSword, isStunned, stunImmunity;
     AnimatorClipInfo[] myAnimatorClip;
@@ -186,6 +186,7 @@ public class PlayerActions : MonoBehaviour
         if (boostMultiplier == 0)
         {
             isBoosting = false;
+            trail.SetActive(false);
         }
     }
 
@@ -423,6 +424,7 @@ public class PlayerActions : MonoBehaviour
             boostMultiplier = 1;
             movementMultiplier = 0;
             animator.SetBool("isBoosting", true);
+            trail.SetActive(true);
             isBoosting = true;
             SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[1], 0.5f);
         }

@@ -8,6 +8,14 @@ public class LevelManager : MonoBehaviour
     string spawnEnemyString = "SpawnEnemy";
     string spawnCliffString = "SpawnCliff";
 
+    string rainString = "rain";
+    string lightString = "light";
+    string cloudString = "cloud";
+    string windString = "wind";
+
+    string startString = "Start";
+    string stopString = "Stop";
+
     public GameObject obstacleSpawner;
 
     public ShipLevel currentLevel;
@@ -15,6 +23,9 @@ public class LevelManager : MonoBehaviour
 
     Queue<Obstacle> levelObstacles;
     Obstacle currentObstacle;
+
+    List<Weather> weathers;
+    
 
     List<GameObject> spawners;
 
@@ -25,6 +36,8 @@ public class LevelManager : MonoBehaviour
         EnqueObstaces();
         progressBar.SetIndicatorsOnTimeLine(currentLevel.obstacles);
         spawners = new List<GameObject>();
+
+        weathers = currentLevel.weathers;
 
         InstantiateShipObjects();
     }
@@ -68,24 +81,69 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
+
+        for (int i = 0; i < weathers.Count; i++)
+        {
+            Weather w = weathers[i];
+            if (w.whenToSpawn == progressBar.progress && !w.active)
+            {
+                string toStart = GetWeatherType(w);
+                toStart += startString;
+                w.active = true;
+                Debug.Log("Event to trigger " + toStart);
+                EventManager.TriggerEvent("rainStart");
+            }
+            else if (w.whenToStop >= progressBar.progress && w.active)
+            {
+                string toStop = GetWeatherType(w);
+                toStop += stopString;
+                w.active = false;
+                Debug.Log("Event to trigger " + toStop);
+                EventManager.TriggerEvent(toStop);
+            }
+         
+          
+        }
        
     }
-    private string GetSpawnType(Obstacle currentObstacle, string typeToSpawn)
-    {
-        if (currentObstacle.type == TypeOfSpawn.ship)
-        {
-            typeToSpawn = spawnEnemyString;
-        }
-        if (currentObstacle.type == TypeOfSpawn.cliff)
-        {
-            typeToSpawn = spawnCliffString;
-        }
-        if (currentObstacle.type == TypeOfSpawn.random)
-        {
-            //  typeToSpawn = RandomType();
-        }
+    //private string GetSpawnType(Obstacle currentObstacle, string typeToSpawn) --- - Ta bort?
+    //{
+    //    if (currentObstacle.type == TypeOfSpawn.ship)
+    //    {
+    //        typeToSpawn = spawnEnemyString;
+    //    }
+    //    if (currentObstacle.type == TypeOfSpawn.cliff)
+    //    {
+    //        typeToSpawn = spawnCliffString;
+    //    }
+    //    if (currentObstacle.type == TypeOfSpawn.random)
+    //    {
+    //        //  typeToSpawn = RandomType();
+    //    }
 
-        return typeToSpawn;
+    //    return typeToSpawn;
+    //}
+
+    private string GetWeatherType(Weather weather)
+    {
+        switch (weather.weather)
+        {
+            case TypeOfWeather.rain:
+                return rainString;
+                break;
+            case TypeOfWeather.light:
+                return lightString;
+                break;
+            case TypeOfWeather.cloud:
+                return cloudString;
+                break;
+            case TypeOfWeather.wind:
+                return windString;
+                break;
+            default:
+                break;
+        }
+        return "null";
     }
 
     public void InstantiateShipObjects()

@@ -17,7 +17,7 @@ MonoBehaviour:
     whenToSpawn: 99
     numberOfSpawns: 3
     timeBetweenSpawn: 12
-    status: 0
+    status: 1
   - type: 0
     whenToSpawn: 60
     numberOfSpawns: 5
@@ -28,3 +28,8 @@ MonoBehaviour:
     numberOfSpawns: 2
     timeBetweenSpawn: 8
     status: 0
+  weathers:
+  - weather: 0
+    whenToSpawn: 95
+    whenToStop: 85
+    active: 0

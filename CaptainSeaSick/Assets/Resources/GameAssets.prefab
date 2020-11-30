@@ -78,7 +78,7 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 0
+  playersReady: 1
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
@@ -89,7 +89,7 @@ MonoBehaviour:
   - {x: 10, y: 0, z: -10}
   - {x: 20, y: 0, z: -10}
   - {x: 30, y: 0, z: -10}
-  numberOfSwords: 2
+  numberOfSwords: 1
   swordSpawnPos:
   - {x: 5, y: 1, z: 10}
   - {x: 10, y: 1, z: 10}
@@ -127,7 +127,7 @@ MonoBehaviour:
   enableLevel4: 0
   enableLevel5: 0
   enableLevel6: 0
-  windActivated: 0
+  windActivated: 1
   startLevelDialogue: {fileID: 11400000, guid: fc112ad6b03014344ad04dd1ad2b0076, type: 2}
   enemySpawnDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}
   cliffSpawnDialogue: {fileID: 11400000, guid: 2885ad0f79abccb4da465afa1d4a239f, type: 2}

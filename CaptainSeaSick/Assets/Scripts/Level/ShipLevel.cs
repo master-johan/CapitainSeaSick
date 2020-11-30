@@ -8,5 +8,5 @@ public class ShipLevel : ScriptableObject
 {
 
     public List<Obstacle> obstacles;
-
+    public List<Weather> weathers;
 }

@@ -28717,6 +28717,16 @@ PrefabInstance:
       propertyPath: CollisionModule.plane0
       value: 
       objectReference: {fileID: 1606085653}
+    - target: {fileID: 6711049226949669609, guid: 11257935b21964940927f8dff7e07904,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711049226949669609, guid: 11257935b21964940927f8dff7e07904,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8305098489346678673, guid: 11257935b21964940927f8dff7e07904,
         type: 3}
       propertyPath: m_LocalPosition.x

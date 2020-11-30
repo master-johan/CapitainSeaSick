@@ -43,7 +43,7 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     private void FindSong()
     {
-        Debug.Log(index);
+        
         switch (index)
         {
             case 0: // Main menu song

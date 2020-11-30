@@ -15,7 +15,7 @@ public class WeatherManager_Script : MonoBehaviour
 
 
     string rainStart = "rainStart";
-    string rainStop = "rainsStop";
+    string rainStop = "rainStop";
     string lightStart = "lightStart";
     string lightStop = "lightStop";
     string cloudStart = "cloudStart";
@@ -41,7 +41,7 @@ public class WeatherManager_Script : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Am i called? on enable");
+       
         EventManager.StartSubscribe(rainStart, rainStartAction);
         EventManager.StartSubscribe(rainStop, rainStopAction);
 
@@ -57,7 +57,6 @@ public class WeatherManager_Script : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("Am i called? on enable");
         EventManager.StopSubscribe(rainStart, rainStartAction);
         EventManager.StopSubscribe(rainStop, rainStopAction);
 
@@ -71,9 +70,8 @@ public class WeatherManager_Script : MonoBehaviour
         EventManager.StopSubscribe(windStop, windStopAction);
     }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Debug.Log("Am i called? start " );
         rainStartAction = new UnityAction(StartRain);
         rainStopAction = new UnityAction(StopRain);
 
@@ -100,6 +98,7 @@ public class WeatherManager_Script : MonoBehaviour
     }
     void StopRain()
     {
+        Debug.Log("Rain should stop");
         rain.rainOn = false;
     }
 

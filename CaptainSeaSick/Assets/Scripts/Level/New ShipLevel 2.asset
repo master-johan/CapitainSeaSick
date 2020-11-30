@@ -15,21 +15,23 @@ MonoBehaviour:
   obstacles:
   - type: 1
     whenToSpawn: 99
-    numberOfSpawns: 3
+    numberOfSpawns: 1
     timeBetweenSpawn: 12
     status: 1
-  - type: 0
-    whenToSpawn: 60
-    numberOfSpawns: 5
-    timeBetweenSpawn: 12
-    status: 0
-  - type: 1
-    whenToSpawn: 40
-    numberOfSpawns: 2
-    timeBetweenSpawn: 8
-    status: 0
   weathers:
-  - weather: 0
+  - weather: 2
     whenToSpawn: 95
-    whenToStop: 85
-    active: 0
+    whenToStop: 20
+    active: 1
+  - weather: 2
+    whenToSpawn: 75
+    whenToStop: 20
+    active: 1
+  - weather: 2
+    whenToSpawn: 65
+    whenToStop: 20
+    active: 1
+  - weather: 2
+    whenToSpawn: 25
+    whenToStop: 20
+    active: 1

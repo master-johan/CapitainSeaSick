@@ -27957,6 +27957,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 1301973731598575655, guid: aa016cb5d20f30149965fa781b74f733,
+        type: 3}
+      propertyPath: m_TagString
+      value: ShipContainer
+      objectReference: {fileID: 0}
     - target: {fileID: 1354144112393603216, guid: aa016cb5d20f30149965fa781b74f733,
         type: 3}
       propertyPath: m_Mesh

@@ -397,7 +397,7 @@ public class PlayerActions : MonoBehaviour
         playerState = PlayerState.climbing;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);
-        rb.mass *= 100;
+        rb.mass = 7500;
         //animator.enabled = false;
     }
 
@@ -408,7 +408,7 @@ public class PlayerActions : MonoBehaviour
         animator.SetBool("isClimbing", false);
         animator.enabled = true;
         rb.detectCollisions = true;
-        rb.mass /= 100;
+        rb.mass = 75;
     }
 
     public void Boost()

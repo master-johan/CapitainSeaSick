@@ -17,5 +17,6 @@ public class Door_CR_Script : MonoBehaviour
     public void OpenDoor()
     {
         DoorAnimator.SetTrigger("Open");
+        GetComponentInChildren<BoxCollider>().enabled = false;
     }
 }

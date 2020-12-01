@@ -16,19 +16,15 @@ public class Door_Script : MonoBehaviour
     }
     public void OpenDoor()
     {
-        DoorAnimator.SetTrigger("OpenClose");
+        DoorAnimator.SetBool("OpenDoor", true);
         SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[0], 0.7f);
+        GetComponentInChildren<BoxCollider>().enabled = false;
        
     }
 
-    //public void StayOpen()
-    //{
-    //    DoorAnimator.SetBool("Open", true);
-    //}
-
     public void CloseDoor()
     {
-      //  DoorAnimator.SetBool("Open", false);
-        DoorAnimator.SetTrigger("OpenClose");
+        DoorAnimator.SetBool("OpenDoor", false);
+        GetComponentInChildren<BoxCollider>().enabled = true;
     }
 }

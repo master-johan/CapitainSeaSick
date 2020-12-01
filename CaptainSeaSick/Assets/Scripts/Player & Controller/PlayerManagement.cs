@@ -85,6 +85,7 @@ public class PlayerManagement : MonoBehaviour
     }
     public Vector3 PlayerScavRespawn()
     {
+        GetComponent<PlayerActions>().ReleaseItem();
         return transform.position = GameAssets.instance.spawnScavPhase;
     }
 }

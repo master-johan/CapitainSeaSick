@@ -38,6 +38,10 @@ public class LevelManager : MonoBehaviour
         spawners = new List<GameObject>();
 
         weathers = currentLevel.weathers;
+        for (int i = 0; i < weathers.Count; i++)
+        {
+            weathers[i].active = false;
+        }
 
         InstantiateShipObjects();
     }

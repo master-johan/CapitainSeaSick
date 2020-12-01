@@ -64,16 +64,16 @@ public class LevelLoader : MonoBehaviour
         {
             for (int i = 0; i < players.Length; i++)
             {
-                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnBoatPhase;
                 players[i].GetComponent<PlayerActions>().Clear();
+                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnBoatPhase;
             }
         }
         else
         {
             for (int i = 0; i < players.Length; i++)
             {
-                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
                 players[i].GetComponent<PlayerActions>().Clear();
+                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
             }
         }
     }

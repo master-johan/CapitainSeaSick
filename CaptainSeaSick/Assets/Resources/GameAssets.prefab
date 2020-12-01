@@ -78,12 +78,12 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 0
+  playersReady: 1
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
   levelTime: 120
-  numberOfCannons: 1
+  numberOfCannons: 2
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
   - {x: 10, y: 0, z: -10}
@@ -101,7 +101,7 @@ MonoBehaviour:
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
   LeakDamage: 5
-  ScavLevelTimer1: 120
+  ScavLevelTimer1: 80
   gold: 0
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}

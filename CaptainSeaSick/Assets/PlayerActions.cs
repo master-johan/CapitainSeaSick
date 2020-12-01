@@ -318,6 +318,7 @@ public class PlayerActions : MonoBehaviour
         {
             focusedObject.transform.parent = null;
         }
+        focusedObject = null;
     }
 
     private void CarryFocusedObject()

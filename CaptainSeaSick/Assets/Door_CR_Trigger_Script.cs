@@ -17,6 +17,5 @@ public class Door_CR_Trigger_Script : MonoBehaviour
             Debug.Log("KEY ENTER");
             GameObject.Find("DoorPivot_CR").GetComponent<Door_CR_Script>().OpenDoor();
         }
-       
     }
 }

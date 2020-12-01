@@ -16,7 +16,7 @@ public class BoatMovement : MonoBehaviour
     void Start()
     {
         ship = GameObject.FindGameObjectWithTag("Ship");
-        shipPivot = GameObject.FindGameObjectWithTag("Ship");
+        shipPivot = GameObject.FindGameObjectWithTag("ShipContainer");
         cliffIndicator = GameObject.FindGameObjectWithTag("IndicatorImage");
         velocity = new Vector3(-GameAssets.instance.cliffSpeed, 0, 0);
     }
@@ -27,7 +27,8 @@ public class BoatMovement : MonoBehaviour
 
     private void SteeringTheShip()
     {
-       
+        Debug.Log(shipPivot.transform.rotation.eulerAngles.x);
+
         //Move the cliffs toward the boat
         //transform.position -= new Vector3(GameAssets.instance.cliffSpeed, 0, 0) * Time.deltaTime;
 

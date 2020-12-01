@@ -6,38 +6,58 @@ public class Wind_Functionality : MonoBehaviour
 {
 
     GameObject[] players;
+    Vector3 windDirection;
+
+    bool activeWind;
 
     void Start()
     {
+        NewWindDirection();
     }
 
     void FixedUpdate()
     {
-
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if (GameAssets.instance.windActivated)
+        if (activeWind)
         {
+            players = GameObject.FindGameObjectsWithTag("Player");
 
-            foreach (var item in players)
+
+
+            if (GameAssets.instance.windActivated)
             {
 
-                if (item.GetComponent<PlayerActions>().isBoosting || item.GetComponent<PlayerActions>().isStunned)
+                foreach (var item in players)
                 {
+                    if (item.GetComponent<PlayerActions>().isBoosting || item.GetComponent<PlayerActions>().isStunned)
+                    {
+                    }
+                    else
+                    {
+                        item.GetComponent<Rigidbody>().AddForce(windDirection * 3, ForceMode.VelocityChange);
+                    }
                 }
-                else
-                {
-                    
-
-                        item.GetComponent<Rigidbody>().AddForce(transform.forward *3, ForceMode.VelocityChange);
-                    
-                }
-
-
-
-                //item.GetComponent<Rigidbody>().velocity += transform.forward;
             }
-
         }
+
+    }
+
+
+    public void NewWindDirection()
+    {
+        windDirection = new Vector3(Random.Range(1f, -1f), 0, Random.Range(1f, -1f));
+    }
+
+    public void ActivateWind()
+    {
+        if (!activeWind)
+        {
+            NewWindDirection();
+            activeWind = true;
+        }
+
+    }
+    public void DeactivateWind()
+    {
+        activeWind = false;
     }
 }

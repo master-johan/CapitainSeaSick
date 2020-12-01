@@ -10,6 +10,7 @@ public class RainSwitch : MonoBehaviour
     void Start()
     {
         rain = transform.GetComponent<ParticleSystem>();
+        rainOn = false;
     }
 
     // Update is called once per frame

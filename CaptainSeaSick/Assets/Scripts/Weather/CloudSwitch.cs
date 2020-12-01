@@ -9,16 +9,18 @@ public class CloudSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        startHeavyClouds = false;
     }
 
     void Update()
     {
         if (startHeavyClouds)
         {
+           
             if (!heavyClouds.isPlaying)
             {
-               heavyClouds.Play();
+                heavyClouds.Clear();
+                heavyClouds.Play();
             }
         }
         else

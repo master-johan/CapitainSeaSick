@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2252,7 +2252,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9774
+  m_Name: pb_Mesh-65708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5531,7 +5531,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9890
+  m_Name: pb_Mesh-65718
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18134,7 +18134,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1913440424}
   goldText: {fileID: 1305364812}
-  goldList: []
+  goldList:
+  - {fileID: 2059459453}
+  - {fileID: 628538436}
+  - {fileID: 541398180}
+  - {fileID: 87647824}
+  - {fileID: 388115948}
+  - {fileID: 926416945}
+  - {fileID: 738536587}
+  - {fileID: 1101079132}
+  - {fileID: 1401666563}
+  - {fileID: 434417563}
 --- !u!4 &1732979812
 Transform:
   m_ObjectHideFlags: 0

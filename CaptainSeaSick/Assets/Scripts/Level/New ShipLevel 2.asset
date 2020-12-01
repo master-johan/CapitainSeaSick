@@ -19,19 +19,19 @@ MonoBehaviour:
     timeBetweenSpawn: 12
     status: 1
   weathers:
-  - weather: 2
+  - weather: 0
     whenToSpawn: 95
     whenToStop: 20
-    active: 1
-  - weather: 2
+    active: 0
+  - weather: 1
     whenToSpawn: 75
     whenToStop: 20
-    active: 1
+    active: 0
   - weather: 2
     whenToSpawn: 65
     whenToStop: 20
-    active: 1
-  - weather: 2
-    whenToSpawn: 25
+    active: 0
+  - weather: 3
+    whenToSpawn: 95
     whenToStop: 20
-    active: 1
+    active: 0

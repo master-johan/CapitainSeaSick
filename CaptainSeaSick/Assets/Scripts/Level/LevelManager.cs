@@ -85,19 +85,16 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("Am i called? updateloop");
 
         for (int i = 0; i < weathers.Count; i++)
         {
             
             Weather w = weathers[i];
-            Debug.Log("Am i called? weatherloop" + w.whenToSpawn + " " + w.active);
             if (w.whenToSpawn == progressBar.progress && !w.active)
             {
                 string toStart = GetWeatherType(w);
                 toStart += startString;
                 w.active = true;
-                Debug.Log("Event to trigger " + toStart);
                 EventManager.TriggerEvent(toStart);
             }
             else if (w.whenToStop >= progressBar.progress && w.active)
@@ -105,7 +102,6 @@ public class LevelManager : MonoBehaviour
                 string toStop = GetWeatherType(w);
                 toStop += stopString;
                 w.active = false;
-                Debug.Log("Event to trigger " + toStop);
                 EventManager.TriggerEvent(toStop);
             }
          

@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
     public float speed = 6;
     public float boostFactor = 100;
     public float stunImmunityTimer;
+    float distToGround;
     Vector3 direction, movementVector, boostvector;
     PlayerInputs playerInputs;
     public Animator animator;
@@ -35,7 +36,7 @@ public class PlayerActions : MonoBehaviour
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
 
-
+        distToGround = GetComponent<CapsuleCollider>().height;
     }
 
     // Update is called once per frame
@@ -116,7 +117,10 @@ public class PlayerActions : MonoBehaviour
                 }
                 else
                 {
-                    rb.velocity = Vector3.zero;
+                    if (isGrounded() && !isHittingWater())
+                    {
+                        rb.velocity = Vector3.zero;
+                    }
                     //rb.velocity = new Vector3(0, rb.velocity.y, 0);
                     //animator.enabled = false;
 
@@ -197,7 +201,10 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector3.zero;
+            if (isGrounded() && !isHittingWater())
+            {
+                rb.velocity = Vector3.zero;
+            }
             //rb.velocity = new Vector3(0, rb.velocity.y, 0);
             animator.SetBool("isRunning", false);
         }
@@ -390,6 +397,7 @@ public class PlayerActions : MonoBehaviour
         playerState = PlayerState.climbing;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);
+        rb.mass *= 100;
         //animator.enabled = false;
     }
 
@@ -399,11 +407,13 @@ public class PlayerActions : MonoBehaviour
         rb.useGravity = true;
         animator.SetBool("isClimbing", false);
         animator.enabled = true;
+        rb.detectCollisions = true;
+        rb.mass /= 100;
     }
 
     public void Boost()
     {
-        if (playerState != PlayerState.climbing)
+        if (playerState == PlayerState.carrying || playerState == PlayerState.free)
         {
             int boostSpeed;
 
@@ -444,6 +454,27 @@ public class PlayerActions : MonoBehaviour
         return playerInputs.LeftStick;
     }
 
+    public bool isGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+    }
+
+    public bool isHittingWater()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        {
+            if (hit.collider.name == "SafetyNet")
+            {
+                
+                if (hit.distance <= distToGround +0.1f)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 
 

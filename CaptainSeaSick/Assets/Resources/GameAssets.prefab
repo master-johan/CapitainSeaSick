@@ -78,11 +78,11 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
+  playersReady: 0
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 30
+  levelTime: 120
   numberOfCannons: 1
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}

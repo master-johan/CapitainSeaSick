@@ -28,7 +28,7 @@ public class Wind_Functionality : MonoBehaviour
 
                 foreach (var item in players)
                 {
-                    if (item.GetComponent<PlayerActions>().isBoosting || item.GetComponent<PlayerActions>().isStunned)
+                    if (item.GetComponent<PlayerActions>().isBoosting || item.GetComponent<PlayerActions>().isStunned || item.GetComponent<PlayerActions>().playerState == PlayerState.climbing)
                     {
                     }
                     else

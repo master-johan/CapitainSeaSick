@@ -18,7 +18,7 @@ public class DropZoneFunctionality : MonoBehaviour
         {
             Debug.Log("Player is in DropZone");
         }
-        if(other.tag == "PickableObject")
+        if(other.GetComponent<ResourceTag>())
         {
             Debug.Log("Colliding "+ other.name);
             if (other.GetComponentInChildren<PickUp_Trigger_Script>().pickUpStatus == PickUp.free)

@@ -86,23 +86,29 @@ public class PlayerActions : MonoBehaviour
 
     private void SnapToLadder()
     {
-        //transform.position = focusedObject.transform.position + new Vector3(0, 0, -1);
-        transform.rotation = focusedObject.transform.rotation;
-        transform.up = ship.transform.up;
-        transform.Rotate(new Vector3(0, 90, 0));
-        if (isGrounded())
+        if (focusedObject != null)
         {
-            StopClimb();
+            //transform.position = focusedObject.transform.position + new Vector3(0, 0, -1);
+            transform.rotation = focusedObject.transform.rotation;
+            transform.up = ship.transform.up;
+            transform.Rotate(new Vector3(0, 90, 0));
+            if (isGrounded())
+            {
+                StopClimb();
+            }
         }
 
     }
 
     private void SnapToSteeringPosition()
     {
-        transform.position = focusedObject.transform.position + new Vector3(1, 0, -1);
-        transform.rotation = focusedObject.transform.rotation;
-        transform.up = ship.transform.up;
-        transform.Rotate(new Vector3(0, 90, 0));
+        if (focusedObject != null)
+        {
+            transform.position = focusedObject.transform.position + new Vector3(1, 0, -1);
+            transform.rotation = focusedObject.transform.rotation;
+            transform.up = ship.transform.up;
+            transform.Rotate(new Vector3(0, 90, 0));
+        }
     }
 
     void PlayerMovement(Vector2 input)
@@ -310,12 +316,18 @@ public class PlayerActions : MonoBehaviour
 
     public void ReleaseItem()
     {
-        focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
-        playerState = PlayerState.free;
         hasSword = false;
-        if (focusedObject.GetComponent<SwordTag_Script>())
+        if (focusedObject != null)
         {
-            focusedObject.transform.parent = null;
+            focusedObject.GetComponentInChildren<PickUp_Trigger_Script>().Released();
+            if (focusedObject.GetComponent<SwordTag_Script>())
+            {
+                focusedObject.transform.parent = null;
+            }
+        }
+        else
+        {
+            playerState = PlayerState.free;
         }
         focusedObject = null;
     }
@@ -395,7 +407,7 @@ public class PlayerActions : MonoBehaviour
     {
         transform.position = new Vector3(focusedObject.transform.position.x + 0.5f, transform.position.y + 0.2f, focusedObject.transform.position.z + .5f) + new Vector3(-1,0,-1);
         playerState = PlayerState.climbing;
-        transform.parent = GameObject.Find("MastBot_Trigger").transform;
+        //transform.parent = GameObject.Find("MastBot_Trigger").transform;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);
         rb.mass = 7500;
@@ -404,7 +416,7 @@ public class PlayerActions : MonoBehaviour
 
     public void StopClimb()
     {
-        transform.parent = null;
+        //transform.parent = null;
         playerState = PlayerState.free;
         rb.useGravity = true;
         animator.SetBool("isClimbing", false);
@@ -456,7 +468,10 @@ public class PlayerActions : MonoBehaviour
             {
                 StopClimb();
             }
-            
+            else if (playerState == PlayerState.steering)
+            {
+                Interact();
+            }
         }
     }
     public Vector2 GetPlayerAxisInput()
@@ -486,5 +501,3 @@ public class PlayerActions : MonoBehaviour
         return false;
     }
 }
-
-

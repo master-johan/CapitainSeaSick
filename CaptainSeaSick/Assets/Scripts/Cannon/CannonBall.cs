@@ -71,7 +71,7 @@ public class CannonBall : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent("Cannon_Script") && GetComponentInChildren<PickUp_Trigger_Script>().pickUpStatus == PickUp.free)
+        if (other.GetComponent("Cannon_Script") && GetComponentInChildren<PickUp_Trigger_Script>().pickUpStatus == PickUp.free && !isLoaded)
         {
             if(other.GetComponent<Cannon_Script>().cannonBall == null)
             {

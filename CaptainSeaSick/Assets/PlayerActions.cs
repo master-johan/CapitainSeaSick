@@ -395,6 +395,7 @@ public class PlayerActions : MonoBehaviour
     {
         transform.position = new Vector3(focusedObject.transform.position.x + 0.5f, transform.position.y + 0.2f, focusedObject.transform.position.z + .5f) + new Vector3(-1,0,-1);
         playerState = PlayerState.climbing;
+        transform.parent = GameObject.Find("MastBot_Trigger").transform;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);
         rb.mass = 7500;
@@ -403,6 +404,7 @@ public class PlayerActions : MonoBehaviour
 
     public void StopClimb()
     {
+        transform.parent = null;
         playerState = PlayerState.free;
         rb.useGravity = true;
         animator.SetBool("isClimbing", false);

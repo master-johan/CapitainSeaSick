@@ -53,7 +53,7 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("Start");
         SceneManager.LoadScene(levelIndex);
         yield return new WaitForSeconds(transitionTime);
-
+        //GameObject.Find("CountDownManager").GetComponentInChildren<Countdown_Script>().StartCountDown();
     }
 
     private void SetPlayerSpawningPos()

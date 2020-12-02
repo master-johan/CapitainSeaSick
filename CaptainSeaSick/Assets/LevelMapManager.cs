@@ -89,7 +89,6 @@ public class LevelMapManager : MonoBehaviour
     public void StartLevel21()
     {
         StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
-        GameObject.Find("CountDownManager").GetComponentInChildren<Countdown_Script>().StartCountDown();
         GameAssets.instance.playersReady = true;
     }
     public void StartLevel22()

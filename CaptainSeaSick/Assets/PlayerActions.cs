@@ -447,7 +447,15 @@ public class PlayerActions : MonoBehaviour
     {
         if (focusedObject != null)
         {
-            ReleaseItem();
+            if (playerState == PlayerState.carrying)
+            {
+                ReleaseItem();
+            }
+            else if (playerState == PlayerState.climbing)
+            {
+                StopClimb();
+            }
+            
         }
     }
     public Vector2 GetPlayerAxisInput()

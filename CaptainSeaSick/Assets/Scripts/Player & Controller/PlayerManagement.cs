@@ -78,8 +78,8 @@ public class PlayerManagement : MonoBehaviour
 
     private void GenerateColors()
     {
-        color1 = Color.blue;
-        color2 = Color.red;
+        color1 = Color.red;
+        color2 = Color.blue;
         color3 = Color.green;
         color4 = Color.yellow;
     }

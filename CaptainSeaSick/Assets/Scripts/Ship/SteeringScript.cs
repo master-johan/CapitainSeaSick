@@ -9,11 +9,13 @@ public class SteeringScript : MonoBehaviour
     public bool inSteeringPosition;
     Vector2 inputVector;
     Quaternion zeroQuaternion;
-    public GameObject controllingPlayer;
+    public GameObject controllingPlayer, debris, water;
 
     GameObject player;
     GameObject ship;
     GameObject wheel;
+
+    Vector3 turnVector;
 
     public GameObject shipPivot;
 
@@ -28,7 +30,7 @@ public class SteeringScript : MonoBehaviour
         if (IsControlled())
         {
             inputVector = controllingPlayer.GetComponent<PlayerActions>().GetPlayerAxisInput();
-          
+
             //If the player is in the right spot the ship will rotate in the direction of the inputVector.
             if (System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) <= 10 || System.Math.Round(shipPivot.transform.rotation.eulerAngles.x) >= 350)
             {
@@ -45,8 +47,17 @@ public class SteeringScript : MonoBehaviour
             {
                 shipPivot.transform.Rotate(new Vector3(0.01f, 0, 0));
             }
+
+            MoveWaterAndDebris();
         }
-      
+
+        water.transform.position += (turnVector) * Time.deltaTime;
+        foreach (var item in debris.GetComponent<SceneDecor_Functionality>().TempDecorList)
+        {
+            item.transform.position += (turnVector) * Time.deltaTime;
+        }
+
+
         //Rotate the ship back if a no/ very little input is given from the controller.
         if (System.Math.Abs(inputVector.y) <= 0.1f)
         {
@@ -55,6 +66,23 @@ public class SteeringScript : MonoBehaviour
         }
 
     }
+
+    private void MoveWaterAndDebris()
+    {
+        if (shipPivot.transform.rotation.eulerAngles.x >= 10 && shipPivot.transform.rotation.eulerAngles.x <= 45)
+        {
+            turnVector = new Vector3(0, 0, -10);
+        }
+        else if (shipPivot.transform.rotation.eulerAngles.x >= 270 && shipPivot.transform.rotation.eulerAngles.x <= 350)
+        {
+            turnVector = new Vector3(0, 0, 10);
+        }
+        if (shipPivot.transform.rotation.eulerAngles.x <= 10 || shipPivot.transform.rotation.eulerAngles.x >= 350)
+        {
+            turnVector = new Vector3(0, 0, 0);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

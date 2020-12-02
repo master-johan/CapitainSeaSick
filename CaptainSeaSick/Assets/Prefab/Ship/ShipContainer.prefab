@@ -8921,6 +8921,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4718966498975638160, guid: bad5ee3c361220649b593916b3794f57,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4722367020695167666, guid: bad5ee3c361220649b593916b3794f57,
         type: 3}
       propertyPath: m_Mesh
@@ -20206,7 +20211,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2004185559, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1435193358, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1297438412, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1401517133, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1756292800, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 546774322, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1141631921, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+    - {fileID: 1053725078, guid: bad5ee3c361220649b593916b3794f57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bad5ee3c361220649b593916b3794f57, type: 3}
 --- !u!4 &5463380886170232289 stripped
 Transform:

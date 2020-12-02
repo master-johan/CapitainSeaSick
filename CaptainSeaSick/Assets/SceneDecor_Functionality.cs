@@ -12,6 +12,9 @@ public class SceneDecor_Functionality : MonoBehaviour
 
     GameObject tempDecor;
     List<GameObject> tempDecorList;
+
+    public List<GameObject> TempDecorList { get => tempDecorList; set => tempDecorList = value; }
+
     void Start()
     {
         tempDecorList = new List<GameObject>();
@@ -39,6 +42,16 @@ public class SceneDecor_Functionality : MonoBehaviour
         foreach (var item in tempDecorList)
         {
             item.transform.position -= new Vector3(speed, 0, 0) * Time.deltaTime;
+            
+            if(item.transform.position.z >= 80)
+            {
+                item.transform.position -= new Vector3(0, 0, 0.5f);
+            }
+            if (item.transform.position.z <= -80)
+            {
+                item.transform.position += new Vector3(0, 0, 0.5f);
+            }
         }
     }
+
 }

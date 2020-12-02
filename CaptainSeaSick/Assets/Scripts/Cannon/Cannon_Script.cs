@@ -9,6 +9,7 @@ public class Cannon_Script : MonoBehaviour
     public GameObject cannonBall, buttonB;
     public BoxCollider pickUpZone;
     public ParticleSystem fireEffect;
+    public bool onSpot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +85,7 @@ public class Cannon_Script : MonoBehaviour
     public void ChangeStateToFire()
     {
         if (cannonState == CannonState.canFire)
-        {
+        {   
             Instantiate(fireEffect, GameObject.Find("CannonBallOffset").transform.position, GameObject.Find("CannonBallOffset").transform.rotation);
            
             cannonState = CannonState.fire;

@@ -562,12 +562,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5128014586586422042}
-  m_Material: {fileID: 13400000, guid: 9e243bb861c44b44e9746a7187bc7849, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 147.5, y: 106.340126, z: 108.4686}
-  m_Center: {x: -47.4, y: 51.705532, z: 0}
+  m_Size: {x: 149.3074, y: 106.34013, z: 108.46862}
+  m_Center: {x: -46.49641, y: 51.705544, z: 0}
 --- !u!114 &8349351988481817416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +586,7 @@ MonoBehaviour:
   pickUpZone: {fileID: 0}
   fireEffect: {fileID: 9183449051059499675, guid: 744db9c25e88e0348aeee6959b038f76,
     type: 3}
+  onSpot: 0
 --- !u!114 &4012251769436991000
 MonoBehaviour:
   m_ObjectHideFlags: 0

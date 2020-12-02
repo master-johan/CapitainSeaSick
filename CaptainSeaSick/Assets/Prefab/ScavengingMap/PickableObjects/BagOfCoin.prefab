@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 2740368914122405207}
   - component: {fileID: 4071877093155034416}
   - component: {fileID: 1858272278377183790}
+  - component: {fileID: 6583663617263531380}
   m_Layer: 0
   m_Name: BagOfCoin
   m_TagString: PickableObject
@@ -524,6 +525,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 098b161d47ef35c4dba4d5062bc3d8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6583663617263531380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602841285747561130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c23f49931eb8d8468b2345464eb8600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6603899988117925076

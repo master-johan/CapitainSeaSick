@@ -15,6 +15,7 @@ public class ScavengingManager : MonoBehaviour
     public TextMeshProUGUI goldText;
     private int progress;
     public List<GameObject> goldList;
+    float threshold;
 
 
     void Start()
@@ -22,6 +23,7 @@ public class ScavengingManager : MonoBehaviour
         timeLeft = GameAssets.instance.ScavLevelTimer1;
         goldList = GameObject.FindGameObjectsWithTag("PickableObject").ToList();
         RemoveKeyAndBucket();
+        threshold = GameAssets.instance.ScavLevelTimer1 - 10;
     }
 
     private void RemoveKeyAndBucket()
@@ -37,7 +39,7 @@ public class ScavengingManager : MonoBehaviour
 
     void Update()
     {
-        if (goldList.Count == 0 && timeLeft <GameAssets.instance.ScavLevelTimer1 -10)
+        if (goldList.Count == 0 && timeLeft < threshold)
         {
             GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadShopLevel();
         }

@@ -102,12 +102,14 @@ public class LevelMapManager : MonoBehaviour
     {
         //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
         GameAssets.instance.playersReady = true;
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
 
     }
     public void StartLevel32()
     {
         //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
         GameAssets.instance.playersReady = true;
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
 
     }
     public void StartLevel33()

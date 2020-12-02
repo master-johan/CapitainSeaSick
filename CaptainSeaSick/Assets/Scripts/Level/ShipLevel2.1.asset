@@ -10,16 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
-  m_Name: New ShipLevel 1
+  m_Name: ShipLevel2.1
   m_EditorClassIdentifier: 
   obstacles:
+  - type: 1
+    whenToSpawn: 90
+    numberOfSpawns: 2
+    timeBetweenSpawn: 4
+    status: 0
+  - type: 1
+    whenToSpawn: 75
+    numberOfSpawns: 2
+    timeBetweenSpawn: 5
+    status: 0
   - type: 0
-    whenToSpawn: 95
-    numberOfSpawns: 8
+    whenToSpawn: 65
+    numberOfSpawns: 5
+    timeBetweenSpawn: 12
+    status: 0
+  - type: 1
+    whenToSpawn: 35
+    numberOfSpawns: 3
     timeBetweenSpawn: 5
     status: 0
   weathers:
   - weather: 0
-    whenToSpawn: 0
-    whenToStop: 0
+    whenToSpawn: 100
+    whenToStop: 1
+    active: 0
+  - weather: 1
+    whenToSpawn: 50
+    whenToStop: 15
     active: 0

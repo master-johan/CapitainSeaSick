@@ -36,12 +36,13 @@ public class PlayerActions : MonoBehaviour
         playerInputs = GetComponent<PlayerInputs>();
         playerState = PlayerState.free;
 
-        distToGround = GetComponent<CapsuleCollider>().height;
+        distToGround = 0.1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(transform.position, -transform.up, Color.red);
         switch (playerState)
         {
             case PlayerState.climbing:
@@ -89,6 +90,10 @@ public class PlayerActions : MonoBehaviour
         transform.rotation = focusedObject.transform.rotation;
         transform.up = ship.transform.up;
         transform.Rotate(new Vector3(0, 90, 0));
+        if (isGrounded())
+        {
+            StopClimb();
+        }
 
     }
 
@@ -117,13 +122,7 @@ public class PlayerActions : MonoBehaviour
                 }
                 else
                 {
-                    if (isGrounded() && !isHittingWater())
-                    {
-                        rb.velocity = Vector3.zero;
-                    }
-                    //rb.velocity = new Vector3(0, rb.velocity.y, 0);
-                    //animator.enabled = false;
-
+                    rb.velocity = Vector3.zero;
                 }
             }
             else
@@ -201,7 +200,7 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
-            if (isGrounded() && !isHittingWater())
+            if (isGrounded() && !isHittingWater() || playerState == PlayerState.climbing)
             {
                 rb.velocity = Vector3.zero;
             }
@@ -394,7 +393,7 @@ public class PlayerActions : MonoBehaviour
 
     public void StartClimb()
     {
-        transform.position = new Vector3(focusedObject.transform.position.x, transform.position.y, focusedObject.transform.position.z) + new Vector3(-1,0,-1);
+        transform.position = new Vector3(focusedObject.transform.position.x + 0.5f, transform.position.y + 0.2f, focusedObject.transform.position.z + .5f) + new Vector3(-1,0,-1);
         playerState = PlayerState.climbing;
         rb.useGravity = false;
         animator.SetBool("isClimbing", true);
@@ -465,7 +464,7 @@ public class PlayerActions : MonoBehaviour
 
     public bool isGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.01f);
     }
 
     public bool isHittingWater()
@@ -476,7 +475,7 @@ public class PlayerActions : MonoBehaviour
             if (hit.collider.name == "SafetyNet")
             {
                 
-                if (hit.distance <= distToGround +0.1f)
+                if (hit.distance <= distToGround +0.01f)
                 {
                     return true;
                 }

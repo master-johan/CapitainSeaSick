@@ -27,7 +27,7 @@ public class BoatMovement : MonoBehaviour
 
     private void SteeringTheShip()
     {
-        Debug.Log(shipPivot.transform.rotation.eulerAngles.x);
+        
 
         //Move the cliffs toward the boat
         //transform.position -= new Vector3(GameAssets.instance.cliffSpeed, 0, 0) * Time.deltaTime;

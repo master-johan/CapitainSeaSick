@@ -9,9 +9,6 @@ using UnityEngine.PlayerLoop;
 
 public class Dialogue_Manager : MonoBehaviour
 {
-    [SerializeField]
-    public TextMeshProUGUI textDisplay;  
-    [SerializeField]
     public float typingSpeed;
     private int index;
     public Queue<string> sentences;
@@ -70,12 +67,9 @@ public class Dialogue_Manager : MonoBehaviour
     public void StartDialogueSingle(Dialogue dialogue)
     {
         int rndNr = UnityEngine.Random.Range(0, dialogue.sentences.Length);
-
         sentences.Enqueue(dialogue.sentences[rndNr]);
-
-        NextSentence();
-
-
+        WaitToPrint(5f);
+       // NextSentence();
     }
 
     private void NextSentence()
@@ -86,11 +80,25 @@ public class Dialogue_Manager : MonoBehaviour
             EndDialogue();
             return;
         }
-       
-        currentSentence = sentences.Dequeue();
 
-        captainDialogueBox.SetCurrentDialogue(currentSentence);
+        
 
+ 
+
+    }
+
+
+    private void WaitToPrint(float time)
+    {
+        float timeLeft = time;
+        while(timeLeft > 0)
+        {
+            timeLeft--;           
+        }
+
+        NextSentence();
+        
+              
     }
 
     private void PrintText(string currentSentence)
@@ -107,7 +115,7 @@ public class Dialogue_Manager : MonoBehaviour
     {
         foreach (var letter in s.ToCharArray())
         {
-            textDisplay.text += letter;
+           // textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
         StartCoroutine(waitForSeconds(5f));        
@@ -126,7 +134,7 @@ public class Dialogue_Manager : MonoBehaviour
             yield return new WaitForSeconds(1);
             timeLeft--;
         }
-        textDisplay.text ="";
+        //textDisplay.text ="";
         NextSentence();
     }
 
@@ -137,6 +145,13 @@ public class Dialogue_Manager : MonoBehaviour
             string eventToTrigger = events.Dequeue();
             EventManager.TriggerEvent(eventToTrigger);
         }
+
+        if (!captainDialogueBox.IsBusy() && sentences.Count > 0)
+        {
+            currentSentence = sentences.Dequeue();
+            captainDialogueBox.SetCurrentDialogue(currentSentence);
+        }
+
 
         //if (events.Count > 0 && GameObject.Find("TimeLine").GetComponentInChildren<ProgressBar_Script>().progress ==80)
         //{
@@ -150,7 +165,7 @@ public class Dialogue_Manager : MonoBehaviour
     private void EndDialogue()
     {
         endDialogue = true;
-        GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
+        //GameObject.Find("Bubble").GetComponent<SpriteRenderer>().enabled = false;
         EventManager.StopSubscribe("welcome", startTalking);
     }
 

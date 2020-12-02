@@ -8,11 +8,13 @@ public class CaptainDialogueBox : MonoBehaviour
 {
     public GameObject imageBox;
     public TextMeshProUGUI textBox;
-    float timeTextShown;
+    float currnetTimeTextShown;
+    float timeTextShownMax = 5f;
     bool showingText;
+
     void Start()
     {
-        disableBox();
+        DisableBox();
     }
 
     // Update is called once per frame
@@ -26,32 +28,38 @@ public class CaptainDialogueBox : MonoBehaviour
 
     private void TextTimer()
     {
-        timeTextShown += Time.deltaTime;
+        currnetTimeTextShown += Time.deltaTime;
 
-        if (timeTextShown >= 5)
+        if (currnetTimeTextShown >= timeTextShownMax)
         {
             showingText = false;
-            disableBox();
+            DisableBox();
         }
     }
 
-    void disableBox()
+    void DisableBox()
     {
         imageBox.SetActive(false);
     }
-    void enableBox()
+    void EnableBox()
     {
         imageBox.SetActive(true);
     }
 
     public void SetCurrentDialogue(string s)
     {
+        Debug.Log(Time.time);
         if (!imageBox.activeSelf)
         {
-            enableBox();
+            EnableBox();
         }
         textBox.text = s;
-        timeTextShown = 0f;
+        currnetTimeTextShown = 0f;
         showingText = true;
+    }
+
+    public bool IsBusy()
+    {
+        return showingText;
     }
 }

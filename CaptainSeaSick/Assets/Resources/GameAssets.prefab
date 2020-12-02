@@ -129,7 +129,7 @@ MonoBehaviour:
   enableLevel6: 0
   windActivated: 1
   startLevelDialogue: {fileID: 11400000, guid: fc112ad6b03014344ad04dd1ad2b0076, type: 2}
-  enemySpawnDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}
+  shipSpawnDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}
   cliffSpawnDialogue: {fileID: 11400000, guid: 2885ad0f79abccb4da465afa1d4a239f, type: 2}
   battleSpawnDialogue: {fileID: 0}
   leakSpawnDialogue: {fileID: 0}

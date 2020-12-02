@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class Dialogue_Trigger : MonoBehaviour
 {
-    public Dialogue dialogue;
-    public Dialogue battleDialogue;
-    public Dialogue cliffDialogue;
+    Dialogue_Manager dialogue_Manager;
+    Dialogue dialogue;
+    Dialogue shipSpawnDialogue;
+    Dialogue cliffDialogue;
+
+    private void Start()
+    {
+        dialogue_Manager = FindObjectOfType<Dialogue_Manager>();
+        dialogue = GameAssets.instance.startLevelDialogue;
+        shipSpawnDialogue = GameAssets.instance.shipSpawnDialogue;
+        cliffDialogue = GameAssets.instance.cliffSpawnDialogue;
+
+    }
 
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<Dialogue_Manager>().StartDialogue(dialogue);
+        dialogue_Manager.StartDialogue(dialogue);
     }
 
     public void TriggerDialogueBattle()
     {
-        FindObjectOfType<Dialogue_Manager>().StartDialogueSingle(battleDialogue);
+        dialogue_Manager.StartDialogueSingle(shipSpawnDialogue);
     }
 
     public void TriggerDialogueCliff()
     {
-        FindObjectOfType<Dialogue_Manager>().StartDialogueSingle(cliffDialogue);
+        dialogue_Manager.StartDialogueSingle(cliffDialogue);
 
     }
 }
-    
+

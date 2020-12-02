@@ -105,7 +105,7 @@ public class GameAssets : MonoBehaviour
 
     [Header("Captain Dialogues")]
     public Dialogue startLevelDialogue;
-    public Dialogue enemySpawnDialogue;
+    public Dialogue shipSpawnDialogue;
     public Dialogue cliffSpawnDialogue;
     public Dialogue battleSpawnDialogue;
     public Dialogue leakSpawnDialogue;

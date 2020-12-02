@@ -38,7 +38,6 @@ public class LevelLoader : MonoBehaviour
     /// </summary>
     public void LoadNextLevel()
     {
-        SetPlayerSpawningPos();
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
        
     }

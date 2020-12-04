@@ -59,7 +59,7 @@ public class LevelLoader : MonoBehaviour
     private void SetPlayerSpawningPos()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        if (SceneManager.GetActiveScene().buildIndex % 2 == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             for (int i = 0; i < players.Length; i++)
             {

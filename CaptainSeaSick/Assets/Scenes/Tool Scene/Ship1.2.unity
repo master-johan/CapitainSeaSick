@@ -1105,75 +1105,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &54287463
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 362
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949438829777153445, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
-        type: 3}
-      propertyPath: m_Name
-      value: CameraForHeatMap
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e9f3ecffeef36ea46bf4ed13aa095f94, type: 3}
 --- !u!43 &69487197
 Mesh:
   m_ObjectHideFlags: 0
@@ -23155,11 +23086,6 @@ PrefabInstance:
       propertyPath: infoManager
       value: 
       objectReference: {fileID: 1904078404}
-    - target: {fileID: 3044498628476000617, guid: 336a033e9402b8a4eb5656276c3c2ade,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.0999756
-      objectReference: {fileID: 0}
     - target: {fileID: 3044498628476000622, guid: 336a033e9402b8a4eb5656276c3c2ade,
         type: 3}
       propertyPath: m_IsActive
@@ -27479,6 +27405,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3173b06ecdfed47bd8e8a9393a0f4343, type: 3}
+--- !u!1001 &2132887276
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 362
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153441, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949438829777153445, guid: e9f3ecffeef36ea46bf4ed13aa095f94,
+        type: 3}
+      propertyPath: m_Name
+      value: CameraForHeatMap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9f3ecffeef36ea46bf4ed13aa095f94, type: 3}
 --- !u!43 &2137673434
 Mesh:
   m_ObjectHideFlags: 0

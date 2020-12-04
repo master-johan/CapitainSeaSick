@@ -24,14 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/Ship2.1.unity
     guid: fbbd2552d28e524428618c0e7e75a346
   - enabled: 1
-    path: Assets/Scenes/BuildFolder/Scav5.unity
-    guid: c98b3e9c180f9634088e634a9a3194b1
+    path: Assets/Scenes/BuildFolder/Scav1.unity
+    guid: 47e978d9b29bf634498a79c142e9a02e
   - enabled: 1
     path: Assets/Scenes/Work in progress/Ship3.1.unity
     guid: b9a50fa798dde9549bf8d806e2933e28
   - enabled: 1
-    path: Assets/Scenes/BuildFolder/Scav1.unity
-    guid: 47e978d9b29bf634498a79c142e9a02e
+    path: Assets/Scenes/BuildFolder/Scav5.unity
+    guid: c98b3e9c180f9634088e634a9a3194b1
   - enabled: 1
     path: Assets/Scenes/Work in progress/Ship3.2.unity
     guid: 685909e05fc33104abc314932f90a218

@@ -325,11 +325,8 @@ public class PlayerActions : MonoBehaviour
                 focusedObject.transform.parent = null;
             }
         }
-        else
-        {
-            playerState = PlayerState.free;
-        }
         focusedObject = null;
+        playerState = PlayerState.free;
     }
 
     private void CarryFocusedObject()

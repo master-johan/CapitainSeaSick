@@ -15,7 +15,7 @@ public class Reader : MonoBehaviour
     private void Start()
     {
         gradient = new Gradient();
-        
+
 
         // Populate the color keys at the relative time 0 and 1 (0 and 100%)
         colorKey = new GradientColorKey[2];
@@ -51,7 +51,7 @@ public class Reader : MonoBehaviour
     {
         lines = File.ReadAllLines(@datapath);
 
-        Grid grid = new Grid(14, 6, 5, new Vector3(-50, 10, -5));
+        Grid grid = new Grid(14, 6, 5f, new Vector3(-50, 10, -5));
 
 
         Vector3 meshSize = g.GetComponent<MeshRenderer>().bounds.size;
@@ -65,9 +65,9 @@ public class Reader : MonoBehaviour
             {
                 grid.SetValue(x, y, int.Parse(splitLines[x]));
                 Vector3 planePos = new Vector3(x * grid.cellSize, 0, y * grid.cellSize) + grid.orginPos;
-                GameObject gb = Instantiate(g,planePos + offset , Quaternion.identity);
-                gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x,y] * 0.1f);
-                
+                GameObject gb = Instantiate(g, planePos + offset, Quaternion.identity);
+                gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x, y] * 0.1f);
+
             }
         }
     }

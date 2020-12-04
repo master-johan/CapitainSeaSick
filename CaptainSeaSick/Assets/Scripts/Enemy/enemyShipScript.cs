@@ -27,11 +27,11 @@ public class enemyShipScript : MonoBehaviour
         }
         else if (transform.position.x > -30 && transform.position.x < -15)
         {
-            hitPosition = new Vector3(-16, -8, 10);
+            hitPosition = new Vector3(-23, -8, 10);
         }
         else if (transform.position.x > -10 && transform.position.x < 2)
         {
-            hitPosition = new Vector3(-3, -8, 10);
+            hitPosition = new Vector3(-5, -8, 10);
         }
         else
         {
@@ -62,7 +62,7 @@ public class enemyShipScript : MonoBehaviour
 
             Instantiate(boardingEnemy, hitPosition + new Vector3(0, 7, 0), Quaternion.identity);
 
-
+            Destroy(tempCannonBall);
             Destroy(gameObject);
         }
 

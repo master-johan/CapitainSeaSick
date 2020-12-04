@@ -82,27 +82,27 @@ MonoBehaviour:
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 15
+  levelTime: 120
   numberOfCannons: 1
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
   - {x: 10, y: 0, z: -10}
   - {x: 20, y: 0, z: -10}
   - {x: 30, y: 0, z: -10}
-  numberOfSwords: 1
+  numberOfSwords: 3
   swordSpawnPos:
-  - {x: 5, y: 1, z: 10}
-  - {x: 10, y: 1, z: 10}
-  - {x: 20, y: 1, z: 10}
+  - {x: 5, y: 1, z: 0}
+  - {x: 10, y: 1, z: 0}
+  - {x: 20, y: 1, z: 0}
   swordPrice: 20
   cannonPrice: 30
   cannonballDamagePrice: 80
   shipMaxHealthPrice: 50
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
-  LeakDamage: 5
+  LeakDamage: 2
   ScavLevelTimer1: 80
-  gold: 0
+  gold: 100
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,
@@ -119,7 +119,7 @@ MonoBehaviour:
     type: 3}
   swordPrefab: {fileID: 1309927684253149450, guid: d4ede79c8be2b8d4eb25d6012355f6bf,
     type: 3}
-  spawnBoatPhase: {x: -11, y: -4, z: 7}
+  spawnBoatPhase: {x: 0, y: 0, z: 7}
   spawnScavPhase: {x: 19, y: 25, z: -18}
   enableLevel2: 0
   enableLevel3left: 0

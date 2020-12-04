@@ -19,7 +19,7 @@ public class PlayerActions : MonoBehaviour
     public GameObject focusedObject;
     Vector2 focusedObjectOffset;
     public Rigidbody rb;
-    GameObject ship;
+    public GameObject ship;
     public GameObject rightHand, trail;
     float movementMultiplier, boostMultiplier, stunTimer;
     public bool hasSword, isStunned, stunImmunity;
@@ -30,7 +30,6 @@ public class PlayerActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ship = GameObject.FindGameObjectWithTag("Ship");
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();

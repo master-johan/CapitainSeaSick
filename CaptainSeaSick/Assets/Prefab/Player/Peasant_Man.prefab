@@ -571,6 +571,7 @@ MonoBehaviour:
   playerState: 0
   focusedObject: {fileID: 0}
   rb: {fileID: 0}
+  ship: {fileID: 9037406623604188199, guid: bad5ee3c361220649b593916b3794f57, type: 3}
   rightHand: {fileID: 3628312302510871362}
   trail: {fileID: 4322251329993526571}
   hasSword: 0

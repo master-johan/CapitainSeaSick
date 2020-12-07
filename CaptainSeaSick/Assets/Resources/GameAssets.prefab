@@ -135,3 +135,4 @@ MonoBehaviour:
   leakSpawnDialogue: {fileID: 0}
   scavengingPhase: {fileID: 0}
   randomDialogue: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: ff245df91b469b243ba3346ce24c9cdb, type: 2}

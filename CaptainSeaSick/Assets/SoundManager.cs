@@ -36,6 +36,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        
         FindSong();    
     }
     /// <summary>
@@ -79,8 +80,11 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         //Create audio sources + save as references
         musicSource = this.gameObject.AddComponent<AudioSource>();
+        musicSource.outputAudioMixerGroup = GameAssets.instance.audioMixer.FindMatchingGroups("Master")[1];
         musicSource2 = this.gameObject.AddComponent<AudioSource>();
+        musicSource2.outputAudioMixerGroup = GameAssets.instance.audioMixer.FindMatchingGroups("Master")[1];
         soundEffectSource = this.gameObject.AddComponent<AudioSource>();
+        soundEffectSource.outputAudioMixerGroup = GameAssets.instance.audioMixer.FindMatchingGroups("Master")[2];
         //loop music
         musicSource.loop = true;
         musicSource2.loop = true;
@@ -90,7 +94,6 @@ public class SoundManager : MonoBehaviour
 
         //Check wich of the music sources that is playing atm
         AudioSource activeSource = (firstSourceOfmusic) ? musicSource : musicSource2;
-
         activeSource.clip = audioClip;
         activeSource.Play();
     }

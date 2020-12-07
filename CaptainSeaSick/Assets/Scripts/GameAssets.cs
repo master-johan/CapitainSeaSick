@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class GameAssets : MonoBehaviour
@@ -111,6 +112,9 @@ public class GameAssets : MonoBehaviour
     public Dialogue leakSpawnDialogue;
     public Dialogue scavengingPhase;
     public Dialogue randomDialogue;
+
+    [Header ("Audio Mixer")]
+    public AudioMixer audioMixer;
 
     public void PauseGame()
     {

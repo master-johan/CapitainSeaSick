@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyCannonballScript : MonoBehaviour
 {
+
     
     public bool isHit;
     // Start is called before the first frame update
@@ -20,7 +21,9 @@ public class enemyCannonballScript : MonoBehaviour
     {
         if (other.tag == "Ship")
         {
+
             isHit = true;
+
            
         }
     }

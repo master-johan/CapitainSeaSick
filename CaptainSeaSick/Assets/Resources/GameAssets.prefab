@@ -98,11 +98,15 @@ MonoBehaviour:
   cannonPrice: 30
   cannonballDamagePrice: 80
   shipMaxHealthPrice: 50
+  cannonFull: 0
+  cannonDamageFull: 0
+  swordFull: 0
+  maxHealthFull: 0
   DialogueTypingSpeed: 0.1
   EnemyCannonBallDamage: 1
   LeakDamage: 2
   ScavLevelTimer1: 80
-  gold: 100
+  gold: 200
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,
@@ -135,3 +139,4 @@ MonoBehaviour:
   leakSpawnDialogue: {fileID: 0}
   scavengingPhase: {fileID: 0}
   randomDialogue: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: ff245df91b469b243ba3346ce24c9cdb, type: 2}

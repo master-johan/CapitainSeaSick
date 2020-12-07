@@ -12,6 +12,7 @@ public class ShopController_Script : MonoBehaviour
     public GameObject cannonBallDamageText;
     public GameObject swordsText;
     public GameObject shipHealthpointsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,24 @@ public class ShopController_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (GameAssets.instance.cannonPrice > GameAssets.instance.gold && !GameAssets.instance.cannonFull)
+        {
+            GoldLimitReached("Cannon");
+        }
+        if (GameAssets.instance.swordPrice > GameAssets.instance.gold && !GameAssets.instance.swordFull)
+        {
+            GoldLimitReached("Sword");
+
+        }
+        if (GameAssets.instance.shipMaxHealthPrice > GameAssets.instance.gold && !GameAssets.instance.maxHealthFull)
+        {
+            GoldLimitReached("Health");
+        }
+        if (GameAssets.instance.cannonballDamagePrice > GameAssets.instance.gold && !GameAssets.instance.cannonDamageFull)
+        {
+            GoldLimitReached("Upgraded Cannonballs");
+        }
     }
 
 
@@ -41,8 +59,10 @@ public class ShopController_Script : MonoBehaviour
                 if (GameAssets.instance.numberOfCannons == 4)
                 {
                     LimitReached("Cannon");
+                    GameAssets.instance.cannonFull = true;
                 }
             }
+           
         }
     }
 
@@ -58,8 +78,10 @@ public class ShopController_Script : MonoBehaviour
                 if (GameAssets.instance.numberOfSwords == 3)
                 {
                     LimitReached("Sword");
+                    GameAssets.instance.swordFull = true;
                 }
             }
+            
         }
     }
 
@@ -75,8 +97,10 @@ public class ShopController_Script : MonoBehaviour
                 if (GameAssets.instance.ShipMaxHealth == 500)
                 {
                     LimitReached("Health");
+                    GameAssets.instance.maxHealthFull = true;
                 }
             }
+          
         }
     }
 
@@ -86,14 +110,16 @@ public class ShopController_Script : MonoBehaviour
         {
             if (CheckGold(GameAssets.instance.cannonballDamagePrice))
             {
-                GameAssets.instance.cannonballsDamage += 5;
+                GameAssets.instance.cannonballsDamage += (GameAssets.instance.cannonballsDamage / 100) * 25; //5% damage increase
 
                 cannonBallDamageText.GetComponent<TextMeshProUGUI>().text = "Cannonball damage: " + GameAssets.instance.cannonballsDamage;
                 if (GameAssets.instance.cannonballsDamage == 20)
                 {
-                    LimitReached("Upgraded cannonballs");
+                    LimitReached("Upgraded Cannonballs");
+                    GameAssets.instance.cannonDamageFull = true;
                 }
             }
+            
         }
     }
 
@@ -116,6 +142,14 @@ public class ShopController_Script : MonoBehaviour
     {
         GameObject obj = transform.Find(type).Find("Price").gameObject;
         obj.GetComponent<TextMeshProUGUI>().text = "FULL";
+        GameObject objPic = transform.Find(type).Find("Gold").gameObject;
+        objPic.SetActive(false);
+    }
+
+    private void GoldLimitReached(string type)
+    {
+        GameObject obj = transform.Find(type).Find("Price").gameObject;
+        obj.GetComponent<TextMeshProUGUI>().text = "NO MORE GOLD";
         GameObject objPic = transform.Find(type).Find("Gold").gameObject;
         objPic.SetActive(false);
     }

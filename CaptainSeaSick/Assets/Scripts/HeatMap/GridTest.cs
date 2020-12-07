@@ -11,7 +11,7 @@ public class GridTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(14, 6, 5, new Vector3(-50,10,-5));
+        grid = new Grid(22, 10, 3, new Vector3(-50,10,-5));
         a = 0;
     }
 

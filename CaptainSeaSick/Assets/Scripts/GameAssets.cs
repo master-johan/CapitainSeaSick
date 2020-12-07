@@ -57,6 +57,11 @@ public class GameAssets : MonoBehaviour
     public int cannonPrice;
     public int cannonballDamagePrice;
     public int shipMaxHealthPrice;
+    public bool cannonFull;
+    public bool cannonDamageFull;
+    public bool swordFull;
+    public bool maxHealthFull;
+
 
 
     [Header("Dialogue Variables")]
@@ -67,7 +72,7 @@ public class GameAssets : MonoBehaviour
     public float EnemyCannonBallDamage;
     [Tooltip("Leak damage over time")]
     public float LeakDamage;
-    
+
     /// <summary>
     /// Scavenging phase
     /// </summary>
@@ -75,7 +80,7 @@ public class GameAssets : MonoBehaviour
     [Tooltip("Scavenging phase Timer 1")]
     public float ScavLevelTimer1;
     [Tooltip("Scavenging Gold")]
-    public float gold; 
+    public float gold;
     /// <summary>
     /// Prefabs
     /// </summary>
@@ -126,5 +131,5 @@ public class GameAssets : MonoBehaviour
         Time.timeScale = 1;
     }
 
- 
+
 }

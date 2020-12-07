@@ -40,7 +40,7 @@ public class Grid
         {
             for (int z = 0; z < gridArray.GetLength(1); z++)
             {
-                debugTextArray[x, z] = UtilsClass.CreateWorldText(gridArray[x, z].ToString(), null, GetWorldPosition(x, z) + new Vector3(cellSize, 50, cellSize) * 0.5f, 20, null, TextAnchor.MiddleCenter);
+                debugTextArray[x, z] = UtilsClass.CreateWorldText(gridArray[x, z].ToString(), null, GetWorldPosition(x, z) + new Vector3(cellSize, 50, cellSize) * 0.5f, 10, null, TextAnchor.MiddleCenter);
                // Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x, z + 1), Color.white, 100f);
                // Debug.DrawLine(GetWorldPosition(x, z), GetWorldPosition(x + 1, z), Color.white, 100f);
             }
@@ -66,7 +66,7 @@ public class Grid
         if (x >= 0 && z >= 0 && x < width && z < height)
         {
             gridArray[x, z] += value;
-            debugTextArray[x, z].text = gridArray[x, z].ToString("0.0");
+            debugTextArray[x, z].text = gridArray[x, z].ToString("0");
         }
     }
     private void SetValue(int x, int z)
@@ -74,7 +74,17 @@ public class Grid
         if (x >= 0 && z >= 0 && x < width && z < height)
         {
             gridArray[x, z]++;
-            debugTextArray[x, z].text = gridArray[x, z].ToString("f1");
+            debugTextArray[x, z].text = gridArray[x, z].ToString("0");
+        }
+    }
+    public void ResetValues()
+    {
+        for (int i = 0; i < gridArray.GetLength(0); i++)
+        {
+            for (int j = 0; j < gridArray.GetLength(1); j++)
+            {
+                gridArray[i, j] = 0;
+            }
         }
     }
 
@@ -95,7 +105,7 @@ public class Grid
         {
             for (int x = 0; x < gridArray.GetLength(0); x++)
             {
-                s.Append(((int)gridArray[x, y]).ToString() + " ");
+                s.Append((Math.Ceiling(gridArray[x, y])).ToString() + " ");
             }
             s.AppendLine();
         }

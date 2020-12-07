@@ -39,6 +39,7 @@ public class SwordTag_Script : MonoBehaviour
         {
             if (CheckIfSwordIsReady())
             {
+                Instantiate(other.GetComponent<BoardingEnemyScript>().DeathEffect,other.transform.position, other.transform.rotation);
                 Destroy(other.gameObject);
             }
         }

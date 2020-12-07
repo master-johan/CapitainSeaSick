@@ -8,6 +8,7 @@ using UnityEngine;
 public class BoardingEnemyScript : MonoBehaviour
 {
     GameObject[] players;
+    public ParticleSystem DeathEffect;
     float[] distToPlayer;
     float temp = float.MaxValue;
     int index = 5;

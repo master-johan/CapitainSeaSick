@@ -10,7 +10,11 @@ public class ShipHealth : MonoBehaviour
     public float currenthealth;
     private GameObject spawnPositions;
     [SerializeField] Flash flashImage;
-
+    private Transform tempTransform;
+    private Vector3 tempContactPoint;
+    private Vector3 tempDirection;
+    public GameObject ExplosionEffect;
+    Quaternion rotation;
 
 
     public event Action <float> healthPctChanged = delegate { };
@@ -37,6 +41,20 @@ public class ShipHealth : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+       
+       
+        if (other.collider.tag == "EnemyCannonball")
+        {
+            //tempDirection = (transform.position - tempTransform.position);
+            //tempContactPoint = tempTransform.position + tempDirection;
+            ContactPoint con = other.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(-Vector3.forward, con.normal);
+            Vector3 pos = con.point;
+            Instantiate(ExplosionEffect,pos, rot);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Cliff")
@@ -48,6 +66,10 @@ public class ShipHealth : MonoBehaviour
         }
         if(other.tag == "EnemyCannonball")
         {
+            //tempDirection = (transform.position - tempTransform.position);
+            //tempContactPoint = tempTransform.position + tempDirection;
+           // Instantiate(ExplosionEffect, other.transform.position, new Quaternion(-other.transform.forward.x, -other.transform.forward.y, -other.transform.forward.z, 0));
+            Destroy(other.gameObject);
             SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[8], 0.05f);
             ModifyHealth(-1);
             flashImage.StartFlash();

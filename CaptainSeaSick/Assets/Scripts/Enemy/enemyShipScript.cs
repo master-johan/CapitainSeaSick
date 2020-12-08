@@ -53,7 +53,7 @@ public class enemyShipScript : MonoBehaviour
         if (shootTimer <= 0)
         {
             shootTimer = Random.Range(5, 15);
-            tempCannonBall = Instantiate(enemyCannonball, transform.position, Quaternion.identity);
+            tempCannonBall = Instantiate(enemyCannonball, transform.position, transform.rotation);
             SoundManager.Instance.PlaySoundEffect(GameAssets.instance.soundEffects[9], 0.5f);//Enemy cannon fire
         }
 
@@ -71,10 +71,10 @@ public class enemyShipScript : MonoBehaviour
             direction = Vector3.MoveTowards(tempCannonBall.transform.position, hitPosition, 0.4f);
             tempCannonBall.transform.position = direction;
 
-            if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit)
-            {
-                Destroy(tempCannonBall);
-            }
+            //if (tempCannonBall.GetComponent<enemyCannonballScript>().isHit)
+            //{
+            //    Destroy(tempCannonBall);
+            //}
         }
 
         if (HealthPoints <= 0)

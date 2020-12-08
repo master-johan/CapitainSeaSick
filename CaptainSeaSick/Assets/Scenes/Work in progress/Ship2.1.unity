@@ -29707,6 +29707,12 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 551476992}
+    - target: {fileID: 5575182313749729050, guid: aa016cb5d20f30149965fa781b74f733,
+        type: 3}
+      propertyPath: ExplosionEffect
+      value: 
+      objectReference: {fileID: 3911205011575774550, guid: e20df0d708339834ca07a1a8b6729efd,
+        type: 3}
     - target: {fileID: 5575182313971103551, guid: aa016cb5d20f30149965fa781b74f733,
         type: 3}
       propertyPath: m_Layer

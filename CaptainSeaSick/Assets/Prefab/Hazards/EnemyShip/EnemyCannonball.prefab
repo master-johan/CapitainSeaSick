@@ -137,5 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd992ff5dd4a41946af44cd21fbf278a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExplosionEffect: {fileID: 3911205011575774550, guid: e20df0d708339834ca07a1a8b6729efd,
+    type: 3}
   isHit: 0
-  aliveTimer: 0

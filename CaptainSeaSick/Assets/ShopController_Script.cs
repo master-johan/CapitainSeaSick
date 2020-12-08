@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -16,11 +17,11 @@ public class ShopController_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cannonText.GetComponent<TextMeshProUGUI>().text = "Cannons: " + GameAssets.instance.numberOfCannons;
-        goldText.GetComponent<TextMeshProUGUI>().text = "Gold: " + GameAssets.instance.gold;
-        cannonBallDamageText.GetComponent<TextMeshProUGUI>().text = "Cannonball damage: " + GameAssets.instance.cannonballsDamage;
-        swordsText.GetComponent<TextMeshProUGUI>().text = "Swords: " + GameAssets.instance.numberOfSwords;
-        shipHealthpointsText.GetComponent<TextMeshProUGUI>().text = "Ship maxhealth: " + GameAssets.instance.ShipMaxHealth;
+        cannonText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.numberOfCannons.ToString();
+        goldText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.gold.ToString();
+        cannonBallDamageText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.cannonballsDamage.ToString(); 
+        swordsText.GetComponent<TextMeshProUGUI>().text =  GameAssets.instance.numberOfSwords.ToString(); 
+        shipHealthpointsText.GetComponent<TextMeshProUGUI>().text =  GameAssets.instance.ShipMaxHealth.ToString(); 
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class ShopController_Script : MonoBehaviour
             {
                 GameAssets.instance.numberOfCannons++;
 
-                cannonText.GetComponent<TextMeshProUGUI>().text = "Cannons: " + GameAssets.instance.numberOfCannons;
+                cannonText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.numberOfCannons.ToString();
                 if (GameAssets.instance.numberOfCannons == 4)
                 {
                     LimitReached("Cannon");
@@ -74,7 +75,7 @@ public class ShopController_Script : MonoBehaviour
             {
                 GameAssets.instance.numberOfSwords++;
 
-                swordsText.GetComponent<TextMeshProUGUI>().text = "Swords: " + GameAssets.instance.numberOfSwords;
+                swordsText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.numberOfSwords.ToString();
                 if (GameAssets.instance.numberOfSwords == 3)
                 {
                     LimitReached("Sword");
@@ -93,7 +94,7 @@ public class ShopController_Script : MonoBehaviour
             {
                 GameAssets.instance.ShipMaxHealth += 50;
 
-                shipHealthpointsText.GetComponent<TextMeshProUGUI>().text = "Ship maxhealth: " + GameAssets.instance.ShipMaxHealth;
+                shipHealthpointsText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.ShipMaxHealth.ToString();
                 if (GameAssets.instance.ShipMaxHealth == 500)
                 {
                     LimitReached("Health");
@@ -110,9 +111,9 @@ public class ShopController_Script : MonoBehaviour
         {
             if (CheckGold(GameAssets.instance.cannonballDamagePrice))
             {
-                GameAssets.instance.cannonballsDamage += (GameAssets.instance.cannonballsDamage / 100) * 25; //5% damage increase
+                GameAssets.instance.cannonballsDamage += (GameAssets.instance.cannonballsDamage / 100) * 25; //25% damage increase
 
-                cannonBallDamageText.GetComponent<TextMeshProUGUI>().text = "Cannonball damage: " + GameAssets.instance.cannonballsDamage;
+                cannonBallDamageText.GetComponent<TextMeshProUGUI>().text = Math.Round(GameAssets.instance.cannonballsDamage).ToString(); 
                 if (GameAssets.instance.cannonballsDamage == 20)
                 {
                     LimitReached("Upgraded Cannonballs");
@@ -133,7 +134,7 @@ public class ShopController_Script : MonoBehaviour
         if (itemPrice <= GameAssets.instance.gold)
         {
             GameAssets.instance.gold -= itemPrice;
-            goldText.GetComponent<TextMeshProUGUI>().text = "Gold: " + GameAssets.instance.gold;
+            goldText.GetComponent<TextMeshProUGUI>().text = GameAssets.instance.gold.ToString();
             return true;
         }
         return false;
@@ -141,7 +142,8 @@ public class ShopController_Script : MonoBehaviour
     private void LimitReached(string type)
     {
         GameObject obj = transform.Find(type).Find("Price").gameObject;
-        obj.GetComponent<TextMeshProUGUI>().text = "FULL";
+        obj.GetComponent<TextMeshProUGUI>().text = " MAX";
+        obj.GetComponent<TextMeshProUGUI>().color = Color.green;
         GameObject objPic = transform.Find(type).Find("Gold").gameObject;
         objPic.SetActive(false);
     }
@@ -149,7 +151,9 @@ public class ShopController_Script : MonoBehaviour
     private void GoldLimitReached(string type)
     {
         GameObject obj = transform.Find(type).Find("Price").gameObject;
-        obj.GetComponent<TextMeshProUGUI>().text = "NO MORE GOLD";
+        obj.GetComponent<TextMeshProUGUI>().text = " X";
+        obj.GetComponent<TextMeshProUGUI>().color = Color.red;
+        obj.GetComponent<TextMeshProUGUI>().fontSize = 45;
         GameObject objPic = transform.Find(type).Find("Gold").gameObject;
         objPic.SetActive(false);
     }

@@ -86,7 +86,7 @@ public class Cannon_Script : MonoBehaviour
     {
         if (cannonState == CannonState.canFire)
         {   
-            Instantiate(fireEffect, GameObject.Find("CannonBallOffset").transform.position, GameObject.Find("CannonBallOffset").transform.rotation);
+            Instantiate(fireEffect, transform.Find("CannonBallOffset").transform.position, transform.Find("CannonBallOffset").transform.rotation);
            
             cannonState = CannonState.fire;
         }

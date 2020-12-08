@@ -83,7 +83,7 @@ MonoBehaviour:
   cliffSpeed: 5
   cannonballsDamage: 5
   levelTime: 160
-  numberOfCannons: 1
+  numberOfCannons: 2
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
   - {x: 10, y: 0, z: -10}

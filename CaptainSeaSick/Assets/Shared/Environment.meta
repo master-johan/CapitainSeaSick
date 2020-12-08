@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:CaptainSeaSick/Assets/Scripts/Level/ShipLevels.meta
+guid: b1fcf1d4a1841a0418ece962159647ad
+=======
 guid: ea4371db0cabc3a44a4b4129cd1323f5
+>>>>>>> 5e78ee7af0510daaf1fa9f7f6b0bdf1ec7167b70:CaptainSeaSick/Assets/Shared/Environment.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

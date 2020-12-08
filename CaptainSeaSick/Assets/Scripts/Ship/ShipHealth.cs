@@ -10,11 +10,7 @@ public class ShipHealth : MonoBehaviour
     public float currenthealth;
     private GameObject spawnPositions;
     [SerializeField] Flash flashImage;
-    private Transform tempTransform;
-    private Vector3 tempContactPoint;
-    private Vector3 tempDirection;
     public GameObject ExplosionEffect;
-    Quaternion rotation;
 
 
     public event Action <float> healthPctChanged = delegate { };
@@ -75,5 +71,4 @@ public class ShipHealth : MonoBehaviour
             flashImage.StartFlash();
         }
     }
-
 }

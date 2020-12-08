@@ -2,17 +2,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GridTest : MonoBehaviour
 {
     GameObject[] players;
-    int a;
     private Grid grid;
+    string scene;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(22, 10, 3, new Vector3(-50,10,-5));
-        a = 0;
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+
+            grid = new Grid(22, 10, 3, new Vector3(-5, 30, -30));
+            scene = "Scav";
+            Debug.Log("Scav");
+        }
+        else
+        {
+            grid = new Grid(22, 10, 3, new Vector3(-50, 10, -5));
+            scene = "Ship";
+            Debug.Log("Ship");
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +43,7 @@ public class GridTest : MonoBehaviour
     public void PrintData()
     {
 
-        string text = grid.ToString();
+        string text = grid.ToString(scene);
         System.IO.File.WriteAllText(FileName(), text);
     }
 

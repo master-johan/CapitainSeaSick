@@ -96,11 +96,11 @@ public class Grid
         SetValue(x, z, value);
     }
 
-    public override string ToString()
+    public string ToString(string scene)
     {
         StringBuilder s = new StringBuilder();
 
-        s.AppendLine("GridSize: " + gridArray.GetLength(0) + ", " +gridArray.GetLength(1));
+        s.AppendLine("GridSize: " + gridArray.GetLength(0) + ", " +gridArray.GetLength(1) + "#" + scene);
         for (int y = gridArray.GetLength(1)-1; y >= 0 ; y--)
         {
             for (int x = 0; x < gridArray.GetLength(0); x++)

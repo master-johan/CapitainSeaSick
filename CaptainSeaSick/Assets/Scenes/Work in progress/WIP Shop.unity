@@ -1507,6 +1507,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1553389410}
+        m_MethodName: TestLevelMap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &762133822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3966,16 +3977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop-Dancer-Abe
       objectReference: {fileID: 0}
-    - target: {fileID: 3962431901488244000, guid: 887bdee5030db3d40affe47e0f0f1abe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962431901488244005, guid: 887bdee5030db3d40affe47e0f0f1abe,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1d762ce9e6c05684a9b570e9edb4a6b1, type: 2}
     - target: {fileID: 3962431901488244010, guid: 887bdee5030db3d40affe47e0f0f1abe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4030,21 +4031,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962431901488244010, guid: 887bdee5030db3d40affe47e0f0f1abe,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 197.64914
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962431901488244010, guid: 887bdee5030db3d40affe47e0f0f1abe,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 197.64914
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962431901488244010, guid: 887bdee5030db3d40affe47e0f0f1abe,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 197.64914
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 887bdee5030db3d40affe47e0f0f1abe, type: 3}

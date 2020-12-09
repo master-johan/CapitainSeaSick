@@ -126,7 +126,7 @@ public class ShopController_Script : MonoBehaviour
 
     public void NextLevel()
     {
-        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevelMap();
+        //GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevelMap();
     }
 
     private bool CheckGold(int itemPrice)
@@ -156,5 +156,10 @@ public class ShopController_Script : MonoBehaviour
         obj.GetComponent<TextMeshProUGUI>().fontSize = 45;
         GameObject objPic = transform.Find(type).Find("Gold").gameObject;
         objPic.SetActive(false);
+    }
+
+    public void TestLevelMap()
+    {
+        SceneManager.LoadScene(1);
     }
 }

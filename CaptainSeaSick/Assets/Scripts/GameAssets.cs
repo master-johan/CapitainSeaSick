@@ -98,13 +98,27 @@ public class GameAssets : MonoBehaviour
     public Vector3 spawnBoatPhase;
     public Vector3 spawnScavPhase;
 
-    [Header("Level Swapping Bools")]
+    [Header("Level Enabling Bools")]
+    public bool enableLevel1;
     public bool enableLevel2;
     public bool enableLevel3left;
     public bool enableLevel3right;
     public bool enableLevel4;
     public bool enableLevel5;
     public bool enableLevel6;
+
+    [Header("Completed Level Bools")]
+    public bool level11Win;
+    public bool level21Win;
+    public bool level22Win;
+    public bool level31Win;
+    public bool level32Win;
+    public bool level33Win;
+    public bool level41Win;
+    public bool level51Win;
+    public bool level52Win;
+    public bool level61Win;
+
 
     [Header("Wind Variables")]
     public bool windActivated;

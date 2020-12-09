@@ -125,6 +125,7 @@ MonoBehaviour:
     type: 3}
   spawnBoatPhase: {x: 0, y: 0, z: 7}
   spawnScavPhase: {x: 19, y: 25, z: -18}
+  enableLevel1: 1
   enableLevel2: 0
   enableLevel3left: 0
   enableLevel3right: 0

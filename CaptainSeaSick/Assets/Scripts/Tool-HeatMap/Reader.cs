@@ -98,16 +98,19 @@ public class Reader : MonoBehaviour
             for (int y = 0; y < grid.gridArray.GetLength(1); y++)
             {
                 string[] splitLines;
-                if (y == 0)
-                {
-                    splitLines = lines[11 * (layer + 1) - y].Split(' ');
 
-                }
-                else
-                {
-                    splitLines = lines[10 * (layer + 1) - y].Split(' ');
-                }
-                for (int x = 0; x < grid.gridArray.GetLength(0); x++)
+                splitLines = lines[(layer + 1) * 11 - y].Split(' ');
+
+                //if (y == 0)
+                //{
+                //    splitLines = lines[11 * (layer + 1) - y].Split(' ');
+
+                //}
+                //else
+                //{
+                //    splitLines = lines[10 * (layer + 1) - y].Split(' ');
+                //}
+                for (int x = 0; x < splitLines.GetLength(0) -1 /*grid.gridArray.GetLength(0)*/; x++)
                 {
                     if (splitLines.GetLength(0) > 1 )
                     {
@@ -115,6 +118,10 @@ public class Reader : MonoBehaviour
                         {
                             max[layer] = int.Parse(splitLines[x]);
                         }
+                    }
+                    else
+                    {
+
                     }
                 }
             }

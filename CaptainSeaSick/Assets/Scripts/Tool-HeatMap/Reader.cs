@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class Reader : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Reader : MonoBehaviour
     public GameObject Ship;
     public GameObject Scav3;
     public GameObject g;
+
+    public TextMeshProUGUI levelinfo;
 
     private void Start()
     {
@@ -125,5 +128,6 @@ public class Reader : MonoBehaviour
             Scav3.SetActive(false);
             Ship.SetActive(true);
         }
+        levelinfo.text = splitScene[2];
     }
 }

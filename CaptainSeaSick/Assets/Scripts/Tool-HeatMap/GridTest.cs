@@ -9,6 +9,7 @@ public class GridTest : MonoBehaviour
     GameObject[] players;
     private Grid grid;
     string scene;
+    ShipLevel level;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,10 @@ public class GridTest : MonoBehaviour
             grid = new Grid(22, 10, 3, new Vector3(-50, 10, -5));
             scene = "Ship";
             Debug.Log("Ship");
+        }
+        if (GameObject.Find("LevelManager"))
+        {
+            level = GameObject.Find("LevelManager").GetComponent<LevelManager>().currentLevel;
         }
     }
 
@@ -42,8 +47,18 @@ public class GridTest : MonoBehaviour
 
     public void PrintData()
     {
+        string levelName;
 
-        string text = grid.ToString(scene);
+        if (level != null)
+        {
+            levelName = level.name;
+        }
+        else
+        {
+            levelName = SceneManager.GetActiveScene().name;
+        }
+
+        string text = grid.ToString(scene, levelName);
         System.IO.File.WriteAllText(FileName(), text);
     }
 

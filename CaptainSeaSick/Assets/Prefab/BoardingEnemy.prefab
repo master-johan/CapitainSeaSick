@@ -610,8 +610,8 @@ GameObject:
   - component: {fileID: 3962431901488244006}
   - component: {fileID: 3962431901488244001}
   m_Layer: 0
-  m_Name: Ch39_nonPBR
-  m_TagString: Untagged
+  m_Name: BoardingEnemy
+  m_TagString: BoardingEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,7 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377840c22daa72e4ebe6a4260fef90d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeathEffect: {fileID: 0}
+  DeathEffect: {fileID: 671209570789314148, guid: 02a18c5c707ea4b43bcaedd2b8f18437,
+    type: 3}
   animator: {fileID: 3962431901488244005}
 --- !u!1 &3962431901489781392
 GameObject:

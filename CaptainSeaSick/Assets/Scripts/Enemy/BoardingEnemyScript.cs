@@ -45,7 +45,7 @@ public class BoardingEnemyScript : MonoBehaviour
             {
                 if (distToPlayer[i] < 2 && !players[i].GetComponent<PlayerActions>().stunImmunity)
                 {
-                    players[i].GetComponent<PlayerActions>().isStunned = true;
+                    players[i].GetComponent<PlayerActions>().StunPlayer();
                 }
                 if (!players[i].GetComponent<PlayerActions>().isStunned)
                 {

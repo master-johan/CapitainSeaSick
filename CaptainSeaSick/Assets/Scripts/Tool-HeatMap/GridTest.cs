@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GridTest : MonoBehaviour
 {
     GameObject[] players;
-    private Grid grid;
+    GameObject[] enemies;
+    public Grid grid;
     string scene;
     ShipLevel level;
     // Start is called before the first frame update
@@ -16,13 +17,13 @@ public class GridTest : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 4)
         {
 
-            grid = new Grid(22, 10, 3, new Vector3(-5, 30, -30));
+            grid = new Grid(22, 10, 5, 3, new Vector3(-5, 30, -30));
             scene = "Scav";
             Debug.Log("Scav");
         }
         else
         {
-            grid = new Grid(22, 10, 3, new Vector3(-50, 10, -5));
+            grid = new Grid(22, 10, 5, 3, new Vector3(-50, 10, -5));
             scene = "Ship";
             Debug.Log("Ship");
         }
@@ -40,7 +41,16 @@ public class GridTest : MonoBehaviour
         {
             for (int i = 0; i < players.Length; i++)
             {
-                grid.SetValue(new Vector3(players[i].transform.position.x, 0, players[i].transform.position.z), Time.deltaTime);
+                grid.SetValue(new Vector3(players[i].transform.position.x, 0, players[i].transform.position.z),(int)HeatMapLayer.playerPos, Time.deltaTime);
+            }
+        }
+
+        enemies = GameObject.FindGameObjectsWithTag("BoardingEnemy");
+        if (enemies != null)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                grid.SetValue(new Vector3(enemies[i].transform.position.x, 0, enemies[i].transform.position.z), (int)HeatMapLayer.enemyPos, Time.deltaTime);
             }
         }
     }

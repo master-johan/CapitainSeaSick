@@ -24,7 +24,7 @@ public class Reader : MonoBehaviour
         planeList = new List<GameObject>();
         gradient = new Gradient();
 
-        grid = new Grid(22, 10, 3, new Vector3(-50, 10, -5));
+        grid = new Grid(22, 10, 5, 3, new Vector3(-50, 10, -5));
 
         // Populate the color keys at the relative time 0 and 1 (0 and 100%)
         colorKey = new GradientColorKey[2];
@@ -62,7 +62,7 @@ public class Reader : MonoBehaviour
 
         lines = File.ReadAllLines(@datapath);
 
-        int maxValue = 0;
+        int[] maxValue = new int[grid.gridArray.GetLength(2)];
 
         Vector3 meshSize = g.GetComponent<MeshRenderer>().bounds.size;
         Vector3 offset = new Vector3(meshSize.x * 0.5f, 0, meshSize.y * 0.5f);
@@ -75,35 +75,51 @@ public class Reader : MonoBehaviour
             string[] splitLines = lines[10 - y].Split(' ');
             for (int x = 0; x < grid.gridArray.GetLength(0); x++)
             {
-                grid.SetValue(x, y, int.Parse(splitLines[x]));
+                //grid.SetValue(x, y, int.Parse(splitLines[x]));
                 Vector3 planePos = new Vector3(x * grid.cellSize, 0, y * grid.cellSize) + grid.orginPos;
                 GameObject gb = Instantiate(g, planePos + offset, Quaternion.identity);
                 planeList.Add(gb);
 
-                if (grid.gridArray[x,y] > 0)
-                {
-                    gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x, y] / maxValue);
-                }
-                else
-                {
-                    gb.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-                }
+                //if (grid.gridArray[x,y] > 0)
+                //{
+                //    gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x, y] / maxValue);
+                //}
+                //else
+                //{
+                //    gb.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+                //}
             }
         }
     }
-    public int CountMaxValue(int max)
+    public int[] CountMaxValue(int[] max)
     {
-        for (int y = 0; y < grid.gridArray.GetLength(1); y++)
+        for (int layer = 0; layer < grid.gridArray.GetLength(2); layer++)
         {
-            string[] splitLines = lines[10 - y].Split(' ');
-            for (int x = 0; x < grid.gridArray.GetLength(0); x++)
+            for (int y = 0; y < grid.gridArray.GetLength(1); y++)
             {
-                if (int.Parse(splitLines[x]) > max)
+                string[] splitLines;
+                if (y == 0)
                 {
-                    max = int.Parse(splitLines[x]);
+                    splitLines = lines[11 * (layer + 1) - y].Split(' ');
+
+                }
+                else
+                {
+                    splitLines = lines[10 * (layer + 1) - y].Split(' ');
+                }
+                for (int x = 0; x < grid.gridArray.GetLength(0); x++)
+                {
+                    if (splitLines.GetLength(0) > 1 )
+                    {
+                        if (int.Parse(splitLines[x]) > max[layer])
+                        {
+                            max[layer] = int.Parse(splitLines[x]);
+                        }
+                    }
                 }
             }
         }
+       
         return max;
     }
     public void ResetGrid()

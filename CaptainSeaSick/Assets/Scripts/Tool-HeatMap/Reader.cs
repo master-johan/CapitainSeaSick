@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class Reader : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class Reader : MonoBehaviour
     GradientAlphaKey[] alphaKey;
     string[] lines;
 
-    public GameObject g;
     Grid grid;
     List<GameObject> planeList;
+    public GameObject Ship;
+    public GameObject Scav3;
+    public GameObject g;
+
+    public TextMeshProUGUI levelinfo;
 
     private void Start()
     {
@@ -23,16 +28,16 @@ public class Reader : MonoBehaviour
 
         // Populate the color keys at the relative time 0 and 1 (0 and 100%)
         colorKey = new GradientColorKey[2];
-        colorKey[0].color = Color.red;
+        colorKey[0].color = Color.yellow;
         colorKey[0].time = 0.0f;
-        colorKey[1].color = Color.green;
+        colorKey[1].color = Color.red;
         colorKey[1].time = 1.0f;
 
         // Populate the alpha  keys at relative time 0 and 1  (0 and 100%)
         alphaKey = new GradientAlphaKey[2];
-        alphaKey[0].alpha = 0.5f;
+        alphaKey[0].alpha = 0.7f;
         alphaKey[0].time = 0.0f;
-        alphaKey[1].alpha = 0.5f;
+        alphaKey[1].alpha = 0.7f;
         alphaKey[1].time = 1.0f;
 
         gradient.SetKeys(colorKey, alphaKey);
@@ -63,6 +68,7 @@ public class Reader : MonoBehaviour
         Vector3 offset = new Vector3(meshSize.x * 0.5f, 0, meshSize.y * 0.5f);
 
         maxValue = CountMaxValue(maxValue);
+        WhatScene();
 
         for (int y = 0; y < grid.gridArray.GetLength(1); y++)
         {
@@ -100,7 +106,6 @@ public class Reader : MonoBehaviour
         }
         return max;
     }
-
     public void ResetGrid()
     {
         grid.ResetValues();
@@ -109,5 +114,20 @@ public class Reader : MonoBehaviour
             Destroy(planeList[i]);
         }
         planeList.Clear();
+    }
+    public void WhatScene()
+    {
+        string[] splitScene = lines[0].Split('#');
+        if (splitScene[1] == "Scav")
+        {
+            Scav3.SetActive(true);
+            Ship.SetActive(false);
+        }
+        else
+        {
+            Scav3.SetActive(false);
+            Ship.SetActive(true);
+        }
+        levelinfo.text = splitScene[2];
     }
 }

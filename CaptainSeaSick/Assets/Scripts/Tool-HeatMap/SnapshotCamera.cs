@@ -29,7 +29,7 @@ public class SnapshotCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridTest = GameObject.Find("Testing").GetComponent<GridTest>();
+        gridTest = GameObject.Find("Grid").GetComponent<GridTest>();
     }
 
     // Update is called once per frame

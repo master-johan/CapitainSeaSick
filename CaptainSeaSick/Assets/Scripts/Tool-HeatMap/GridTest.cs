@@ -2,17 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GridTest : MonoBehaviour
 {
     GameObject[] players;
-    int a;
     private Grid grid;
+    string scene;
+    ShipLevel level;
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(22, 10, 3, new Vector3(-50,10,-5));
-        a = 0;
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+
+            grid = new Grid(22, 10, 3, new Vector3(-5, 30, -30));
+            scene = "Scav";
+            Debug.Log("Scav");
+        }
+        else
+        {
+            grid = new Grid(22, 10, 3, new Vector3(-50, 10, -5));
+            scene = "Ship";
+            Debug.Log("Ship");
+        }
+        if (GameObject.Find("LevelManager"))
+        {
+            level = GameObject.Find("LevelManager").GetComponent<LevelManager>().currentLevel;
+        }
     }
 
     // Update is called once per frame
@@ -30,8 +47,18 @@ public class GridTest : MonoBehaviour
 
     public void PrintData()
     {
+        string levelName;
 
-        string text = grid.ToString();
+        if (level != null)
+        {
+            levelName = level.name;
+        }
+        else
+        {
+            levelName = SceneManager.GetActiveScene().name;
+        }
+
+        string text = grid.ToString(scene, levelName);
         System.IO.File.WriteAllText(FileName(), text);
     }
 

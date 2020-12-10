@@ -17,15 +17,31 @@ public class GridTest : MonoBehaviour
     string levelName;
     bool once;
     bool useScav;
+    bool isScav;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4)
+        char[] sceneName = SceneManager.GetActiveScene().name.ToCharArray();
+        string scavString = "Scav";
+
+        for (int i = 0; i < scavString.Length; i++)
+        {
+            if (sceneName[i] == scavString[i])
+            {
+                isScav = true;
+            }
+            else
+            {
+                isScav = false;
+            }
+        }
+
+        if (isScav)
         {
 
-            grid = new Grid(22, 10, 5, 3, new Vector3(-5, 30, -30));
-            scene = "Scav";
+            grid = new Grid(22, 10, 5, 3, new Vector3(-5, 50, -30));
+            scene = SceneManager.GetActiveScene().name;
             Debug.Log("Scav");
         }
         else
@@ -39,14 +55,14 @@ public class GridTest : MonoBehaviour
             level = GameObject.Find("LevelManager").GetComponent<LevelManager>().currentLevel;
         }
 
-        //if (scavManager != null)
-        //{
-        //    useScav = true;
-        //}
-        //else
-        //{
-        //    useScav = false;
-        //}
+        if (scavManager != null)
+        {
+            useScav = true;
+        }
+        else
+        {
+            useScav = false;
+        }
     }
 
     // Update is called once per frame
@@ -70,22 +86,23 @@ public class GridTest : MonoBehaviour
             }
         }
 
-        //if (useScav)
-        //{
-        //    timeLeft = scavManager.GetTimeleft();
-        //}
-        //else
-        //{
-        //    timeLeft = timeline.timeLeft;
-        //}
+        if (useScav)
+        {
+            timeLeft = scavManager.GetTimeleft();
+        }
+        else
+        {
+            timeLeft = timeline.timeLeft;
+        }
 
-        //if (!once)
-        //{
-        //    if (timeLeft <= 1 )
-        //    {
-        //        PrintData();
-        //    }
-        //}
+        if (!once)
+        {
+            if (timeLeft <= 1)
+            {
+                PrintData();
+                once = true;
+            }
+        }
     }
 
     public void PrintData()

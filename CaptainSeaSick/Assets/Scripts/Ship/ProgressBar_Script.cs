@@ -28,8 +28,6 @@ public class ProgressBar_Script : MonoBehaviour
 
     private UnityAction seeFarListner, seeRegularListner;
 
-    private float test;
-
     private void OnEnable()
     {
         EventManager.StartSubscribe("ManInNest", seeFarListner);
@@ -49,7 +47,7 @@ public class ProgressBar_Script : MonoBehaviour
         timeLeft = levelTime;
         slider.value = timeLeft;
     }
-    void FixedUpdate()
+    void Update()
     {
 
         if(progress <= 0)
@@ -64,8 +62,8 @@ public class ProgressBar_Script : MonoBehaviour
             if (timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
-                test = timeLeft / levelTime;
-                slider.value = test;
+                slider.value = timeLeft / levelTime;
+                 
             }
             else
             {

@@ -20074,11 +20074,16 @@ PrefabInstance:
     - target: {fileID: 2033641639045559923, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
       propertyPath: m_WholeNumbers
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2033641639045559923, guid: ff216fadcc7d74f5094b8dfa798b8731,
         type: 3}
       propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033641639045559923, guid: ff216fadcc7d74f5094b8dfa798b8731,
+        type: 3}
+      propertyPath: m_MaxValue
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2033641639636559711, guid: ff216fadcc7d74f5094b8dfa798b8731,

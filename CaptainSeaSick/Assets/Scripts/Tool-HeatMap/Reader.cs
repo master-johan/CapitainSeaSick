@@ -17,6 +17,9 @@ public class Reader : MonoBehaviour
     List<GameObject> planeList;
     public GameObject Ship;
     public GameObject Scav3;
+    public GameObject Scav1;
+    public GameObject Scav4;
+    public GameObject Scav5;
     public GameObject g;
 
     public TextMeshProUGUI levelinfo;
@@ -132,15 +135,45 @@ public class Reader : MonoBehaviour
     public void SetLevelInfo()
     {
         string[] splitScene = lines[0].Split('#');
-        if (splitScene[1] == "Scav")
+        if (splitScene[1] == "Scav3")
         {
             Scav3.SetActive(true);
             Ship.SetActive(false);
+            Scav1.SetActive(false);
+            Scav4.SetActive(false);
+            Scav5.SetActive(false);
+        }
+        else if (splitScene[1] == "Scav1")
+        {
+            Scav1.SetActive(true);
+            Ship.SetActive(false);
+            Scav3.SetActive(false);
+            Scav4.SetActive(false);
+            Scav5.SetActive(false);
+        }
+        else if (splitScene[1] == "Scav4")
+        {
+            Scav4.SetActive(true);
+            Scav5.SetActive(false);
+            Ship.SetActive(false);
+            Scav3.SetActive(false);
+            Scav1.SetActive(false);
+        }
+        else if (splitScene[1] == "Scav5")
+        {
+            Scav5.SetActive(true);
+            Ship.SetActive(false);
+            Scav3.SetActive(false);
+            Scav1.SetActive(false);
+            Scav4.SetActive(false);
         }
         else
         {
-            Scav3.SetActive(false);
             Ship.SetActive(true);
+            Scav3.SetActive(false);
+            Scav1.SetActive(false);
+            Scav4.SetActive(false);
+            Scav5.SetActive(false);
         }
         levelinfo.text = splitScene[2] + "Nr of players " + splitScene[3];
     }

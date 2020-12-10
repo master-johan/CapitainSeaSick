@@ -109,11 +109,11 @@ public class Grid
         SetValue(x, z, layer, value);
     }
 
-    public string ToString(string scene, string levelName)
+    public string ToString(string scene, string levelName, int players)
     {
         StringBuilder s = new StringBuilder();
         HeatMapLayer currentLayer = 0;
-        s.AppendLine("GridSize: " + gridArray.GetLength(0) + ", " +gridArray.GetLength(1) + "#" + scene + "#" + levelName);
+        s.AppendLine("GridSize: " + gridArray.GetLength(0) + ", " +gridArray.GetLength(1) + "#" + scene + "#" + levelName +"#" + players);
         for (int layer = 0; layer < gridArray.GetLength(2) ; layer++)
         {
             currentLayer = (HeatMapLayer)layer;

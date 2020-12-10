@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GridTest : MonoBehaviour
 {
+    public ProgressBar_Script timeline;
+    public ScavengingManager scavManager;
+    float timeLeft;
     GameObject[] players;
     GameObject[] enemies;
     public Grid grid;
     string scene;
     ShipLevel level;
+    string levelName;
+    bool once;
+    bool useScav;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +38,15 @@ public class GridTest : MonoBehaviour
         {
             level = GameObject.Find("LevelManager").GetComponent<LevelManager>().currentLevel;
         }
+
+        //if (scavManager != null)
+        //{
+        //    useScav = true;
+        //}
+        //else
+        //{
+        //    useScav = false;
+        //}
     }
 
     // Update is called once per frame
@@ -53,11 +69,27 @@ public class GridTest : MonoBehaviour
                 grid.SetValue(new Vector3(enemies[i].transform.position.x, 0, enemies[i].transform.position.z), (int)HeatMapLayer.enemyPos, Time.deltaTime);
             }
         }
+
+        //if (useScav)
+        //{
+        //    timeLeft = scavManager.GetTimeleft();
+        //}
+        //else
+        //{
+        //    timeLeft = timeline.timeLeft;
+        //}
+
+        //if (!once)
+        //{
+        //    if (timeLeft <= 1 )
+        //    {
+        //        PrintData();
+        //    }
+        //}
     }
 
     public void PrintData()
     {
-        string levelName;
 
         if (level != null)
         {
@@ -67,15 +99,17 @@ public class GridTest : MonoBehaviour
         {
             levelName = SceneManager.GetActiveScene().name;
         }
+        
 
-        string text = grid.ToString(scene, levelName);
+        string text = grid.ToString(scene, levelName, players.Length);
         System.IO.File.WriteAllText(FileName(), text);
     }
 
     private string FileName()
     {
-        return string.Format("{0}/Snapshot/grid{1}.json",
+        return string.Format("{0}/Snapshot/{1}{2}.json",
             Application.dataPath,
+            levelName,
             System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     }
 }

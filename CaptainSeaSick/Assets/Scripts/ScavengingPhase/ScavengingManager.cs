@@ -69,4 +69,9 @@ public class ScavengingManager : MonoBehaviour
         goldText.text = "Gold : " + GameAssets.instance.gold;
     }
 
+    //public float GetTimeleft()
+    //{
+    //    return timeLeft;
+    //}
+
 }

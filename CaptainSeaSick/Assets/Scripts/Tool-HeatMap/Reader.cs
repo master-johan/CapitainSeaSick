@@ -6,6 +6,8 @@ using TMPro;
 
 public class Reader : MonoBehaviour
 {
+    HeatMapLayer currentlayer;
+    string currentDatapath;
     Gradient gradient;
     GradientColorKey[] colorKey;
     GradientAlphaKey[] alphaKey;
@@ -58,6 +60,7 @@ public class Reader : MonoBehaviour
 
     public void ReadData(string datapath)
     {
+        currentDatapath = datapath;
         ResetGrid();
 
         lines = File.ReadAllLines(@datapath);
@@ -68,26 +71,27 @@ public class Reader : MonoBehaviour
         Vector3 offset = new Vector3(meshSize.x * 0.5f, 0, meshSize.y * 0.5f);
 
         maxValue = CountMaxValue(maxValue);
-        WhatScene();
+        SetLevelInfo();
 
         for (int y = 0; y < grid.gridArray.GetLength(1); y++)
         {
-            string[] splitLines = lines[10 - y].Split(' ');
+
+            string[] splitLines = lines[((int)currentlayer +1) * 11 - y].Split(' ');
             for (int x = 0; x < grid.gridArray.GetLength(0); x++)
             {
-                //grid.SetValue(x, y, int.Parse(splitLines[x]));
+                grid.SetValue(x, y, (int) currentlayer, int.Parse(splitLines[x]));
                 Vector3 planePos = new Vector3(x * grid.cellSize, 0, y * grid.cellSize) + grid.orginPos;
                 GameObject gb = Instantiate(g, planePos + offset, Quaternion.identity);
                 planeList.Add(gb);
 
-                //if (grid.gridArray[x,y] > 0)
-                //{
-                //    gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x, y] / maxValue);
-                //}
-                //else
-                //{
-                //    gb.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
-                //}
+                if (grid.gridArray[x, y, (int)currentlayer] > 0)
+                {
+                    gb.GetComponent<Renderer>().material.color = gradient.Evaluate(grid.gridArray[x, y, (int)currentlayer] / maxValue[(int)currentlayer]);
+                }
+                else
+                {
+                    gb.GetComponent<Renderer>().material.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+                }
             }
         }
     }
@@ -101,16 +105,7 @@ public class Reader : MonoBehaviour
 
                 splitLines = lines[(layer + 1) * 11 - y].Split(' ');
 
-                //if (y == 0)
-                //{
-                //    splitLines = lines[11 * (layer + 1) - y].Split(' ');
-
-                //}
-                //else
-                //{
-                //    splitLines = lines[10 * (layer + 1) - y].Split(' ');
-                //}
-                for (int x = 0; x < splitLines.GetLength(0) -1 /*grid.gridArray.GetLength(0)*/; x++)
+                for (int x = 0; x < splitLines.GetLength(0) -1 ; x++)
                 {
                     if (splitLines.GetLength(0) > 1 )
                     {
@@ -118,10 +113,6 @@ public class Reader : MonoBehaviour
                         {
                             max[layer] = int.Parse(splitLines[x]);
                         }
-                    }
-                    else
-                    {
-
                     }
                 }
             }
@@ -138,7 +129,7 @@ public class Reader : MonoBehaviour
         }
         planeList.Clear();
     }
-    public void WhatScene()
+    public void SetLevelInfo()
     {
         string[] splitScene = lines[0].Split('#');
         if (splitScene[1] == "Scav")
@@ -151,6 +142,12 @@ public class Reader : MonoBehaviour
             Scav3.SetActive(false);
             Ship.SetActive(true);
         }
-        levelinfo.text = splitScene[2];
+        levelinfo.text = splitScene[2] + "Nr of players " + splitScene[3];
     }
+
+    public void ChangeLayer(int layer)
+    {
+        currentlayer = (HeatMapLayer)layer;
+        ReadData(currentDatapath);
+    }   
 }

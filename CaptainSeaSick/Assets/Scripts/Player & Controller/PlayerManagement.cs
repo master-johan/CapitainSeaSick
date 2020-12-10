@@ -86,7 +86,7 @@ public class PlayerManagement : MonoBehaviour
     public Vector3 PlayerScavRespawn()
     {
         GetComponent<PlayerActions>().ReleaseItem();
-        GameObject.Find("Grid").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x,0,transform.position.z),(int)HeatMapLayer.playerDamage,1);
+        GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x,0,transform.position.z),(int)HeatMapLayer.playerDamage,1);
         return transform.position = GameAssets.instance.spawnScavPhase;
     }
 }

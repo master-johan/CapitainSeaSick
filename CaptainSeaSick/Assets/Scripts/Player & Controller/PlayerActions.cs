@@ -382,7 +382,7 @@ public class PlayerActions : MonoBehaviour
             {
                 if (!animator.GetBool("isThrusting"))
                 {
-                    GameObject.Find("Grid").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.swordUse, 1);
+                    GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.swordUse, 1);
                 }
                 animator.SetBool("isThrusting", true);
               
@@ -506,7 +506,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (!isStunned)
         {
-            GameObject.Find("Grid").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
+            GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
         }
         isStunned = true;
     }

@@ -89,6 +89,7 @@ public class Cannon_Script : MonoBehaviour
             Instantiate(fireEffect, transform.Find("CannonBallOffset").transform.position, transform.Find("CannonBallOffset").transform.rotation);
            
             cannonState = CannonState.fire;
+            GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x,0,transform.position.z),(int)HeatMapLayer.canonFire,1);
         }
     }
 }

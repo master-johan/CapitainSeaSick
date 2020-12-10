@@ -63,12 +63,13 @@ public class ProgressBar_Script : MonoBehaviour
             {
                 timeLeft -= Time.deltaTime;
                 slider.value = timeLeft / levelTime;
+                 
             }
             else
             {
                 Time.timeScale = 0;
             }
-            progress = Mathf.RoundToInt(slider.value * 100);
+            progress = Mathf.RoundToInt(slider.value * 100.0f);
 
 
         }

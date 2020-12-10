@@ -29,7 +29,7 @@ public class SnapshotCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridTest = GameObject.Find("Grid").GetComponent<GridTest>();
+        gridTest = GameObject.Find("HeatmapTool").GetComponent<GridTest>();
     }
 
     // Update is called once per frame
@@ -50,15 +50,6 @@ public class SnapshotCamera : MonoBehaviour
         Debug.Log("Shooting wild with the snapshot");
         gridTest.PrintData();
         //snapCam.gameObject.SetActive(false);
-    }
-
-    void LateUpdate()
-    {
-        if (snapCam.gameObject.activeInHierarchy)
-        {
-  
-
-        }   
     }
 
     private string SnapshotName()

@@ -32,6 +32,7 @@ TagManager:
   - Mast
   - Steeringwheel
   - SoundManager
+  - BoardingEnemy
   layers:
   - Default
   - TransparentFX

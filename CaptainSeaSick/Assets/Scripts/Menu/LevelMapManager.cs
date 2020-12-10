@@ -71,43 +71,43 @@ public class LevelMapManager : MonoBehaviour
 
         if (eventSystem.currentSelectedGameObject.name == "Level 1 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 1";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Easy";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 2 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 2";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Easy";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 2 : 2")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 4";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Medium";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 3 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 54";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Easy";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 3 : 2")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 158";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Medium";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 3 : 3")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 11";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Easy";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 4 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 17";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Medium";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 5 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 125";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Medium";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 5 : 2")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: 800";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Hard";
         }
         if (eventSystem.currentSelectedGameObject.name == "Level 6 : 1")
         {
-            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: over 9000";
+            LevelDifficulty.GetComponent<TextMeshProUGUI>().text = "Difficulty: Hard";
         }
     }
     private void ChangePictureOnWin()

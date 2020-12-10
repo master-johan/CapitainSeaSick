@@ -78,7 +78,7 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
+  playersReady: 0
   ShipMaxHealth: 150
   cliffSpeed: 5
   cannonballsDamage: 5
@@ -132,6 +132,16 @@ MonoBehaviour:
   enableLevel4: 0
   enableLevel5: 0
   enableLevel6: 0
+  level11Win: 0
+  level21Win: 0
+  level22Win: 0
+  level31Win: 0
+  level32Win: 0
+  level33Win: 0
+  level41Win: 0
+  level51Win: 0
+  level52Win: 0
+  level61Win: 0
   windActivated: 1
   startLevelDialogue: {fileID: 11400000, guid: fc112ad6b03014344ad04dd1ad2b0076, type: 2}
   shipSpawnDialogue: {fileID: 11400000, guid: 525ad1cb599284d4486721b177e7795f, type: 2}

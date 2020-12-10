@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SafetyNetFunctionality : MonoBehaviour
 {
+    public GameObject RespawnPlayerEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +26,15 @@ public class SafetyNetFunctionality : MonoBehaviour
             if (random == 0)
             {
                 other.transform.position = new Vector3(Random.Range(-5, 4), 4, Random.Range(-3, 3));
+              //  Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
             }
             else if (random == 1)
             {
                 other.transform.position = new Vector3(Random.Range(-7, 4), 4, Random.Range(15, 21));
+               // Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
             }
+            Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
+            Destroy(RespawnPlayerEffect);
         }
         if (other.tag == "Player")
         {

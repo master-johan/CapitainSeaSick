@@ -82,7 +82,7 @@ MonoBehaviour:
   ShipMaxHealth: 150
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 10
+  levelTime: 160
   numberOfCannons: 2
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}
@@ -123,7 +123,7 @@ MonoBehaviour:
     type: 3}
   swordPrefab: {fileID: 1309927684253149450, guid: d4ede79c8be2b8d4eb25d6012355f6bf,
     type: 3}
-  spawnBoatPhase: {x: 0, y: 0, z: 7}
+  spawnBoatPhase: {x: -40, y: 5, z: 10}
   spawnScavPhase:
   - {x: 11, y: 24, z: -23}
   - {x: 17, y: 24, z: -16}

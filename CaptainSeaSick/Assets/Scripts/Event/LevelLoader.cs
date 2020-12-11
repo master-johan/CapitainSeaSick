@@ -127,8 +127,8 @@ public class LevelLoader : MonoBehaviour
                 {
                     for (int j = 0; j < players.Length; j++)
                     {
-                        players[i].GetComponent<PlayerActions>().Clear();
-                        players[i].transform.position = GameAssets.instance.spawnPositions[j] + GameAssets.instance.spawnScavPhase[i];
+                        players[j].GetComponent<PlayerActions>().Clear();
+                        players[j].transform.position = GameAssets.instance.spawnPositions[j] + GameAssets.instance.spawnScavPhase[i];
                     }
                 }
             }

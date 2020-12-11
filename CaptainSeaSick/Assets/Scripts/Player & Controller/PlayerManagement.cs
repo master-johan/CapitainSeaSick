@@ -85,9 +85,20 @@ public class PlayerManagement : MonoBehaviour
     }
     public Vector3 PlayerScavRespawn()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        char lastCharInSceneName = sceneName[sceneName.Length - 1];
+        int index = int.Parse(lastCharInSceneName.ToString());
+
         GetComponent<PlayerActions>().ReleaseItem();
-        GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x,0,transform.position.z),(int)HeatMapLayer.playerDamage,1);
-        return transform.position;
-        //return transform.position = GameAssets.instance.spawnScavPhase;
+        GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
+
+        if (index == 1)
+        {
+            return transform.position = GameAssets.instance.spawnScavPhase[index - 1];
+        }
+        else
+        {
+            return transform.position = GameAssets.instance.spawnScavPhase[index - 2];
+        }
     }
 }

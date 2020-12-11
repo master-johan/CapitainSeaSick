@@ -82,7 +82,8 @@ MonoBehaviour:
         m_Groups: 
         m_Action: Join
         m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -4428993207560073217, guid: 9cad356760e54d644941389540035f02,
+      type: 3}
   m_PlayerPrefab: {fileID: 2688438822368836886, guid: b3969251c38782847b08f45a6c35e8e9,
     type: 3}
   m_SplitScreen: 0

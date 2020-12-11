@@ -5,22 +5,38 @@ using UnityEngine;
 public class Fire_Trigger_Script : MonoBehaviour
 {
     private GameObject scavManager;
+    public GameObject waterEffect;
     // Start is called before the first frame update
-
+    float timer;
     private void Start()
     {
         scavManager = GameObject.Find("ScavengingManager");
+        timer = 0.3f;
     }
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Bucket")
         {
-            GameObject.Find("Water").SetActive(false);
-            gameObject.SetActive(false);
+            waterEffect.GetComponent<ParticleSystem>().Play();
+
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (other.name == "Bucket")
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                GameObject.Find("Water").SetActive(false);
+                gameObject.SetActive(false);
+            }
+
         }
         else if (other.tag == "Player")
         {
-            if(!other.isTrigger)
+            if (!other.isTrigger)
             {
                 other.GetComponent<PlayerManagement>().PlayerScavRespawn();
             }
@@ -29,6 +45,6 @@ public class Fire_Trigger_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
 
+    }
 }

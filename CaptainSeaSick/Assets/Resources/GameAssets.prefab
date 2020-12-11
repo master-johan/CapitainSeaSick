@@ -78,7 +78,7 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
+  playersReady: 0
   ShipMaxHealth: 150
   cliffSpeed: 5
   cannonballsDamage: 5
@@ -124,7 +124,11 @@ MonoBehaviour:
   swordPrefab: {fileID: 1309927684253149450, guid: d4ede79c8be2b8d4eb25d6012355f6bf,
     type: 3}
   spawnBoatPhase: {x: 0, y: 0, z: 7}
-  spawnScavPhase: {x: 19, y: 25, z: -18}
+  spawnScavPhase:
+  - {x: 11, y: 24, z: -23}
+  - {x: 17, y: 24, z: -16}
+  - {x: 21, y: 24, z: -19}
+  - {x: 11, y: 24, z: -6}
   enableLevel1: 1
   enableLevel2: 0
   enableLevel3left: 0

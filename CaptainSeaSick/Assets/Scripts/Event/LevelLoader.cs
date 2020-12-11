@@ -59,7 +59,35 @@ public class LevelLoader : MonoBehaviour
     private void SetPlayerSpawningPos()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+
+        string nextSceneName = NameOfSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+        char[] nextSceneCharArray = nextSceneName.ToCharArray();
+
+        string[] scavOrShip = new string[2];
+        bool[] scavOrShipBool = new bool[2];
+        scavOrShip[0] = "Scav";
+        scavOrShip[1] = "Ship";
+
+        for (int i = 0; i < scavOrShip.Length; i++)
+        {
+            for (int j = 0; j < scavOrShip[0].Length; j++)
+            {
+                if (i == 0 && nextSceneName[j].ToString() == scavOrShip[j])
+                {
+                    scavOrShipBool[i] = true;
+                }
+                else if (i == 1 && nextSceneName[j].ToString() == scavOrShip[j])
+                {
+                    scavOrShipBool[i] = true;
+                }
+                else
+                {
+                    scavOrShipBool[i] = false;
+                }
+            }
+        }
+
+        if (nextSceneName == "Ship")
         {
             for (int i = 0; i < players.Length; i++)
             {
@@ -72,7 +100,7 @@ public class LevelLoader : MonoBehaviour
             for (int i = 0; i < players.Length; i++)
             {
                 players[i].GetComponent<PlayerActions>().Clear();
-                players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
+                //players[i].transform.position = GameAssets.instance.spawnPositions[i] + GameAssets.instance.spawnScavPhase;
             }
         }
     }
@@ -84,5 +112,13 @@ public class LevelLoader : MonoBehaviour
     public void LoadLevelMap()
     {
         StartCoroutine(LoadLevel(1));
+    }
+    public string NameOfSceneByBuildIndex(int buildIndex)
+    {
+        string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);
+        int slash = path.LastIndexOf('/');
+        string name = path.Substring(slash + 1);
+        int dot = name.LastIndexOf('.');
+        return name.Substring(0, dot);
     }
 }

@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: -2710859194104857322}
   m_Layer: 0
   m_Name: The-Prey
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -437,7 +437,7 @@ Animator:
   m_GameObject: {fileID: 2688438822368836886}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 697e1c3e8e453564aa40b58990ae0ad7, type: 3}
-  m_Controller: {fileID: 9100000, guid: 89e79423cc8a8294cb0320d3ae1cd497, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0e5e1a9072f424b459a8c60016a1edc5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -470,7 +470,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2688438822368836886}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.48481572
   m_Height: 2.1811044
@@ -490,6 +490,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topPos: {fileID: 0}
   botPos: {fileID: 0}
+  animator: {fileID: 8711294997982641622}
+  waveTimer: 3
+  stayDownTimer: 10
+  upSpeed: 30
+  downSpeed: 50
 --- !u!1 &2815540710993743076
 GameObject:
   m_ObjectHideFlags: 0

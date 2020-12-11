@@ -82,7 +82,7 @@ MonoBehaviour:
   ShipMaxHealth: 150
   cliffSpeed: 5
   cannonballsDamage: 5
-  levelTime: 160
+  levelTime: 10
   numberOfCannons: 2
   cannonSpawnPos:
   - {x: 2, y: 0, z: -10}

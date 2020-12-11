@@ -25,20 +25,19 @@ public class SafetyNetFunctionality : MonoBehaviour
 
             if (random == 0)
             {
-                other.transform.position = new Vector3(Random.Range(-5, 4), 4, Random.Range(-3, 3));
-              //  Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
+                other.transform.position = new Vector3(Random.Range(-5, 4), 4, Random.Range(-3, 3));           
             }
             else if (random == 1)
             {
-                other.transform.position = new Vector3(Random.Range(-7, 4), 4, Random.Range(15, 21));
-               // Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
+                other.transform.position = new Vector3(Random.Range(-7, 4), 4, Random.Range(15, 21));              
             }
-            Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
-            Destroy(RespawnPlayerEffect);
+
         }
         if (other.tag == "Player")
         {
             other.GetComponent<PlayerActions>().isStunned = true;
+            Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
+            Destroy(RespawnPlayerEffect);
         }
         else if (other.tag == "PickableObject")
         {

@@ -13,10 +13,12 @@ public class PlayerManagement : MonoBehaviour
     [SerializeField]
     GameObject hat;
     Color color1, color2, color3, color4;
+    public Color colorToSet;
 
     public static int playerIndex = 1;
     GameObject playerInputManager, controllerMenuSystem;
     Vector3 spawnPos;
+    public GameObject RespawnPlayerEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class PlayerManagement : MonoBehaviour
 
     private void SetColor(int playerIndex)
     {
-        Color colorToSet;
+       
         if (playerIndex == 1)
         {
             colorToSet = color1;
@@ -87,5 +89,6 @@ public class PlayerManagement : MonoBehaviour
     {
         GetComponent<PlayerActions>().ReleaseItem();
         return transform.position = GameAssets.instance.spawnScavPhase;
+        Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
     }
 }

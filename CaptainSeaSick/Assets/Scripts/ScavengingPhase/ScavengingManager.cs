@@ -41,6 +41,7 @@ public class ScavengingManager : MonoBehaviour
     {
         if (goldList.Count == 0 && timeLeft < threshold)
         {
+            GameObject.Find("HeatmapTool").GetComponent<GridTest>().PrintData();
             GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadShopLevel();
         }
         UpdateLevelTimer();
@@ -67,6 +68,11 @@ public class ScavengingManager : MonoBehaviour
     private void UpdateGold()
     {
         goldText.text = "Gold : " + GameAssets.instance.gold;
+    }
+
+    public float GetTimeleft()
+    {
+        return timeLeft;
     }
 
 }

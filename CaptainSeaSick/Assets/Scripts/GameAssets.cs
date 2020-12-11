@@ -96,7 +96,7 @@ public class GameAssets : MonoBehaviour
 
     [Header("Spawn Different Scenes")]
     public Vector3 spawnBoatPhase;
-    public Vector3 spawnScavPhase;
+    public Vector3[] spawnScavPhase;
 
     [Header("Level Enabling Bools")]
     public bool enableLevel1;

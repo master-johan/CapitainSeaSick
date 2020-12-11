@@ -34,6 +34,8 @@ public class BarrellFunctionality : MonoBehaviour
             if (!other.isTrigger)
             {
                 other.GetComponent<PlayerManagement>().PlayerScavRespawn();
+                other.GetComponent<PlayerActions>().isStunned = true;
+                other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
     }

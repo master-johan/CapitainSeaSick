@@ -7,6 +7,7 @@ public class DropZoneFunctionality : MonoBehaviour
     public GameObject droppedItem;
     public bool itemDropped;
     private GameObject scavManager;
+    public GameObject goldEffect;
    
     void Start()
     {
@@ -42,11 +43,29 @@ public class DropZoneFunctionality : MonoBehaviour
                 Debug.Log("2 stage");
                 if (droppedItem.GetComponent<Chest_Trigger_Script>())
                 {
+                    int count = 10;
+                    
                     GameAssets.instance.gold += 15;
+                    for (int i = 0; i < goldEffect.GetComponent<ParticleSystem>().emission.burstCount; i++)
+                    {                        
+                        goldEffect.GetComponent<ParticleSystem>().emission.SetBurst(i, new ParticleSystem.Burst(goldEffect.GetComponent<ParticleSystem>().emission.GetBurst(i).time, count));
+                        count -= 2;
+                    }
+                    
+                    goldEffect.GetComponent<ParticleSystem>().Play();
                 }
                 if (droppedItem.GetComponent<Bag_Trigger_Script>())
                 {
                     GameAssets.instance.gold += 5;
+
+                    int count2 = 4;
+
+                    for (int i = 0; i < goldEffect.GetComponent<ParticleSystem>().emission.burstCount; i++)
+                    {
+                        goldEffect.GetComponent<ParticleSystem>().emission.SetBurst(i, new ParticleSystem.Burst(goldEffect.GetComponent<ParticleSystem>().emission.GetBurst(i).time, count2));
+                        count2--;
+                    }
+                    goldEffect.GetComponent<ParticleSystem>().Play();
                 }
                 if (droppedItem.GetComponent<CannonBall>())
                 {

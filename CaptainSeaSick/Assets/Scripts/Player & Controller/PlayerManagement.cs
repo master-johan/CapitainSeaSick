@@ -93,7 +93,7 @@ public class PlayerManagement : MonoBehaviour
 
         GetComponent<PlayerActions>().ReleaseItem();
         Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
-        GameObject.Find("HeatMapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
+        GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
 
         if (index == 1)
         {

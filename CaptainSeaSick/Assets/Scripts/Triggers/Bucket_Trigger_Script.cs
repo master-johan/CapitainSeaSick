@@ -13,10 +13,7 @@ public class Bucket_Trigger_Script : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("collisions on: " + rb.detectCollisions);
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (player == null)

@@ -35,7 +35,7 @@ public class SafetyNetFunctionality : MonoBehaviour
         }
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerActions>().isStunned = true;
+            other.GetComponent<PlayerActions>().StunPlayer(); 
             Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
             Destroy(RespawnPlayerEffect);
         }

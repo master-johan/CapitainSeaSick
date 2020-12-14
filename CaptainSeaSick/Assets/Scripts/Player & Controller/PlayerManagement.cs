@@ -92,16 +92,26 @@ public class PlayerManagement : MonoBehaviour
         int index = int.Parse(lastCharInSceneName.ToString());
 
         GetComponent<PlayerActions>().ReleaseItem();
-        Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
-        GameObject.Find("HeatMapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
+        
+        GameObject heatmap = GameObject.Find("HeatmapTool");
+        heatmap.GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
 
+
+        
+
+        Vector3 spawnPos;
         if (index == 1)
         {
-            return transform.position = GameAssets.instance.spawnScavPhase[index - 1];
+            spawnPos = GameAssets.instance.spawnScavPhase[index - 1];
         }
         else
         {
-            return transform.position = GameAssets.instance.spawnScavPhase[index - 2];
+            spawnPos = GameAssets.instance.spawnScavPhase[index - 2];
         }
+
+        Instantiate(RespawnPlayerEffect, spawnPos, transform.rotation);
+        GetComponent<PlayerActions>().StunPlayer();
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        return transform.position = spawnPos;
     }
 }

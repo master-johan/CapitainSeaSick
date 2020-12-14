@@ -15,10 +15,7 @@ public class DropZoneFunctionality : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            Debug.Log("Player is in DropZone");
-        }
+
         if(other.GetComponent<ResourceTag>())
         {
             Debug.Log("Colliding "+ other.name);

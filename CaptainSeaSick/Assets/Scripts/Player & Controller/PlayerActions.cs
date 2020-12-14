@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public enum PlayerState { free, carrying, interacting, climbing, steering };
+public enum PlayerState { free, carrying, interacting, climbing, steering, stunned};
 public class PlayerActions : MonoBehaviour
 {
     public float speed = 6;
@@ -57,6 +57,13 @@ public class PlayerActions : MonoBehaviour
             case PlayerState.steering:
                 SnapToSteeringPosition();
                 break;
+            case PlayerState.stunned:
+                if (!stunImmunity)
+                {
+                    StunnedPlayer();
+                }
+                break;
+
             default:
                 break;
         }
@@ -78,10 +85,32 @@ public class PlayerActions : MonoBehaviour
                 animator.SetBool("isThrusting", false);
             }
         }
+        if (stunImmunity)
+        {
+            //animator.SetBool("isStunned", false);
+            stunImmunityTimer += Time.deltaTime;
+            if (stunImmunityTimer >= 3)
+            {
+                stunImmunity = false;
+                stunImmunityTimer = 0;
+            }
+        }
 
     }
 
+    private void StunnedPlayer()
+    {
+        stunTimer += Time.deltaTime;
+        if (stunTimer >= 3)
+        {
+            isStunned = false;
+            stunImmunity = true;
+            stunTimer = 0;
+            playerState = PlayerState.free;
+            animator.SetBool("isStunned", false);
 
+        }
+    }
 
     private void SnapToLadder()
     {
@@ -139,27 +168,27 @@ public class PlayerActions : MonoBehaviour
                 MovementApplyToRigidbody(input);
             }
         }
-        else
-        {
-            animator.SetBool("isStunned", true);
-            stunTimer += Time.deltaTime;
-            if (stunTimer >= 3)
-            {
-                isStunned = false;
-                stunImmunity = true;
-                stunTimer = 0;
-            }
-        }
-        if (stunImmunity)
-        {
-            animator.SetBool("isStunned", false);
-            stunImmunityTimer += Time.deltaTime;
-            if (stunImmunityTimer >= 3)
-            {
-                stunImmunity = false;
-                stunImmunityTimer = 0;
-            }
-        }
+        //else
+        //{
+        //    animator.SetBool("isStunned", true);
+        //    stunTimer += Time.deltaTime;
+        //    if (stunTimer >= 3)
+        //    {
+        //        isStunned = false;
+        //        stunImmunity = true;
+        //        stunTimer = 0;
+        //    }
+        //}
+        //if (stunImmunity)
+        //{
+        //    animator.SetBool("isStunned", false);
+        //    stunImmunityTimer += Time.deltaTime;
+        //    if (stunImmunityTimer >= 3)
+        //    {
+        //        stunImmunity = false;
+        //        stunImmunityTimer = 0;
+        //    }
+        //}
     }
 
     private void FixedUpdate()
@@ -508,6 +537,13 @@ public class PlayerActions : MonoBehaviour
         {
             GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
         }
+        if (playerState == PlayerState.carrying)
+        {
+            ReleaseItem();
+        }
+        playerState = PlayerState.stunned;
+        animator.SetBool("isStunned", true);
+
         isStunned = true;
     }
 }

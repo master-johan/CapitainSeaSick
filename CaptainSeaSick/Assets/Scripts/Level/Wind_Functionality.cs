@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class Wind_Functionality : MonoBehaviour
 
     void Start()
     {
-        NewWindDirection();
+        
     }
 
     void FixedUpdate()
@@ -28,12 +29,19 @@ public class Wind_Functionality : MonoBehaviour
 
                 foreach (var item in players)
                 {
-                    if (item.GetComponent<PlayerActions>().isBoosting || item.GetComponent<PlayerActions>().isStunned || item.GetComponent<PlayerActions>().playerState == PlayerState.climbing)
+                    if (item.GetComponent<PlayerActions>().playerState == PlayerState.climbing)
                     {
                     }
                     else
                     {
-                        item.GetComponent<Rigidbody>().AddForce(windDirection * 3, ForceMode.VelocityChange);
+                        if (item.GetComponent<PlayerActions>().isGrounded())
+                        {
+                            item.GetComponent<Rigidbody>().AddForce(windDirection * 3, ForceMode.VelocityChange);
+                        }
+                        if (item.GetComponent<PlayerInputs>().LeftStick == Vector2.zero || item.GetComponent<PlayerActions>().isStunned)
+                        {
+                            item.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(item.GetComponent<Rigidbody>().velocity, 3);
+                        }
                     }
                 }
             }
@@ -44,7 +52,7 @@ public class Wind_Functionality : MonoBehaviour
 
     public void NewWindDirection()
     {
-        windDirection = new Vector3(Random.Range(1f, -1f), 0, Random.Range(1f, -1f));
+        windDirection = new Vector3(UnityEngine.Random.Range(1f, -1f), 0, UnityEngine.Random.Range(1f, -1f));
     }
 
     public void ActivateWind()

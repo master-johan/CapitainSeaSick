@@ -60,8 +60,6 @@ public class BigLeakScript : MonoBehaviour
             tempPlank = other.gameObject;
             plankOnLeak = true;
             tempPlank.GetComponent<Plank_Script>().DeactivateTriggerZone();
-
-
         }
         if (other.tag == "Player")
         {
@@ -74,7 +72,6 @@ public class BigLeakScript : MonoBehaviour
         {
             playerOnRepairSpot = false;
         }
-
     }
     /// <summary>
     /// If timer is <= 0 then remove leak and the plank.

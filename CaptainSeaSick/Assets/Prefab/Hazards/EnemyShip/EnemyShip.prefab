@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1257502921736234529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724346683985956006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0b1000f9e5c4f4bb38adaaba5fc2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cone: {fileID: 179845599570843534}
+  enemyShip: {fileID: 5763788515530875800}
+  myColor: {r: 1, g: 0, b: 0.013883919, a: 0}
 --- !u!1 &5763788515530875800
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPoints: 10
+  lifeTimer: 20
   enemyCannonball: {fileID: 8371221804458293229, guid: 1f08ac7b10256b04ba823b1a8a4a8766,
     type: 3}
   tempCannonBall: {fileID: 0}
@@ -268,12 +284,12 @@ PrefabInstance:
     - target: {fileID: 5248180485263238616, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248180485263238616, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5248180485263238616, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
         type: 3}
@@ -468,9 +484,21 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7311362793612904900, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48, type: 3}
+--- !u!1 &1724346683985956006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1973531744700028663, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
+    type: 3}
+  m_PrefabInstance: {fileID: 904511617953585745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &166401168814350609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1063505358098922304, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
+    type: 3}
+  m_PrefabInstance: {fileID: 904511617953585745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &179845599570843534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1077354374805589471, guid: 0ab6bcdf3529bc049aa4b5c14a7b6d48,
     type: 3}
   m_PrefabInstance: {fileID: 904511617953585745}
   m_PrefabAsset: {fileID: 0}

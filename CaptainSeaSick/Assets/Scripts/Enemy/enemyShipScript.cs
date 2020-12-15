@@ -7,7 +7,7 @@ public class enemyShipScript : MonoBehaviour
     public float HealthPoints = 10f;
 
     float shootTimer = 10;
-    float lifeTimer = 20;
+    public float lifeTimer = 20;
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;

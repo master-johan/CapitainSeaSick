@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
+  m_Name: ShipLevel41
+  m_EditorClassIdentifier: 
+  obstacles:
+  - type: 0
+    whenToSpawn: 95
+    numberOfSpawns: 4
+    timeBetweenSpawn: 12
+    status: 0
+  - type: 1
+    whenToSpawn: 70
+    numberOfSpawns: 2
+    timeBetweenSpawn: 3
+    status: 0
+  - type: 1
+    whenToSpawn: 55
+    numberOfSpawns: 3
+    timeBetweenSpawn: 3
+    status: 0
+  - type: 1
+    whenToSpawn: 35
+    numberOfSpawns: 4
+    timeBetweenSpawn: 5
+    status: 0
+  - type: 0
+    whenToSpawn: 20
+    numberOfSpawns: 2
+    timeBetweenSpawn: 12
+    status: 0
+  weathers:
+  - weather: 2
+    whenToSpawn: 100
+    whenToStop: 0
+    active: 0
+  - weather: 3
+    whenToSpawn: 100
+    whenToStop: 50
+    active: 0
+  - weather: 0
+    whenToSpawn: 100
+    whenToStop: 0
+    active: 0
+  - weather: 1
+    whenToSpawn: 50
+    whenToStop: 0
+    active: 0

@@ -79,7 +79,7 @@ MonoBehaviour:
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
   playersReady: 1
-  ShipMaxHealth: 150
+  ShipMaxHealth: 1
   cliffSpeed: 5
   cannonballsDamage: 5
   levelTime: 160

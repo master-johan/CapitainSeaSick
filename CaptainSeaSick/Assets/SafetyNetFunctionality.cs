@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SafetyNetFunctionality : MonoBehaviour
 {
-    public GameObject RespawnPlayerEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +34,9 @@ public class SafetyNetFunctionality : MonoBehaviour
         }
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerActions>().isStunned = true;
-            Instantiate(RespawnPlayerEffect, other.transform.position, other.transform.rotation);
-            Destroy(RespawnPlayerEffect);
+           
+            other.GetComponent<PlayerManagement>().PlayerShipRespawn();
+
         }
         else if (other.tag == "PickableObject")
         {

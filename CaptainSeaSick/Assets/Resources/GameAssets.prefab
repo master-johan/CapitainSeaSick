@@ -78,8 +78,8 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
-  ShipMaxHealth: 1
+  playersReady: 0
+  ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5
   levelTime: 160
@@ -106,7 +106,7 @@ MonoBehaviour:
   EnemyCannonBallDamage: 1
   LeakDamage: 2
   ScavLevelTimer1: 80
-  gold: 200
+  gold: 0
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,
@@ -125,7 +125,7 @@ MonoBehaviour:
     type: 3}
   spawnBoatPhase: {x: -40, y: 10, z: 10}
   spawnScavPhase:
-  - {x: 11, y: 24, z: -23}
+  - {x: 12, y: 24, z: -23}
   - {x: 17, y: 24, z: -16}
   - {x: 21, y: 24, z: -19}
   - {x: 11, y: 24, z: -6}

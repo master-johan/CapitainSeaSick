@@ -143,7 +143,7 @@ public class PlayerActions : MonoBehaviour
         {
             animator.SetBool("isStunned", true);
             stunTimer += Time.deltaTime;
-            if (stunTimer >= 3)
+            if (stunTimer >= 6)
             {
                 isStunned = false;
                 stunImmunity = true;

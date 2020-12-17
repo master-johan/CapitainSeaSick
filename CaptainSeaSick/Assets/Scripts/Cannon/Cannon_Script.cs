@@ -10,6 +10,9 @@ public class Cannon_Script : MonoBehaviour
     public BoxCollider pickUpZone;
     public ParticleSystem fireEffect;
     public bool onSpot = false;
+    public GameObject CannonFuseEffect;
+    public GameObject FusePos;
+    private GameObject tempFuse;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,7 @@ public class Cannon_Script : MonoBehaviour
                 break;
             case CannonState.loaded:
                 buttonB.SetActive(false);
+                
                 break;
             case CannonState.canFire:
                 buttonB.SetActive(true);
@@ -90,6 +94,15 @@ public class Cannon_Script : MonoBehaviour
            
             cannonState = CannonState.fire;
             GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x,0,transform.position.z),(int)HeatMapLayer.canonFire,1);
+            Destroy(tempFuse);
         }
+    }
+
+    public void ChangeToLoaded()
+    {
+        cannonState = CannonState.loaded;
+        tempFuse = Instantiate(CannonFuseEffect, FusePos.transform.position, transform.rotation);
+        tempFuse.transform.parent = FusePos.transform;
+
     }
 }

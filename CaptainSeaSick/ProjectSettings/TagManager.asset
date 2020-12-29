@@ -33,6 +33,7 @@ TagManager:
   - Steeringwheel
   - SoundManager
   - BoardingEnemy
+  - Workbench
   layers:
   - Default
   - TransparentFX

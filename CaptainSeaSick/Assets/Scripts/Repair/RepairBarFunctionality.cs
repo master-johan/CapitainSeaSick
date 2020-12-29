@@ -5,11 +5,9 @@ using UnityEngine;
 public class RepairBarFunctionality : MonoBehaviour
 {
     public Transform bar;
-
     // Start is called before the first frame update
     void Start()
     {
-        bar = transform.Find("Bar");
         bar.localScale = new Vector3(0, 1);
     }
 
@@ -24,8 +22,6 @@ public class RepairBarFunctionality : MonoBehaviour
         {
             bar.localScale = new Vector3(1, 1);
         }
-
-        
     }
 
     public void SetSize(float sizeNormalized)

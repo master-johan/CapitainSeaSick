@@ -273,8 +273,6 @@ public class PlayerMovementUsingForce : MonoBehaviour
                 leak.GetComponentInChildren<RepairBarFunctionality>().SetSize(0.1f);
             }
         }
-
-
     }
 
 

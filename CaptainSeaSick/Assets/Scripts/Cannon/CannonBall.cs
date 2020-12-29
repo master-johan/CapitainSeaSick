@@ -43,24 +43,7 @@ public class CannonBall : MonoBehaviour
     /// When it collides with an enemy it does damage and remove the indicator for that ship if it gets destroyed.
     /// </summary>
     /// <param name="other"></param>
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Enemy")
-        {
-            other.GetComponent<enemyShipScript>().HealthPoints -= GameAssets.instance.cannonballsDamage;
-            Destroy(this.gameObject);
-            if (other.GetComponent<enemyShipScript>().HealthPoints <= 0)
-            {
-                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().AddBackDeadShipPosition(other.transform.position);
-            }
-        }
-        //if (other.tag == "Player")
-        //{
-            
-        //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
-                  
-        //}
-    }
+   
 
     /// <summary>
     /// If a cannonball is staying inside a cannons boxcollider and isn't in a players hand.
@@ -79,7 +62,7 @@ public class CannonBall : MonoBehaviour
                 transform.GetComponent<SphereCollider>().isTrigger = true;
                 transform.GetComponent<Rigidbody>().isKinematic = true;
                 isLoaded = true;
-                other.GetComponent<Cannon_Script>().cannonState = Cannon_Script.CannonState.loaded;
+                other.GetComponent<Cannon_Script>().ChangeToLoaded();
                 cannon.GetComponent<Cannon_Script>().SetCannonBall(this.gameObject);
                 GetComponent<MeshRenderer>().enabled = false;
             }

@@ -62300,6 +62300,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3911205011575774550, guid: e20df0d708339834ca07a1a8b6729efd,
         type: 3}
+    - target: {fileID: 512571552, guid: bad5ee3c361220649b593916b3794f57, type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 1064589234410938594, guid: a110351e6285f6e4ca83df95b1efea6c,
+        type: 3}
     - target: {fileID: 521658737, guid: bad5ee3c361220649b593916b3794f57, type: 3}
       propertyPath: RespawnPlayerEffect
       value: 

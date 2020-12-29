@@ -281,7 +281,7 @@ public class LevelMapManager : MonoBehaviour
     }
     public void StartLevel22()
     {
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
         GameAssets.instance.playersReady = true;
         GameAssets.instance.level22Win = true;
 
@@ -290,9 +290,9 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level31Win = true;
 
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
+        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
         GameAssets.instance.playersReady = true;
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
 
     }
     public void StartLevel32()
@@ -301,7 +301,7 @@ public class LevelMapManager : MonoBehaviour
 
         //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
         GameAssets.instance.playersReady = true;
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
 
     }
     public void StartLevel33()
@@ -316,7 +316,7 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level41Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(11));
         GameAssets.instance.playersReady = true;
 
 

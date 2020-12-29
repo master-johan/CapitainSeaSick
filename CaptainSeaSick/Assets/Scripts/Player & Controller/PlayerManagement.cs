@@ -59,6 +59,8 @@ public class PlayerManagement : MonoBehaviour
             colorToSet = color4;
             spawnPos = GameAssets.instance.spawnPositions[3];
         }
+        RespawnPlayerEffect.GetComponentInChildren<PlayerSpawnEffect>().SetParticleColor(colorToSet);
+
         GetComponent<Outline>().OutlineColor = colorToSet;
         hatPos.GetComponent<Renderer>().material.color = colorToSet;
     }
@@ -109,5 +111,18 @@ public class PlayerManagement : MonoBehaviour
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         return transform.position = spawnPosition;
+    }
+
+    public void PlayerShipRespawn()
+    {
+        GetComponent<PlayerActions>().isStunned = true;
+       // RespawnPlayerEffect.GetComponentInChildren<PlayerSpawnEffect>().SetParticleColor(colorToSet);
+        //ParticleSystem.MainModule settings = boom.GetComponent<ParticleSystem>().main;
+        //settings.startColor = new ParticleSystem.MinMaxGradient(new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));
+
+        Instantiate(RespawnPlayerEffect, transform.position, transform.rotation);
+        //var main = respawnPlayerEffect.gameObject.GetComponent<ParticleSystem>().main;
+        //main.startColor = colorToSet;
+        Destroy(RespawnPlayerEffect);
     }
 }

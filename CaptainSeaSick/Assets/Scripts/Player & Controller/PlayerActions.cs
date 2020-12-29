@@ -51,6 +51,11 @@ public class PlayerActions : MonoBehaviour
                 CarryFocusedObject();
                 break;
             case PlayerState.free:
+                // TEST TO SEE IF PLAYER CAN PICK OBJECTS FROM EACHOTHER
+                if (focusedObject.GetComponent<PickUp_Trigger_Script>().pickUpStatus == global::PickUp.pickedUp)
+                {
+                    SetFocus(null, 0, 0); 
+                }
                 break;
             case PlayerState.interacting:
                 break;
@@ -143,7 +148,7 @@ public class PlayerActions : MonoBehaviour
         {
             animator.SetBool("isStunned", true);
             stunTimer += Time.deltaTime;
-            if (stunTimer >= 3)
+            if (stunTimer >= 6)
             {
                 isStunned = false;
                 stunImmunity = true;

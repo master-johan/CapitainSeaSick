@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ShipHealth : MonoBehaviour
 {
-    [SerializeField]
-    private float maxHealth = 100;
+    public GameObject loseScreen;
+    private float maxHealth;
     public float currenthealth;
     private GameObject spawnPositions;
     [SerializeField] Flash flashImage;
@@ -16,6 +16,7 @@ public class ShipHealth : MonoBehaviour
     public event Action <float> healthPctChanged = delegate { };
     private void OnEnable()
     {
+        maxHealth = GameAssets.instance.ShipMaxHealth;
         currenthealth = maxHealth;
         spawnPositions = GameObject.FindGameObjectWithTag("SpawnPositions");
 
@@ -34,7 +35,11 @@ public class ShipHealth : MonoBehaviour
     }
     void Update()
     {
-
+        if(currenthealth <= 0)
+        {
+            Time.timeScale = 0;
+            Instantiate(loseScreen);
+        }
     }
 
     private void OnCollisionEnter(Collision other)

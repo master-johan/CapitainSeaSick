@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &609602604328585410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7016361889401844097}
+  m_Layer: 0
+  m_Name: FusePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7016361889401844097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609602604328585410}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -57.7, y: 102.1, z: -6.6}
+  m_LocalScale: {x: 56.34495, y: 56.34495, z: 56.34495}
+  m_Children: []
+  m_Father: {fileID: 5503837124546331040}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820495148141240001
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +519,7 @@ Transform:
   - {fileID: 5008629526797538204}
   - {fileID: 8763827748870949135}
   - {fileID: 2743829552449935203}
+  - {fileID: 7016361889401844097}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -587,6 +618,9 @@ MonoBehaviour:
   fireEffect: {fileID: 9183449051059499675, guid: 744db9c25e88e0348aeee6959b038f76,
     type: 3}
   onSpot: 0
+  CannonFuseEffect: {fileID: 6886175099959077514, guid: 4a9308f179499de439f3e4b9c7b5b99f,
+    type: 3}
+  FusePos: {fileID: 609602604328585410}
 --- !u!114 &4012251769436991000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 4
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
+  outlineWidth: 3
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

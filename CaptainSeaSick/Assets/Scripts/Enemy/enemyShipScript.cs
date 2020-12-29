@@ -45,7 +45,7 @@ public class enemyShipScript : MonoBehaviour
     /// <summary>
     /// Create and move an enemycannonball towards hitposition
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         lifeTimer -= Time.deltaTime;
         shootTimer -= Time.deltaTime;
@@ -82,5 +82,25 @@ public class enemyShipScript : MonoBehaviour
             Destroy(tempCannonBall);
             Destroy(this.gameObject);
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PickableObject")
+        {
+            GetComponent<enemyShipScript>().HealthPoints -= GameAssets.instance.cannonballsDamage;
+            Destroy(other.gameObject);
+            Debug.Log("Health left: " + HealthPoints);
+            if (GetComponent<enemyShipScript>().HealthPoints <= 0)
+            {
+                GameObject.Find("EnemyManager").GetComponent<EnemyManager>().AddBackDeadShipPosition(transform.position);
+            }
+        }
+        //if (other.tag == "Player")
+        //{
+
+        //    other.GetComponent<PlayerActions>().SetFocus(gameObject, GetComponent<OffsetScript>().offsetX, GetComponent<OffsetScript>().offsetY);
+
+        //}
     }
 }

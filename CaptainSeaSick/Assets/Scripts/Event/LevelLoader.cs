@@ -143,6 +143,10 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(LoadLevel(1));
     }
+    public void LoadMainMenu()
+    {
+        StartCoroutine(LoadLevel(0));
+    }
     public string NameOfSceneByBuildIndex(int buildIndex)
     {
         string path = SceneUtility.GetScenePathByBuildIndex(buildIndex);

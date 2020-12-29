@@ -16,9 +16,15 @@ public class GameAssets : MonoBehaviour
             if (_instance == null) _instance = (Instantiate(Resources.Load("GameAssets"), new Vector3(-16.37f, 0, 10.31f), Quaternion.identity) as GameObject).GetComponent<GameAssets>();
 
             DontDestroyOnLoad(_instance);
+
             return _instance;
 
         }
+    }
+
+    public void ResetGameAssets()
+    {
+        Destroy(_instance.gameObject);
     }
     public bool CountDownDone = false;
     public bool gameIsPaused;

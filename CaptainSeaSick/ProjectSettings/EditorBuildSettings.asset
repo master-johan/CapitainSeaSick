@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuildFolder/Scav4.unity
     guid: 7c51e011f9118934ca392e7fa21fee85
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship4.1.unity
+    guid: 85a3339dd107aad4cbb23ca3e6d78d74
+  - enabled: 0
+    path: Assets/Scenes/Work in progress/WIP WinningScene.unity
+    guid: 59aa39fa06eb6e04a80404ce46cd6b6a
   m_configObjects: {}

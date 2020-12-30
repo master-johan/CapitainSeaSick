@@ -115,7 +115,7 @@ public class PlayerManagement : MonoBehaviour
 
     public void PlayerShipRespawn()
     {
-        GetComponent<PlayerActions>().isStunned = true;
+        GetComponent<PlayerActions>().StunPlayer();
        // RespawnPlayerEffect.GetComponentInChildren<PlayerSpawnEffect>().SetParticleColor(colorToSet);
         //ParticleSystem.MainModule settings = boom.GetComponent<ParticleSystem>().main;
         //settings.startColor = new ParticleSystem.MinMaxGradient(new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)));

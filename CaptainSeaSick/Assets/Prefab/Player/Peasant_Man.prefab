@@ -496,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hatPos: {fileID: 1896566087774657513}
   hat: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1, type: 3}
+  colorToSet: {r: 0, g: 0, b: 0, a: 0}
   RespawnPlayerEffect: {fileID: 5885120779944233010, guid: 1113c004c7868124bad781abc941867d,
     type: 3}
 --- !u!54 &8739268344427582092
@@ -563,6 +564,9 @@ MonoBehaviour:
   ship: {fileID: 9037406623604188199, guid: bad5ee3c361220649b593916b3794f57, type: 3}
   rightHand: {fileID: 3628312302510871362}
   trail: {fileID: 4322251329993526571}
+  stunEffect: {fileID: 2963006818931477344, guid: 07c8cf180e0bce440990a41948164cf6,
+    type: 3}
+  tempStunEffect: {fileID: 0}
   hasSword: 0
   isStunned: 0
   stunImmunity: 0

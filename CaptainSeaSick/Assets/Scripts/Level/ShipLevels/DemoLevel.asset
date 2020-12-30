@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: DemoLevel
   m_EditorClassIdentifier: 
   obstacles:
-  - type: 1
+  - type: 0
     whenToSpawn: 80
     numberOfSpawns: 3
     timeBetweenSpawn: 8
-    status: 2
-  - type: 0
+    status: 0
+  - type: 1
     whenToSpawn: 40
     numberOfSpawns: 3
     timeBetweenSpawn: 12
-    status: 1
+    status: 0
   weathers:
   - weather: 2
     whenToSpawn: 80
     whenToStop: 60
-    active: 1
+    active: 0
   - weather: 1
     whenToSpawn: 60
     whenToStop: 40

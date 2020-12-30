@@ -23,6 +23,9 @@ public class QuarterBar_Functionality : MonoBehaviour
     {
         switch (currentState)
         {
+            case BarState.Empty:
+                bar.localScale = new Vector3(0, 1);
+                break;
             case BarState.OneQuarter:
                 bar.localScale = new Vector3(0.25f, 1);
                 break;

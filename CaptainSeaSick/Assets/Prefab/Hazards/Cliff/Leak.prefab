@@ -604,6 +604,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1654124673183922950}
     m_Modifications:
+    - target: {fileID: 4838529998082351449, guid: 633db3d07eacee44cbbd56d9966d8067,
+        type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 4213036148755821672}
     - target: {fileID: 7603569064051408376, guid: 633db3d07eacee44cbbd56d9966d8067,
         type: 3}
       propertyPath: m_Name
@@ -689,6 +694,12 @@ PrefabInstance:
 --- !u!4 &4213036148159788790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7603569064051408377, guid: 633db3d07eacee44cbbd56d9966d8067,
+    type: 3}
+  m_PrefabInstance: {fileID: 6049174090808249103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4213036148755821672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7603569064646492007, guid: 633db3d07eacee44cbbd56d9966d8067,
     type: 3}
   m_PrefabInstance: {fileID: 6049174090808249103}
   m_PrefabAsset: {fileID: 0}

@@ -55,11 +55,11 @@ public class BigLeakScript : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
+        if (other.gameObject.GetComponent<PlankBandaid_Trigger>() && !other.gameObject.GetComponent<PlankBandaid_Trigger>().isPickedUp)
         {
             tempPlank = other.gameObject;
             plankOnLeak = true;
-            tempPlank.GetComponent<Plank_Script>().DeactivateTriggerZone();
+            tempPlank.GetComponent<PlankBandaid_Trigger>().DeactivateTriggerZone();
         }
         if (other.tag == "Player")
         {

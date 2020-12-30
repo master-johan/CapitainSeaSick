@@ -9,6 +9,7 @@ public class WorkBeanch : MonoBehaviour
     public WorkbenchStates currentState;
     GameObject[] plankSpots;
     GameObject tempPlank;
+    Vector3 offSet;
     List<GameObject> plankList;
     int counter;
     bool canBeCrafted;
@@ -24,7 +25,7 @@ public class WorkBeanch : MonoBehaviour
 
         currentState = WorkbenchStates.NeedMats;
 
-
+        offSet = new Vector3(0, 1, 0);
     }
 
 
@@ -59,7 +60,7 @@ public class WorkBeanch : MonoBehaviour
             Destroy(plankList[i].gameObject);
             plankList.RemoveAt(i);
         }
-        Instantiate(plankBandaid, plankSpots[3].transform.position, Quaternion.identity);
+        Instantiate(plankBandaid, plankSpots[3].transform.position + offSet, Quaternion.identity);
     }
     public void CraftBandaid()
     {
@@ -70,6 +71,7 @@ public class WorkBeanch : MonoBehaviour
         if (CraftBar.GetComponent<RepairBarFunctionality>().bar.localScale.x >= 1)
         {
             currentState = WorkbenchStates.IsCrafted;
+            CraftBar.GetComponent<RepairBarFunctionality>().bar.localScale = new Vector2(0,1);
         }
     }
     private void ChangeBarState()
@@ -97,18 +99,20 @@ public class WorkBeanch : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.GetComponent<Plank_Script>() && !other.gameObject.GetComponent<Plank_Script>().isPickedUp)
         {
             tempPlank = other.gameObject;
             tempPlank.GetComponent<Rigidbody>().isKinematic = true;
             tempPlank.GetComponent<Rigidbody>().freezeRotation = true;
             tempPlank.GetComponent<Collider>().enabled = false;
-
+            tempPlank.GetComponentInChildren<MeshCollider>().enabled = false;
 
             if (plankList.Count == 4)
             {
                 QuarterBar.GetComponent<QuarterBar_Functionality>().currentState = BarState.Full;
                 currentState = WorkbenchStates.CanBeCrafted;
+                counter = 0;
             }
             else if (counter < 4)
             {
@@ -121,9 +125,15 @@ public class WorkBeanch : MonoBehaviour
                     plankList.Add(tempPlank);
 
                     counter++;
-
                 }
             }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && currentState == WorkbenchStates.CanBeCrafted)
+        {
+            other.gameObject.GetComponent<PlayerActions>().focusedObject = gameObject;
         }
     }
 }

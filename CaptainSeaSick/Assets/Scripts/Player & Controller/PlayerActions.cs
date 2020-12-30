@@ -20,11 +20,12 @@ public class PlayerActions : MonoBehaviour
     Vector2 focusedObjectOffset;
     public Rigidbody rb;
     public GameObject ship;
-    public GameObject rightHand, trail;
+    public GameObject rightHand, trail, stunEffect;
     float movementMultiplier, boostMultiplier, stunTimer;
     public bool hasSword, isStunned, stunImmunity;
     AnimatorClipInfo[] myAnimatorClip;
     AnimatorStateInfo animationState;
+    GameObject tempStunEffect;
 
     public bool isBoosting, isStill;
     // Start is called before the first frame update
@@ -52,10 +53,10 @@ public class PlayerActions : MonoBehaviour
                 break;
             case PlayerState.free:
                 // TEST TO SEE IF PLAYER CAN PICK OBJECTS FROM EACHOTHER
-                if (focusedObject.GetComponent<PickUp_Trigger_Script>().pickUpStatus == global::PickUp.pickedUp)
-                {
-                    SetFocus(null, 0, 0); 
-                }
+                //if (focusedObject.GetComponent<PickUp_Trigger_Script>().pickUpStatus == global::PickUp.pickedUp)
+                //{
+                //    SetFocus(null, 0, 0); 
+                //}
                 break;
             case PlayerState.interacting:
                 break;
@@ -148,15 +149,18 @@ public class PlayerActions : MonoBehaviour
         {
             animator.SetBool("isStunned", true);
             stunTimer += Time.deltaTime;
-            if (stunTimer >= 6)
+            tempStunEffect.transform.position = gameObject.transform.position + new Vector3(0,4,0);
+            if (stunTimer >= 5)
             {
                 isStunned = false;
                 stunImmunity = true;
                 stunTimer = 0;
+                
             }
         }
         if (stunImmunity)
         {
+            Destroy(tempStunEffect);
             animator.SetBool("isStunned", false);
             stunImmunityTimer += Time.deltaTime;
             if (stunImmunityTimer >= 3)
@@ -513,6 +517,7 @@ public class PlayerActions : MonoBehaviour
         {
             GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
         }
+        tempStunEffect = Instantiate(stunEffect, gameObject.transform.position, stunEffect.transform.rotation);
         isStunned = true;
     }
 }

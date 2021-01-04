@@ -34,6 +34,9 @@ TagManager:
   - SoundManager
   - BoardingEnemy
   - Workbench
+  - MovespotLeft
+  - MovespotRight
+  - MovespotTop
   layers:
   - Default
   - TransparentFX
@@ -44,7 +47,7 @@ TagManager:
   - 
   - 
   - Ship
-  - 
+  - Shadowless
   - 
   - 
   - 

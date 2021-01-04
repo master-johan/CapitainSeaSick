@@ -2,24 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class enemyShipScript : MonoBehaviour
 {
+    string[] enemyNameArray;
     public float HealthPoints = 10f;
-
+    public GameObject enemySpawnPosTop, enemySpawnPosLeft, enemySpawnPosRight;
+    public GameObject enemyTop, enemyLeft, enemyRight;
     float shootTimer = 10;
     public float lifeTimer = 20;
     private Vector3 direction;
     public GameObject enemyCannonball;
     public GameObject tempCannonBall;
     public GameObject boardingEnemy;
-
     private Vector3 hitPosition;
+
+    List<GameObject> enemyList;
+
+    bool instantiated;
     // Start is called before the first frame update
     /// <summary>
     /// Setting the hitposition depending on where the Enemyship is standing
     /// </summary>
     void Start()
     {
+        enemyList = new List<GameObject>();
+
+        enemyList.Add(enemyTop);
+        enemyList.Add(enemyLeft);
+        enemyList.Add(enemyRight);
+
+        enemySpawnPosLeft = GameObject.Find("enemySpawnPosLeft");
+        enemySpawnPosRight = GameObject.Find("enemySpawnPosRight");
+        enemySpawnPosTop = GameObject.Find("enemySpawnPosTop");
+
+        enemyNameArray = new string[3];
+
+        enemyNameArray[0] = "Enemy_Top(Clone)";
+        enemyNameArray[1] = "Enemy_Right(Clone)";
+        enemyNameArray[2] = "Enemy_Left(Clone)";
 
         if (transform.position.x < -50)
         {
@@ -59,8 +80,57 @@ public class enemyShipScript : MonoBehaviour
 
         if (lifeTimer <= 0)
         {
+            
+            //if(!instantiated)
+            //{
+            //    int rand = Random.Range(0, 3);
 
-            Instantiate(boardingEnemy, hitPosition + new Vector3(0, 7, 0), Quaternion.identity);
+            //    if (GameObject.Find(enemyNameArray[rand]) == null)
+            //    {
+            //        if (enemyNameArray[rand] == enemyLeft.name)
+            //        {
+            //            Instantiate(enemyLeft, enemySpawnPosLeft.transform.position, Quaternion.identity);
+            //            instantiated = true;
+                        
+            //        }
+            //        else if (enemyNameArray[rand] == enemyRight.name)
+            //        {
+            //            Instantiate(enemyRight, enemySpawnPosRight.transform.position, Quaternion.identity);
+            //            instantiated = true;
+            //        }
+            //        else if (enemyNameArray[rand] == enemyTop.name)
+            //        {
+            //            Instantiate(enemyTop, enemySpawnPosTop.transform.position, Quaternion.identity);
+            //            instantiated = true;
+            //        }                   
+            //    }
+            //    else if(GameObject.Find(enemyNameArray[0]) != null && GameObject.Find(enemyNameArray[1]) != null && GameObject.Find(enemyNameArray[2]) != null)
+            //    {
+                    
+            //    }
+            //}
+
+            int rand = Random.Range(0, enemyList.Count);
+            if (enemyList.Count > 0)
+            {
+                if (enemyList[rand].name == enemyLeft.name)
+                {
+                    Instantiate(enemyLeft, enemySpawnPosLeft.transform.position, Quaternion.identity);
+                }
+                else if (enemyList[rand].name == enemyRight.name)
+                {
+                    Instantiate(enemyRight, enemySpawnPosRight.transform.position, Quaternion.identity);
+                }
+                else if (enemyList[rand].name == enemyTop.name)
+                {
+                    Instantiate(enemyTop, enemySpawnPosTop.transform.position, Quaternion.identity);
+                }
+                enemyList.RemoveAt(rand);
+            }
+
+
+
+            //Instantiate(boardingEnemy, hitPosition + new Vector3(0, 7, 0), Quaternion.identity);
 
             Destroy(tempCannonBall);
             Destroy(gameObject);
@@ -103,4 +173,5 @@ public class enemyShipScript : MonoBehaviour
 
         //}
     }
+
 }

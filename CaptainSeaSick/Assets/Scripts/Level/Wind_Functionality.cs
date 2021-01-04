@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Wind_Functionality : MonoBehaviour
 {
-
+    public GameObject windPointer;
+    GameObject tempPointer;
     GameObject[] players;
-    Vector3 windDirection;
+    public Vector3 windDirection;
 
     bool activeWind;
 
@@ -18,6 +19,8 @@ public class Wind_Functionality : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+        Debug.Log(windDirection);
         if (activeWind)
         {
             players = GameObject.FindGameObjectsWithTag("Player");
@@ -36,7 +39,7 @@ public class Wind_Functionality : MonoBehaviour
                     {
                         if (item.GetComponent<PlayerActions>().isGrounded())
                         {
-                            item.GetComponent<Rigidbody>().AddForce(windDirection * 3, ForceMode.VelocityChange);
+                            item.GetComponent<Rigidbody>().AddForce(windDirection, ForceMode.VelocityChange);
                         }
                         if (item.GetComponent<PlayerInputs>().LeftStick == Vector2.zero || item.GetComponent<PlayerActions>().isStunned)
                         {
@@ -53,12 +56,14 @@ public class Wind_Functionality : MonoBehaviour
     public void NewWindDirection()
     {
         windDirection = new Vector3(UnityEngine.Random.Range(1f, -1f), 0, UnityEngine.Random.Range(1f, -1f));
+        windDirection.Normalize();
     }
 
     public void ActivateWind()
     {
         if (!activeWind)
         {
+            tempPointer = Instantiate(windPointer, new Vector3(18, 3, 41), Quaternion.identity);
             NewWindDirection();
             activeWind = true;
         }
@@ -67,5 +72,6 @@ public class Wind_Functionality : MonoBehaviour
     public void DeactivateWind()
     {
         activeWind = false;
+        Destroy(tempPointer);
     }
 }

@@ -7,7 +7,8 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
     public Animator animator;
     public int speed;
     public bool switchDirection;
-    public GameObject[] movingPoints; // Only create new Empty GameObjects as Children to the enemy to add new moving points.(Using its transform)    
+    public GameObject[] movingPoints; // Only create new Empty GameObjects as Children to the enemy to add new moving points.(Using its transform)  
+    public bool boardingEnemy;
 
     Vector3 targetDirection, currentMoveSpot;
 
@@ -19,7 +20,40 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
 
     void Start()
     {
-        CreatingMovingDestiationsFromGameObjects();
+        if(boardingEnemy)
+        {
+
+            if(transform.gameObject.name == "Enemy_Left(Clone)")
+            {
+                movingPoints = new GameObject[GameObject.FindGameObjectsWithTag("MovespotLeft").Length];
+                for (int i = 0; i < GameObject.FindGameObjectsWithTag("MovespotLeft").Length; i++)
+                {
+                    movingPoints[i] = GameObject.FindGameObjectsWithTag("MovespotLeft")[i];
+                }
+            }
+            if (transform.gameObject.name == "Enemy_Right(Clone)")
+            {
+                movingPoints = new GameObject[GameObject.FindGameObjectsWithTag("MovespotRight").Length];
+                for (int i = 0; i < GameObject.FindGameObjectsWithTag("MovespotRight").Length; i++)
+                {
+                    movingPoints[i] = GameObject.FindGameObjectsWithTag("MovespotRight")[i];
+                }
+            }
+            if (transform.gameObject.name == "Enemy_Top(Clone)")
+            {
+                movingPoints = new GameObject[GameObject.FindGameObjectsWithTag("MovespotTop").Length];
+                for (int i = 0; i < GameObject.FindGameObjectsWithTag("MovespotTop").Length; i++)
+                {
+                    movingPoints[i] = GameObject.FindGameObjectsWithTag("MovespotTop")[i];
+                }
+            }
+
+        }
+        
+        
+
+        NumberOfMoveSpots();
+        
         minDist = 0.5f;
         currentMoveSpotNr = 0;
         animator.SetBool("isRunningInFear", true);
@@ -27,6 +61,7 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
 
     void Update()
     {
+        UpdatingMovingDestiationsFromGameObjects();
         ChangingPointToMoveTowards();
 
         targetDirection = currentMoveSpot;
@@ -81,18 +116,22 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
         }
         currentMoveSpot = moveSpots[currentMoveSpotNr];
     }
-    private void CreatingMovingDestiationsFromGameObjects()
+    private void UpdatingMovingDestiationsFromGameObjects()
     {
-        for (int i = 0; i < movingPoints.Length; i++)
-        {
-            nrOfMoveSpots++;
-        }
 
         moveSpots = new Vector3[nrOfMoveSpots];
 
         for (int i = 0; i < moveSpots.Length; i++)
         {
             moveSpots[i] = movingPoints[i].transform.position;
+        }
+    }
+
+    private void NumberOfMoveSpots()
+    {
+        for (int i = 0; i < movingPoints.Length; i++)
+        {
+            nrOfMoveSpots++;
         }
     }
 }

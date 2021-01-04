@@ -121,6 +121,7 @@ public class PlayerActions : MonoBehaviour
 
         if (!isStunned)
         {
+            Destroy(tempStunEffect);
             if (playerState == PlayerState.climbing)
             {
                 direction = focusedObject.transform.up * input.y * speed;
@@ -147,15 +148,16 @@ public class PlayerActions : MonoBehaviour
         }
         else
         {
+
             animator.SetBool("isStunned", true);
             stunTimer += Time.deltaTime;
-            tempStunEffect.transform.position = gameObject.transform.position + new Vector3(0,4,0);
+            tempStunEffect.transform.position = gameObject.transform.position + new Vector3(0, 4, 0);
             if (stunTimer >= 5)
             {
                 isStunned = false;
                 stunImmunity = true;
                 stunTimer = 0;
-                
+
             }
         }
         if (stunImmunity)
@@ -394,7 +396,7 @@ public class PlayerActions : MonoBehaviour
                     GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.swordUse, 1);
                 }
                 animator.SetBool("isThrusting", true);
-              
+
             }
 
 
@@ -415,7 +417,7 @@ public class PlayerActions : MonoBehaviour
 
     public void StartClimb()
     {
-        transform.position = new Vector3(focusedObject.transform.position.x + 0.5f, transform.position.y + 0.2f, focusedObject.transform.position.z + .5f) + new Vector3(-1,0,-1);
+        transform.position = new Vector3(focusedObject.transform.position.x + 0.5f, transform.position.y + 0.2f, focusedObject.transform.position.z + .5f) + new Vector3(-1, 0, -1);
         playerState = PlayerState.climbing;
         //transform.parent = GameObject.Find("MastBot_Trigger").transform;
         rb.useGravity = false;
@@ -501,8 +503,8 @@ public class PlayerActions : MonoBehaviour
         {
             if (hit.collider.name == "SafetyNet")
             {
-                
-                if (hit.distance <= distToGround +0.01f)
+
+                if (hit.distance <= distToGround + 0.01f)
                 {
                     return true;
                 }
@@ -516,8 +518,8 @@ public class PlayerActions : MonoBehaviour
         if (!isStunned)
         {
             GameObject.Find("HeatmapTool").GetComponent<GridTest>().grid.SetValue(new Vector3(transform.position.x, 0, transform.position.z), (int)HeatMapLayer.playerDamage, 1);
+            tempStunEffect = Instantiate(stunEffect, gameObject.transform.position, stunEffect.transform.rotation);
         }
-        tempStunEffect = Instantiate(stunEffect, gameObject.transform.position, stunEffect.transform.rotation);
         isStunned = true;
     }
 }

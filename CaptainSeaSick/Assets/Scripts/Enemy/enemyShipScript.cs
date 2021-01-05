@@ -16,6 +16,7 @@ public class enemyShipScript : MonoBehaviour
     public GameObject tempCannonBall;
     public GameObject boardingEnemy;
     private Vector3 hitPosition;
+    List<int> enemyPlaceList;
 
     List<GameObject> enemyList;
 
@@ -38,9 +39,16 @@ public class enemyShipScript : MonoBehaviour
 
         enemyNameArray = new string[3];
 
-        enemyNameArray[0] = "Enemy_Top(Clone)";
-        enemyNameArray[1] = "Enemy_Right(Clone)";
-        enemyNameArray[2] = "Enemy_Left(Clone)";
+        enemyNameArray[0] = "Enemy_Top";
+        enemyNameArray[1] = "Enemy_Right";
+        enemyNameArray[2] = "Enemy_Left";
+
+        enemyPlaceList = new List<int>();
+
+        enemyPlaceList.Add(0);
+        enemyPlaceList.Add(1);
+        enemyPlaceList.Add(2);
+
 
         if (transform.position.x < -50)
         {
@@ -80,57 +88,36 @@ public class enemyShipScript : MonoBehaviour
 
         if (lifeTimer <= 0)
         {
-            
-            //if(!instantiated)
-            //{
-            //    int rand = Random.Range(0, 3);
 
-            //    if (GameObject.Find(enemyNameArray[rand]) == null)
-            //    {
-            //        if (enemyNameArray[rand] == enemyLeft.name)
-            //        {
-            //            Instantiate(enemyLeft, enemySpawnPosLeft.transform.position, Quaternion.identity);
-            //            instantiated = true;
-                        
-            //        }
-            //        else if (enemyNameArray[rand] == enemyRight.name)
-            //        {
-            //            Instantiate(enemyRight, enemySpawnPosRight.transform.position, Quaternion.identity);
-            //            instantiated = true;
-            //        }
-            //        else if (enemyNameArray[rand] == enemyTop.name)
-            //        {
-            //            Instantiate(enemyTop, enemySpawnPosTop.transform.position, Quaternion.identity);
-            //            instantiated = true;
-            //        }                   
-            //    }
-            //    else if(GameObject.Find(enemyNameArray[0]) != null && GameObject.Find(enemyNameArray[1]) != null && GameObject.Find(enemyNameArray[2]) != null)
-            //    {
-                    
-            //    }
-            //}
-
-            int rand = Random.Range(0, enemyList.Count);
-            if (enemyList.Count > 0)
+            for (int i = 0; i < 3; i++)
             {
-                if (enemyList[rand].name == enemyLeft.name)
+                int rand = Random.Range(0, enemyPlaceList.Count);
+
+                int temp = enemyPlaceList[rand];
+
+                if (GameObject.Find(enemyNameArray[temp] + "(Clone)") == null)
                 {
-                    Instantiate(enemyLeft, enemySpawnPosLeft.transform.position, Quaternion.identity);
+                    if (enemyNameArray[temp] == enemyLeft.name)
+                    {
+                        Instantiate(enemyLeft, enemySpawnPosLeft.transform.position, Quaternion.identity);
+                        enemyPlaceList.RemoveAt(rand);
+                        break;
+                    }
+                    else if (enemyNameArray[temp] == enemyRight.name)
+                    {
+                        Instantiate(enemyRight, enemySpawnPosRight.transform.position, Quaternion.identity);
+                        enemyPlaceList.RemoveAt(rand);
+                        break;
+                    }
+                    else if (enemyNameArray[temp] == enemyTop.name)
+                    {
+                        Instantiate(enemyTop, enemySpawnPosTop.transform.position, Quaternion.identity);
+                        enemyPlaceList.RemoveAt(rand);
+                        break;
+                    }
                 }
-                else if (enemyList[rand].name == enemyRight.name)
-                {
-                    Instantiate(enemyRight, enemySpawnPosRight.transform.position, Quaternion.identity);
-                }
-                else if (enemyList[rand].name == enemyTop.name)
-                {
-                    Instantiate(enemyTop, enemySpawnPosTop.transform.position, Quaternion.identity);
-                }
-                enemyList.RemoveAt(rand);
+                enemyPlaceList.RemoveAt(rand);
             }
-
-
-
-            //Instantiate(boardingEnemy, hitPosition + new Vector3(0, 7, 0), Quaternion.identity);
 
             Destroy(tempCannonBall);
             Destroy(gameObject);

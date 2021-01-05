@@ -9,6 +9,7 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
     public bool switchDirection;
     public GameObject[] movingPoints; // Only create new Empty GameObjects as Children to the enemy to add new moving points.(Using its transform)  
     public bool boardingEnemy;
+    public ParticleSystem DeathEffect;
 
     Vector3 targetDirection, currentMoveSpot;
 
@@ -57,11 +58,18 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
         minDist = 0.5f;
         currentMoveSpotNr = 0;
         animator.SetBool("isRunningInFear", true);
+        if (!boardingEnemy)
+        {
+            UpdatingMovingDestiationsFromGameObjects();
+        }
     }
 
     void Update()
     {
-        UpdatingMovingDestiationsFromGameObjects();
+        if (boardingEnemy)
+        {
+            UpdatingMovingDestiationsFromGameObjects();
+        }
         ChangingPointToMoveTowards();
 
         targetDirection = currentMoveSpot;
@@ -74,7 +82,14 @@ public class Enemy_PointToPoint_Script : MonoBehaviour
         {
             if (!other.isTrigger)
             {
-                other.GetComponent<PlayerManagement>().PlayerScavRespawn();
+                if (!boardingEnemy)
+                {
+                    other.GetComponent<PlayerManagement>().PlayerScavRespawn();
+                }
+                else
+                {
+                    other.GetComponent<PlayerActions>().StunPlayer();
+                }
             }
         }
     }

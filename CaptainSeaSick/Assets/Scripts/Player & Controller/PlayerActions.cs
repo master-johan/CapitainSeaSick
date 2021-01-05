@@ -162,7 +162,6 @@ public class PlayerActions : MonoBehaviour
         }
         if (stunImmunity)
         {
-            Destroy(tempStunEffect);
             animator.SetBool("isStunned", false);
             stunImmunityTimer += Time.deltaTime;
             if (stunImmunityTimer >= 3)

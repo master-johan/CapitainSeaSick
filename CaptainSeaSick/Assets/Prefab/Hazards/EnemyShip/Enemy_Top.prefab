@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 1275804229038182908}
   m_Layer: 0
   m_Name: Enemy_Top
-  m_TagString: Untagged
+  m_TagString: ShipEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4674178438480642222}
   speed: 7
-  switchDirection: 1
+  switchDirection: 0
   movingPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -432,6 +432,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   boardingEnemy: 1
+  DeathEffect: {fileID: 671209570789314148, guid: 02a18c5c707ea4b43bcaedd2b8f18437,
+    type: 3}
 --- !u!1 &2211709090567136053
 GameObject:
   m_ObjectHideFlags: 0

@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 3318697301431421878}
   m_Layer: 0
   m_Name: Enemy_Left
-  m_TagString: Untagged
+  m_TagString: ShipEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,6 +932,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   boardingEnemy: 1
+  DeathEffect: {fileID: 671209570789314148, guid: 02a18c5c707ea4b43bcaedd2b8f18437,
+    type: 3}
 --- !u!1 &3148399041742360405
 GameObject:
   m_ObjectHideFlags: 0

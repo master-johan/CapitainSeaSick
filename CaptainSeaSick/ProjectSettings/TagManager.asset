@@ -37,6 +37,7 @@ TagManager:
   - MovespotLeft
   - MovespotRight
   - MovespotTop
+  - ShipEnemy
   layers:
   - Default
   - TransparentFX

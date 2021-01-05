@@ -35,11 +35,11 @@ public class SwordTag_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BoardingEnemyScript>())
+        if (other.tag == "ShipEnemy")
         {
             if (CheckIfSwordIsReady())
             {
-                Instantiate(other.GetComponent<BoardingEnemyScript>().DeathEffect,other.transform.position, other.transform.rotation);
+                Instantiate(other.GetComponent<Enemy_PointToPoint_Script>().DeathEffect,other.transform.position, other.transform.rotation);
                 Destroy(other.gameObject);
             }
         }

@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
   m_Name: DemoLevel
   m_EditorClassIdentifier: 
+  LevelTime: 60
   obstacles:
   - type: 0
-    whenToSpawn: 80
+    whenToSpawn: 90
     numberOfSpawns: 3
     timeBetweenSpawn: 8
-    status: 0
+    status: 2
   - type: 1
     whenToSpawn: 40
     numberOfSpawns: 3
     timeBetweenSpawn: 12
-    status: 0
+    status: 2
   weathers:
   - weather: 2
     whenToSpawn: 80

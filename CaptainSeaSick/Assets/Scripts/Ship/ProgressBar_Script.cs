@@ -43,7 +43,7 @@ public class ProgressBar_Script : MonoBehaviour
     }
     void Start()
     {
-        levelTime = GameAssets.instance.levelTime;
+        levelTime = GameObject.Find("LevelManager").GetComponent<LevelManager>().currentLevel.LevelTime;
         timeLeft = levelTime;
         slider.value = timeLeft;
     }

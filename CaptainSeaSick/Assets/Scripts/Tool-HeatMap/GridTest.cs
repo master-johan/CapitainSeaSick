@@ -77,7 +77,7 @@ public class GridTest : MonoBehaviour
             }
         }
 
-        enemies = GameObject.FindGameObjectsWithTag("BoardingEnemy");
+        enemies = GameObject.FindGameObjectsWithTag("ShipEnemy");
         if (enemies != null)
         {
             for (int i = 0; i < enemies.Length; i++)

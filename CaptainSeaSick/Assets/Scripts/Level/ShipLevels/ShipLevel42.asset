@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
   m_Name: ShipLevel42
   m_EditorClassIdentifier: 
-  LevelTime: 160
+  LevelTime: 1
   obstacles:
   - type: 1
     whenToSpawn: 95

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
   m_Name: DemoLevel
   m_EditorClassIdentifier: 
-  LevelTime: 60
+  LevelTime: 120
   obstacles:
   - type: 0
     whenToSpawn: 90

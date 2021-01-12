@@ -47,14 +47,14 @@ MonoBehaviour:
   gameIsPaused: 0
   infoImages:
   - {fileID: 21300000, guid: 02a61423e8a964f7485363ed8a5f1f11, type: 3}
-  - {fileID: 21300000, guid: 56e1c34ab7d8f48daa0fea22713d0efb, type: 3}
+  - {fileID: 21300000, guid: 51aecdf0538883446822fc1c6c62d15e, type: 3}
   - {fileID: 21300000, guid: 636ae43ede3dd4b37907193a199ee902, type: 3}
-  - {fileID: 21300000, guid: b6b66cccc9e2b4a74837af27040f45f2, type: 3}
-  - {fileID: 21300000, guid: 3d5520d39619e4d1fb05526c09631974, type: 3}
-  - {fileID: 21300000, guid: 513f0ecfc787c4c5f9ee3eefb55a7791, type: 3}
-  - {fileID: 21300000, guid: f6bcf13bd4e044d2a91d3a844e62eed4, type: 3}
-  - {fileID: 21300000, guid: 03b255bbf12ff46df912a324aaf6d179, type: 3}
-  - {fileID: 21300000, guid: 6d0048d0c21e14ac799b5fb1d395c3e8, type: 3}
+  - {fileID: 21300000, guid: 305c47087c6583c40afdec8847b64088, type: 3}
+  - {fileID: 21300000, guid: 2bdeab26ce4d18a40862f4623e8c6f7e, type: 3}
+  - {fileID: 21300000, guid: 365cdd1e5a8840d44b5d85ea92b73c24, type: 3}
+  - {fileID: 21300000, guid: 262d19f48926f5942bbf7f499d54d225, type: 3}
+  - {fileID: 21300000, guid: 0ae8811439f20184ca181bcd3b6fd189, type: 3}
+  - {fileID: 21300000, guid: a1d7e0370c073314f992710545fda15c, type: 3}
   audioClips:
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
   - {fileID: 8300000, guid: 86bf8b51d358f6448988cd1814423062, type: 3}
@@ -78,7 +78,7 @@ MonoBehaviour:
   - {x: -2, y: 0, z: 2}
   - {x: 2, y: 0, z: -2}
   - {x: -2, y: 0, z: -2}
-  playersReady: 1
+  playersReady: 0
   ShipMaxHealth: 100
   cliffSpeed: 5
   cannonballsDamage: 5

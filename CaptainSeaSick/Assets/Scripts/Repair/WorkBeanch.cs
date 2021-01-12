@@ -107,6 +107,7 @@ public class WorkBeanch : MonoBehaviour
             tempPlank.GetComponent<Rigidbody>().freezeRotation = true;
             tempPlank.GetComponent<Collider>().enabled = false;
             tempPlank.GetComponentInChildren<MeshCollider>().enabled = false;
+            tempPlank.GetComponent<Plank_Script>().DeactivateTriggerZone();
 
             if (plankList.Count == 4)
             {
@@ -131,9 +132,10 @@ public class WorkBeanch : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && currentState == WorkbenchStates.CanBeCrafted)
-        {
-            other.gameObject.GetComponent<PlayerActions>().focusedObject = gameObject;
-        }
+        //if (other.tag == "Player" && currentState == WorkbenchStates.CanBeCrafted)
+        //{
+            
+        //    other.gameObject.GetComponent<PlayerActions>().focusedObject = gameObject;
+        //}
     }
 }

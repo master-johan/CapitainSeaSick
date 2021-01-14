@@ -10,49 +10,62 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
-  m_Name: ShipLevel31
+  m_Name: ShipLevel33
   m_EditorClassIdentifier: 
-  LevelTime: 140
+  LevelTime: 180
   obstacles:
   - type: 1
     whenToSpawn: 95
-    numberOfSpawns: 3
+    numberOfSpawns: 4
     timeBetweenSpawn: 10
     status: 0
   - type: 0
-    whenToSpawn: 80
-    numberOfSpawns: 2
-    timeBetweenSpawn: 10
-    status: 0
-  - type: 1
-    whenToSpawn: 60
-    numberOfSpawns: 3
-    timeBetweenSpawn: 8
-    status: 0
-  - type: 0
-    whenToSpawn: 50
+    whenToSpawn: 70
     numberOfSpawns: 2
     timeBetweenSpawn: 12
     status: 0
   - type: 1
-    whenToSpawn: 30
-    numberOfSpawns: 2
-    timeBetweenSpawn: 8
+    whenToSpawn: 50
+    numberOfSpawns: 3
+    timeBetweenSpawn: 10
+    status: 0
+  - type: 0
+    whenToSpawn: 35
+    numberOfSpawns: 1
+    timeBetweenSpawn: 5
+    status: 0
+  - type: 1
+    whenToSpawn: 35
+    numberOfSpawns: 3
+    timeBetweenSpawn: 10
+    status: 0
+  - type: 1
+    whenToSpawn: 20
+    numberOfSpawns: 1
+    timeBetweenSpawn: 2
     status: 0
   weathers:
+  - weather: 1
+    whenToSpawn: 100
+    whenToStop: 0
+    active: 0
   - weather: 3
-    whenToSpawn: 95
+    whenToSpawn: 50
+    whenToStop: 40
+    active: 0
+  - weather: 2
+    whenToSpawn: 100
     whenToStop: 70
     active: 0
   - weather: 3
-    whenToSpawn: 40
+    whenToSpawn: 20
+    whenToStop: 10
+    active: 0
+  - weather: 0
+    whenToSpawn: 30
     whenToStop: 20
     active: 0
   - weather: 2
-    whenToSpawn: 65
-    whenToStop: 40
-    active: 0
-  - weather: 0
-    whenToSpawn: 60
-    whenToStop: 40
+    whenToSpawn: 35
+    whenToStop: 20
     active: 0

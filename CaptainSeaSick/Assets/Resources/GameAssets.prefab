@@ -130,12 +130,12 @@ MonoBehaviour:
   - {x: 21, y: 24, z: -19}
   - {x: 11, y: 24, z: -6}
   enableLevel1: 1
-  enableLevel2: 0
-  enableLevel3left: 0
-  enableLevel3right: 0
-  enableLevel4: 0
-  enableLevel5: 0
-  enableLevel6: 0
+  enableLevel2: 1
+  enableLevel3left: 1
+  enableLevel3right: 1
+  enableLevel4: 1
+  enableLevel5: 1
+  enableLevel6: 1
   level11Win: 0
   level21Win: 0
   level22Win: 0

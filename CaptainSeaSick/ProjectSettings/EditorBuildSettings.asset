@@ -18,11 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/Ship1.1.unity
     guid: 2d977ea4a37bd404e9cc9d184097982f
   - enabled: 1
-    path: Assets/Scenes/BuildFolder/Scav5.unity
-    guid: c98b3e9c180f9634088e634a9a3194b1
+    path: Assets/Scenes/BuildFolder/Scav1.unity
+    guid: 47e978d9b29bf634498a79c142e9a02e
   - enabled: 1
     path: Assets/Scenes/Work in progress/Ship2.1.unity
     guid: fbbd2552d28e524428618c0e7e75a346
+  - enabled: 1
+    path: Assets/Scenes/BuildFolder/Scav4.3.unity
+    guid: 01b8c37e48d66e8408607eb12ce60e97
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship2.2.unity
+    guid: a18beeb1795880a48840906363a40ab9
   - enabled: 1
     path: Assets/Scenes/BuildFolder/Scav3.unity
     guid: 435de672ec29bbd4494751dd70960f4a
@@ -30,8 +36,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Work in progress/Ship3.1.unity
     guid: b9a50fa798dde9549bf8d806e2933e28
   - enabled: 1
-    path: Assets/Scenes/BuildFolder/Scav1.unity
-    guid: 47e978d9b29bf634498a79c142e9a02e
+    path: Assets/Scenes/BuildFolder/Scav5.unity
+    guid: c98b3e9c180f9634088e634a9a3194b1
   - enabled: 1
     path: Assets/Scenes/Work in progress/Ship3.2.unity
     guid: 685909e05fc33104abc314932f90a218
@@ -39,9 +45,33 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildFolder/Scav4.unity
     guid: 7c51e011f9118934ca392e7fa21fee85
   - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship3.3.unity
+    guid: a6d7b727162d08341a419f9257bd26a0
+  - enabled: 1
+    path: Assets/Scenes/BuildFolder/Scav4.2.unity
+    guid: e45bd2abb8293df488ed407f965ae935
+  - enabled: 1
     path: Assets/Scenes/Work in progress/Ship4.1.unity
     guid: 85a3339dd107aad4cbb23ca3e6d78d74
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/BuildFolder/Scav5.1.unity
+    guid: dfc78023723c27248bfe2f1f165ed5c7
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship5.1.unity
+    guid: ae7977d195562fe499712d2b4c8f89e1
+  - enabled: 1
+    path: Assets/Scenes/BuildFolder/Scav3.1.unity
+    guid: 75a6e66a585d3014b959081a94395935
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship5.2.unity
+    guid: 97dbbf89dc4ccf241853fec5c0141279
+  - enabled: 1
+    path: Assets/Scenes/BuildFolder/Scav5.2.unity
+    guid: ddf8469c43b06054c95a112de27eb432
+  - enabled: 1
+    path: Assets/Scenes/Work in progress/Ship6.1.unity
+    guid: dadbca3a1629f114983382d351b5101d
+  - enabled: 1
     path: Assets/Scenes/Work in progress/WIP WinningScene.unity
     guid: 59aa39fa06eb6e04a80404ce46cd6b6a
   m_configObjects: {}

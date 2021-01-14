@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fbd175a0950ca47a8392d67e1633d7, type: 3}
   m_Name: ShipLevel32
   m_EditorClassIdentifier: 
+  LevelTime: 140
   obstacles:
   - type: 1
     whenToSpawn: 95
     numberOfSpawns: 3
-    timeBetweenSpawn: 6
+    timeBetweenSpawn: 10
     status: 0
   - type: 0
     whenToSpawn: 70
@@ -34,9 +35,9 @@ MonoBehaviour:
     timeBetweenSpawn: 5
     status: 0
   weathers:
-  - weather: 1
-    whenToSpawn: 100
-    whenToStop: 0
+  - weather: 3
+    whenToSpawn: 95
+    whenToStop: 80
     active: 0
   - weather: 0
     whenToSpawn: 100
@@ -48,7 +49,7 @@ MonoBehaviour:
     active: 0
   - weather: 3
     whenToSpawn: 70
-    whenToStop: 30
+    whenToStop: 60
     active: 0
   - weather: 0
     whenToSpawn: 30

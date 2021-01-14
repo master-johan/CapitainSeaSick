@@ -131,11 +131,13 @@ public class LevelMapManager : MonoBehaviour
         {
             tick3.GetComponent<Image>().enabled = true;
             Level31.GetComponent<Image>().enabled = false;
+
         }
         if (GameAssets.instance.level32Win)
         {
             tick4.GetComponent<Image>().enabled = true;
             Level32.GetComponent<Image>().enabled = false;
+
         }
         if (GameAssets.instance.level33Win)
         {
@@ -176,10 +178,12 @@ public class LevelMapManager : MonoBehaviour
         else if (GameAssets.instance.enableLevel3left)
         {
             eventSystem.SetSelectedGameObject(Level31);
+            eventSystem.SetSelectedGameObject(Level32);
         }
         else if (GameAssets.instance.enableLevel3right)
         {
             eventSystem.SetSelectedGameObject(Level32);
+            eventSystem.SetSelectedGameObject(Level33);
         }
         else if (GameAssets.instance.enableLevel4)
         {
@@ -281,7 +285,7 @@ public class LevelMapManager : MonoBehaviour
     }
     public void StartLevel22()
     {
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
         GameAssets.instance.playersReady = true;
         GameAssets.instance.level22Win = true;
 
@@ -290,25 +294,25 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level31Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
         GameAssets.instance.playersReady = true;
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(7));
+        
 
     }
     public void StartLevel32()
     {
         GameAssets.instance.level32Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        
         GameAssets.instance.playersReady = true;
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(9));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(11));
 
     }
     public void StartLevel33()
     {
         GameAssets.instance.level33Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(13));
         GameAssets.instance.playersReady = true;
 
     }
@@ -316,7 +320,7 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level41Win = true;
 
-        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(11));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(15));
         GameAssets.instance.playersReady = true;
 
 
@@ -325,7 +329,7 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level51Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(17));
         GameAssets.instance.playersReady = true;
 
     }
@@ -333,7 +337,7 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level52Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(19));
         GameAssets.instance.playersReady = true;
 
     }
@@ -341,7 +345,7 @@ public class LevelMapManager : MonoBehaviour
     {
         GameAssets.instance.level61Win = true;
 
-        //StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(5));
+        StartCoroutine(GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel(21));
         GameAssets.instance.playersReady = true;
 
     }

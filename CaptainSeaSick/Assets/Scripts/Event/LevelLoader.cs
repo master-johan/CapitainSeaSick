@@ -93,19 +93,19 @@ public class LevelLoader : MonoBehaviour
 
         if (scavOrShipBool[0])
         {
-            if (nextSceneCharArray[nextSceneCharArray.Length - 1] == '1')
+            if (nextSceneCharArray[nextSceneCharArray.Length - 3] == '1')
             {
                 whatScavBoolArray[0] = true;
             }
-            else if (nextSceneCharArray[nextSceneCharArray.Length - 1] == '3')
+            else if (nextSceneCharArray[nextSceneCharArray.Length - 3] == '3')
             {
                 whatScavBoolArray[1] = true;
             }
-            else if (nextSceneCharArray[nextSceneCharArray.Length - 1] == '4')
+            else if (nextSceneCharArray[nextSceneCharArray.Length - 3] == '4')
             {
                 whatScavBoolArray[2] = true;
             }
-            else if (nextSceneCharArray[nextSceneCharArray.Length - 1] == '5')
+            else if (nextSceneCharArray[nextSceneCharArray.Length - 3] == '5')
             {
                 whatScavBoolArray[3] = true;
             }

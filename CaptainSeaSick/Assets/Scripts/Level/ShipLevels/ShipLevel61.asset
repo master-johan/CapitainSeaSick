@@ -18,42 +18,42 @@ MonoBehaviour:
     whenToSpawn: 95
     numberOfSpawns: 2
     timeBetweenSpawn: 6
-    status: 0
+    status: 1
   - type: 0
     whenToSpawn: 85
     numberOfSpawns: 2
     timeBetweenSpawn: 12
-    status: 0
+    status: 1
   - type: 1
     whenToSpawn: 80
     numberOfSpawns: 3
     timeBetweenSpawn: 8
-    status: 0
+    status: 1
   - type: 1
     whenToSpawn: 65
     numberOfSpawns: 2
     timeBetweenSpawn: 7
-    status: 0
+    status: 1
   - type: 0
     whenToSpawn: 50
     numberOfSpawns: 4
     timeBetweenSpawn: 12
-    status: 0
+    status: 1
   - type: 1
     whenToSpawn: 30
     numberOfSpawns: 1
     timeBetweenSpawn: 12
-    status: 0
+    status: 1
   - type: 0
     whenToSpawn: 20
     numberOfSpawns: 2
     timeBetweenSpawn: 10
-    status: 0
+    status: 1
   - type: 1
     whenToSpawn: 15
     numberOfSpawns: 3
     timeBetweenSpawn: 7
-    status: 0
+    status: 1
   weathers:
   - weather: 0
     whenToSpawn: 99

@@ -43,3 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2dfaea845d3524ab4e709a3e066e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  windPointer: {fileID: 7983995295202369302, guid: 6d102ca8001e1d4469d9e83d2ff8d8bb,
+    type: 3}
+  windDirection: {x: 0, y: 0, z: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelTime: 80
   obstacles:
   - type: 1
-    whenToSpawn: 90
+    whenToSpawn: 80
     numberOfSpawns: 1
     timeBetweenSpawn: 2
     status: 2
@@ -25,16 +25,20 @@ MonoBehaviour:
     timeBetweenSpawn: 1
     status: 2
   - type: 1
-    whenToSpawn: 50
+    whenToSpawn: 40
     numberOfSpawns: 1
     timeBetweenSpawn: 1
-    status: 2
+    status: 0
   weathers:
   - weather: 2
     whenToSpawn: 80
     whenToStop: 60
-    active: 0
+    active: 1
   - weather: 1
     whenToSpawn: 60
     whenToStop: 40
+    active: 0
+  - weather: 3
+    whenToSpawn: 90
+    whenToStop: 80
     active: 0

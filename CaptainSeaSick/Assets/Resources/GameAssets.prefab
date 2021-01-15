@@ -94,19 +94,19 @@ MonoBehaviour:
   - {x: 5, y: 1, z: 0}
   - {x: 10, y: 1, z: 0}
   - {x: 20, y: 1, z: 0}
-  swordPrice: 20
-  cannonPrice: 30
-  cannonballDamagePrice: 80
+  swordPrice: 50
+  cannonPrice: 80
+  cannonballDamagePrice: 30
   shipMaxHealthPrice: 50
   cannonFull: 0
   cannonDamageFull: 0
   swordFull: 0
   maxHealthFull: 0
   DialogueTypingSpeed: 0.1
-  EnemyCannonBallDamage: 1
-  LeakDamage: 2
-  ScavLevelTimer1: 5
-  gold: 200
+  EnemyCannonBallDamage: 5
+  LeakDamage: 3
+  ScavLevelTimer1: 80
+  gold: 0
   cliffPrefab: {fileID: 5970590414206530310, guid: 1198b3e470bdd154199669b871304bf0,
     type: 3}
   hatPrefab: {fileID: 5376842126690717163, guid: 07650c71c79dff24596d2683a22dbae1,

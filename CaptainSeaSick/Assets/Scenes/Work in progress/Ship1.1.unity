@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5642,7 +5642,7 @@ PrefabInstance:
     - target: {fileID: 7144993685615078448, guid: 1071369eebdbb4d328b9eb602ba708f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7144993685615078448, guid: 1071369eebdbb4d328b9eb602ba708f5,
         type: 3}
@@ -6919,7 +6919,7 @@ PrefabInstance:
     - target: {fileID: 6610465378244037606, guid: d33da1a0ef41f434bb6020758359bcb8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6610465378244037606, guid: d33da1a0ef41f434bb6020758359bcb8,
         type: 3}
@@ -12389,7 +12389,7 @@ PrefabInstance:
     - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5143855705940261562, guid: bf70b594c029e1e428d529f342a1a62b,
         type: 3}
@@ -24016,7 +24016,7 @@ PrefabInstance:
     - target: {fileID: 8305098489346678673, guid: 11257935b21964940927f8dff7e07904,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8305098489346678673, guid: 11257935b21964940927f8dff7e07904,
         type: 3}
@@ -27769,7 +27769,7 @@ PrefabInstance:
     - target: {fileID: 457474491641110078, guid: a44384d34b8a80449a0cc5357a841655,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 457474491641110078, guid: a44384d34b8a80449a0cc5357a841655,
         type: 3}
@@ -34456,7 +34456,7 @@ PrefabInstance:
     - target: {fileID: 7636571876872784185, guid: 7b314c3108580b94b81d66f2c545bf68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7636571876872784185, guid: 7b314c3108580b94b81d66f2c545bf68,
         type: 3}
@@ -36705,7 +36705,7 @@ PrefabInstance:
     - target: {fileID: 3893838511024743925, guid: e5d7cfbde7c8f934d8f0a8aa784dcae8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3893838511024743925, guid: e5d7cfbde7c8f934d8f0a8aa784dcae8,
         type: 3}
@@ -38420,75 +38420,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &1245582045711087423
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 21.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901840, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1245582045372901842, guid: 9e73009ae80ef6341944ef59fbf1a4bd,
-        type: 3}
-      propertyPath: m_Name
-      value: WindGenerator
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9e73009ae80ef6341944ef59fbf1a4bd, type: 3}
 --- !u!1001 &1455861899290261854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38624,7 +38555,7 @@ PrefabInstance:
     - target: {fileID: 1773035863673715526, guid: f88120751ac2f6a44942b1fbd2c96b75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1773035863673715526, guid: f88120751ac2f6a44942b1fbd2c96b75,
         type: 3}
@@ -40569,7 +40500,7 @@ PrefabInstance:
     - target: {fileID: 6280436203246574635, guid: aa016cb5d20f30149965fa781b74f733,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6280436203246574635, guid: aa016cb5d20f30149965fa781b74f733,
         type: 3}

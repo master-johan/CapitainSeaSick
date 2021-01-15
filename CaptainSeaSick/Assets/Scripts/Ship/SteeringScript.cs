@@ -50,8 +50,10 @@ public class SteeringScript : MonoBehaviour
 
             MoveWaterAndDebris();
         }
-
-        water.transform.position += (turnVector) * Time.deltaTime;
+        if (water != null)
+        {
+            water.transform.position += (turnVector) * Time.deltaTime;
+        }
         foreach (var item in debris.GetComponent<SceneDecor_Functionality>().TempDecorList)
         {
             item.transform.position += (turnVector) * Time.deltaTime;

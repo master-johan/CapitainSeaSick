@@ -133,6 +133,14 @@ public class LevelLoader : MonoBehaviour
                 }
             }
         }
+        else if (nextSceneName == "WIP WinningScene")
+        {
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i].GetComponent<PlayerActions>().Clear();
+                players[i].transform.position = new Vector3(1000, 1000, 1000) * (i + 1);
+            }
+        }
     }
 
     public void LoadShopLevel()
